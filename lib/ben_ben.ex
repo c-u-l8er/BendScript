@@ -7,7 +7,10 @@ defmodule BenBen do
           recursive_fields = extract_recursive_fields(fields)
           quote do
             def unquote(variant_name)(unquote_splicing(fields)) do
-              %{__type__: unquote(name), variant: unquote(variant_name), unquote_splicing(fields)}
+              Map.merge(
+                %{__type__: unquote(name), variant: unquote(variant_name)},
+                Map.new(unquote(fields))
+              )
             end
           end
       end
@@ -82,7 +85,7 @@ defmodule BenBen do
 
   defp expand_recursive_calls(ast) do
     Macro.prewalk(ast, fn
-      {:., _, [{:~, _, [expr]}, _]} ->
+      {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
         quote do: fold(unquote(expr))
       other -> other
     end)
@@ -90,7 +93,7 @@ defmodule BenBen do
 
   defp expand_recursive_calls_with_state(ast, state) do
     Macro.prewalk(ast, fn
-      {:., _, [{:~, _, [expr]}, _]} ->
+      {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
         quote do: fold(unquote(expr), with: unquote(state))
       other -> other
     end)

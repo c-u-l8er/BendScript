@@ -1,0 +1,49 @@
+    warning: variable "recursive_fields" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+  7 │           recursive_fields = extract_recursive_fields(fields)
+    │           ~
+    │
+    └─ lib/ben_ben.ex:7:11: BenBen.deftype/2
+
+    warning: variable "field" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 65 │       {field, _, [:%{}, _, [recursive: true]]} -> true
+    │        ~
+    │
+    └─ lib/ben_ben.ex:65:8: BenBen.extract_recursive_fields/1
+
+    warning: variable "meta" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 88 │       {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
+    │            ~
+    │
+    └─ lib/ben_ben.ex:88:12: BenBen.expand_recursive_calls/1
+
+    warning: variable "meta" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 96 │       {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
+    │            ~
+    │
+    └─ lib/ben_ben.ex:96:12: BenBen.expand_recursive_calls_with_state/2
+
+
+== Compilation error in file test/ben_ben_test.exs ==
+** (SyntaxError) invalid syntax found on test/ben_ben_test.exs:7:9:
+    error: unexpected ( after alias Node. Function names and identifiers in Elixir start with lowercase characters or underscore. For example:
+
+        hello_world()
+        _starting_with_underscore()
+        numb3rs_are_allowed()
+        may_finish_with_question_mark?()
+        may_finish_with_exclamation_mark!()
+
+    Unexpected token: (
+    │
+  7 │     Node(val, ~left, ~right)
+    │         ^
+    │
+    └─ test/ben_ben_test.exs:7:9
+    (elixir 1.18.1) lib/kernel/parallel_compiler.ex:547: Kernel.ParallelCompiler.require_file/2
+    (elixir 1.18.1) lib/kernel/parallel_compiler.ex:430: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+Running ExUnit with seed: 232775, max_cases: 8
+

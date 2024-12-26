@@ -25,6 +25,6 @@ be found at <https://hexdocs.pm/benben>.
 
 ## Run
 ```bash
-# run project
-mix mix.exs
+# test project
+mix test 2>&1 | tee test.stdout.txt
 ```
