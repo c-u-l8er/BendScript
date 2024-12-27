@@ -51,7 +51,7 @@ defmodule BenBenTest do
         )
 
       # Accumulate sum with state
-      {result, final_sum} =
+      {_result, final_sum} =
         fold list, with: 0 do
           case(cons(head, tail)) ->
             new_sum = head + @tail

@@ -94,15 +94,19 @@ defmodule BenBen do
     Logger.debug("Extracted fold cases: #{inspect(fold_cases)}")
 
     generated_cases = generate_fold_cases(fold_cases, state)
-    Logger.debug("Generated fold cases: #{inspect(generated_cases)}")
+    Logger.debug("Generated fold cases after transformation: #{inspect(generated_cases)}")
 
-    quote do
-      do_fold(unquote(expr), unquote(state), fn var, state ->
-        case var do
-          unquote(generated_cases)
-        end
-      end)
-    end
+    quoted =
+      quote do
+        do_fold(unquote(expr), unquote(state), fn var!(value), var!(state) ->
+          case var!(value) do
+            unquote(generated_cases)
+          end
+        end)
+      end
+
+    Logger.debug("Final quoted expression: #{inspect(quoted)}")
+    quoted
   end
 
   defp extract_cases({:__block__, _, clauses}) do
@@ -123,8 +127,8 @@ defmodule BenBen do
   defp generate_fold_cases(cases, state) do
     Logger.debug("Generating fold cases: #{inspect(cases)}")
 
-    quoted_cases =
-      Enum.map(cases, fn {:->, _meta, [[{:case, _, [pattern]}], body]} ->
+    clauses =
+      Enum.map(cases, fn {:->, meta, [[{:case, _, [pattern]}], body]} ->
         Logger.debug(
           "Processing case with pattern: #{inspect(pattern)} and body: #{inspect(body)}"
         )
@@ -138,10 +142,54 @@ defmodule BenBen do
         transformed_body = transform_recursive_refs(body, bindings, state)
         Logger.debug("Transformed body: #{inspect(transformed_body)}")
 
-        {:->, [], [[{:%{}, [], pattern_match}], transformed_body]}
+        # Create a proper case clause
+        clause = {:->, meta, [[{:%{}, [], pattern_match}], transformed_body]}
+        Logger.debug("Generated clause: #{inspect(clause)}")
+        clause
       end)
 
-    {:__block__, [], quoted_cases}
+    # Return clauses directly without wrapping in a block
+    clauses
+    |> List.flatten()
+    |> tap(&Logger.debug("Final case clauses: #{inspect(&1)}"))
+  end
+
+  defp transform_recursive_refs(body, bindings, state) do
+    Logger.debug(
+      "Transforming recursive refs in body: #{inspect(body)} with bindings: #{inspect(bindings)}, state: #{inspect(state)}"
+    )
+
+    {transformed, _} =
+      Macro.prewalk(body, %{}, fn
+        {:@, _, [{name, _, _}]} = node, acc ->
+          Logger.debug("Processing recursive reference: #{inspect(node)}")
+
+          if Keyword.has_key?(bindings, name) do
+            var = Macro.var(name, nil)
+
+            transformed =
+              if state == nil do
+                quote do
+                  do_fold(unquote(var), nil, var!(value))
+                end
+              else
+                quote do
+                  elem(do_fold(unquote(var), var!(state), var!(value)), 0)
+                end
+              end
+
+            Logger.debug("Transformed recursive reference to: #{inspect(transformed)}")
+            {transformed, acc}
+          else
+            {node, acc}
+          end
+
+        node, acc ->
+          {node, acc}
+      end)
+
+    Logger.debug("Final transformed body: #{inspect(transformed)}")
+    transformed
   end
 
   defp generate_pattern_match({name, _, args}) when is_list(args) do
@@ -164,36 +212,6 @@ defmodule BenBen do
       {name, _, _} -> {name, Macro.var(name, nil)}
       name when is_atom(name) -> {name, Macro.var(name, nil)}
     end)
-  end
-
-  defp transform_recursive_refs(body, bindings, state) do
-    Logger.debug(
-      "Transforming recursive refs in body: #{inspect(body)} with bindings: #{inspect(bindings)}, state: #{inspect(state)}"
-    )
-
-    {transformed, _} =
-      Macro.prewalk(body, %{}, fn
-        {:@, _, [{name, _, _}]} = node, acc ->
-          if Keyword.has_key?(bindings, name) do
-            var = Macro.var(name, nil)
-
-            transformed =
-              if state == nil do
-                quote do: do_fold(unquote(var), nil, var!(__FOLD_FUN__))
-              else
-                quote do: elem(do_fold(unquote(var), var!(state), var!(__FOLD_FUN__)), 0)
-              end
-
-            {transformed, acc}
-          else
-            {node, acc}
-          end
-
-        node, acc ->
-          {node, acc}
-      end)
-
-    transformed
   end
 
   def do_fold(%{variant: _} = data, state, fun) do
@@ -222,11 +240,16 @@ defmodule BenBen do
     end)
   end
 
-  defmacro bend({:=, _, [var, initial]}, do: block) do
-    Logger.debug("Bend operation with var: #{inspect(var)}, initial: #{inspect(initial)}")
+  defmacro bend({:=, _, [{var_name, _, _}, initial]}, do: block) do
+    Logger.debug("Bend operation with var: #{inspect(var_name)}, initial: #{inspect(initial)}")
+
+    var = Macro.var(var_name, nil)
 
     quote do
-      do_bend(unquote(var), unquote(initial), fn var ->
+      unquote(var) = unquote(initial)
+
+      do_bend(unquote(var), fn value ->
+        unquote(var) = value
         unquote(block)
       end)
     end
@@ -236,13 +259,11 @@ defmodule BenBen do
     Logger.debug("Fork operation with expression: #{inspect(expr)}")
 
     quote do
-      do_bend(var, unquote(expr), fn var ->
-        var
-      end)
+      do_bend(unquote(expr), fn value -> value end)
     end
   end
 
-  def do_bend(_var_name, initial, fun) do
+  def do_bend(initial, fun) do
     Logger.debug("Executing bend with initial: #{inspect(initial)}")
     fun.(initial)
   end
