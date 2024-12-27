@@ -7,8 +7,8 @@ end
 
 def sum(tree) do
   fold tree do
-    case node(val, left, right) -> val + @left + @right
-    case leaf() -> 0
+    case(node(val, left, right)) -> val + @left + @right
+    case(leaf()) -> 0
   end
 end
 

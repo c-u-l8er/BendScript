@@ -90,38 +90,55 @@ defmodule BenBen do
     )
 
     state = Keyword.get(opts, :with)
-    cases = extract_cases(cases)
+    fold_cases = extract_cases(cases)
+    Logger.debug("Extracted fold cases: #{inspect(fold_cases)}")
+
+    generated_cases = generate_fold_cases(fold_cases, state)
+    Logger.debug("Generated fold cases: #{inspect(generated_cases)}")
 
     quote do
       do_fold(unquote(expr), unquote(state), fn var, state ->
         case var do
-          (unquote_splicing(generate_fold_cases(cases, state)))
+          (unquote_splicing(generated_cases))
         end
       end)
     end
   end
 
-  defp extract_cases({:case, _, clauses}) do
-    Logger.debug("Extracting single case: #{inspect(clauses)}")
+  defp extract_cases({:__block__, _, clauses}) do
+    Logger.debug("Extracting multiple cases from block: #{inspect(clauses)}")
     clauses
   end
 
-  defp extract_cases({:__block__, _, clauses}) do
-    Logger.debug("Extracting multiple cases: #{inspect(clauses)}")
-    Enum.map(clauses, fn {:case, _, [clause]} -> clause end)
+  defp extract_cases(clauses) when is_list(clauses) do
+    Logger.debug("Extracting cases from list: #{inspect(clauses)}")
+    clauses
+  end
+
+  defp extract_cases(clause) do
+    Logger.debug("Extracting single case: #{inspect(clause)}")
+    [clause]
   end
 
   defp generate_fold_cases(cases, state) do
     Logger.debug("Generating fold cases: #{inspect(cases)}")
 
-    Enum.map(cases, fn {:->, _, [[pattern], body]} ->
-      {pattern_match, bindings} = generate_pattern_match(pattern)
-      Logger.debug("Pattern match: #{inspect(pattern_match)}, bindings: #{inspect(bindings)}")
+    Enum.map(List.wrap(cases), fn
+      {:->, meta, [[{:case, _, [pattern]}], body]} ->
+        Logger.debug(
+          "Processing case with pattern: #{inspect(pattern)} and body: #{inspect(body)}"
+        )
 
-      quote do
-        %{unquote_splicing(pattern_match)} ->
-          unquote(transform_recursive_refs(body, bindings, state))
-      end
+        {pattern_match, bindings} = generate_pattern_match(pattern)
+
+        Logger.debug(
+          "Generated pattern match: #{inspect(pattern_match)} with bindings: #{inspect(bindings)}"
+        )
+
+        quote do
+          %{unquote_splicing(pattern_match)} ->
+            unquote(transform_recursive_refs(body, bindings, state))
+        end
     end)
   end
 
@@ -142,16 +159,25 @@ defmodule BenBen do
     end)
   end
 
-  defp transform_recursive_refs(body, bindings, _state) do
+  defp transform_recursive_refs(body, bindings, state) do
     Logger.debug(
-      "Transforming recursive refs in body: #{inspect(body)} with bindings: #{inspect(bindings)}"
+      "Transforming recursive refs in body: #{inspect(body)} with bindings: #{inspect(bindings)}, state: #{inspect(state)}"
     )
 
     {transformed, _} =
       Macro.prewalk(body, %{}, fn
         {:@, _, [{name, _, _}]} = node, acc ->
           if Keyword.has_key?(bindings, name) do
-            {Macro.var(name, nil), acc}
+            var = Macro.var(name, nil)
+
+            transformed =
+              if state == nil do
+                quote do: do_fold(unquote(var), nil, var!(__FOLD_FUN__))
+              else
+                quote do: elem(do_fold(unquote(var), var!(state), var!(__FOLD_FUN__)), 0)
+              end
+
+            {transformed, acc}
           else
             {node, acc}
           end
@@ -164,9 +190,11 @@ defmodule BenBen do
   end
 
   def do_fold(%{variant: _} = data, state, fun) do
-    Logger.debug("Folding data: #{inspect(data)} with state: #{inspect(state)}")
+    Logger.debug("do_fold called with data: #{inspect(data)}, state: #{inspect(state)}")
     processed = process_recursive_fields(data, state, fun)
-    fun.(processed, state)
+    result = fun.(processed, state)
+    Logger.debug("do_fold result: #{inspect(result)}")
+    result
   end
 
   defp process_recursive_fields(data, state, fun) do
