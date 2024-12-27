@@ -99,7 +99,7 @@ defmodule BenBen do
     quote do
       do_fold(unquote(expr), unquote(state), fn var, state ->
         case var do
-          (unquote_splicing(generated_cases))
+          unquote(generated_cases)
         end
       end)
     end
@@ -123,8 +123,8 @@ defmodule BenBen do
   defp generate_fold_cases(cases, state) do
     Logger.debug("Generating fold cases: #{inspect(cases)}")
 
-    Enum.map(List.wrap(cases), fn
-      {:->, meta, [[{:case, _, [pattern]}], body]} ->
+    quoted_cases =
+      Enum.map(cases, fn {:->, _meta, [[{:case, _, [pattern]}], body]} ->
         Logger.debug(
           "Processing case with pattern: #{inspect(pattern)} and body: #{inspect(body)}"
         )
@@ -135,11 +135,13 @@ defmodule BenBen do
           "Generated pattern match: #{inspect(pattern_match)} with bindings: #{inspect(bindings)}"
         )
 
-        quote do
-          %{unquote_splicing(pattern_match)} ->
-            unquote(transform_recursive_refs(body, bindings, state))
-        end
-    end)
+        transformed_body = transform_recursive_refs(body, bindings, state)
+        Logger.debug("Transformed body: #{inspect(transformed_body)}")
+
+        {:->, [], [[{:%{}, [], pattern_match}], transformed_body]}
+      end)
+
+    {:__block__, [], quoted_cases}
   end
 
   defp generate_pattern_match({name, _, args}) when is_list(args) do
@@ -147,6 +149,11 @@ defmodule BenBen do
     bindings = extract_bindings(args)
     pattern = [{:variant, name} | bindings]
     {pattern, bindings}
+  end
+
+  defp generate_pattern_match({name, _, _}) do
+    Logger.debug("Generating pattern match for nullary constructor #{inspect(name)}")
+    {[variant: name], []}
   end
 
   defp extract_bindings(args) do

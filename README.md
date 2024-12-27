@@ -1,9 +1,47 @@
 BenBen
 ========
 
+## Features
+
+### Algebraic Data Types
+
+Define recursive data structures using a declarative syntax:
+
+```elixir
+deftype BinaryTree do
+  node(val, @left, @right)  # @ marks recursive fields
+  leaf()
+end
+```
+
+### Fold Operations
+
+Traverse and transform recursive structures with pattern matching:
+
+```elixir
+fold tree do
+  case node(val, left, right) -> val + @left + @right
+  case leaf() -> 0
+end
+```
+
+### Bend Operations
+
+Create recursive structures using a declarative approach:
+
+```elixir
+bend val = 0 do
+  if val < 3 do
+    BinaryTree.node(val, fork(val + 1), fork(val + 1))
+  else
+    BinaryTree.leaf()
+  end
+end
+```
+
 ## Early setup
 ```bash
-mix new benben
+mix new ben_ben
 ```
 
 ## Installation
@@ -14,7 +52,7 @@ by adding `benben` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:benben, "~> 0.1.0"}
+    {:ben_ben, "~> 0.1.0"}
   ]
 end
 ```
