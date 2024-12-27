@@ -1,23 +1,23 @@
 import BenBen
 
 deftype MyTree do
-  Node(val, ~left, ~right)
-  Leaf
+  node(val, @left, @right)
+  leaf()
 end
 
 def sum(tree) do
   fold tree do
-    case Node(val, left, right) -> val + ~left + ~right
-    case Leaf -> 0
+    case node(val, left, right) -> val + @left + @right
+    case leaf() -> 0
   end
 end
 
 def create_tree do
   bend val = 0 do
-    when val < 10 do
-      Node(val, fork(val + 1), fork(val + 1))
+    if val < 10 do
+      node(val, fork(val + 1), fork(val + 1))
     else
-      Leaf
+      leaf()
     end
   end
 end

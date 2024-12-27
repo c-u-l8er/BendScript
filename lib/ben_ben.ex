@@ -1,101 +1,214 @@
 defmodule BenBen do
-  # Define recursive type macro that handles ~field annotation
-  defmacro deftype(name, do: {:__block__, _, variants}) do
-    variants = Enum.map(variants, fn variant ->
+  require Logger
+
+  defmacro deftype(name, do: block) do
+    Logger.debug("Defining type #{inspect(name)} with block: #{inspect(block)}")
+    variants = extract_variants(block)
+    Logger.debug("Extracted variants: #{inspect(variants)}")
+
+    quote do
+      defmodule unquote(name) do
+        (unquote_splicing(generate_constructors(variants)))
+      end
+    end
+  end
+
+  defp extract_variants({:__block__, _, variants}), do: variants
+  defp extract_variants(variant), do: [variant]
+
+  defp generate_constructors(variants) do
+    Logger.debug("Generating constructors for variants: #{inspect(variants)}")
+
+    Enum.map(variants, fn variant ->
+      Logger.debug("Processing variant: #{inspect(variant)}")
+
       case variant do
-        {variant_name, _, fields} ->
-          recursive_fields = extract_recursive_fields(fields)
-          quote do
-            def unquote(variant_name)(unquote_splicing(fields)) do
-              Map.merge(
-                %{__type__: unquote(name), variant: unquote(variant_name)},
-                Map.new(unquote(fields))
-              )
+        {name, meta, args} ->
+          Logger.debug(
+            "Constructor: #{inspect(name)}, meta: #{inspect(meta)}, args: #{inspect(args)}"
+          )
+
+          if args == nil do
+            # Nullary constructor
+            Logger.debug("Generating nullary constructor for #{inspect(name)}")
+
+            quote do
+              def unquote(name)() do
+                %{variant: unquote(name)}
+              end
+            end
+          else
+            # Constructor with arguments
+            {arg_names, _arg_types} = extract_constructor_args(args)
+            Logger.debug("Extracted arg_names: #{inspect(arg_names)}")
+
+            # Create variables for the function parameters
+            arg_vars = Enum.map(arg_names, fn name -> Macro.var(name, nil) end)
+            Logger.debug("Generated arg vars: #{inspect(arg_vars)}")
+
+            field_pairs =
+              Enum.map(Enum.zip(arg_names, arg_vars), fn {name, var} ->
+                {name, var}
+              end)
+
+            Logger.debug("Field pairs: #{inspect(field_pairs)}")
+
+            quote do
+              def unquote(name)(unquote_splicing(arg_vars)) do
+                Map.new([{:variant, unquote(name)} | unquote(field_pairs)])
+              end
             end
           end
       end
     end)
-
-    quote do
-      unquote_splicing(variants)
-    end
   end
 
-  # Fold macro implementation
-  defmacro fold(expr, [do: {:case, _, patterns}]) do
-    quote do
-      case unquote(expr) do
-        unquote(expand_patterns(patterns))
-      end
-    end
+  defp extract_constructor_args(args) do
+    Logger.debug("Extracting constructor args from: #{inspect(args)}")
+
+    args
+    |> List.wrap()
+    |> Enum.map(fn
+      {:@, _, [{name, _, _}]} ->
+        Logger.debug("Found recursive arg: #{inspect(name)}")
+        {name, :recursive}
+
+      {name, _, _} ->
+        Logger.debug("Found value arg: #{inspect(name)}")
+        {name, :value}
+
+      name when is_atom(name) ->
+        Logger.debug("Found atom arg: #{inspect(name)}")
+        {name, :value}
+    end)
+    |> Enum.unzip()
   end
 
-  # Fold macro with state
-  defmacro fold(expr, [with: state, do: {:case, _, patterns}]) do
-    quote do
-      case unquote(expr) do
-        unquote(expand_patterns_with_state(patterns, state))
-      end
-    end
-  end
+  defmacro fold(expr, opts \\ [], do: cases) do
+    Logger.debug(
+      "Fold expression: #{inspect(expr)}, opts: #{inspect(opts)}, cases: #{inspect(cases)}"
+    )
 
-  # Bend macro implementation
-  defmacro bend(var, [do: {:when, _, [condition, then_block, else_block]}]) do
+    state = Keyword.get(opts, :with)
+    cases = extract_cases(cases)
+
     quote do
-      bend_loop(unquote(var), fn val ->
-        if unquote(condition) do
-          {:cont, unquote(then_block)}
-        else
-          {:halt, unquote(else_block)}
+      do_fold(unquote(expr), unquote(state), fn var, state ->
+        case var do
+          (unquote_splicing(generate_fold_cases(cases, state)))
         end
       end)
     end
   end
 
-  # Helper functions
-  def bend_loop(val, fun) do
-    case fun.(val) do
-      {:cont, new_val} -> bend_loop(new_val, fun)
-      {:halt, result} -> result
+  defp extract_cases({:case, _, clauses}) do
+    Logger.debug("Extracting single case: #{inspect(clauses)}")
+    clauses
+  end
+
+  defp extract_cases({:__block__, _, clauses}) do
+    Logger.debug("Extracting multiple cases: #{inspect(clauses)}")
+    Enum.map(clauses, fn {:case, _, [clause]} -> clause end)
+  end
+
+  defp generate_fold_cases(cases, state) do
+    Logger.debug("Generating fold cases: #{inspect(cases)}")
+
+    Enum.map(cases, fn {:->, _, [[pattern], body]} ->
+      {pattern_match, bindings} = generate_pattern_match(pattern)
+      Logger.debug("Pattern match: #{inspect(pattern_match)}, bindings: #{inspect(bindings)}")
+
+      quote do
+        %{unquote_splicing(pattern_match)} ->
+          unquote(transform_recursive_refs(body, bindings, state))
+      end
+    end)
+  end
+
+  defp generate_pattern_match({name, _, args}) when is_list(args) do
+    Logger.debug("Generating pattern match for #{inspect(name)} with args: #{inspect(args)}")
+    bindings = extract_bindings(args)
+    pattern = [{:variant, name} | bindings]
+    {pattern, bindings}
+  end
+
+  defp extract_bindings(args) do
+    Logger.debug("Extracting bindings from args: #{inspect(args)}")
+
+    Enum.map(args, fn
+      {:@, _, [{name, _, _}]} -> {name, Macro.var(name, nil)}
+      {name, _, _} -> {name, Macro.var(name, nil)}
+      name when is_atom(name) -> {name, Macro.var(name, nil)}
+    end)
+  end
+
+  defp transform_recursive_refs(body, bindings, _state) do
+    Logger.debug(
+      "Transforming recursive refs in body: #{inspect(body)} with bindings: #{inspect(bindings)}"
+    )
+
+    {transformed, _} =
+      Macro.prewalk(body, %{}, fn
+        {:@, _, [{name, _, _}]} = node, acc ->
+          if Keyword.has_key?(bindings, name) do
+            {Macro.var(name, nil), acc}
+          else
+            {node, acc}
+          end
+
+        node, acc ->
+          {node, acc}
+      end)
+
+    transformed
+  end
+
+  def do_fold(%{variant: _} = data, state, fun) do
+    Logger.debug("Folding data: #{inspect(data)} with state: #{inspect(state)}")
+    processed = process_recursive_fields(data, state, fun)
+    fun.(processed, state)
+  end
+
+  defp process_recursive_fields(data, state, fun) do
+    Logger.debug("Processing recursive fields of: #{inspect(data)}")
+
+    Enum.reduce(Map.keys(data), data, fn
+      :variant, acc ->
+        acc
+
+      key, acc ->
+        case Map.get(data, key) do
+          %{variant: _} = value ->
+            Map.put(acc, key, do_fold(value, state, fun))
+
+          value ->
+            Map.put(acc, key, value)
+        end
+    end)
+  end
+
+  defmacro bend({:=, _, [var, initial]}, do: block) do
+    Logger.debug("Bend operation with var: #{inspect(var)}, initial: #{inspect(initial)}")
+
+    quote do
+      do_bend(unquote(var), unquote(initial), fn var ->
+        unquote(block)
+      end)
     end
   end
 
-  defp extract_recursive_fields(fields) do
-    Enum.filter(fields, fn
-      {field, _, [:%{}, _, [recursive: true]]} -> true
-      _ -> false
-    end)
+  defmacro fork(expr) do
+    Logger.debug("Fork operation with expression: #{inspect(expr)}")
+
+    quote do
+      do_bend(var, unquote(expr), fn var ->
+        var
+      end)
+    end
   end
 
-  defp expand_patterns(patterns) do
-    Enum.map(patterns, fn {:->, _, [[pattern], body]} ->
-      quote do
-        unquote(pattern) -> unquote(expand_recursive_calls(body))
-      end
-    end)
-  end
-
-  defp expand_patterns_with_state(patterns, state) do
-    Enum.map(patterns, fn {:->, _, [[pattern], body]} ->
-      quote do
-        unquote(pattern) -> unquote(expand_recursive_calls_with_state(body, state))
-      end
-    end)
-  end
-
-  defp expand_recursive_calls(ast) do
-    Macro.prewalk(ast, fn
-      {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
-        quote do: fold(unquote(expr))
-      other -> other
-    end)
-  end
-
-  defp expand_recursive_calls_with_state(ast, state) do
-    Macro.prewalk(ast, fn
-      {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
-        quote do: fold(unquote(expr), with: unquote(state))
-      other -> other
-    end)
+  def do_bend(_var_name, initial, fun) do
+    Logger.debug("Executing bend with initial: #{inspect(initial)}")
+    fun.(initial)
   end
 end

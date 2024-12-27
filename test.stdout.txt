@@ -1,49 +1,94 @@
-    warning: variable "recursive_fields" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
-  7 │           recursive_fields = extract_recursive_fields(fields)
-    │           ~
-    │
-    └─ lib/ben_ben.ex:7:11: BenBen.deftype/2
+Compiling 1 file (.ex)
+Generated ben_ben app
+Running ExUnit with seed: 473108, max_cases: 48
 
-    warning: variable "field" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 65 │       {field, _, [:%{}, _, [recursive: true]]} -> true
-    │        ~
-    │
-    └─ lib/ben_ben.ex:65:8: BenBen.extract_recursive_fields/1
 
-    warning: variable "meta" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 88 │       {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
-    │            ~
-    │
-    └─ lib/ben_ben.ex:88:12: BenBen.expand_recursive_calls/1
+15:12:15.486 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:BinaryTree]} with block: {:__block__, [], [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:@, [line: 7, column: 15], [{:left, [line: 7, column: 16], nil}]}, {:@, [line: 7, column: 22], [{:right, [line: 7, column: 23], nil}]}]}, {:leaf, [line: 8, column: 5], []}]}
 
-    warning: variable "meta" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 96 │       {op, meta, [expr]} when is_atom(op) and op == ~c"~" ->
-    │            ~
-    │
-    └─ lib/ben_ben.ex:96:12: BenBen.expand_recursive_calls_with_state/2
+15:12:15.488 [debug] Extracted variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:@, [line: 7, column: 15], [{:left, [line: 7, column: 16], nil}]}, {:@, [line: 7, column: 22], [{:right, [line: 7, column: 23], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
 
+15:12:15.488 [debug] Generating constructors for variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:@, [line: 7, column: 15], [{:left, [line: 7, column: 16], nil}]}, {:@, [line: 7, column: 22], [{:right, [line: 7, column: 23], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
+
+15:12:15.488 [debug] Processing variant: {:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:@, [line: 7, column: 15], [{:left, [line: 7, column: 16], nil}]}, {:@, [line: 7, column: 22], [{:right, [line: 7, column: 23], nil}]}]}
+
+15:12:15.488 [debug] Constructor: :node, meta: [line: 7, column: 5], args: [{:val, [line: 7, column: 10], nil}, {:@, [line: 7, column: 15], [{:left, [line: 7, column: 16], nil}]}, {:@, [line: 7, column: 22], [{:right, [line: 7, column: 23], nil}]}]
+
+15:12:15.488 [debug] Extracting constructor args from: [{:val, [line: 7, column: 10], nil}, {:@, [line: 7, column: 15], [{:left, [line: 7, column: 16], nil}]}, {:@, [line: 7, column: 22], [{:right, [line: 7, column: 23], nil}]}]
+
+15:12:15.488 [debug] Found value arg: :val
+
+15:12:15.488 [debug] Found recursive arg: :left
+
+15:12:15.488 [debug] Found recursive arg: :right
+
+15:12:15.488 [debug] Extracted arg_names: [:val, :left, :right]
+
+15:12:15.488 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
+
+15:12:15.488 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
+
+15:12:15.488 [debug] Processing variant: {:leaf, [line: 8, column: 5], []}
+
+15:12:15.488 [debug] Constructor: :leaf, meta: [line: 8, column: 5], args: []
+
+15:12:15.488 [debug] Extracting constructor args from: []
+
+15:12:15.488 [debug] Extracted arg_names: []
+
+15:12:15.488 [debug] Generated arg vars: []
+
+15:12:15.488 [debug] Field pairs: []
+
+15:12:15.488 [debug] Defining type {:__aliases__, [line: 11, column: 11], [:LinkedList]} with block: {:__block__, [], [{:cons, [line: 12, column: 5], [{:head, [line: 12, column: 10], nil}, {:@, [line: 12, column: 16], [{:tail, [line: 12, column: 17], nil}]}]}, {:null, [line: 13, column: 5], []}]}
+
+15:12:15.488 [debug] Extracted variants: [{:cons, [line: 12, column: 5], [{:head, [line: 12, column: 10], nil}, {:@, [line: 12, column: 16], [{:tail, [line: 12, column: 17], nil}]}]}, {:null, [line: 13, column: 5], []}]
+
+15:12:15.488 [debug] Generating constructors for variants: [{:cons, [line: 12, column: 5], [{:head, [line: 12, column: 10], nil}, {:@, [line: 12, column: 16], [{:tail, [line: 12, column: 17], nil}]}]}, {:null, [line: 13, column: 5], []}]
+
+15:12:15.488 [debug] Processing variant: {:cons, [line: 12, column: 5], [{:head, [line: 12, column: 10], nil}, {:@, [line: 12, column: 16], [{:tail, [line: 12, column: 17], nil}]}]}
+
+15:12:15.488 [debug] Constructor: :cons, meta: [line: 12, column: 5], args: [{:head, [line: 12, column: 10], nil}, {:@, [line: 12, column: 16], [{:tail, [line: 12, column: 17], nil}]}]
+
+15:12:15.488 [debug] Extracting constructor args from: [{:head, [line: 12, column: 10], nil}, {:@, [line: 12, column: 16], [{:tail, [line: 12, column: 17], nil}]}]
+
+15:12:15.488 [debug] Found value arg: :head
+
+15:12:15.488 [debug] Found recursive arg: :tail
+
+15:12:15.488 [debug] Extracted arg_names: [:head, :tail]
+
+15:12:15.488 [debug] Generated arg vars: [{:head, [], nil}, {:tail, [], nil}]
+
+15:12:15.488 [debug] Field pairs: [head: {:head, [], nil}, tail: {:tail, [], nil}]
+
+15:12:15.488 [debug] Processing variant: {:null, [line: 13, column: 5], []}
+
+15:12:15.488 [debug] Constructor: :null, meta: [line: 13, column: 5], args: []
+
+15:12:15.488 [debug] Extracting constructor args from: []
+
+15:12:15.488 [debug] Extracted arg_names: []
+
+15:12:15.488 [debug] Generated arg vars: []
+
+15:12:15.488 [debug] Field pairs: []
+
+15:12:15.508 [debug] Fold expression: {:tree, [line: 35, column: 14], nil}, opts: [], cases: [{:->, [line: 36, column: 40], [[{:case, [line: 36, column: 11], [{:node, [line: 36, column: 16], [{:val, [line: 36, column: 21], nil}, {:left, [line: 36, column: 26], nil}, {:right, [line: 36, column: 32], nil}]}]}], {:+, [line: 36, column: 55], [{:+, [line: 36, column: 47], [{:val, [line: 36, column: 43], nil}, {:@, [line: 36, column: 49], [{:left, [line: 36, column: 50], nil}]}]}, {:@, [line: 36, column: 57], [{:right, [line: 36, column: 58], nil}]}]}]}, {:->, [line: 37, column: 24], [[{:case, [line: 37, column: 11], [{:leaf, [line: 37, column: 16], []}]}], 0]}]
 
 == Compilation error in file test/ben_ben_test.exs ==
-** (SyntaxError) invalid syntax found on test/ben_ben_test.exs:7:9:
-    error: unexpected ( after alias Node. Function names and identifiers in Elixir start with lowercase characters or underscore. For example:
-
-        hello_world()
-        _starting_with_underscore()
-        numb3rs_are_allowed()
-        may_finish_with_question_mark?()
-        may_finish_with_exclamation_mark!()
-
-    Unexpected token: (
-    │
-  7 │     Node(val, ~left, ~right)
-    │         ^
-    │
-    └─ test/ben_ben_test.exs:7:9
-    (elixir 1.18.1) lib/kernel/parallel_compiler.ex:547: Kernel.ParallelCompiler.require_file/2
-    (elixir 1.18.1) lib/kernel/parallel_compiler.ex:430: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
-Running ExUnit with seed: 232775, max_cases: 8
-
+** (FunctionClauseError) no function clause matching in BenBen.extract_cases/1    
+    
+    The following arguments were given to BenBen.extract_cases/1:
+    
+        # 1
+        [{:->, [line: 36, column: 40], [[{:case, [line: 36, column: 11], [{:node, [line: 36, column: 16], [{:val, [line: 36, column: 21], nil}, {:left, [line: 36, column: 26], nil}, {:right, [line: 36, column: 32], nil}]}]}], {:+, [line: 36, column: 55], [{:+, [line: 36, column: 47], [{:val, [line: 36, column: 43], nil}, {:@, [line: 36, column: 49], [{:left, [line: 36, column: 50], nil}]}]}, {:@, [line: 36, column: 57], [{:right, [line: 36, column: 58], nil}]}]}]}, {:->, [line: 37, column: 24], [[{:case, [line: 37, column: 11], [{:leaf, [line: 37, column: 16], []}]}], 0]}]
+    
+    Attempted function clauses (showing 2 out of 2):
+    
+        defp extract_cases(-{:case, _, clauses}-)
+        defp extract_cases(-{:__block__, _, clauses}-)
+    
+    (ben_ben 0.1.0) lib/ben_ben.ex:104: BenBen.extract_cases/1
+    (ben_ben 0.1.0) lib/ben_ben.ex:93: BenBen."MACRO-fold"/4
+    (ben_ben 0.1.0) expanding macro: BenBen.fold/2
+    test/ben_ben_test.exs:35: BenBenTest."test fold operations basic sum of tree"/1
