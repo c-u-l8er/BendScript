@@ -9,7 +9,7 @@ Define recursive data structures using a declarative syntax:
 
 ```elixir
 deftype BinaryTree do
-  node(val, recu(left), recu(right))  # recu macro indicates recursive fields
+  node(val, recu(left), recu(right))  # recu indicates recursive fields
   leaf()
 end
 ```
