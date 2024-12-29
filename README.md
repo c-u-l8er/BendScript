@@ -19,9 +19,18 @@ end
 Traverse and transform recursive structures with pattern matching:
 
 ```elixir
-fold tree do
+# Stateless operation
+sum = fold tree do
   case node(val, left, right) -> val + recu(left) + recu(right)
   case leaf() -> 0
+end
+
+# Stateful operation
+{result, final_state} = fold list, with: 0 do
+  case cons(head, tail) ->
+    new_sum = head + recu(tail)
+    {head, new_sum}
+  case null() -> {0, state}
 end
 ```
 

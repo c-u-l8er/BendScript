@@ -12,10 +12,10 @@ defmodule FoldWithStateTest do
     test "fold with state" do
       list =
         LinkedList.cons(
-          1,
+          10,
           LinkedList.cons(
-            2,
-            LinkedList.cons(3, LinkedList.null())
+            20,
+            LinkedList.cons(30, LinkedList.null())
           )
         )
 
@@ -27,10 +27,10 @@ defmodule FoldWithStateTest do
             {head, new_sum}
 
           case(null()) ->
-            {0, 0}
+            {0, state}
         end
 
-      assert final_sum == 6
+      assert final_sum == 60
     end
   end
 end

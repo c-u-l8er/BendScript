@@ -142,8 +142,14 @@ defmodule BenBen do
         transformed_body = transform_recursive_refs(body, bindings, state)
         Logger.debug("Transformed body: #{inspect(transformed_body)}")
 
-        # Create a proper case clause
-        clause = {:->, meta, [[{:%{}, [], pattern_match}], transformed_body]}
+        # Create a proper case clause that handles the tuple result
+        clause =
+          if state != nil do
+            {:->, meta, [[{:%{}, [], pattern_match}], transformed_body]}
+          else
+            {:->, meta, [[{:%{}, [], pattern_match}], transformed_body]}
+          end
+
         Logger.debug("Generated clause: #{inspect(clause)}")
         clause
       end)
@@ -154,6 +160,7 @@ defmodule BenBen do
     |> tap(&Logger.debug("Final case clauses: #{inspect(&1)}"))
   end
 
+  # Update transform_recursive_refs to handle both stateful and stateless cases
   defp transform_recursive_refs(body, bindings, state) do
     Logger.debug(
       "Transforming recursive refs in body: #{inspect(body)} with bindings: #{inspect(bindings)}, state: #{inspect(state)}"
@@ -168,13 +175,15 @@ defmodule BenBen do
             var = Macro.var(name, nil)
 
             transformed =
-              if state == nil do
+              if state != nil do
                 quote do
-                  do_fold(unquote(var), nil, var!(value))
+                  {result, new_state} = do_fold(unquote(var), var!(state), var!(value))
+                  # Only return the result for arithmetic operations
+                  result
                 end
               else
                 quote do
-                  elem(do_fold(unquote(var), var!(state), var!(value)), 0)
+                  do_fold(unquote(var), nil, var!(value))
                 end
               end
 
@@ -214,28 +223,69 @@ defmodule BenBen do
     end)
   end
 
-  def do_fold(%{variant: _} = data, state, fun) do
+  def do_fold(%{variant: _variant} = data, state, fun) do
     Logger.debug("do_fold called with data: #{inspect(data)}, state: #{inspect(state)}")
-    processed = process_recursive_fields(data, state, fun)
-    result = fun.(processed, state)
-    Logger.debug("do_fold result: #{inspect(result)}")
-    result
+
+    # First check if it's a terminal case (leaf/null)
+    case Map.keys(data) do
+      [:variant] ->
+        # Terminal case - apply function directly
+        fun.(data, state)
+
+      _ ->
+        # Has recursive fields - process them first
+        {processed, new_state} = process_recursive_fields(data, state, fun)
+
+        Logger.debug(
+          "After processing fields - processed: #{inspect(processed)}, new_state: #{inspect(new_state)}"
+        )
+
+        result = fun.(processed, new_state)
+        Logger.debug("After applying fun - result: #{inspect(result)}")
+        result
+    end
   end
 
+  # Handle non-variant values
+  def do_fold(data, state, _fun) do
+    Logger.debug("do_fold called with non-variant data: #{inspect(data)}")
+
+    if state != nil do
+      {data, state}
+    else
+      data
+    end
+  end
+
+  # Update process_recursive_fields to properly accumulate state
   defp process_recursive_fields(data, state, fun) do
     Logger.debug("Processing recursive fields of: #{inspect(data)}")
 
-    Enum.reduce(Map.keys(data), data, fn
+    Enum.reduce(Map.keys(data), {data, state}, fn
       :variant, acc ->
         acc
 
-      key, acc ->
-        case Map.get(data, key) do
-          %{variant: _} = value ->
-            Map.put(acc, key, do_fold(value, state, fun))
+      key, {acc_data, acc_state} ->
+        value = Map.get(acc_data, key)
 
-          value ->
-            Map.put(acc, key, value)
+        case value do
+          %{variant: _} = variant_value ->
+            # Process recursive value and update state
+            result = do_fold(variant_value, acc_state, fun)
+            Logger.debug("Recursive field result for #{key}: #{inspect(result)}")
+
+            case result do
+              {processed_value, new_state} ->
+                {Map.put(acc_data, key, processed_value), new_state}
+
+              processed_value ->
+                # For stateless results or direct values
+                {Map.put(acc_data, key, processed_value), acc_state}
+            end
+
+          _ ->
+            # For non-variant values, keep current state
+            {acc_data, acc_state}
         end
     end)
   end
