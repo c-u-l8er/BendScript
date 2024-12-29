@@ -69,7 +69,7 @@ defmodule BenBen do
     args
     |> List.wrap()
     |> Enum.map(fn
-      {:@, _, [{name, _, _}]} ->
+      {:recu, _, [{name, _, _}]} ->
         Logger.debug("Found recursive arg: #{inspect(name)}")
         {name, :recursive}
 
@@ -161,7 +161,7 @@ defmodule BenBen do
 
     {transformed, _} =
       Macro.prewalk(body, %{}, fn
-        {:@, _, [{name, _, _}]} = node, acc ->
+        {:recu, _, [{name, _, _}]} = node, acc ->
           Logger.debug("Processing recursive reference: #{inspect(node)}")
 
           if Keyword.has_key?(bindings, name) do
@@ -208,7 +208,7 @@ defmodule BenBen do
     Logger.debug("Extracting bindings from args: #{inspect(args)}")
 
     Enum.map(args, fn
-      {:@, _, [{name, _, _}]} -> {name, Macro.var(name, nil)}
+      {:recu, _, [{name, _, _}]} -> {name, Macro.var(name, nil)}
       {name, _, _} -> {name, Macro.var(name, nil)}
       name when is_atom(name) -> {name, Macro.var(name, nil)}
     end)

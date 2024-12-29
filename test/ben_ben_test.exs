@@ -4,12 +4,12 @@ defmodule BenBenTest do
 
   # Define test types
   deftype BinaryTree do
-    node(val, @left, @right)
+    node(val, recu(left), recu(right))
     leaf()
   end
 
   deftype LinkedList do
-    cons(head, @tail)
+    cons(head, recu(tail))
     null()
   end
 
@@ -33,7 +33,7 @@ defmodule BenBenTest do
 
       sum =
         fold tree do
-          case(node(val, left, right)) -> val + @left + @right
+          case(node(val, left, right)) -> val + recu(left) + recu(right)
           case(leaf()) -> 0
         end
 
@@ -54,7 +54,7 @@ defmodule BenBenTest do
       {_result, final_sum} =
         fold list, with: 0 do
           case(cons(head, tail)) ->
-            new_sum = head + @tail
+            new_sum = head + recu(tail)
             {head, new_sum}
 
           case(null()) ->

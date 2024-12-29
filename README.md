@@ -9,7 +9,7 @@ Define recursive data structures using a declarative syntax:
 
 ```elixir
 deftype BinaryTree do
-  node(val, @left, @right)  # @ marks recursive fields
+  node(val, recu(left), recu(right))  # recu macro indicates recursive fields
   leaf()
 end
 ```
@@ -20,7 +20,7 @@ Traverse and transform recursive structures with pattern matching:
 
 ```elixir
 fold tree do
-  case node(val, left, right) -> val + @left + @right
+  case node(val, left, right) -> val + recu(left) + recu(right)
   case leaf() -> 0
 end
 ```
