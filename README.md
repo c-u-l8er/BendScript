@@ -28,7 +28,8 @@ end
 # Stateful operation
 {result, final_state} = fold list, with: 0 do
   case cons(head, tail) ->
-    new_sum = head + recu(tail)
+    {tail_value, new_state} = recu(tail)
+    new_sum = head + tail_value
     {head, new_sum}
   case null() -> {0, state}
 end
@@ -37,12 +38,17 @@ end
 It should properly expand to something like:
 
 ```elixir
-do_fold(tree, nil, fn value, state ->
+do_fold(list, 0, fn value, state ->
   case value do
-    %{variant: :node, val: val, left: left, right: right} ->
-      val + do_fold(left, nil, value) + do_fold(right, nil, value)
-    %{variant: :leaf} ->
-      0
+    %{variant: :cons, head: head, tail: tail} ->
+      result = head + (
+        {tail_result, new_state} = do_fold(tail, state, value)
+        state = new_state
+        tail_result
+      )
+      {result, state}
+    %{variant: :null} ->
+      {0, state}
   end
 end)
 ```

@@ -114,50 +114,36 @@ defmodule BenBen do
     clauses
   end
 
+  defp extract_cases({:case, _, _} = clause) do
+    Logger.debug("Extracting single case: #{inspect(clause)}")
+    [clause]
+  end
+
   defp extract_cases(clauses) when is_list(clauses) do
     Logger.debug("Extracting cases from list: #{inspect(clauses)}")
     clauses
   end
 
-  defp extract_cases(clause) do
-    Logger.debug("Extracting single case: #{inspect(clause)}")
-    [clause]
-  end
-
   defp generate_fold_cases(cases, state) do
     Logger.debug("Generating fold cases: #{inspect(cases)}")
 
-    clauses =
-      Enum.map(cases, fn {:->, meta, [[{:case, _, [pattern]}], body]} ->
-        Logger.debug(
-          "Processing case with pattern: #{inspect(pattern)} and body: #{inspect(body)}"
-        )
+    # Create case clauses for pattern matching
+    case_clauses =
+      Enum.map(cases, fn
+        {:->, meta, [[{:case, _, [{variant_name, _, variant_args}]}], body]} ->
+          {pattern_match, bindings} =
+            generate_pattern_match({variant_name, [], variant_args || []})
 
-        {pattern_match, bindings} = generate_pattern_match(pattern)
+          transformed_body = transform_recursive_refs(body, bindings, state)
 
-        Logger.debug(
-          "Generated pattern match: #{inspect(pattern_match)} with bindings: #{inspect(bindings)}"
-        )
+          # Pattern match map form
+          pattern = quote do: %{unquote_splicing(pattern_match)}
 
-        transformed_body = transform_recursive_refs(body, bindings, state)
-        Logger.debug("Transformed body: #{inspect(transformed_body)}")
-
-        # Create a proper case clause that handles the tuple result
-        clause =
-          if state != nil do
-            {:->, meta, [[{:%{}, [], pattern_match}], transformed_body]}
-          else
-            {:->, meta, [[{:%{}, [], pattern_match}], transformed_body]}
-          end
-
-        Logger.debug("Generated clause: #{inspect(clause)}")
-        clause
+          {:->, meta, [[pattern], transformed_body]}
       end)
 
-    # Return clauses directly without wrapping in a block
-    clauses
-    |> List.flatten()
-    |> tap(&Logger.debug("Final case clauses: #{inspect(&1)}"))
+    # Return list of case clauses
+    case_clauses
   end
 
   # Update transform_recursive_refs to handle both stateful and stateless cases
@@ -176,12 +162,12 @@ defmodule BenBen do
 
             transformed =
               if state != nil do
+                # For stateful operations
                 quote do
-                  {result, new_state} = do_fold(unquote(var), var!(state), var!(value))
-                  # Only return the result for arithmetic operations
-                  result
+                  do_fold(unquote(var), var!(state), var!(value))
                 end
               else
+                # For stateless operations
                 quote do
                   do_fold(unquote(var), nil, var!(value))
                 end
@@ -193,11 +179,13 @@ defmodule BenBen do
             {node, acc}
           end
 
-        node, acc ->
+        # Handle all other nodes
+        node, acc when is_map(acc) ->
           {node, acc}
       end)
 
-    Logger.debug("Final transformed body: #{inspect(transformed)}")
+    # For state operations, use the transformed expression directly
+    # since it's already returning the proper tuple form
     transformed
   end
 
@@ -230,18 +218,26 @@ defmodule BenBen do
     case Map.keys(data) do
       [:variant] ->
         # Terminal case - apply function directly
-        fun.(data, state)
+        result = fun.(data, state)
+        Logger.debug("Terminal case result: #{inspect(result)}")
+        result
 
       _ ->
-        # Has recursive fields - process them first
-        {processed, new_state} = process_recursive_fields(data, state, fun)
+        # Process recursive fields first
+        {processed, intermediate_state} = process_recursive_fields(data, state, fun)
 
         Logger.debug(
-          "After processing fields - processed: #{inspect(processed)}, new_state: #{inspect(new_state)}"
+          "After processing fields - processed: #{inspect(processed)}, intermediate_state: #{inspect(intermediate_state)}"
         )
 
-        result = fun.(processed, new_state)
-        Logger.debug("After applying fun - result: #{inspect(result)}")
+        # Apply fun with the intermediate state to get {result, new_state}
+        result = fun.(processed, intermediate_state)
+
+        Logger.debug(
+          "Final result after fun: #{inspect(result)} with intermediate_state: #{inspect(intermediate_state)}"
+        )
+
+        # Return both result and final state
         result
     end
   end
@@ -249,12 +245,8 @@ defmodule BenBen do
   # Handle non-variant values
   def do_fold(data, state, _fun) do
     Logger.debug("do_fold called with non-variant data: #{inspect(data)}")
-
-    if state != nil do
-      {data, state}
-    else
-      data
-    end
+    # Always return a tuple with state
+    {data, state}
   end
 
   # Update process_recursive_fields to properly accumulate state
@@ -271,21 +263,19 @@ defmodule BenBen do
         case value do
           %{variant: _} = variant_value ->
             # Process recursive value and update state
-            result = do_fold(variant_value, acc_state, fun)
-            Logger.debug("Recursive field result for #{key}: #{inspect(result)}")
+            {processed_value, new_state} = do_fold(variant_value, acc_state, fun)
 
-            case result do
-              {processed_value, new_state} ->
-                {Map.put(acc_data, key, processed_value), new_state}
+            Logger.debug(
+              "Recursive field result for #{key}: #{inspect({processed_value, new_state})}"
+            )
 
-              processed_value ->
-                # For stateless results or direct values
-                {Map.put(acc_data, key, processed_value), acc_state}
-            end
+            {Map.put(acc_data, key, processed_value), new_state}
 
           _ ->
-            # For non-variant values, keep current state
-            {acc_data, acc_state}
+            # For non-variant values, preserve state
+            {result, new_state} = do_fold(value, acc_state, fun)
+            Logger.debug("Non-variant field #{key} result: #{inspect({result, new_state})}")
+            {Map.put(acc_data, key, result), new_state}
         end
     end)
   end

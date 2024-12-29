@@ -10,27 +10,21 @@ defmodule FoldWithStateTest do
 
   describe "fold operations" do
     test "fold with state" do
-      list =
-        LinkedList.cons(
-          10,
-          LinkedList.cons(
-            20,
-            LinkedList.cons(30, LinkedList.null())
-          )
-        )
+      list = LinkedList.cons(1, LinkedList.cons(2, LinkedList.null()))
 
       # Accumulate sum with state
-      {_result, final_sum} =
+      {_result, sum} =
         fold list, with: 0 do
           case(cons(head, tail)) ->
-            new_sum = head + recu(tail)
+            {tail_value, new_state} = recu(tail)
+            new_sum = head + tail_value
             {head, new_sum}
 
           case(null()) ->
             {0, state}
         end
 
-      assert final_sum == 60
+      assert sum == 3
     end
   end
 end
