@@ -127,23 +127,46 @@ defmodule BenBen do
   defp generate_fold_cases(cases, state) do
     Logger.debug("Generating fold cases: #{inspect(cases)}")
 
-    # Create case clauses for pattern matching
-    case_clauses =
-      Enum.map(cases, fn
-        {:->, meta, [[{:case, _, [{variant_name, _, variant_args}]}], body]} ->
-          {pattern_match, bindings} =
-            generate_pattern_match({variant_name, [], variant_args || []})
+    Enum.map(cases, fn
+      {:->, meta, [[{:case, _, [{variant_name, _, variant_args}]}], body]} ->
+        # Extract the field names and create variables based on the constructor args
+        {field_names, _field_vars} = extract_field_info(variant_args || [])
 
-          transformed_body = transform_recursive_refs(body, bindings, state)
+        # Create pattern that exactly matches the constructor-generated structure
+        pattern =
+          {:%{}, [],
+           [variant: variant_name] ++
+             Enum.map(field_names, fn name -> {name, Macro.var(name, nil)} end)}
 
-          # Pattern match map form
-          pattern = quote do: %{unquote_splicing(pattern_match)}
+        Logger.debug(
+          "Generated pattern: #{inspect(pattern)} for variant: #{inspect(variant_name)}"
+        )
 
-          {:->, meta, [[pattern], transformed_body]}
+        # Create bindings for recursive references
+        bindings = Enum.zip(field_names, List.duplicate(true, length(field_names)))
+        transformed_body = transform_recursive_refs(body, bindings, state)
+
+        {:->, meta, [[pattern], transformed_body]}
+    end)
+  end
+
+  defp extract_field_info(args) do
+    field_info =
+      Enum.map(args, fn
+        {:recu, _, [{name, _, _}]} -> {name, Macro.var(name, nil)}
+        {name, _, _} -> {name, Macro.var(name, nil)}
+        name when is_atom(name) -> {name, Macro.var(name, nil)}
       end)
 
-    # Return list of case clauses
-    case_clauses
+    Enum.unzip(field_info)
+  end
+
+  defp generate_fold_cases({:__block__, _meta, cases}, state) do
+    generate_fold_cases(cases, state)
+  end
+
+  defp generate_fold_cases(single_case, state) when not is_list(single_case) do
+    generate_fold_cases([single_case], state)
   end
 
   # Update transform_recursive_refs to handle both stateful and stateless cases
@@ -191,8 +214,21 @@ defmodule BenBen do
 
   defp generate_pattern_match({name, _, args}) when is_list(args) do
     Logger.debug("Generating pattern match for #{inspect(name)} with args: #{inspect(args)}")
-    bindings = extract_bindings(args)
-    pattern = [{:variant, name} | bindings]
+
+    # Extract field names and create bindings
+    {field_names, field_vars} =
+      args
+      |> Enum.map(fn
+        {:recu, _, [{field_name, _, _}]} -> {field_name, Macro.var(field_name, nil)}
+        {field_name, _, _} -> {field_name, Macro.var(field_name, nil)}
+        field_name when is_atom(field_name) -> {field_name, Macro.var(field_name, nil)}
+      end)
+      |> Enum.unzip()
+
+    # Create the pattern match with the correct field names
+    pattern = [variant: name] ++ Enum.zip(field_names, field_vars)
+    bindings = Enum.zip(field_names, field_vars)
+
     {pattern, bindings}
   end
 
@@ -205,14 +241,24 @@ defmodule BenBen do
     Logger.debug("Extracting bindings from args: #{inspect(args)}")
 
     Enum.map(args, fn
-      {:recu, _, [{name, _, _}]} -> {name, Macro.var(name, nil)}
-      {name, _, _} -> {name, Macro.var(name, nil)}
-      name when is_atom(name) -> {name, Macro.var(name, nil)}
+      {:recu, _, [{name, _, _}]} ->
+        Logger.debug("Found recursive arg: #{inspect(name)}")
+        {name, Macro.var(name, nil)}
+
+      {name, _, _} ->
+        Logger.debug("Found value arg: #{inspect(name)}")
+        {name, Macro.var(name, nil)}
+
+      name when is_atom(name) ->
+        Logger.debug("Found atom arg: #{inspect(name)}")
+        {name, Macro.var(name, nil)}
     end)
   end
 
-  def do_fold(%{variant: _variant} = data, state, fun) do
-    Logger.debug("do_fold called with data: #{inspect(data)}, state: #{inspect(state)}")
+  def do_fold(%{variant: variant_type} = data, state, fun) do
+    Logger.debug(
+      "do_fold called with data: #{inspect(data)}, variant_type: #{inspect(variant_type)}, state: #{inspect(state)}"
+    )
 
     # First check if it's a terminal case (leaf/null)
     case Map.keys(data) do

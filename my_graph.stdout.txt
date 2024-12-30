@@ -1,162 +1,38 @@
-Compiling 3 files (.ex)
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp generate_fold_cases/2" was previously defined (lib/ben_ben.ex:127)
+     │
+ 164 │   defp generate_fold_cases({:__block__, _meta, cases}, state) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:164:8
+
      warning: variable "other" is unused (if the variable is not meant to be used, prefix it with an underscore)
      │
- 355 │           other ->
+ 397 │           other ->
      │           ~
      │
-     └─ lib/ben_ben.ex:355:11: BenBen.process_constructed/2
-
-
-08:02:29.372 [debug] Defining type {:__aliases__, [line: 4, column: 11], [:MyGraph]} with block: {:__block__, [], [{:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}, {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}]}
-
-08:02:29.372 [debug] Defining type {:__aliases__, [line: 4, column: 11], [:MyTree]} with block: {:__block__, [], [{:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}, {:leaf, [line: 6, column: 5], []}]}
-
-08:02:29.373 [debug] Extracted variants: [{:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}, {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}]
-
-08:02:29.373 [debug] Extracted variants: [{:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}, {:leaf, [line: 6, column: 5], []}]
-
-08:02:29.373 [debug] Generating constructors for variants: [{:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}, {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}]
-
-08:02:29.373 [debug] Generating constructors for variants: [{:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}, {:leaf, [line: 6, column: 5], []}]
-
-08:02:29.373 [debug] Processing variant: {:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}
-
-08:02:29.374 [debug] Processing variant: {:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}
-
-08:02:29.374 [debug] Constructor: :vertex, meta: [line: 6, column: 5], args: [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]
-
-08:02:29.374 [debug] Extracting constructor args from: [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]
-
-08:02:29.374 [debug] Found value arg: :id
-
-08:02:29.374 [debug] Found value arg: :value
-
-08:02:29.374 [debug] Found recursive arg: :edges
-
-08:02:29.374 [debug] Extracted arg_names: [:id, :value, :edges]
-
-08:02:29.374 [debug] Constructor: :node, meta: [line: 5, column: 5], args: [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]
-
-08:02:29.374 [debug] Generated arg vars: [{:id, [], nil}, {:value, [], nil}, {:edges, [], nil}]
-
-08:02:29.374 [debug] Field pairs: [id: {:id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}]
-
-08:02:29.374 [debug] Extracting constructor args from: [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]
-
-08:02:29.374 [debug] Found value arg: :val
-
-08:02:29.374 [debug] Processing variant: {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}
-
-08:02:29.374 [debug] Found recursive arg: :left
-
-08:02:29.374 [debug] Found recursive arg: :right
-
-08:02:29.374 [debug] Extracted arg_names: [:val, :left, :right]
-
-08:02:29.374 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
-
-08:02:29.374 [debug] Constructor: :edge, meta: [line: 8, column: 5], args: [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]
-
-08:02:29.374 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
-
-08:02:29.374 [debug] Processing variant: {:leaf, [line: 6, column: 5], []}
-
-08:02:29.374 [debug] Extracting constructor args from: [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]
-
-08:02:29.374 [debug] Found value arg: :to_id
-
-08:02:29.374 [debug] Constructor: :leaf, meta: [line: 6, column: 5], args: []
-
-08:02:29.374 [debug] Found value arg: :weight
-
-08:02:29.374 [debug] Extracting constructor args from: []
-
-08:02:29.374 [debug] Extracted arg_names: [:to_id, :weight]
-
-08:02:29.374 [debug] Extracted arg_names: []
-
-08:02:29.374 [debug] Generated arg vars: [{:to_id, [], nil}, {:weight, [], nil}]
-
-08:02:29.374 [debug] Generated arg vars: []
-
-08:02:29.374 [debug] Field pairs: []
-
-08:02:29.374 [debug] Field pairs: [to_id: {:to_id, [], nil}, weight: {:weight, [], nil}]
-
-08:02:29.383 [debug] Fold expression: {:tree, [line: 10, column: 10], nil}, opts: [], cases: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
-
-08:02:29.384 [debug] Extracting cases from list: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
-
-08:02:29.384 [debug] Extracted fold cases: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
-
-08:02:29.384 [debug] Fold expression: {:graph, [line: 13, column: 10], nil}, opts: [], cases: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
-
-08:02:29.384 [debug] Generating fold cases: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
-
-08:02:29.384 [debug] Generating pattern match for :node with args: [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]
-
-08:02:29.384 [debug] Extracting cases from list: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
-
-08:02:29.384 [debug] Extracting bindings from args: [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]
-
-08:02:29.385 [debug] Transforming recursive refs in body: {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]} with bindings: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}], state: nil
-
-08:02:29.385 [debug] Processing recursive reference: {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}
-
-08:02:29.385 [debug] Transformed recursive reference to: {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
-
-08:02:29.385 [debug] Processing recursive reference: {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}
-
-08:02:29.385 [debug] Extracted fold cases: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
-
-08:02:29.385 [debug] Transformed recursive reference to: {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
-
-08:02:29.385 [debug] Generating pattern match for :leaf with args: []
-
-08:02:29.385 [debug] Extracting bindings from args: []
-
-08:02:29.385 [debug] Transforming recursive refs in body: 0 with bindings: [], state: nil
-
-08:02:29.385 [debug] Generated fold cases after transformation: [{:->, [line: 11, column: 36], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 12, column: 20], [[{:%{}, [], [variant: :leaf]}], 0]}]
-
-08:02:29.385 [debug] Generating fold cases: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
-
-08:02:29.385 [debug] Generating pattern match for :vertex with args: [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]
-
-08:02:29.385 [debug] Extracting bindings from args: [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]
-
-08:02:29.385 [debug] Transforming recursive refs in body: {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]} with bindings: [_id: {:_id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}], state: nil
-
-08:02:29.385 [debug] Processing recursive reference: {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}
-
-08:02:29.385 [debug] Final quoted expression: {:do_fold, [], [{:tree, [line: 10, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 11, column: 36], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 12, column: 20], [[{:%{}, [], [variant: :leaf]}], 0]}]]]}]}]}]}
-
-08:02:29.385 [debug] Transformed recursive reference to: {:do_fold, [], [{:edges, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
-
-08:02:29.385 [debug] Generating pattern match for :edge with args: [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]
-
-08:02:29.385 [debug] Extracting bindings from args: [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]
-
-08:02:29.385 [debug] Transforming recursive refs in body: {:weight, [line: 20, column: 9], nil} with bindings: [_to_id: {:_to_id, [], nil}, weight: {:weight, [], nil}], state: nil
-
-08:02:29.385 [debug] Bend operation with var: :val, initial: 0
-
-08:02:29.385 [debug] Generated fold cases after transformation: [{:->, [line: 14, column: 39], [[{:%{}, [], [variant: :vertex, _id: {:_id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:do_fold, [], [{:edges, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 18, column: 34], [[{:%{}, [], [variant: :edge, _to_id: {:_to_id, [], nil}, weight: {:weight, [], nil}]}], {:weight, [line: 20, column: 9], nil}]}]
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     └─ lib/ben_ben.ex:397:11: BenBen.process_constructed/2
+
+     warning: function generate_pattern_match/1 is unused
+     │
+ 215 │   defp generate_pattern_match({name, _, args}) when is_list(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:215:8: BenBen (module)
+
+     warning: function extract_bindings/1 is unused
+     │
+ 240 │   defp extract_bindings(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:240:8: BenBen (module)
+
+    warning: variable "id" is unused (if the variable is not meant to be used, prefix it with an underscore)
     │
- 10 │     fold tree do
-    │     ~~~~~~~~~~~~
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
     │
-    └─ lib/examples/my_tree.ex:10: MyTree.sum/1
+    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
 
-
-08:02:29.386 [debug] Fork operation with expression: {:+, [line: 19, column: 35], [{:val, [line: 19, column: 31], nil}, 1]}
-
-08:02:29.386 [debug] Fork operation with expression: {:+, [line: 19, column: 50], [{:val, [line: 19, column: 46], nil}, 1]}
-
-08:02:29.386 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 13, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 14, column: 39], [[{:%{}, [], [variant: :vertex, _id: {:_id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:do_fold, [], [{:edges, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 18, column: 34], [[{:%{}, [], [variant: :edge, _to_id: {:_to_id, [], nil}, weight: {:weight, [], nil}]}], {:weight, [line: 20, column: 9], nil}]}]]]}]}]}]}
-
-08:02:29.386 [debug] Bend operation with var: :vertex_id, initial: 1
     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
     │
  13 │     fold graph do
@@ -164,12 +40,14 @@ Compiling 3 files (.ex)
     │
     └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
 
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 10 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_tree.ex:10: MyTree.sum/1
 
-08:02:29.386 [debug] Bend operation with var: :to_id, initial: 1
-
-08:02:29.387 [debug] Fork operation with expression: {:+, [line: 52, column: 22], [{:to_id, [line: 52, column: 16], nil}, 1]}
-Generated ben_ben app
-Running ExUnit with seed: 423860, max_cases: 48
+Running ExUnit with seed: 483412, max_cases: 48
 
     warning: unused import BenBen
     │
@@ -179,115 +57,66 @@ Running ExUnit with seed: 423860, max_cases: 48
     └─ test/my_graph_test.exs:3:3
 
 
-08:02:29.449 [debug] Bend initial value: 1
+10:31:46.517 [debug] Bend initial value: 1
 
-08:02:29.449 [debug] Executing bend with initial: 1
+10:31:46.518 [debug] Executing bend with initial: 1
 
-08:02:29.449 [debug] Executing fun with value: 1
+10:31:46.518 [debug] Executing fun with value: 1
 
-08:02:29.449 [debug] Evaluating bend block with value: 1
+10:31:46.518 [debug] Evaluating bend block with value: 1
 
-08:02:29.449 [debug] Bend initial value: 1
+10:31:46.523 [debug] Block returned: %{id: 1, value: 10, edges: %{variant: :edge, weight: 2, to_id: 2}, variant: :vertex}
 
-08:02:29.449 [debug] Executing bend with initial: 1
+10:31:46.523 [debug] Fun returned result: %{id: 1, value: 10, edges: %{variant: :edge, weight: 2, to_id: 2}, variant: :vertex}
 
-08:02:29.449 [debug] Executing fun with value: 1
+10:31:46.524 [debug] Processing constructed value: %{id: 1, value: 10, edges: %{variant: :edge, weight: 2, to_id: 2}, variant: :vertex}
 
-08:02:29.449 [debug] Evaluating bend block with value: 1
+10:31:46.524 [debug] do_bend final result: %{id: 1, value: 10, edges: %{variant: :edge, weight: 2, to_id: 2}, variant: :vertex}
 
-08:02:29.449 [debug] Block returned: {:fork, 2}
+10:31:46.524 [debug] Final bend result: %{id: 1, value: 10, edges: %{variant: :edge, weight: 2, to_id: 2}, variant: :vertex}
 
-08:02:29.449 [debug] Fun returned result: {:fork, 2}
+10:31:46.524 [debug] do_fold called with data: %{id: 1, value: 10, edges: %{variant: :edge, weight: 2, to_id: 2}, variant: :vertex}, variant_type: :vertex, state: nil
 
-08:02:29.449 [debug] Returning other value: {:fork, 2}
+10:31:46.524 [debug] Processing recursive fields of: %{id: 1, value: 10, edges: %{variant: :edge, weight: 2, to_id: 2}, variant: :vertex}
 
-08:02:29.449 [debug] do_bend final result: {:fork, 2}
+10:31:46.524 [debug] do_fold called with non-variant data: 1
 
-08:02:29.449 [debug] Final bend result: {:fork, 2}
+10:31:46.524 [debug] Non-variant field id result: 1
 
-08:02:29.450 [debug] Block returned: %{id: 1, value: 10, edges: {:fork, 2}, variant: :vertex}
+10:31:46.524 [debug] do_fold called with non-variant data: 10
 
-08:02:29.450 [debug] Fun returned result: %{id: 1, value: 10, edges: {:fork, 2}, variant: :vertex}
+10:31:46.524 [debug] Non-variant field value result: 10
 
-08:02:29.450 [debug] Processing constructed value: %{id: 1, value: 10, edges: {:fork, 2}, variant: :vertex}
+10:31:46.525 [debug] do_fold called with data: %{variant: :edge, weight: 2, to_id: 2}, variant_type: :edge, state: nil
 
-08:02:29.450 [debug] Executing bend with initial: 2
+10:31:46.525 [debug] Processing recursive fields of: %{variant: :edge, weight: 2, to_id: 2}
 
-08:02:29.450 [debug] Executing fun with value: 2
+10:31:46.525 [debug] do_fold called with non-variant data: 2
 
-08:02:29.450 [debug] Evaluating bend block with value: 2
+10:31:46.525 [debug] Non-variant field weight result: 2
 
-08:02:29.450 [debug] Bend initial value: 1
+10:31:46.525 [debug] do_fold called with non-variant data: 2
 
-08:02:29.450 [debug] Executing bend with initial: 1
+10:31:46.525 [debug] Non-variant field to_id result: 2
 
-08:02:29.450 [debug] Executing fun with value: 1
+10:31:46.525 [debug] After processing fields - processed: %{variant: :edge, weight: 2, to_id: 2}, intermediate_state: nil
+12
 
-08:02:29.450 [debug] Evaluating bend block with value: 1
+10:31:46.525 [debug] Final result after fun: 2 with intermediate_state: nil
+%{
+  id: 1,
+  value: 10,
+  edges: %{variant: :edge, weight: 2, to_id: 2},
+  variant: :vertex
+}
 
-08:02:29.450 [debug] Block returned: %{variant: :edge, to_id: 1, weight: 3}
+10:31:46.525 [debug] Recursive field result for edges: 2
 
-08:02:29.450 [debug] Fun returned result: %{variant: :edge, to_id: 1, weight: 3}
-
-08:02:29.450 [debug] Processing constructed value: %{variant: :edge, to_id: 1, weight: 3}
-
-08:02:29.450 [debug] do_bend final result: %{variant: :edge, to_id: 1, weight: 3}
-
-08:02:29.450 [debug] Final bend result: %{variant: :edge, to_id: 1, weight: 3}
-
-08:02:29.450 [debug] Block returned: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
-
-08:02:29.450 [debug] Fun returned result: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
-
-08:02:29.450 [debug] Processing constructed value: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
-
-08:02:29.450 [debug] Processing constructed value: %{variant: :edge, to_id: 1, weight: 3}
-
-08:02:29.450 [debug] do_bend final result: %{variant: :edge, to_id: 1, weight: 3}
-
-08:02:29.450 [debug] do_bend final result: %{id: 1, value: 10, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
-
-08:02:29.450 [debug] Final bend result: %{id: 1, value: 10, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
-
-08:02:29.450 [debug] do_fold called with data: %{id: 1, value: 10, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}, state: nil
-
-08:02:29.451 [debug] Processing recursive fields of: %{id: 1, value: 10, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
-
-08:02:29.451 [debug] do_fold called with non-variant data: 1
-
-08:02:29.451 [debug] Non-variant field id result: 1
-
-08:02:29.451 [debug] do_fold called with non-variant data: 10
-
-08:02:29.451 [debug] Non-variant field value result: 10
-
-08:02:29.451 [debug] do_fold called with data: %{variant: :edge, to_id: 1, weight: 3}, state: nil
-
-08:02:29.451 [debug] Processing recursive fields of: %{variant: :edge, to_id: 1, weight: 3}
-
-08:02:29.451 [debug] do_fold called with non-variant data: 1
-
-08:02:29.451 [debug] Non-variant field to_id result: 1
-
-08:02:29.451 [debug] do_fold called with non-variant data: 3
-
-08:02:29.451 [debug] Non-variant field weight result: 3
-
-08:02:29.451 [debug] After processing fields - processed: %{variant: :edge, to_id: 1, weight: 3}, intermediate_state: nil
+10:31:46.525 [debug] After processing fields - processed: %{id: 1, value: 10, edges: 2, variant: :vertex}, intermediate_state: nil
+.
+10:31:46.525 [debug] do_fold called with non-variant data: 2
 
 
-  1) test my example graph creation and summing (MyGraphTest)
-     test/my_graph_test.exs:6
-     ** (CaseClauseError) no case clause matching: %{variant: :edge, to_id: 1, weight: 3}
-     code: total = MyGraph.sum(graph)
-     stacktrace:
-       (ben_ben 0.1.0) lib/examples/my_graph.ex:13: anonymous fn/2 in MyGraph.sum/1
-       (ben_ben 0.1.0) lib/ben_ben.ex:234: BenBen.do_fold/3
-       (ben_ben 0.1.0) lib/ben_ben.ex:275: anonymous fn/3 in BenBen.process_recursive_fields/3
-       (elixir 1.18.1) lib/enum.ex:2546: Enum."-reduce/3-lists^foldl/2-0-"/3
-       (ben_ben 0.1.0) lib/ben_ben.ex:227: BenBen.do_fold/3
-       test/my_graph_test.exs:15: (test)
-
-
-Finished in 0.01 seconds (0.00s async, 0.01s sync)
-1 test, 1 failure
+10:31:46.526 [debug] Final result after fun: 12 with intermediate_state: nil
+Finished in 0.02 seconds (0.00s async, 0.02s sync)
+1 test, 0 failures

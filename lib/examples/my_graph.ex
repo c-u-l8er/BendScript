@@ -11,13 +11,16 @@ defmodule MyGraph do
   def sum(graph) do
     # Sum all vertex values and edge weights in the graph
     fold graph do
-      case(vertex(_id, value, edges)) ->
-        # Sum this vertex's value plus sum of all edge weights
+      case(vertex(id, value, edges)) ->
         value + recu(edges)
 
-      case(edge(_to_id, weight)) ->
-        # For edges, just return the weight
-        weight
+      case(edge(to_id, weight)) ->
+        # For edges, handle both regular and terminal cases
+        if to_id == 0 and weight == 0 do
+          0
+        else
+          weight
+        end
     end
   end
 
@@ -42,19 +45,22 @@ defmodule MyGraph do
 
   # Helper function to create edges for each vertex
   defp create_edges(from_id) do
-    bend to_id = 1 do
-      if to_id <= 3 do
-        if from_id != to_id do
-          # Create edge to other vertex with weight
-          MyGraph.edge(to_id, from_id + to_id)
-        else
-          # Skip self-edges by recursing
-          fork(to_id + 1)
-        end
+    # Create an edge directly
+    MyGraph.edge(
+      if from_id < 3 do
+        # Connect to next vertex
+        from_id + 1
       else
-        # terminating edge
-        MyGraph.edge(0, 0)
+        # Terminal edge for last vertex
+        0
+      end,
+      if from_id < 3 do
+        # Weight based on source vertex
+        from_id * 2
+      else
+        # Terminal weight
+        0
       end
-    end
+    )
   end
 end
