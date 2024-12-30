@@ -14,7 +14,14 @@ defmodule BenBen do
   end
 
   defp extract_variants({:__block__, _, variants}), do: variants
-  defp extract_variants(variant), do: [variant]
+
+  defp extract_variants(block) do
+    case block do
+      {:__block__, _, variants} -> variants
+      variant when is_tuple(variant) -> [variant]
+      _ -> raise "Invalid type definition format"
+    end
+  end
 
   defp generate_constructors(variants) do
     Logger.debug("Generating constructors for variants: #{inspect(variants)}")
@@ -171,9 +178,12 @@ defmodule BenBen do
 
   # Update transform_recursive_refs to handle both stateful and stateless cases
   defp transform_recursive_refs(body, bindings, state) do
-    Logger.debug(
-      "Transforming recursive refs in body: #{inspect(body)} with bindings: #{inspect(bindings)}, state: #{inspect(state)}"
-    )
+    Logger.debug("""
+    Transforming recursive refs:
+    Body: #{inspect(body)}
+    Bindings: #{inspect(bindings)}
+    State: #{inspect(state)}
+    """)
 
     {transformed, _} =
       Macro.prewalk(body, %{}, fn
