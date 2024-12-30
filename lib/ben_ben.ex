@@ -260,47 +260,21 @@ defmodule BenBen do
       "do_fold called with data: #{inspect(data)}, variant_type: #{inspect(variant_type)}, state: #{inspect(state)}"
     )
 
-    # First check if it's a terminal case (leaf/null)
-    case Map.keys(data) do
-      [:variant] ->
-        # Terminal case - apply function directly
-        result = fun.(data, state)
-        Logger.debug("Terminal case result: #{inspect(result)}")
-        result
+    # Process recursive fields first
+    {processed, new_state} = process_recursive_fields(data, state, fun)
 
-      _ ->
-        # Process recursive fields first
-        {processed, intermediate_state} = process_recursive_fields(data, state, fun)
-
-        Logger.debug(
-          "After processing fields - processed: #{inspect(processed)}, intermediate_state: #{inspect(intermediate_state)}"
-        )
-
-        # Apply fun with the intermediate state to get {result, new_state}
-        result = fun.(processed, intermediate_state)
-
-        Logger.debug(
-          "Final result after fun: #{inspect(result)} with intermediate_state: #{inspect(intermediate_state)}"
-        )
-
-        # For stateless operations, extract just the value from tuple if needed
-        if state == nil && is_tuple(result) do
-          elem(result, 0)
-        else
-          result
-        end
-    end
+    # Apply fun to processed data, maintaining the full structure
+    fun.(processed, new_state)
   end
 
-  # Handle non-variant values
+  # Handle non-variant values by wrapping them in a structure
   def do_fold(data, state, _fun) do
     Logger.debug("do_fold called with non-variant data: #{inspect(data)}")
 
+    # Just pass through the value directly without wrapping
     if state == nil do
-      # For stateless operations, return just the value
       data
     else
-      # For stateful operations, return tuple with state
       {data, state}
     end
   end
@@ -331,16 +305,9 @@ defmodule BenBen do
               {Map.put(acc_data, key, value), new_state}
             end
 
-          _ ->
-            result = do_fold(value, acc_state, fun)
-            Logger.debug("Non-variant field #{key} result: #{inspect(result)}")
-
-            if acc_state == nil do
-              {Map.put(acc_data, key, result), nil}
-            else
-              {value, new_state} = result
-              {Map.put(acc_data, key, value), new_state}
-            end
+          other ->
+            # Handle non-variant values directly
+            {Map.put(acc_data, key, other), acc_state}
         end
     end)
   end

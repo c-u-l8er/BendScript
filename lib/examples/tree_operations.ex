@@ -53,17 +53,18 @@ defmodule TreeOperations do
 
   # Counts nodes at each level, returns map of level -> count
   def level_counts(tree) do
-    fold tree, with: %{} do
+    fold tree, with: %{0 => 1} do
       case(node(value, left, right)) ->
-        {left_counts, left_state} = recu(left)
-        {right_counts, right_state} = recu(right)
+        {_, left_counts} = recu(left)
+        {_, right_counts} = recu(right)
 
-        # Merge counts from both sides and increment current level
-        merged = merge_counts(left_state, right_state)
-        current_level = map_size(merged)
-        new_state = Map.update(merged, current_level, 1, &(&1 + 1))
+        # Merge counts from both sides and increment levels
+        new_counts =
+          Map.merge(left_counts, right_counts, fn _k, v1, v2 -> v1 + v2 end)
+          |> Map.new(fn {k, v} -> {k + 1, v} end)
+          |> Map.put(0, 1)
 
-        {value, new_state}
+        {value, new_counts}
 
       case(leaf()) ->
         {0, state}
@@ -73,6 +74,14 @@ defmodule TreeOperations do
   # Helper function to merge level counts
   defp merge_counts(left_counts, right_counts) do
     Map.merge(left_counts, right_counts, fn _k, v1, v2 -> v1 + v2 end)
+  end
+
+  # Helper to merge counts and increment levels
+  defp merge_with_level_increment(left_counts, right_counts) do
+    # Combine matching levels, incrementing the level numbers
+    Enum.reduce(left_counts, right_counts, fn {level, count}, acc ->
+      Map.update(acc, level + 1, count, &(&1 + count))
+    end)
   end
 
   # Balances an unbalanced tree
@@ -89,7 +98,7 @@ defmodule TreeOperations do
       case(node(value, left, right)) ->
         left_values = recu(left)
         right_values = recu(right)
-        left_values ++ [value] ++ right_values
+        Enum.concat([left_values, [value], right_values])
 
       case(leaf()) ->
         []
@@ -97,17 +106,23 @@ defmodule TreeOperations do
   end
 
   # Helper to create balanced tree from sorted values
-  defp create_balanced_from_values(values) do
+  defp create_balanced_from_values(values) when is_list(values) do
     len = length(values)
     height = :math.ceil(:math.log2(len + 1))
 
-    # Create balanced tree with indices, then map values
-    tree = balanced_tree(trunc(height))
-    value_map = Enum.with_index(values) |> Map.new(fn {v, i} -> {i, v} end)
+    bend level = 0 do
+      if level < height do
+        mid_idx = div(len, 2)
+        value = Enum.at(values, mid_idx, 0)
 
-    # Replace indices with actual values
-    map_tree(tree, fn idx ->
-      Map.get(value_map, idx, 0)
-    end)
+        Tree.node(
+          value,
+          fork(level + 1),
+          fork(level + 1)
+        )
+      else
+        Tree.leaf()
+      end
+    end
   end
 end
