@@ -1,0 +1,1033 @@
+     warning: variable "other" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 351 │           other ->
+     │           ~
+     │
+     └─ lib/ben_ben.ex:351:11: BenBen.process_constructed/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 10 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_tree.ex:10: MyTree.sum/1
+
+Running ExUnit with seed: 383093, max_cases: 48
+
+    warning: unused import BenBen
+    │
+  3 │   import BenBen
+    │   ~
+    │
+    └─ test/my_tree_test.exs:3:3
+
+
+08:00:21.419 [debug] Bend initial value: 0
+
+08:00:21.420 [debug] Executing bend with initial: 0
+
+08:00:21.420 [debug] Executing fun with value: 0
+
+08:00:21.421 [debug] Evaluating bend block with value: 0
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, val: 0, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, val: 0, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, val: 0, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 1
+
+08:00:21.423 [debug] Executing fun with value: 1
+
+08:00:21.423 [debug] Evaluating bend block with value: 1
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, val: 1, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, val: 1, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, val: 1, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 2
+
+08:00:21.423 [debug] Executing fun with value: 2
+
+08:00:21.423 [debug] Evaluating bend block with value: 2
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, val: 2, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, val: 2, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, val: 2, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 3
+
+08:00:21.423 [debug] Executing fun with value: 3
+
+08:00:21.423 [debug] Evaluating bend block with value: 3
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 4}, right: {:fork, 4}, val: 3, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 4}, right: {:fork, 4}, val: 3, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 4}, right: {:fork, 4}, val: 3, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 4
+
+08:00:21.423 [debug] Executing fun with value: 4
+
+08:00:21.423 [debug] Evaluating bend block with value: 4
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 5}, right: {:fork, 5}, val: 4, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 5}, right: {:fork, 5}, val: 4, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 5}, right: {:fork, 5}, val: 4, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 5
+
+08:00:21.423 [debug] Executing fun with value: 5
+
+08:00:21.423 [debug] Evaluating bend block with value: 5
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 6
+
+08:00:21.423 [debug] Executing fun with value: 6
+
+08:00:21.423 [debug] Evaluating bend block with value: 6
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 7
+
+08:00:21.423 [debug] Executing fun with value: 7
+
+08:00:21.423 [debug] Evaluating bend block with value: 7
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.423 [debug] Executing bend with initial: 8
+
+08:00:21.423 [debug] Executing fun with value: 8
+
+08:00:21.423 [debug] Evaluating bend block with value: 8
+
+08:00:21.423 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.423 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.423 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 9
+
+08:00:21.424 [debug] Executing fun with value: 9
+
+08:00:21.424 [debug] Evaluating bend block with value: 9
+
+08:00:21.424 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 9
+
+08:00:21.424 [debug] Executing fun with value: 9
+
+08:00:21.424 [debug] Evaluating bend block with value: 9
+
+08:00:21.424 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.424 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 8
+
+08:00:21.424 [debug] Executing fun with value: 8
+
+08:00:21.424 [debug] Evaluating bend block with value: 8
+
+08:00:21.424 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.424 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.424 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 9
+
+08:00:21.424 [debug] Executing fun with value: 9
+
+08:00:21.424 [debug] Evaluating bend block with value: 9
+
+08:00:21.424 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 9
+
+08:00:21.424 [debug] Executing fun with value: 9
+
+08:00:21.424 [debug] Evaluating bend block with value: 9
+
+08:00:21.424 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] Executing bend with initial: 10
+
+08:00:21.424 [debug] Executing fun with value: 10
+
+08:00:21.424 [debug] Evaluating bend block with value: 10
+
+08:00:21.424 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.424 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.424 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.424 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.424 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 7
+
+08:00:21.425 [debug] Executing fun with value: 7
+
+08:00:21.425 [debug] Evaluating bend block with value: 7
+
+08:00:21.425 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.425 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.425 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 8
+
+08:00:21.425 [debug] Executing fun with value: 8
+
+08:00:21.425 [debug] Evaluating bend block with value: 8
+
+08:00:21.425 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.425 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.425 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 9
+
+08:00:21.425 [debug] Executing fun with value: 9
+
+08:00:21.425 [debug] Evaluating bend block with value: 9
+
+08:00:21.425 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 9
+
+08:00:21.425 [debug] Executing fun with value: 9
+
+08:00:21.425 [debug] Evaluating bend block with value: 9
+
+08:00:21.425 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 8
+
+08:00:21.425 [debug] Executing fun with value: 8
+
+08:00:21.425 [debug] Evaluating bend block with value: 8
+
+08:00:21.425 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.425 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.425 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 9
+
+08:00:21.425 [debug] Executing fun with value: 9
+
+08:00:21.425 [debug] Evaluating bend block with value: 9
+
+08:00:21.425 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 9
+
+08:00:21.425 [debug] Executing fun with value: 9
+
+08:00:21.425 [debug] Evaluating bend block with value: 9
+
+08:00:21.425 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] Executing bend with initial: 10
+
+08:00:21.425 [debug] Executing fun with value: 10
+
+08:00:21.425 [debug] Evaluating bend block with value: 10
+
+08:00:21.425 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.425 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.425 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.425 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}
+
+08:00:21.426 [debug] do_bend final result: %{left: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, right: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, val: 6, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 6
+
+08:00:21.426 [debug] Executing fun with value: 6
+
+08:00:21.426 [debug] Evaluating bend block with value: 6
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 7
+
+08:00:21.426 [debug] Executing fun with value: 7
+
+08:00:21.426 [debug] Evaluating bend block with value: 7
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 8
+
+08:00:21.426 [debug] Executing fun with value: 8
+
+08:00:21.426 [debug] Evaluating bend block with value: 8
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 9
+
+08:00:21.426 [debug] Executing fun with value: 9
+
+08:00:21.426 [debug] Evaluating bend block with value: 9
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 10
+
+08:00:21.426 [debug] Executing fun with value: 10
+
+08:00:21.426 [debug] Evaluating bend block with value: 10
+
+08:00:21.426 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.426 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.426 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.426 [debug] Executing bend with initial: 10
+
+08:00:21.426 [debug] Executing fun with value: 10
+
+08:00:21.426 [debug] Evaluating bend block with value: 10
+
+08:00:21.426 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.426 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.426 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 9
+
+08:00:21.426 [debug] Executing fun with value: 9
+
+08:00:21.426 [debug] Evaluating bend block with value: 9
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 10
+
+08:00:21.426 [debug] Executing fun with value: 10
+
+08:00:21.426 [debug] Evaluating bend block with value: 10
+
+08:00:21.426 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.426 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.426 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.426 [debug] Executing bend with initial: 10
+
+08:00:21.426 [debug] Executing fun with value: 10
+
+08:00:21.426 [debug] Evaluating bend block with value: 10
+
+08:00:21.426 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.426 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.426 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.426 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 8
+
+08:00:21.426 [debug] Executing fun with value: 8
+
+08:00:21.426 [debug] Evaluating bend block with value: 8
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 9
+
+08:00:21.426 [debug] Executing fun with value: 9
+
+08:00:21.426 [debug] Evaluating bend block with value: 9
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 10
+
+08:00:21.426 [debug] Executing fun with value: 10
+
+08:00:21.426 [debug] Evaluating bend block with value: 10
+
+08:00:21.426 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.426 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.426 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.426 [debug] Executing bend with initial: 10
+
+08:00:21.426 [debug] Executing fun with value: 10
+
+08:00:21.426 [debug] Evaluating bend block with value: 10
+
+08:00:21.426 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.426 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.426 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.426 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 9
+
+08:00:21.426 [debug] Executing fun with value: 9
+
+08:00:21.426 [debug] Evaluating bend block with value: 9
+
+08:00:21.426 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.426 [debug] Executing bend with initial: 10
+
+08:00:21.426 [debug] Executing fun with value: 10
+
+08:00:21.426 [debug] Evaluating bend block with value: 10
+
+08:00:21.426 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.426 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.426 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] Executing bend with initial: 10
+
+08:00:21.427 [debug] Executing fun with value: 10
+
+08:00:21.427 [debug] Evaluating bend block with value: 10
+
+08:00:21.427 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.427 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.427 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.427 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.427 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 7
+
+08:00:21.427 [debug] Executing fun with value: 7
+
+08:00:21.427 [debug] Evaluating bend block with value: 7
+
+08:00:21.427 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.427 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.427 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 8
+
+08:00:21.427 [debug] Executing fun with value: 8
+
+08:00:21.427 [debug] Evaluating bend block with value: 8
+
+08:00:21.427 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.427 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.427 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 9
+
+08:00:21.427 [debug] Executing fun with value: 9
+
+08:00:21.427 [debug] Evaluating bend block with value: 9
+
+08:00:21.427 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 10
+
+08:00:21.427 [debug] Executing fun with value: 10
+
+08:00:21.427 [debug] Evaluating bend block with value: 10
+
+08:00:21.427 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.427 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.427 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] Executing bend with initial: 10
+
+08:00:21.427 [debug] Executing fun with value: 10
+
+08:00:21.427 [debug] Evaluating bend block with value: 10
+
+08:00:21.427 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.427 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.427 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 9
+
+08:00:21.427 [debug] Executing fun with value: 9
+
+08:00:21.427 [debug] Evaluating bend block with value: 9
+
+08:00:21.427 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 10
+
+08:00:21.427 [debug] Executing fun with value: 10
+
+08:00:21.427 [debug] Evaluating bend block with value: 10
+
+08:00:21.427 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.427 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.427 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] Executing bend with initial: 10
+
+08:00:21.427 [debug] Executing fun with value: 10
+
+08:00:21.427 [debug] Evaluating bend block with value: 10
+
+08:00:21.427 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.427 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.427 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.427 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 8
+
+08:00:21.427 [debug] Executing fun with value: 8
+
+08:00:21.427 [debug] Evaluating bend block with value: 8
+
+08:00:21.427 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.427 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.427 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 9
+
+08:00:21.427 [debug] Executing fun with value: 9
+
+08:00:21.427 [debug] Evaluating bend block with value: 9
+
+08:00:21.427 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 10
+
+08:00:21.427 [debug] Executing fun with value: 10
+
+08:00:21.427 [debug] Evaluating bend block with value: 10
+
+08:00:21.427 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.427 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.427 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] Executing bend with initial: 10
+
+08:00:21.427 [debug] Executing fun with value: 10
+
+08:00:21.427 [debug] Evaluating bend block with value: 10
+
+08:00:21.427 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.427 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.427 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.427 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.427 [debug] Executing bend with initial: 9
+
+08:00:21.427 [debug] Executing fun with value: 9
+
+08:00:21.427 [debug] Evaluating bend block with value: 9
+
+08:00:21.428 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.428 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.428 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:21.428 [debug] Executing bend with initial: 10
+
+08:00:21.428 [debug] Executing fun with value: 10
+
+08:00:21.428 [debug] Evaluating bend block with value: 10
+
+08:00:21.428 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.428 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.428 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.428 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.428 [debug] Executing bend with initial: 10
+
+08:00:21.428 [debug] Executing fun with value: 10
+
+08:00:21.428 [debug] Evaluating bend block with value: 10
+
+08:00:21.428 [debug] Block returned: %{variant: :leaf}
+
+08:00:21.428 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:21.428 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:21.428 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:21.428 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:21.428 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:21.428 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}
+
+08:00:21.428 [debug] do_bend final result: %{left: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, right: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, val: 6, variant: :node}
+
+08:00:21.428 [debug] do_bend final result: %{left: %{left: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, right: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, val: 6, variant: :node}, right: %{left: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, right: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, val: 6, variant: :node}, val: 5, variant: :node}
+
+08:00:21.428 [debug] Executing bend with initial: 5
+
+08:00:21.428 [debug] Executing fun with value: 5
+
+08:00:21.428 [debug] Evaluating bend block with value: 5
+
+08:00:21.428 [debug] Block returned: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:21.428 [debug] Fun returned result: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:21.428 [debug] Processing constructed value: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:21.428 [debug] Executing bend with initial: 6
+
+08:00:21.428 [debug] Executing fun with value: 6
+
+08:00:21.428 [debug] Evaluating bend block with value: 6
+
+08:00:21.428 [debug] Block returned: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.428 [debug] Fun returned result: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.428 [debug] Processing constructed value: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:21.428 [debug] Executing bend with initial: 7
+
+08:00:21.428 [debug] Executing fun with value: 7
+
+08:00:21.428 [debug] Evaluating bend block with value: 7
+
+08:00:21.428 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.428 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.428 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:21.428 [debug] Executing bend with initial: 8
+
+08:00:21.428 [debug] Executing fun with value: 8
+
+08:00:21.428 [debug] Evaluating bend block with value: 8
+
+08:00:21.428 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.428 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.428 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:21.428 [debug] Executing bend with initial: 9
+
+08:00:21.428 [debug] Executing fun with value: 9
+
+08:00:21.428 [debug] Evaluating bend block with value: 9
+
+08:00:21.428 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+.
+Finished in 0.3 seconds (0.00s async, 0.3s sync)
+1 test, 0 failures

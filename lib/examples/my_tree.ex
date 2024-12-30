@@ -1,6 +1,6 @@
-import BenBen
-
 defmodule MyTree do
+  import BenBen
+
   deftype MyTree do
     node(val, recu(left), recu(right))
     leaf()

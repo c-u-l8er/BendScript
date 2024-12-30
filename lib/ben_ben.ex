@@ -299,31 +299,92 @@ defmodule BenBen do
     end)
   end
 
-  defmacro bend({:=, _, [{var_name, _, _}, initial]}, do: block) do
-    Logger.debug("Bend operation with var: #{inspect(var_name)}, initial: #{inspect(initial)}")
+  def do_bend(initial, fun) do
+    Logger.debug("Executing bend with initial: #{inspect(initial)}")
 
-    var = Macro.var(var_name, nil)
+    result =
+      case initial do
+        # If we receive a fork tuple, extract the value and continue recursion
+        {:fork, next_value} ->
+          Logger.debug("Processing fork with next value: #{inspect(next_value)}")
+          # Recursively process the forked value
+          do_bend(next_value, fun)
 
-    quote do
-      unquote(var) = unquote(initial)
+        # For normal values, execute the function and process result
+        value ->
+          Logger.debug("Executing fun with value: #{inspect(value)}")
+          result = fun.(value)
+          Logger.debug("Fun returned result: #{inspect(result)}")
 
-      do_bend(unquote(var), fn value ->
-        unquote(var) = value
-        unquote(block)
-      end)
-    end
+          case result do
+            # If it's a map with a variant key, it's a constructor result - return as is
+            %{variant: _} = constructed ->
+              # Process any recursive fork operations in the constructed value
+              process_constructed(constructed, fun)
+
+            # For any other value, return as is
+            other ->
+              Logger.debug("Returning other value: #{inspect(other)}")
+              other
+          end
+      end
+
+    Logger.debug("do_bend final result: #{inspect(result)}")
+    result
+  end
+
+  # Add this helper function to process constructed values and their forks
+  defp process_constructed(%{variant: _} = value, fun) do
+    Logger.debug("Processing constructed value: #{inspect(value)}")
+
+    Enum.reduce(Map.keys(value), value, fn
+      :variant, acc ->
+        acc
+
+      key, acc ->
+        case Map.get(acc, key) do
+          {:fork, next_value} ->
+            # Recursively process the forked value
+            result = do_bend(next_value, fun)
+            Map.put(acc, key, result)
+
+          other ->
+            acc
+        end
+    end)
   end
 
   defmacro fork(expr) do
     Logger.debug("Fork operation with expression: #{inspect(expr)}")
 
     quote do
-      do_bend(unquote(expr), fn value -> value end)
+      {:fork, unquote(expr)}
     end
   end
 
-  def do_bend(initial, fun) do
-    Logger.debug("Executing bend with initial: #{inspect(initial)}")
-    fun.(initial)
+  defmacro bend({:=, _, [{var_name, _, _}, initial]}, do: block) do
+    Logger.debug("Bend operation with var: #{inspect(var_name)}, initial: #{inspect(initial)}")
+
+    var = Macro.var(var_name, nil)
+
+    quote do
+      # Add this to make Logger available in the expanded code
+      require Logger
+
+      unquote(var) = unquote(initial)
+      Logger.debug("Bend initial value: #{inspect(unquote(var))}")
+
+      result =
+        do_bend(unquote(var), fn value ->
+          unquote(var) = value
+          Logger.debug("Evaluating bend block with value: #{inspect(value)}")
+          block_result = unquote(block)
+          Logger.debug("Block returned: #{inspect(block_result)}")
+          block_result
+        end)
+
+      Logger.debug("Final bend result: #{inspect(result)}")
+      result
+    end
   end
 end

@@ -1,3 +1,117 @@
+Compiling 3 files (.ex)
+     warning: variable "other" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 351 │           other ->
+     │           ~
+     │
+     └─ lib/ben_ben.ex:351:11: BenBen.process_constructed/2
+
+
+08:00:04.534 [debug] Defining type {:__aliases__, [line: 4, column: 11], [:MyTree]} with block: {:__block__, [], [{:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}, {:leaf, [line: 6, column: 5], []}]}
+
+08:00:04.534 [debug] Defining type {:__aliases__, [line: 4, column: 11], [:MyGraph]} with block: {:__block__, [], [{:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}, {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}]}
+
+08:00:04.535 [debug] Extracted variants: [{:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}, {:leaf, [line: 6, column: 5], []}]
+
+08:00:04.535 [debug] Extracted variants: [{:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}, {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}]
+
+08:00:04.535 [debug] Generating constructors for variants: [{:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}, {:leaf, [line: 6, column: 5], []}]
+
+08:00:04.535 [debug] Processing variant: {:node, [line: 5, column: 5], [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]}
+
+08:00:04.535 [debug] Generating constructors for variants: [{:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}, {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}]
+
+08:00:04.535 [debug] Constructor: :node, meta: [line: 5, column: 5], args: [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]
+
+08:00:04.535 [debug] Extracting constructor args from: [{:val, [line: 5, column: 10], nil}, {:recu, [line: 5, column: 15], [{:left, [line: 5, column: 20], nil}]}, {:recu, [line: 5, column: 27], [{:right, [line: 5, column: 32], nil}]}]
+
+08:00:04.535 [debug] Found value arg: :val
+
+08:00:04.535 [debug] Found recursive arg: :left
+
+08:00:04.535 [debug] Found recursive arg: :right
+
+08:00:04.535 [debug] Extracted arg_names: [:val, :left, :right]
+
+08:00:04.535 [debug] Processing variant: {:vertex, [line: 6, column: 5], [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]}
+
+08:00:04.535 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
+
+08:00:04.535 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
+
+08:00:04.535 [debug] Constructor: :vertex, meta: [line: 6, column: 5], args: [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]
+
+08:00:04.535 [debug] Processing variant: {:leaf, [line: 6, column: 5], []}
+
+08:00:04.535 [debug] Extracting constructor args from: [{:id, [line: 6, column: 12], nil}, {:value, [line: 6, column: 16], nil}, {:recu, [line: 6, column: 23], [{:edges, [line: 6, column: 28], nil}]}]
+
+08:00:04.535 [debug] Constructor: :leaf, meta: [line: 6, column: 5], args: []
+
+08:00:04.535 [debug] Found value arg: :id
+
+08:00:04.535 [debug] Extracting constructor args from: []
+
+08:00:04.535 [debug] Extracted arg_names: []
+
+08:00:04.535 [debug] Found value arg: :value
+
+08:00:04.535 [debug] Generated arg vars: []
+
+08:00:04.535 [debug] Found recursive arg: :edges
+
+08:00:04.535 [debug] Field pairs: []
+
+08:00:04.536 [debug] Extracted arg_names: [:id, :value, :edges]
+
+08:00:04.536 [debug] Generated arg vars: [{:id, [], nil}, {:value, [], nil}, {:edges, [], nil}]
+
+08:00:04.536 [debug] Field pairs: [id: {:id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}]
+
+08:00:04.536 [debug] Processing variant: {:edge, [line: 8, column: 5], [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]}
+
+08:00:04.536 [debug] Constructor: :edge, meta: [line: 8, column: 5], args: [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]
+
+08:00:04.536 [debug] Extracting constructor args from: [{:to_id, [line: 8, column: 10], nil}, {:weight, [line: 8, column: 17], nil}]
+
+08:00:04.536 [debug] Found value arg: :to_id
+
+08:00:04.536 [debug] Found value arg: :weight
+
+08:00:04.536 [debug] Extracted arg_names: [:to_id, :weight]
+
+08:00:04.536 [debug] Generated arg vars: [{:to_id, [], nil}, {:weight, [], nil}]
+
+08:00:04.536 [debug] Field pairs: [to_id: {:to_id, [], nil}, weight: {:weight, [], nil}]
+
+08:00:04.543 [debug] Fold expression: {:graph, [line: 13, column: 10], nil}, opts: [], cases: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
+
+08:00:04.543 [debug] Extracting cases from list: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
+
+08:00:04.544 [debug] Extracted fold cases: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
+
+08:00:04.544 [debug] Generating fold cases: [{:->, [line: 14, column: 39], [[{:case, [line: 14, column: 7], [{:vertex, [line: 14, column: 12], [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]}]}, {:->, [line: 18, column: 34], [[{:case, [line: 18, column: 7], [{:edge, [line: 18, column: 12], [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]}]}], {:weight, [line: 20, column: 9], nil}]}]
+
+08:00:04.544 [debug] Generating pattern match for :vertex with args: [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]
+
+08:00:04.544 [debug] Extracting bindings from args: [{:_id, [line: 14, column: 19], nil}, {:value, [line: 14, column: 24], nil}, {:edges, [line: 14, column: 31], nil}]
+
+08:00:04.544 [debug] Transforming recursive refs in body: {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}]} with bindings: [_id: {:_id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}], state: nil
+
+08:00:04.544 [debug] Processing recursive reference: {:recu, [line: 16, column: 17], [{:edges, [line: 16, column: 22], nil}]}
+
+08:00:04.544 [debug] Transformed recursive reference to: {:do_fold, [], [{:edges, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
+
+08:00:04.544 [debug] Generating pattern match for :edge with args: [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]
+
+08:00:04.544 [debug] Extracting bindings from args: [{:_to_id, [line: 18, column: 17], nil}, {:weight, [line: 18, column: 25], nil}]
+
+08:00:04.544 [debug] Transforming recursive refs in body: {:weight, [line: 20, column: 9], nil} with bindings: [_to_id: {:_to_id, [], nil}, weight: {:weight, [], nil}], state: nil
+
+08:00:04.544 [debug] Generated fold cases after transformation: [{:->, [line: 14, column: 39], [[{:%{}, [], [variant: :vertex, _id: {:_id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:do_fold, [], [{:edges, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 18, column: 34], [[{:%{}, [], [variant: :edge, _to_id: {:_to_id, [], nil}, weight: {:weight, [], nil}]}], {:weight, [line: 20, column: 9], nil}]}]
+
+08:00:04.544 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 13, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 14, column: 39], [[{:%{}, [], [variant: :vertex, _id: {:_id, [], nil}, value: {:value, [], nil}, edges: {:edges, [], nil}]}], {:+, [line: 16, column: 15], [{:value, [line: 16, column: 9], nil}, {:do_fold, [], [{:edges, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 18, column: 34], [[{:%{}, [], [variant: :edge, _to_id: {:_to_id, [], nil}, weight: {:weight, [], nil}]}], {:weight, [line: 20, column: 9], nil}]}]]]}]}]}]}
+
+08:00:04.544 [debug] Bend operation with var: :vertex_id, initial: 1
     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
     │
  13 │     fold graph do
@@ -5,6 +119,44 @@
     │
     └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
 
+
+08:00:04.545 [debug] Fold expression: {:tree, [line: 10, column: 10], nil}, opts: [], cases: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
+
+08:00:04.545 [debug] Bend operation with var: :to_id, initial: 1
+
+08:00:04.545 [debug] Extracting cases from list: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
+
+08:00:04.545 [debug] Extracted fold cases: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
+
+08:00:04.545 [debug] Generating fold cases: [{:->, [line: 11, column: 36], [[{:case, [line: 11, column: 7], [{:node, [line: 11, column: 12], [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]}]}, {:->, [line: 12, column: 20], [[{:case, [line: 12, column: 7], [{:leaf, [line: 12, column: 12], []}]}], 0]}]
+
+08:00:04.545 [debug] Fork operation with expression: {:+, [line: 52, column: 22], [{:to_id, [line: 52, column: 16], nil}, 1]}
+
+08:00:04.545 [debug] Generating pattern match for :node with args: [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]
+
+08:00:04.545 [debug] Extracting bindings from args: [{:val, [line: 11, column: 17], nil}, {:left, [line: 11, column: 22], nil}, {:right, [line: 11, column: 28], nil}]
+
+08:00:04.545 [debug] Transforming recursive refs in body: {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}]}, {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}]} with bindings: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}], state: nil
+
+08:00:04.545 [debug] Processing recursive reference: {:recu, [line: 11, column: 45], [{:left, [line: 11, column: 50], nil}]}
+
+08:00:04.545 [debug] Transformed recursive reference to: {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
+
+08:00:04.545 [debug] Processing recursive reference: {:recu, [line: 11, column: 58], [{:right, [line: 11, column: 63], nil}]}
+
+08:00:04.545 [debug] Transformed recursive reference to: {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
+
+08:00:04.545 [debug] Generating pattern match for :leaf with args: []
+
+08:00:04.545 [debug] Extracting bindings from args: []
+
+08:00:04.545 [debug] Transforming recursive refs in body: 0 with bindings: [], state: nil
+
+08:00:04.545 [debug] Generated fold cases after transformation: [{:->, [line: 11, column: 36], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 12, column: 20], [[{:%{}, [], [variant: :leaf]}], 0]}]
+
+08:00:04.545 [debug] Final quoted expression: {:do_fold, [], [{:tree, [line: 10, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 11, column: 36], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 11, column: 56], [{:+, [line: 11, column: 43], [{:val, [line: 11, column: 39], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 12, column: 20], [[{:%{}, [], [variant: :leaf]}], 0]}]]]}]}]}]}
+
+08:00:04.546 [debug] Bend operation with var: :val, initial: 0
     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
     │
  10 │     fold tree do
@@ -12,221 +164,189 @@
     │
     └─ lib/examples/my_tree.ex:10: MyTree.sum/1
 
-Running ExUnit with seed: 813922, max_cases: 48
 
+08:00:04.546 [debug] Fork operation with expression: {:+, [line: 19, column: 35], [{:val, [line: 19, column: 31], nil}, 1]}
 
-17:18:13.836 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:LinkedList]} with block: {:__block__, [], [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]}
+08:00:04.546 [debug] Fork operation with expression: {:+, [line: 19, column: 50], [{:val, [line: 19, column: 46], nil}, 1]}
+Generated ben_ben app
 
-17:18:13.836 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:BinaryTree]} with block: {:__block__, [], [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]}
+08:00:04.592 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:LinkedList]} with block: {:__block__, [], [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]}
 
-17:18:13.836 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:BinaryTree]} with block: {:__block__, [], [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]}
+08:00:04.592 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:BinaryTree]} with block: {:__block__, [], [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]}
 
-17:18:13.836 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:BinaryTree]} with block: {:__block__, [], [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]}
+08:00:04.592 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:LinkedList]} with block: {:__block__, [], [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]}
 
-17:18:13.836 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:LinkedList]} with block: {:__block__, [], [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]}
+08:00:04.592 [debug] Extracted variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Extracted variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
+08:00:04.592 [debug] Extracted variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Extracted variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
+08:00:04.592 [debug] Extracted variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Extracted variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
+08:00:04.592 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:BinaryTree]} with block: {:__block__, [], [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]}
 
-17:18:13.837 [debug] Generating constructors for variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
+08:00:04.592 [debug] Defining type {:__aliases__, [line: 6, column: 11], [:BinaryTree]} with block: {:__block__, [], [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]}
 
-17:18:13.837 [debug] Extracted variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
+08:00:04.593 [debug] Extracted variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Extracted variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
+08:00:04.593 [debug] Generating constructors for variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Generating constructors for variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
+08:00:04.593 [debug] Extracted variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Generating constructors for variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
+08:00:04.593 [debug] Generating constructors for variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Generating constructors for variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
+08:00:04.593 [debug] Generating constructors for variants: [{:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}, {:null, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Processing variant: {:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}
+08:00:04.593 [debug] Processing variant: {:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}
 
-17:18:13.837 [debug] Processing variant: {:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}
+08:00:04.593 [debug] Processing variant: {:cons, [line: 7, column: 5], [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]}
 
-17:18:13.837 [debug] Constructor: :cons, meta: [line: 7, column: 5], args: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
+08:00:04.593 [debug] Generating constructors for variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
 
-17:18:13.837 [debug] Processing variant: {:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}
+08:00:04.593 [debug] Processing variant: {:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}
 
-17:18:13.837 [debug] Extracting constructor args from: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
+08:00:04.593 [debug] Constructor: :cons, meta: [line: 7, column: 5], args: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
 
-17:18:13.837 [debug] Generating constructors for variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
+08:00:04.593 [debug] Constructor: :cons, meta: [line: 7, column: 5], args: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
 
-17:18:13.838 [debug] Constructor: :node, meta: [line: 7, column: 5], args: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
+08:00:04.593 [debug] Generating constructors for variants: [{:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}, {:leaf, [line: 8, column: 5], []}]
 
-17:18:13.838 [debug] Processing variant: {:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}
+08:00:04.593 [debug] Extracting constructor args from: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
 
-17:18:13.838 [debug] Extracting constructor args from: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
+08:00:04.593 [debug] Extracting constructor args from: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
 
-17:18:13.838 [debug] Found value arg: :val
+08:00:04.593 [debug] Processing variant: {:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}
 
-17:18:13.838 [debug] Found recursive arg: :left
+08:00:04.593 [debug] Found value arg: :head
 
-17:18:13.838 [debug] Found recursive arg: :right
+08:00:04.593 [debug] Found recursive arg: :tail
 
-17:18:13.838 [debug] Constructor: :node, meta: [line: 7, column: 5], args: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
+08:00:04.593 [debug] Constructor: :node, meta: [line: 7, column: 5], args: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
 
-17:18:13.838 [debug] Extracting constructor args from: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
+08:00:04.593 [debug] Extracted arg_names: [:head, :tail]
 
-17:18:13.838 [debug] Extracted arg_names: [:val, :left, :right]
+08:00:04.593 [debug] Processing variant: {:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}
 
-17:18:13.838 [debug] Found value arg: :val
+08:00:04.593 [debug] Generated arg vars: [{:head, [], nil}, {:tail, [], nil}]
 
-17:18:13.838 [debug] Found recursive arg: :left
+08:00:04.593 [debug] Found value arg: :head
 
-17:18:13.838 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
+08:00:04.593 [debug] Constructor: :node, meta: [line: 7, column: 5], args: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
 
-17:18:13.838 [debug] Found recursive arg: :right
+08:00:04.593 [debug] Found recursive arg: :tail
 
-17:18:13.838 [debug] Extracted arg_names: [:val, :left, :right]
+08:00:04.593 [debug] Field pairs: [head: {:head, [], nil}, tail: {:tail, [], nil}]
 
-17:18:13.838 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
+08:00:04.593 [debug] Extracting constructor args from: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
 
-17:18:13.837 [debug] Found value arg: :head
+08:00:04.593 [debug] Extracted arg_names: [:head, :tail]
 
-17:18:13.838 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
+08:00:04.593 [debug] Constructor: :node, meta: [line: 7, column: 5], args: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
 
-17:18:13.838 [debug] Processing variant: {:leaf, [line: 8, column: 5], []}
+08:00:04.593 [debug] Found value arg: :val
 
-17:18:13.837 [debug] Processing variant: {:node, [line: 7, column: 5], [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]}
+08:00:04.593 [debug] Generated arg vars: [{:head, [], nil}, {:tail, [], nil}]
 
-17:18:13.838 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
+08:00:04.593 [debug] Extracting constructor args from: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
 
-17:18:13.838 [debug] Processing variant: {:leaf, [line: 8, column: 5], []}
+08:00:04.593 [debug] Processing variant: {:null, [line: 8, column: 5], []}
 
-17:18:13.838 [debug] Constructor: :leaf, meta: [line: 8, column: 5], args: []
+08:00:04.593 [debug] Found value arg: :val
 
-17:18:13.838 [debug] Constructor: :node, meta: [line: 7, column: 5], args: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
+08:00:04.593 [debug] Constructor: :null, meta: [line: 8, column: 5], args: []
 
-17:18:13.838 [debug] Extracting constructor args from: []
+08:00:04.593 [debug] Field pairs: [head: {:head, [], nil}, tail: {:tail, [], nil}]
 
-17:18:13.838 [debug] Found recursive arg: :tail
+08:00:04.593 [debug] Found recursive arg: :left
 
-17:18:13.838 [debug] Extracted arg_names: []
+08:00:04.593 [debug] Processing variant: {:null, [line: 8, column: 5], []}
 
-17:18:13.838 [debug] Constructor: :leaf, meta: [line: 8, column: 5], args: []
+08:00:04.593 [debug] Found recursive arg: :right
 
-17:18:13.838 [debug] Generated arg vars: []
+08:00:04.593 [debug] Constructor: :null, meta: [line: 8, column: 5], args: []
 
-17:18:13.838 [debug] Field pairs: []
+08:00:04.593 [debug] Extracting constructor args from: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
 
-17:18:13.838 [debug] Extracted arg_names: [:head, :tail]
+08:00:04.593 [debug] Extracted arg_names: [:val, :left, :right]
 
-17:18:13.838 [debug] Extracting constructor args from: []
+08:00:04.593 [debug] Found value arg: :val
 
-17:18:13.838 [debug] Extracting constructor args from: [{:val, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 15], [{:left, [line: 7, column: 20], nil}]}, {:recu, [line: 7, column: 27], [{:right, [line: 7, column: 32], nil}]}]
+08:00:04.593 [debug] Extracting constructor args from: []
 
-17:18:13.838 [debug] Extracted arg_names: []
+08:00:04.593 [debug] Extracting constructor args from: []
 
-17:18:13.838 [debug] Found value arg: :val
+08:00:04.593 [debug] Extracted arg_names: []
 
-17:18:13.838 [debug] Generated arg vars: []
+08:00:04.593 [debug] Found recursive arg: :left
 
-17:18:13.838 [debug] Found recursive arg: :left
+08:00:04.593 [debug] Extracted arg_names: []
 
-17:18:13.838 [debug] Field pairs: []
+08:00:04.593 [debug] Found recursive arg: :left
 
-17:18:13.838 [debug] Found recursive arg: :right
+08:00:04.593 [debug] Generated arg vars: []
 
-17:18:13.838 [debug] Generated arg vars: [{:head, [], nil}, {:tail, [], nil}]
+08:00:04.593 [debug] Found recursive arg: :right
 
-17:18:13.838 [debug] Extracted arg_names: [:val, :left, :right]
+08:00:04.593 [debug] Field pairs: []
 
-17:18:13.838 [debug] Field pairs: [head: {:head, [], nil}, tail: {:tail, [], nil}]
+08:00:04.593 [debug] Extracted arg_names: [:val, :left, :right]
 
-17:18:13.838 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
+08:00:04.593 [debug] Found recursive arg: :right
 
-17:18:13.838 [debug] Processing variant: {:null, [line: 8, column: 5], []}
+08:00:04.593 [debug] Generated arg vars: []
 
-17:18:13.838 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
+08:00:04.593 [debug] Extracted arg_names: [:val, :left, :right]
 
-17:18:13.838 [debug] Constructor: :null, meta: [line: 8, column: 5], args: []
+08:00:04.593 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
 
-17:18:13.838 [debug] Processing variant: {:leaf, [line: 8, column: 5], []}
+08:00:04.593 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
 
-17:18:13.838 [debug] Extracting constructor args from: []
+08:00:04.593 [debug] Field pairs: []
 
-17:18:13.838 [debug] Constructor: :leaf, meta: [line: 8, column: 5], args: []
+08:00:04.593 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
 
-17:18:13.838 [debug] Extracted arg_names: []
+08:00:04.593 [debug] Processing variant: {:leaf, [line: 8, column: 5], []}
 
-17:18:13.838 [debug] Extracting constructor args from: []
+08:00:04.593 [debug] Constructor: :leaf, meta: [line: 8, column: 5], args: []
 
-17:18:13.838 [debug] Generated arg vars: []
+08:00:04.593 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
 
-17:18:13.838 [debug] Field pairs: []
+08:00:04.593 [debug] Generated arg vars: [{:val, [], nil}, {:left, [], nil}, {:right, [], nil}]
 
-17:18:13.838 [debug] Extracted arg_names: []
+08:00:04.593 [debug] Extracting constructor args from: []
 
-17:18:13.838 [debug] Generated arg vars: []
+08:00:04.593 [debug] Processing variant: {:leaf, [line: 8, column: 5], []}
 
-17:18:13.838 [debug] Field pairs: []
+08:00:04.593 [debug] Field pairs: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]
 
-17:18:13.838 [debug] Constructor: :cons, meta: [line: 7, column: 5], args: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
+08:00:04.593 [debug] Processing variant: {:leaf, [line: 8, column: 5], []}
 
-17:18:13.838 [debug] Extracting constructor args from: [{:head, [line: 7, column: 10], nil}, {:recu, [line: 7, column: 16], [{:tail, [line: 7, column: 21], nil}]}]
+08:00:04.593 [debug] Extracted arg_names: []
 
-17:18:13.838 [debug] Found value arg: :head
+08:00:04.593 [debug] Constructor: :leaf, meta: [line: 8, column: 5], args: []
 
-17:18:13.838 [debug] Found recursive arg: :tail
+08:00:04.593 [debug] Generated arg vars: []
 
-17:18:13.838 [debug] Extracted arg_names: [:head, :tail]
+08:00:04.593 [debug] Extracting constructor args from: []
 
-17:18:13.838 [debug] Generated arg vars: [{:head, [], nil}, {:tail, [], nil}]
+08:00:04.593 [debug] Constructor: :leaf, meta: [line: 8, column: 5], args: []
 
-17:18:13.838 [debug] Field pairs: [head: {:head, [], nil}, tail: {:tail, [], nil}]
+08:00:04.593 [debug] Extracted arg_names: []
 
-17:18:13.839 [debug] Processing variant: {:null, [line: 8, column: 5], []}
+08:00:04.593 [debug] Extracting constructor args from: []
 
-17:18:13.839 [debug] Constructor: :null, meta: [line: 8, column: 5], args: []
+08:00:04.593 [debug] Generated arg vars: []
 
-17:18:13.839 [debug] Extracting constructor args from: []
+08:00:04.593 [debug] Field pairs: []
 
-17:18:13.839 [debug] Extracted arg_names: []
+08:00:04.593 [debug] Field pairs: []
 
-17:18:13.839 [debug] Generated arg vars: []
+08:00:04.593 [debug] Extracted arg_names: []
 
-17:18:13.839 [debug] Field pairs: []
+08:00:04.593 [debug] Generated arg vars: []
 
-17:18:13.854 [debug] Fold expression: {:tree, [line: 21, column: 14], nil}, opts: [], cases: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
+08:00:04.593 [debug] Field pairs: []
+Running ExUnit with seed: 583368, max_cases: 48
 
-17:18:13.854 [debug] Extracting cases from list: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
-
-17:18:13.854 [debug] Extracted fold cases: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
-    warning: unused import BenBen
-    │
-  3 │   import BenBen
-    │   ~
-    │
-    └─ test/my_tree_test.exs:3:3
-
-
-17:18:13.854 [debug] Generating fold cases: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
-
-17:18:13.854 [debug] Generating pattern match for :node with args: [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]
-
-17:18:13.854 [debug] Extracting bindings from args: [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]
-
-17:18:13.854 [debug] Transforming recursive refs in body: {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]} with bindings: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}], state: nil
-
-17:18:13.854 [debug] Processing recursive reference: {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}
-
-17:18:13.854 [debug] Transformed recursive reference to: {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
-
-17:18:13.854 [debug] Processing recursive reference: {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}
-
-17:18:13.854 [debug] Transformed recursive reference to: {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
-
-17:18:13.854 [debug] Generating pattern match for :leaf with args: []
-
-17:18:13.854 [debug] Extracting bindings from args: []
-
-17:18:13.854 [debug] Transforming recursive refs in body: 0 with bindings: [], state: nil
-
-17:18:13.854 [debug] Generated fold cases after transformation: [{:->, [line: 22, column: 40], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :leaf]}], 0]}]
     warning: unused import BenBen
     │
   3 │   import BenBen
@@ -235,52 +355,48 @@ Running ExUnit with seed: 813922, max_cases: 48
     └─ test/my_graph_test.exs:3:3
 
 
-17:18:13.855 [debug] Final quoted expression: {:do_fold, [], [{:tree, [line: 21, column: 14], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 22, column: 40], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :leaf]}], 0]}]]]}]}]}]}
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+08:00:04.610 [debug] Bend operation with var: :val, initial: 1
+
+08:00:04.610 [debug] Fork operation with expression: {:+, [line: 16, column: 43], [{:val, [line: 16, column: 39], nil}, 1]}
+
+08:00:04.610 [debug] Fold expression: {:list, [line: 17, column: 14], nil}, opts: [with: 0], cases: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
+
+08:00:04.610 [debug] Extracting cases from list: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
+
+08:00:04.611 [debug] Extracted fold cases: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
+
+08:00:04.611 [debug] Generating fold cases: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
+
+08:00:04.611 [debug] Generating pattern match for :cons with args: [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]
+
+08:00:04.611 [debug] Extracting bindings from args: [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]
+
+08:00:04.611 [debug] Transforming recursive refs in body: {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]} with bindings: [head: {:head, [], nil}, tail: {:tail, [], nil}], state: 0
+
+08:00:04.611 [debug] Processing recursive reference: {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}
+
+08:00:04.611 [debug] Transformed recursive reference to: {:do_fold, [], [{:tail, [], nil}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
+
+08:00:04.611 [debug] Generating pattern match for :null with args: []
+
+08:00:04.611 [debug] Extracting bindings from args: []
+
+08:00:04.611 [debug] Transforming recursive refs in body: {0, {:state, [line: 24, column: 17], nil}} with bindings: [], state: 0
+
+08:00:04.611 [debug] Generated fold cases after transformation: [{:->, [line: 18, column: 34], [[{:%{}, [], [variant: :cons, head: {:head, [], nil}, tail: {:tail, [], nil}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:do_fold, [], [{:tail, [], nil}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :null]}], {0, {:state, [line: 24, column: 17], nil}}]}]
+    warning: unused import BenBen
     │
- 21 │         fold tree do
-    │         ~~~~~~~~~~~~
+  3 │   import BenBen
+    │   ~
     │
-    └─ test/sum_of_tree_test.exs:21: SumOfTreeTest."test fold operations basic sum of tree"/1
+    └─ test/my_tree_test.exs:3:3
 
 
-17:18:13.858 [debug] Bend operation with var: :val, initial: 1
+08:00:04.611 [debug] Final quoted expression: {:do_fold, [], [{:list, [line: 17, column: 14], nil}, 0, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 18, column: 34], [[{:%{}, [], [variant: :cons, head: {:head, [], nil}, tail: {:tail, [], nil}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:do_fold, [], [{:tail, [], nil}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :null]}], {0, {:state, [line: 24, column: 17], nil}}]}]]]}]}]}]}
 
-17:18:13.858 [debug] Fork operation with expression: {:+, [line: 16, column: 43], [{:val, [line: 16, column: 39], nil}, 1]}
+08:00:04.611 [debug] Bend operation with var: :val, initial: 0
 
-17:18:13.859 [debug] Fold expression: {:list, [line: 17, column: 14], nil}, opts: [with: 0], cases: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
-
-17:18:13.859 [debug] Extracting cases from list: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
-
-17:18:13.859 [debug] Extracted fold cases: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
-
-17:18:13.860 [debug] Generating fold cases: [{:->, [line: 18, column: 34], [[{:case, [line: 18, column: 11], [{:cons, [line: 18, column: 16], [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:null, [line: 23, column: 16], []}]}], {0, {:state, [line: 24, column: 17], nil}}]}]
-
-17:18:13.860 [debug] Generating pattern match for :cons with args: [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]
-
-17:18:13.860 [debug] Extracting bindings from args: [{:head, [line: 18, column: 21], nil}, {:tail, [line: 18, column: 27], nil}]
-
-17:18:13.860 [debug] Transforming recursive refs in body: {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]} with bindings: [head: {:head, [], nil}, tail: {:tail, [], nil}], state: 0
-
-17:18:13.860 [debug] Processing recursive reference: {:recu, [line: 19, column: 39], [{:tail, [line: 19, column: 44], nil}]}
-
-17:18:13.860 [debug] Transformed recursive reference to: {:do_fold, [], [{:tail, [], nil}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
-
-17:18:13.860 [debug] Generating pattern match for :null with args: []
-
-17:18:13.860 [debug] Extracting bindings from args: []
-
-17:18:13.860 [debug] Transforming recursive refs in body: {0, {:state, [line: 24, column: 17], nil}} with bindings: [], state: 0
-
-17:18:13.860 [debug] Bend operation with var: :val, initial: 0
-
-17:18:13.860 [debug] Generated fold cases after transformation: [{:->, [line: 18, column: 34], [[{:%{}, [], [variant: :cons, head: {:head, [], nil}, tail: {:tail, [], nil}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:do_fold, [], [{:tail, [], nil}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :null]}], {0, {:state, [line: 24, column: 17], nil}}]}]
-
-17:18:13.860 [debug] Fork operation with expression: {:+, [line: 16, column: 43], [{:val, [line: 16, column: 39], nil}, 1]}
-
-17:18:13.860 [debug] Fork operation with expression: {:+, [line: 16, column: 58], [{:val, [line: 16, column: 54], nil}, 1]}
-
-17:18:13.860 [debug] Final quoted expression: {:do_fold, [], [{:list, [line: 17, column: 14], nil}, 0, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 18, column: 34], [[{:%{}, [], [variant: :cons, head: {:head, [], nil}, tail: {:tail, [], nil}]}], {:__block__, [line: 11], [{:=, [line: 19, column: 37], [{{:tail_value, [line: 19, column: 14], nil}, {:new_state, [line: 19, column: 26], nil}}, {:do_fold, [], [{:tail, [], nil}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:=, [line: 20, column: 21], [{:new_sum, [line: 20, column: 13], nil}, {:+, [line: 20, column: 28], [{:head, [line: 20, column: 23], nil}, {:tail_value, [line: 20, column: 30], nil}]}]}, {{:head, [line: 21, column: 14], nil}, {:new_sum, [line: 21, column: 20], nil}}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :null]}], {0, {:state, [line: 24, column: 17], nil}}]}]]]}]}]}]}
+08:00:04.612 [debug] Fork operation with expression: {:+, [line: 16, column: 43], [{:val, [line: 16, column: 39], nil}, 1]}
     warning: variable "new_state" is unused (if the variable is not meant to be used, prefix it with an underscore)
     │
  19 │             {tail_value, new_state} = recu(tail)
@@ -289,199 +405,817 @@ Running ExUnit with seed: 813922, max_cases: 48
     └─ test/fold_with_state_test.exs:19:26: FoldWithStateTest."test fold operations fold with state"/1
 
 
-17:18:13.890 [debug] Executing bend with initial: 0
+08:00:04.612 [debug] Fork operation with expression: {:+, [line: 16, column: 58], [{:val, [line: 16, column: 54], nil}, 1]}
 
-17:18:13.890 [debug] Executing bend with initial: 1
+08:00:04.612 [debug] Fold expression: {:tree, [line: 21, column: 14], nil}, opts: [], cases: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
 
-17:18:13.890 [debug] Executing bend with initial: 1
+08:00:04.612 [debug] Extracting cases from list: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
 
-17:18:13.892 [debug] Executing bend with initial: 1
+08:00:04.613 [debug] Extracted fold cases: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
 
-17:18:13.892 [debug] Executing bend with initial: 1
+08:00:04.613 [debug] Generating fold cases: [{:->, [line: 22, column: 40], [[{:case, [line: 22, column: 11], [{:node, [line: 22, column: 16], [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]}]}, {:->, [line: 23, column: 24], [[{:case, [line: 23, column: 11], [{:leaf, [line: 23, column: 16], []}]}], 0]}]
 
-17:18:13.892 [debug] Executing bend with initial: 2
+08:00:04.613 [debug] Generating pattern match for :node with args: [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]
 
-17:18:13.894 [debug] do_fold called with data: %{id: 1, value: 10, edges: 2, variant: :vertex}, state: nil
+08:00:04.613 [debug] Extracting bindings from args: [{:val, [line: 22, column: 21], nil}, {:left, [line: 22, column: 26], nil}, {:right, [line: 22, column: 32], nil}]
 
-17:18:13.894 [debug] Processing recursive fields of: %{id: 1, value: 10, edges: 2, variant: :vertex}
+08:00:04.613 [debug] Transforming recursive refs in body: {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}]}, {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}]} with bindings: [val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}], state: nil
 
-17:18:13.894 [debug] do_fold called with non-variant data: 1
+08:00:04.613 [debug] Processing recursive reference: {:recu, [line: 22, column: 49], [{:left, [line: 22, column: 54], nil}]}
 
-17:18:13.894 [debug] Non-variant field id result: 1
+08:00:04.613 [debug] Transformed recursive reference to: {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 10
+08:00:04.613 [debug] Processing recursive reference: {:recu, [line: 22, column: 62], [{:right, [line: 22, column: 67], nil}]}
 
-17:18:13.894 [debug] Non-variant field value result: 10
+08:00:04.613 [debug] Transformed recursive reference to: {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 2
+08:00:04.613 [debug] Generating pattern match for :leaf with args: []
 
-17:18:13.894 [debug] Non-variant field edges result: 2
+08:00:04.613 [debug] Extracting bindings from args: []
 
-17:18:13.894 [debug] After processing fields - processed: %{id: 1, value: 10, edges: 2, variant: :vertex}, intermediate_state: nil
+08:00:04.613 [debug] Transforming recursive refs in body: 0 with bindings: [], state: nil
 
-17:18:13.894 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 3, variant: :node}, val: 1, variant: :node}, state: nil
+08:00:04.613 [debug] Generated fold cases after transformation: [{:->, [line: 22, column: 40], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :leaf]}], 0]}]
 
-17:18:13.894 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 3, variant: :node}, val: 1, variant: :node}
+08:00:04.613 [debug] Final quoted expression: {:do_fold, [], [{:tree, [line: 21, column: 14], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 22, column: 40], [[{:%{}, [], [variant: :node, val: {:val, [], nil}, left: {:left, [], nil}, right: {:right, [], nil}]}], {:+, [line: 22, column: 60], [{:+, [line: 22, column: 47], [{:val, [line: 22, column: 43], nil}, {:do_fold, [], [{:left, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}, {:do_fold, [], [{:right, [], nil}, nil, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}]}]}]}, {:->, [line: 23, column: 24], [[{:%{}, [], [variant: :leaf]}], 0]}]]]}]}]}]}
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 21 │         fold tree do
+    │         ~~~~~~~~~~~~
+    │
+    └─ test/sum_of_tree_test.exs:21: SumOfTreeTest."test fold operations basic sum of tree"/1
 
-17:18:13.894 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 2, variant: :node}, state: nil
 
-17:18:13.894 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 2, variant: :node}
+08:00:04.640 [debug] Bend initial value: 1
 
-17:18:13.894 [debug] do_fold called with data: %{variant: :leaf}, state: nil
+08:00:04.640 [debug] Executing bend with initial: 1
 
-17:18:13.894 [debug] Terminal case result: 0
+08:00:04.640 [debug] Executing fun with value: 1
 
-17:18:13.894 [debug] Recursive field result for left: 0
+08:00:04.640 [debug] Evaluating bend block with value: 1
 
-17:18:13.894 [debug] do_fold called with data: %{variant: :leaf}, state: nil
+08:00:04.640 [debug] Bend initial value: 1
 
-17:18:13.894 [debug] Terminal case result: 0
+08:00:04.640 [debug] Executing bend with initial: 1
 
-17:18:13.894 [debug] Recursive field result for right: 0
+08:00:04.640 [debug] Executing fun with value: 1
 
-17:18:13.894 [debug] do_fold called with non-variant data: 2
+08:00:04.640 [debug] Evaluating bend block with value: 1
 
-17:18:13.894 [debug] Non-variant field val result: 2
+08:00:04.640 [debug] Block returned: {:fork, 2}
 
-17:18:13.894 [debug] After processing fields - processed: %{left: 0, right: 0, val: 2, variant: :node}, intermediate_state: nil
+08:00:04.640 [debug] Fun returned result: {:fork, 2}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 0
+08:00:04.641 [debug] Returning other value: {:fork, 2}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 0
+08:00:04.641 [debug] do_bend final result: {:fork, 2}
 
-17:18:13.894 [debug] Final result after fun: 2 with intermediate_state: nil
+08:00:04.641 [debug] Final bend result: {:fork, 2}
 
-17:18:13.894 [debug] Recursive field result for left: 2
+08:00:04.641 [debug] Block returned: %{id: 1, value: 10, edges: {:fork, 2}, variant: :vertex}
 
-17:18:13.894 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 3, variant: :node}, state: nil
+08:00:04.642 [debug] Fun returned result: %{id: 1, value: 10, edges: {:fork, 2}, variant: :vertex}
 
-17:18:13.894 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 3, variant: :node}
+08:00:04.642 [debug] Processing constructed value: %{id: 1, value: 10, edges: {:fork, 2}, variant: :vertex}
 
-17:18:13.894 [debug] do_fold called with data: %{variant: :leaf}, state: nil
+08:00:04.642 [debug] Executing bend with initial: 2
 
-17:18:13.894 [debug] Terminal case result: 0
+08:00:04.642 [debug] Executing fun with value: 2
 
-17:18:13.894 [debug] Recursive field result for left: 0
+08:00:04.642 [debug] Evaluating bend block with value: 2
 
-17:18:13.894 [debug] do_fold called with data: %{variant: :leaf}, state: nil
+08:00:04.642 [debug] Bend initial value: 1
 
-17:18:13.894 [debug] Terminal case result: 0
+08:00:04.642 [debug] Executing bend with initial: 1
 
-17:18:13.894 [debug] Recursive field result for right: 0
+08:00:04.642 [debug] Executing fun with value: 1
 
-17:18:13.894 [debug] do_fold called with non-variant data: 3
+08:00:04.642 [debug] Evaluating bend block with value: 1
 
-17:18:13.894 [debug] Non-variant field val result: 3
+08:00:04.642 [debug] Block returned: %{variant: :edge, to_id: 1, weight: 3}
 
-17:18:13.894 [debug] After processing fields - processed: %{left: 0, right: 0, val: 3, variant: :node}, intermediate_state: nil
+08:00:04.642 [debug] Fun returned result: %{variant: :edge, to_id: 1, weight: 3}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 0
+08:00:04.642 [debug] Processing constructed value: %{variant: :edge, to_id: 1, weight: 3}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 0
+08:00:04.642 [debug] do_bend final result: %{variant: :edge, to_id: 1, weight: 3}
 
-17:18:13.894 [debug] Final result after fun: 3 with intermediate_state: nil
+08:00:04.642 [debug] Final bend result: %{variant: :edge, to_id: 1, weight: 3}
 
-17:18:13.894 [debug] Recursive field result for right: 3
+08:00:04.642 [debug] Block returned: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 1
+08:00:04.642 [debug] Fun returned result: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
 
-17:18:13.894 [debug] Non-variant field val result: 1
+08:00:04.642 [debug] Processing constructed value: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
 
-17:18:13.894 [debug] After processing fields - processed: %{left: 2, right: 3, val: 1, variant: :node}, intermediate_state: nil
+08:00:04.642 [debug] do_bend final result: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 2
+08:00:04.642 [debug] do_bend final result: %{id: 1, value: 10, edges: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}, variant: :vertex}
 
-17:18:13.894 [debug] do_fold called with non-variant data: 3
+08:00:04.642 [debug] Final bend result: %{id: 1, value: 10, edges: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}, variant: :vertex}
 
-17:18:13.894 [debug] Final result after fun: 6 with intermediate_state: nil
+08:00:04.642 [debug] do_fold called with data: %{id: 1, value: 10, edges: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}, variant: :vertex}, state: nil
 
-17:18:13.894 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, state: 0
+08:00:04.642 [debug] Processing recursive fields of: %{id: 1, value: 10, edges: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}, variant: :vertex}
 
-17:18:13.894 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+08:00:04.642 [debug] do_fold called with non-variant data: 1
 
-17:18:13.894 [debug] do_fold called with non-variant data: 1
+08:00:04.642 [debug] Non-variant field id result: 1
 
-17:18:13.894 [debug] Non-variant field head result: {1, 0}
+08:00:04.642 [debug] do_fold called with non-variant data: 10
 
-17:18:13.894 [debug] do_fold called with data: %{head: 2, tail: %{variant: :null}, variant: :cons}, state: 0
+08:00:04.642 [debug] Non-variant field value result: 10
 
-17:18:13.894 [debug] Processing recursive fields of: %{head: 2, tail: %{variant: :null}, variant: :cons}
+08:00:04.642 [debug] do_fold called with data: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}, state: nil
 
-17:18:13.894 [debug] do_fold called with non-variant data: 2
+08:00:04.642 [debug] Processing recursive fields of: %{id: 2, value: 20, edges: %{variant: :edge, to_id: 1, weight: 3}, variant: :vertex}
 
-17:18:13.894 [debug] Non-variant field head result: {2, 0}
+08:00:04.642 [debug] do_fold called with non-variant data: 2
 
-17:18:13.894 [debug] do_fold called with data: %{variant: :null}, state: 0
+08:00:04.642 [debug] Non-variant field id result: 2
 
-17:18:13.895 [debug] Terminal case result: {0, 0}
+08:00:04.642 [debug] do_fold called with non-variant data: 20
 
-17:18:13.895 [debug] Recursive field result for tail: {0, 0}
+08:00:04.642 [debug] Non-variant field value result: 20
 
-17:18:13.895 [debug] After processing fields - processed: %{head: 2, tail: 0, variant: :cons}, intermediate_state: 0
+08:00:04.642 [debug] do_fold called with data: %{variant: :edge, to_id: 1, weight: 3}, state: nil
 
-17:18:13.895 [debug] do_fold called with non-variant data: 0
+08:00:04.642 [debug] Processing recursive fields of: %{variant: :edge, to_id: 1, weight: 3}
 
-17:18:13.895 [debug] Final result after fun: {2, 2} with intermediate_state: 0
+08:00:04.642 [debug] do_fold called with non-variant data: 1
 
-17:18:13.895 [debug] Recursive field result for tail: {2, 2}
+08:00:04.642 [debug] Non-variant field to_id result: 1
 
-17:18:13.895 [debug] After processing fields - processed: %{head: 1, tail: 2, variant: :cons}, intermediate_state: 2
+08:00:04.642 [debug] do_fold called with non-variant data: 3
 
-17:18:13.895 [debug] do_fold called with non-variant data: 2
+08:00:04.642 [debug] Non-variant field weight result: 3
 
-17:18:13.895 [debug] Final result after fun: {1, 3} with intermediate_state: 2
+08:00:04.642 [debug] After processing fields - processed: %{variant: :edge, to_id: 1, weight: 3}, intermediate_state: nil
 
-17:18:13.895 [debug] Executing bend with initial: 0
+08:00:04.644 [debug] Bend initial value: 0
 
-17:18:13.895 [debug] Executing bend with initial: 1
+08:00:04.644 [debug] Executing bend with initial: 0
 
-17:18:13.895 [debug] Executing bend with initial: 1
+08:00:04.644 [debug] Executing fun with value: 0
 
-17:18:13.895 [debug] Executing bend with initial: 1
+08:00:04.644 [debug] Evaluating bend block with value: 0
 
-17:18:13.895 [debug] Executing bend with initial: 2
+08:00:04.644 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, val: 0, variant: :node}
 
+08:00:04.644 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, val: 0, variant: :node}
 
-  1) test my example tree creation and summing (MyTreeTest)
-     test/my_tree_test.exs:6
-     ** (KeyError) key :id not found in: %{left: 1, right: 1, val: 0, variant: :node}
-     code: assert tree.id == 0
-     stacktrace:
-       test/my_tree_test.exs:11: (test)
+08:00:04.644 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, val: 0, variant: :node}
 
+08:00:04.644 [debug] Executing bend with initial: 1
 
+08:00:04.644 [debug] Executing fun with value: 1
 
-  2) test my example graph creation and summing (MyGraphTest)
+08:00:04.644 [debug] Evaluating bend block with value: 1
+
+08:00:04.644 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, val: 1, variant: :node}
+
+08:00:04.644 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, val: 1, variant: :node}
+
+08:00:04.644 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, val: 1, variant: :node}
+
+08:00:04.644 [debug] Executing bend with initial: 2
+
+08:00:04.644 [debug] Executing fun with value: 2
+
+08:00:04.644 [debug] Evaluating bend block with value: 2
+
+08:00:04.644 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, val: 2, variant: :node}
+
+08:00:04.644 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, val: 2, variant: :node}
+
+08:00:04.644 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, val: 2, variant: :node}
+
+08:00:04.644 [debug] Executing bend with initial: 3
+
+08:00:04.645 [debug] Executing fun with value: 3
+
+08:00:04.645 [debug] Evaluating bend block with value: 3
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 4}, right: {:fork, 4}, val: 3, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 4}, right: {:fork, 4}, val: 3, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 4}, right: {:fork, 4}, val: 3, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 4
+
+08:00:04.645 [debug] Executing fun with value: 4
+
+08:00:04.645 [debug] Evaluating bend block with value: 4
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 5}, right: {:fork, 5}, val: 4, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 5}, right: {:fork, 5}, val: 4, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 5}, right: {:fork, 5}, val: 4, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 5
+
+08:00:04.645 [debug] Executing fun with value: 5
+
+08:00:04.645 [debug] Evaluating bend block with value: 5
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 6}, right: {:fork, 6}, val: 5, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 6
+
+08:00:04.645 [debug] Executing fun with value: 6
+
+08:00:04.645 [debug] Evaluating bend block with value: 6
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 7
+
+08:00:04.645 [debug] Executing fun with value: 7
+
+08:00:04.645 [debug] Evaluating bend block with value: 7
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 8
+
+08:00:04.645 [debug] Executing fun with value: 8
+
+08:00:04.645 [debug] Evaluating bend block with value: 8
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 9
+
+08:00:04.645 [debug] Executing fun with value: 9
+
+08:00:04.645 [debug] Evaluating bend block with value: 9
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 10
+
+08:00:04.645 [debug] Executing fun with value: 10
+
+08:00:04.645 [debug] Evaluating bend block with value: 10
+
+08:00:04.645 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.645 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.645 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.645 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.645 [debug] Executing bend with initial: 10
+
+08:00:04.645 [debug] Executing fun with value: 10
+
+08:00:04.645 [debug] Evaluating bend block with value: 10
+
+08:00:04.645 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.645 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.645 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.645 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.645 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 9
+
+08:00:04.645 [debug] Executing fun with value: 9
+
+08:00:04.645 [debug] Evaluating bend block with value: 9
+
+08:00:04.645 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.645 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.645 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 10
+
+08:00:04.645 [debug] Executing fun with value: 10
+
+08:00:04.645 [debug] Evaluating bend block with value: 10
+
+08:00:04.645 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.645 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.645 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.645 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.645 [debug] Executing bend with initial: 10
+
+08:00:04.645 [debug] Executing fun with value: 10
+
+08:00:04.645 [debug] Evaluating bend block with value: 10
+
+08:00:04.645 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.645 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.645 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.645 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.645 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.645 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:04.645 [debug] Executing bend with initial: 8
+
+08:00:04.646 [debug] Executing fun with value: 8
+
+08:00:04.646 [debug] Evaluating bend block with value: 8
+
+08:00:04.646 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.646 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.646 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.646 [debug] Executing bend with initial: 9
+
+08:00:04.646 [debug] Executing fun with value: 9
+
+08:00:04.646 [debug] Evaluating bend block with value: 9
+
+08:00:04.646 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.646 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.646 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.646 [debug] Executing bend with initial: 10
+
+08:00:04.646 [debug] Executing fun with value: 10
+
+08:00:04.646 [debug] Evaluating bend block with value: 10
+
+08:00:04.646 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.646 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.646 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.646 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.646 [debug] Executing bend with initial: 10
+
+08:00:04.646 [debug] Executing fun with value: 10
+
+08:00:04.646 [debug] Evaluating bend block with value: 10
+
+08:00:04.646 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.646 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.646 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.646 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.646 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.646 [debug] Executing bend with initial: 9
+
+08:00:04.646 [debug] Executing fun with value: 9
+
+08:00:04.646 [debug] Evaluating bend block with value: 9
+
+08:00:04.646 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.646 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.646 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.646 [debug] Executing bend with initial: 10
+
+08:00:04.646 [debug] Executing fun with value: 10
+
+08:00:04.646 [debug] Evaluating bend block with value: 10
+
+08:00:04.646 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.646 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.646 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.646 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.646 [debug] Executing bend with initial: 10
+
+08:00:04.646 [debug] Executing fun with value: 10
+
+08:00:04.646 [debug] Evaluating bend block with value: 10
+
+08:00:04.646 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.646 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.646 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.646 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.646 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.646 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:04.646 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}
+
+08:00:04.646 [debug] Executing bend with initial: 7
+
+08:00:04.646 [debug] Executing fun with value: 7
+
+08:00:04.646 [debug] Evaluating bend block with value: 7
+
+08:00:04.646 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.646 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.646 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.646 [debug] Executing bend with initial: 8
+
+08:00:04.646 [debug] Executing fun with value: 8
+
+08:00:04.646 [debug] Evaluating bend block with value: 8
+
+08:00:04.646 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.646 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.646 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.646 [debug] Executing bend with initial: 9
+
+08:00:04.646 [debug] Executing fun with value: 9
+
+08:00:04.646 [debug] Evaluating bend block with value: 9
+
+
+
+08:00:04.646 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+  1) test my example graph creation and summing (MyGraphTest)
      test/my_graph_test.exs:6
-     ** (CaseClauseError) no case clause matching: %{id: 1, value: 10, edges: 2, variant: :vertex}
+     ** (CaseClauseError) no case clause matching: %{variant: :edge, to_id: 1, weight: 3}
      code: total = MyGraph.sum(graph)
      stacktrace:
        (ben_ben 0.1.0) lib/examples/my_graph.ex:13: anonymous fn/2 in MyGraph.sum/1
        (ben_ben 0.1.0) lib/ben_ben.ex:234: BenBen.do_fold/3
+       (ben_ben 0.1.0) lib/ben_ben.ex:275: anonymous fn/3 in BenBen.process_recursive_fields/3
+       (elixir 1.18.1) lib/enum.ex:2546: Enum."-reduce/3-lists^foldl/2-0-"/3
+       (ben_ben 0.1.0) lib/ben_ben.ex:227: BenBen.do_fold/3
+       (ben_ben 0.1.0) lib/ben_ben.ex:275: anonymous fn/3 in BenBen.process_recursive_fields/3
+       (elixir 1.18.1) lib/enum.ex:2546: Enum."-reduce/3-lists^foldl/2-0-"/3
+       (ben_ben 0.1.0) lib/ben_ben.ex:227: BenBen.do_fold/3
        test/my_graph_test.exs:15: (test)
 
-...
 
-  3) test bend operations creates binary tree of specified depth (CreateBinaryTreeTest)
-     test/create_binary_tree_test.exs:12
-     ** (KeyError) key :val not found in: 1
+08:00:04.646 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
 
-     If you are using the dot syntax, such as map.field, make sure the left-hand side of the dot is a map
-     code: assert tree.left.val == 1
-     stacktrace:
-       test/create_binary_tree_test.exs:25: (test)
+08:00:04.646 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
 
+08:00:04.646 [debug] Executing bend with initial: 10
 
+08:00:04.647 [debug] Executing fun with value: 10
 
-  4) test bend operations creates linked list (CreateLinkedListTest)
-     test/create_linked_list_test.exs:12
-     ** (KeyError) key :head not found in: 2
+08:00:04.647 [debug] Evaluating bend block with value: 10
 
-     If you are using the dot syntax, such as map.field, make sure the left-hand side of the dot is a map
-     code: assert list.tail.head == 2
-     stacktrace:
-       test/create_linked_list_test.exs:25: (test)
+08:00:04.647 [debug] Block returned: %{variant: :leaf}
 
+08:00:04.647 [debug] Fun returned result: %{variant: :leaf}
 
-Finished in 0.06 seconds (0.00s async, 0.06s sync)
-7 tests, 4 failures
+08:00:04.647 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.647 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.647 [debug] Executing bend with initial: 10
+
+08:00:04.647 [debug] Executing fun with value: 10
+
+08:00:04.647 [debug] Evaluating bend block with value: 10
+
+08:00:04.647 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.647 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.647 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.647 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.647 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.647 [debug] Executing bend with initial: 9
+
+08:00:04.647 [debug] Executing fun with value: 9
+
+08:00:04.647 [debug] Evaluating bend block with value: 9
+
+08:00:04.647 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.647 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.647 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.647 [debug] Executing bend with initial: 10
+
+08:00:04.647 [debug] Executing fun with value: 10
+
+08:00:04.647 [debug] Evaluating bend block with value: 10
+
+08:00:04.647 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.647 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.647 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.647 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.647 [debug] Executing bend with initial: 10
+
+08:00:04.647 [debug] Executing fun with value: 10
+
+08:00:04.647 [debug] Evaluating bend block with value: 10
+
+08:00:04.647 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.647 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.647 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.647 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.647 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.647 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:04.647 [debug] Executing bend with initial: 8
+
+08:00:04.648 [debug] Executing fun with value: 8
+
+08:00:04.648 [debug] Evaluating bend block with value: 8
+
+08:00:04.648 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.648 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.648 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.648 [debug] Executing bend with initial: 9
+
+08:00:04.648 [debug] Executing fun with value: 9
+
+08:00:04.648 [debug] Evaluating bend block with value: 9
+
+08:00:04.648 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.648 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.648 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.648 [debug] Executing bend with initial: 10
+
+08:00:04.648 [debug] Executing fun with value: 10
+
+08:00:04.648 [debug] Evaluating bend block with value: 10
+
+08:00:04.648 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.648 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.648 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.648 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.648 [debug] Executing bend with initial: 10
+
+08:00:04.648 [debug] Executing fun with value: 10
+
+08:00:04.648 [debug] Evaluating bend block with value: 10
+
+08:00:04.648 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.648 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.648 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.648 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.648 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.648 [debug] Executing bend with initial: 9
+
+08:00:04.648 [debug] Executing fun with value: 9
+
+08:00:04.648 [debug] Evaluating bend block with value: 9
+
+08:00:04.648 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.648 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.648 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.648 [debug] Executing bend with initial: 10
+
+08:00:04.648 [debug] Executing fun with value: 10
+
+08:00:04.648 [debug] Evaluating bend block with value: 10
+
+08:00:04.648 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.648 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.648 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.648 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.648 [debug] Executing bend with initial: 10
+
+08:00:04.648 [debug] Executing fun with value: 10
+
+08:00:04.648 [debug] Evaluating bend block with value: 10
+
+08:00:04.648 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.648 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.648 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.648 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.648 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.648 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:04.648 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}
+
+08:00:04.649 [debug] do_bend final result: %{left: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, right: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}, val: 7, variant: :node}, val: 6, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 6
+
+08:00:04.649 [debug] Executing fun with value: 6
+
+08:00:04.649 [debug] Evaluating bend block with value: 6
+
+08:00:04.649 [debug] Block returned: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:04.649 [debug] Fun returned result: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:04.649 [debug] Processing constructed value: %{left: {:fork, 7}, right: {:fork, 7}, val: 6, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 7
+
+08:00:04.649 [debug] Executing fun with value: 7
+
+08:00:04.649 [debug] Evaluating bend block with value: 7
+
+08:00:04.649 [debug] Block returned: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.649 [debug] Fun returned result: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.649 [debug] Processing constructed value: %{left: {:fork, 8}, right: {:fork, 8}, val: 7, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 8
+
+08:00:04.649 [debug] Executing fun with value: 8
+
+08:00:04.649 [debug] Evaluating bend block with value: 8
+
+08:00:04.649 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.649 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.649 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 9
+
+08:00:04.649 [debug] Executing fun with value: 9
+
+08:00:04.649 [debug] Evaluating bend block with value: 9
+
+08:00:04.649 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.649 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.649 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 10
+
+08:00:04.649 [debug] Executing fun with value: 10
+
+08:00:04.649 [debug] Evaluating bend block with value: 10
+
+08:00:04.649 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.649 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.649 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.649 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.649 [debug] Executing bend with initial: 10
+
+08:00:04.649 [debug] Executing fun with value: 10
+
+08:00:04.649 [debug] Evaluating bend block with value: 10
+
+08:00:04.649 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.649 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.649 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.649 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.649 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 9
+
+08:00:04.649 [debug] Executing fun with value: 9
+
+08:00:04.649 [debug] Evaluating bend block with value: 9
+
+08:00:04.649 [debug] Block returned: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.649 [debug] Fun returned result: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.649 [debug] Processing constructed value: %{left: {:fork, 10}, right: {:fork, 10}, val: 9, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 10
+
+08:00:04.649 [debug] Executing fun with value: 10
+
+08:00:04.649 [debug] Evaluating bend block with value: 10
+
+08:00:04.649 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.649 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.649 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.649 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.649 [debug] Executing bend with initial: 10
+
+08:00:04.649 [debug] Executing fun with value: 10
+
+08:00:04.649 [debug] Evaluating bend block with value: 10
+
+08:00:04.649 [debug] Block returned: %{variant: :leaf}
+
+08:00:04.649 [debug] Fun returned result: %{variant: :leaf}
+
+08:00:04.649 [debug] Processing constructed value: %{variant: :leaf}
+
+08:00:04.649 [debug] do_bend final result: %{variant: :leaf}
+
+08:00:04.649 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}
+
+08:00:04.649 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, val: 9, variant: :node}, val: 8, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 8
+
+08:00:04.649 [debug] Executing fun with value: 8
+
+08:00:04.649 [debug] Evaluating bend block with value: 8
+
+08:00:04.649 [debug] Block returned: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.649 [debug] Fun returned result: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.649 [debug] Processing constructed value: %{left: {:fork, 9}, right: {:fork, 9}, val: 8, variant: :node}
+
+08:00:04.649 [debug] Executing bend with initial: 9
+
+08:00:04.650 [debug] Executing fun with value: 9
+
+08:00:04.650 [debug] Evaluating bend block with value: 9
+......
+Finished in 0.3 seconds (0.00s async, 0.3s sync)
+7 tests, 1 failure

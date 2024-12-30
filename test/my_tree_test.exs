@@ -8,14 +8,13 @@ defmodule MyTreeTest do
 
       # Verify structure
       assert tree.variant == :node
-      assert tree.id == 0
-      assert tree.value == 0
+      assert tree.val == 0
 
       # Calculate sum
       total = MyTree.sum(tree)
 
       # The sum should be more than zero
-      assert total > 0
+      assert total == 8194
     end
   end
 end

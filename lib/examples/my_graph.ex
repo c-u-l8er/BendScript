@@ -1,6 +1,6 @@
-import BenBen
-
 defmodule MyGraph do
+  import BenBen
+
   deftype MyGraph do
     # edges is recursive reference
     vertex(id, value, recu(edges))
