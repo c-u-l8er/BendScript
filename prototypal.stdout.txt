@@ -1,0 +1,425 @@
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp generate_fold_cases/2" was previously defined (lib/ben_ben.ex:134)
+     │
+ 171 │   defp generate_fold_cases({:__block__, _meta, cases}, state) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:171:8
+
+     warning: variable "other" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 374 │           other ->
+     │           ~
+     │
+     └─ lib/ben_ben.ex:374:11: BenBen.process_constructed/2
+
+     warning: function generate_pattern_match/1 is unused
+     │
+ 225 │   defp generate_pattern_match({name, _, args}) when is_list(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:225:8: BenBen (module)
+
+     warning: function extract_bindings/1 is unused
+     │
+ 250 │   defp extract_bindings(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:250:8: BenBen (module)
+
+    warning: variable "id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 10 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_tree.ex:10: MyTree.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 19 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:19: Prototypal.get_property/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 73 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:73: Prototypal.inspect_object/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 87 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:87: Prototypal.debug_chain/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 26 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/tree_operations.ex:26: TreeOperations.map_tree/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 38 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/tree_operations.ex:38: TreeOperations.filter_tree/2
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 128 │     fold tree do
+     │     ~~~~~~~~~~~~
+     │
+     └─ lib/examples/tree_operations.ex:128: TreeOperations.collect_values/1
+
+    warning: function merge_with_level_increment/2 is unused
+    │
+ 80 │   defp merge_with_level_increment(left_counts, right_counts) do
+    │        ~
+    │
+    └─ lib/examples/tree_operations.ex:80:8: TreeOperations (module)
+
+    warning: function merge_counts/2 is unused
+    │
+ 75 │   defp merge_counts(left_counts, right_counts) do
+    │        ~
+    │
+    └─ lib/examples/tree_operations.ex:75:8: TreeOperations (module)
+
+Running ExUnit with seed: 78677, max_cases: 48
+
+    warning: unused import Prototypal
+    │
+  3 │   import Prototypal
+    │   ~
+    │
+    └─ test/prototypal_test.exs:3:3
+
+
+15:24:08.117 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}, variant_type: :object, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.118 [debug] Recursive field result for proto: nil
+
+15:24:08.118 [debug] do_fold called with non-variant data: nil
+
+15:24:08.118 [debug] Recursive field result for proto: nil
+
+15:24:08.118 [debug] do_fold called with non-variant data: nil
+
+15:24:08.118 [debug] Recursive field result for proto: nil
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}, variant_type: :object, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.118 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.118 [debug] Recursive field result for proto: nil
+
+15:24:08.118 [debug] Recursive field result for proto: "human"
+
+15:24:08.118 [debug] do_fold called with non-variant data: "human"
+
+15:24:08.118 [debug] Recursive field result for proto: "human"
+
+15:24:08.118 [debug] do_fold called with non-variant data: "human"
+
+15:24:08.118 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.119 [debug] Recursive field result for proto: nil
+
+15:24:08.119 [debug] do_fold called with non-variant data: nil
+
+15:24:08.119 [debug] Recursive field result for proto: nil
+
+15:24:08.119 [debug] Recursive field result for proto: "employee"
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.119 [debug] Recursive field result for proto: nil
+
+15:24:08.119 [debug] Recursive field result for proto: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>
+
+15:24:08.119 [debug] do_fold called with non-variant data: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>
+
+15:24:08.119 [debug] Recursive field result for proto: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>
+
+15:24:08.119 [debug] do_fold called with non-variant data: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}
+
+15:24:08.119 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.119 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] Recursive field result for proto: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>
+
+15:24:08.120 [debug] do_fold called with non-variant data: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer", skill: "Elixir"}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer", skill: "Elixir"}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, props: %{name: "John", role: "Developer"}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, props: %{role: "employee", work: #Function<0.74722073/0 in Prototypal.create_employee_prototype/1>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}, variant_type: :object, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{species: "human", greet: #Function<1.74722073/1 in Prototypal.create_person_prototype/0>}}
+
+15:24:08.120 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.120 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+.
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+
+15:24:08.120 [debug] Recursive field result for proto: nil
+
+15:24:08.120 [debug] do_fold called with non-variant data: nil
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.121 [debug] Recursive field result for proto: nil
+
+15:24:08.121 [debug] Recursive field result for proto: 1
+
+15:24:08.121 [debug] do_fold called with non-variant data: 1
+
+15:24:08.121 [debug] Recursive field result for proto: 1
+
+15:24:08.121 [debug] do_fold called with non-variant data: 1
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.121 [debug] Recursive field result for proto: nil
+
+15:24:08.121 [debug] do_fold called with non-variant data: nil
+
+15:24:08.121 [debug] Recursive field result for proto: nil
+
+15:24:08.121 [debug] Recursive field result for proto: 2
+
+15:24:08.121 [debug] do_fold called with non-variant data: 2
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.121 [debug] Recursive field result for proto: nil
+
+15:24:08.121 [debug] do_fold called with non-variant data: nil
+
+15:24:08.121 [debug] Recursive field result for proto: nil
+
+15:24:08.121 [debug] do_fold called with non-variant data: nil
+
+15:24:08.121 [debug] Recursive field result for proto: nil
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, props: %{c: 3}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}, variant_type: :object, state: nil
+
+15:24:08.121 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, props: %{b: 2}}
+
+15:24:08.121 [debug] do_fold called with data: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}, variant_type: :object, state: nil
+
+15:24:08.122 [debug] Processing recursive fields of: %{variant: :object, proto: %{variant: :null}, props: %{a: 1}}
+
+15:24:08.122 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+
+15:24:08.122 [debug] Processing recursive fields of: %{variant: :null}
+
+15:24:08.122 [debug] Recursive field result for proto: nil
+
+15:24:08.122 [debug] do_fold called with non-variant data: nil
+
+15:24:08.122 [debug] Recursive field result for proto: nil
+
+15:24:08.122 [debug] do_fold called with non-variant data: nil
+
+15:24:08.122 [debug] Recursive field result for proto: nil
+
+15:24:08.122 [debug] do_fold called with non-variant data: nil
+.
+Finished in 0.03 seconds (0.00s async, 0.03s sync)
+2 tests, 0 failures
