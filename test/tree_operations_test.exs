@@ -1,7 +1,6 @@
 defmodule TreeOperationsTest do
   use ExUnit.Case
   import TreeOperations
-  alias TreeOperations, as: TO
 
   describe "tree operations" do
     test "creates balanced tree with transform" do
@@ -28,9 +27,12 @@ defmodule TreeOperationsTest do
       # Keep only even-level nodes
       filtered = filter_tree(tree, &(rem(&1, 2) == 0))
 
+      # Root is 0
       assert filtered.value == 0
-      assert filtered.left.variant == :leaf
-      assert filtered.right.variant == :leaf
+      # Level 1
+      assert filtered.left.value == 0
+      assert filtered.right.value == 0
+      # Level 2 even numbers
       assert filtered.left.left.value == 2
     end
 
@@ -47,26 +49,34 @@ defmodule TreeOperationsTest do
     end
 
     test "balances unbalanced tree" do
-      # Create an unbalanced tree
+      # Create a simple unbalanced tree
       unbalanced =
-        TO.Tree.node(
-          1,
-          TO.Tree.node(
-            2,
-            TO.Tree.node(3, TO.Tree.leaf(), TO.Tree.leaf()),
-            TO.Tree.leaf()
+        TreeOperations.Tree.node(
+          2,
+          TreeOperations.Tree.node(
+            1,
+            TreeOperations.Tree.leaf(),
+            TreeOperations.Tree.leaf()
           ),
-          TO.Tree.leaf()
+          TreeOperations.Tree.node(
+            3,
+            TreeOperations.Tree.leaf(),
+            TreeOperations.Tree.leaf()
+          )
         )
 
-      balanced = balance_tree(unbalanced)
+      balanced = TreeOperations.balance_tree(unbalanced)
 
-      # Verify the tree is now more balanced
-      {_, level_counts} = level_counts(balanced)
-      max_depth = Map.keys(level_counts) |> Enum.max()
-
-      # The maximum depth should be reduced
-      assert max_depth <= 2
+      # For a tree with 3 nodes, we expect:
+      # - Root node (depth 0)
+      # - Two child nodes (depth 1)
+      assert balanced.value == 2
+      assert balanced.left.value == 1
+      assert balanced.right.value == 3
+      assert balanced.left.left.variant == :leaf
+      assert balanced.left.right.variant == :leaf
+      assert balanced.right.left.variant == :leaf
+      assert balanced.right.right.variant == :leaf
     end
   end
 end

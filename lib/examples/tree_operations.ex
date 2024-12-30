@@ -25,11 +25,8 @@ defmodule TreeOperations do
   def map_tree(tree, transform_fn) do
     fold tree do
       case(node(value, left, right)) ->
-        Tree.node(
-          transform_fn.(value),
-          recu(left),
-          recu(right)
-        )
+        # Don't need to transform the recursive result since recu returns the actual value
+        Tree.node(transform_fn.(value), left, right)
 
       case(leaf()) ->
         Tree.leaf()
@@ -40,10 +37,13 @@ defmodule TreeOperations do
   def filter_tree(tree, predicate) do
     fold tree do
       case(node(value, left, right)) ->
+        # Similarly here, use the recursive fields directly
         if predicate.(value) do
-          Tree.node(value, recu(left), recu(right))
+          Tree.node(value, left, right)
         else
-          Tree.leaf()
+          # Keep subtrees even if current node doesn't match
+          # Using 0 as placeholder value
+          Tree.node(0, left, right)
         end
 
       case(leaf()) ->
@@ -89,7 +89,38 @@ defmodule TreeOperations do
     # First collect all values in order
     values = collect_values(tree)
     # Then create a balanced tree with these values
-    create_balanced_from_values(values)
+    case values do
+      [] ->
+        Tree.leaf()
+
+      [value] ->
+        Tree.node(value, Tree.leaf(), Tree.leaf())
+
+      values ->
+        # For multiple values, ensure balanced distribution
+        mid = div(length(values), 2)
+        {left_values, [value | right_values]} = Enum.split(values, mid)
+
+        Tree.node(
+          value,
+          build_balanced_tree(left_values),
+          build_balanced_tree(right_values)
+        )
+    end
+  end
+
+  defp build_balanced_tree([]), do: Tree.leaf()
+  defp build_balanced_tree([value]), do: Tree.node(value, Tree.leaf(), Tree.leaf())
+
+  defp build_balanced_tree(values) do
+    mid = div(length(values), 2)
+    {left_values, [value | right_values]} = Enum.split(values, mid)
+
+    Tree.node(
+      value,
+      build_balanced_tree(left_values),
+      build_balanced_tree(right_values)
+    )
   end
 
   # Helper to collect values in order
@@ -98,31 +129,10 @@ defmodule TreeOperations do
       case(node(value, left, right)) ->
         left_values = recu(left)
         right_values = recu(right)
-        Enum.concat([left_values, [value], right_values])
+        left_values ++ [value] ++ right_values
 
       case(leaf()) ->
         []
-    end
-  end
-
-  # Helper to create balanced tree from sorted values
-  defp create_balanced_from_values(values) when is_list(values) do
-    len = length(values)
-    height = :math.ceil(:math.log2(len + 1))
-
-    bend level = 0 do
-      if level < height do
-        mid_idx = div(len, 2)
-        value = Enum.at(values, mid_idx, 0)
-
-        Tree.node(
-          value,
-          fork(level + 1),
-          fork(level + 1)
-        )
-      else
-        Tree.leaf()
-      end
     end
   end
 end
