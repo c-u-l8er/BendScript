@@ -1,0 +1,739 @@
+Compiling 1 file (.ex)
+
+16:22:26.798 [debug] Defining type {:__aliases__, [line: 4, column: 11], [:Graph]} with block: {:__block__, [], [{:graph, [line: 6, column: 5], [{:vertex_map, [line: 6, column: 11], nil}, {:recu, [line: 6, column: 23], [{:edge_list, [line: 6, column: 28], nil}]}, {:metadata, [line: 6, column: 40], nil}]}, {:vertex, [line: 7, column: 5], [{:vertex_id, [line: 7, column: 12], nil}, {:properties, [line: 7, column: 23], nil}, {:recu, [line: 7, column: 35], [{:adjacency, [line: 7, column: 40], nil}]}]}, {:edge, [line: 8, column: 5], [{:source_id, [line: 8, column: 10], nil}, {:target_id, [line: 8, column: 21], nil}, {:edge_weight, [line: 8, column: 32], nil}, {:edge_props, [line: 8, column: 45], nil}]}, {:empty, [line: 9, column: 5], []}]}
+
+16:22:26.799 [debug] Extracted variants: [{:graph, [line: 6, column: 5], [{:vertex_map, [line: 6, column: 11], nil}, {:recu, [line: 6, column: 23], [{:edge_list, [line: 6, column: 28], nil}]}, {:metadata, [line: 6, column: 40], nil}]}, {:vertex, [line: 7, column: 5], [{:vertex_id, [line: 7, column: 12], nil}, {:properties, [line: 7, column: 23], nil}, {:recu, [line: 7, column: 35], [{:adjacency, [line: 7, column: 40], nil}]}]}, {:edge, [line: 8, column: 5], [{:source_id, [line: 8, column: 10], nil}, {:target_id, [line: 8, column: 21], nil}, {:edge_weight, [line: 8, column: 32], nil}, {:edge_props, [line: 8, column: 45], nil}]}, {:empty, [line: 9, column: 5], []}]
+
+16:22:26.799 [debug] Generating constructors for variants: [{:graph, [line: 6, column: 5], [{:vertex_map, [line: 6, column: 11], nil}, {:recu, [line: 6, column: 23], [{:edge_list, [line: 6, column: 28], nil}]}, {:metadata, [line: 6, column: 40], nil}]}, {:vertex, [line: 7, column: 5], [{:vertex_id, [line: 7, column: 12], nil}, {:properties, [line: 7, column: 23], nil}, {:recu, [line: 7, column: 35], [{:adjacency, [line: 7, column: 40], nil}]}]}, {:edge, [line: 8, column: 5], [{:source_id, [line: 8, column: 10], nil}, {:target_id, [line: 8, column: 21], nil}, {:edge_weight, [line: 8, column: 32], nil}, {:edge_props, [line: 8, column: 45], nil}]}, {:empty, [line: 9, column: 5], []}]
+
+16:22:26.799 [debug] Processing variant: {:graph, [line: 6, column: 5], [{:vertex_map, [line: 6, column: 11], nil}, {:recu, [line: 6, column: 23], [{:edge_list, [line: 6, column: 28], nil}]}, {:metadata, [line: 6, column: 40], nil}]}
+
+16:22:26.799 [debug] Constructor: :graph, meta: [line: 6, column: 5], args: [{:vertex_map, [line: 6, column: 11], nil}, {:recu, [line: 6, column: 23], [{:edge_list, [line: 6, column: 28], nil}]}, {:metadata, [line: 6, column: 40], nil}]
+
+16:22:26.799 [debug] Extracting constructor args from: [{:vertex_map, [line: 6, column: 11], nil}, {:recu, [line: 6, column: 23], [{:edge_list, [line: 6, column: 28], nil}]}, {:metadata, [line: 6, column: 40], nil}]
+
+16:22:26.799 [debug] Found value arg: :vertex_map
+
+16:22:26.799 [debug] Found recursive arg: :edge_list
+
+16:22:26.799 [debug] Found value arg: :metadata
+
+16:22:26.799 [debug] Extracted arg_names: [:vertex_map, :edge_list, :metadata]
+
+16:22:26.799 [debug] Generated arg vars: [{:vertex_map, [], nil}, {:edge_list, [], nil}, {:metadata, [], nil}]
+
+16:22:26.799 [debug] Field pairs: [vertex_map: {:vertex_map, [], nil}, edge_list: {:edge_list, [], nil}, metadata: {:metadata, [], nil}]
+
+16:22:26.799 [debug] Processing variant: {:vertex, [line: 7, column: 5], [{:vertex_id, [line: 7, column: 12], nil}, {:properties, [line: 7, column: 23], nil}, {:recu, [line: 7, column: 35], [{:adjacency, [line: 7, column: 40], nil}]}]}
+
+16:22:26.799 [debug] Constructor: :vertex, meta: [line: 7, column: 5], args: [{:vertex_id, [line: 7, column: 12], nil}, {:properties, [line: 7, column: 23], nil}, {:recu, [line: 7, column: 35], [{:adjacency, [line: 7, column: 40], nil}]}]
+
+16:22:26.799 [debug] Extracting constructor args from: [{:vertex_id, [line: 7, column: 12], nil}, {:properties, [line: 7, column: 23], nil}, {:recu, [line: 7, column: 35], [{:adjacency, [line: 7, column: 40], nil}]}]
+
+16:22:26.799 [debug] Found value arg: :vertex_id
+
+16:22:26.799 [debug] Found value arg: :properties
+
+16:22:26.799 [debug] Found recursive arg: :adjacency
+
+16:22:26.799 [debug] Extracted arg_names: [:vertex_id, :properties, :adjacency]
+
+16:22:26.799 [debug] Generated arg vars: [{:vertex_id, [], nil}, {:properties, [], nil}, {:adjacency, [], nil}]
+
+16:22:26.799 [debug] Field pairs: [vertex_id: {:vertex_id, [], nil}, properties: {:properties, [], nil}, adjacency: {:adjacency, [], nil}]
+
+16:22:26.799 [debug] Processing variant: {:edge, [line: 8, column: 5], [{:source_id, [line: 8, column: 10], nil}, {:target_id, [line: 8, column: 21], nil}, {:edge_weight, [line: 8, column: 32], nil}, {:edge_props, [line: 8, column: 45], nil}]}
+
+16:22:26.799 [debug] Constructor: :edge, meta: [line: 8, column: 5], args: [{:source_id, [line: 8, column: 10], nil}, {:target_id, [line: 8, column: 21], nil}, {:edge_weight, [line: 8, column: 32], nil}, {:edge_props, [line: 8, column: 45], nil}]
+
+16:22:26.799 [debug] Extracting constructor args from: [{:source_id, [line: 8, column: 10], nil}, {:target_id, [line: 8, column: 21], nil}, {:edge_weight, [line: 8, column: 32], nil}, {:edge_props, [line: 8, column: 45], nil}]
+
+16:22:26.799 [debug] Found value arg: :source_id
+
+16:22:26.799 [debug] Found value arg: :target_id
+
+16:22:26.799 [debug] Found value arg: :edge_weight
+
+16:22:26.799 [debug] Found value arg: :edge_props
+
+16:22:26.799 [debug] Extracted arg_names: [:source_id, :target_id, :edge_weight, :edge_props]
+
+16:22:26.799 [debug] Generated arg vars: [{:source_id, [], nil}, {:target_id, [], nil}, {:edge_weight, [], nil}, {:edge_props, [], nil}]
+
+16:22:26.799 [debug] Field pairs: [source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, edge_weight: {:edge_weight, [], nil}, edge_props: {:edge_props, [], nil}]
+
+16:22:26.799 [debug] Processing variant: {:empty, [line: 9, column: 5], []}
+
+16:22:26.799 [debug] Constructor: :empty, meta: [line: 9, column: 5], args: []
+
+16:22:26.799 [debug] Extracting constructor args from: []
+
+16:22:26.799 [debug] Extracted arg_names: []
+
+16:22:26.799 [debug] Generated arg vars: []
+
+16:22:26.799 [debug] Field pairs: []
+
+16:22:26.809 [debug] Fold expression: {:graph, [line: 25, column: 10], nil}, opts: [], cases: [{:->, [line: 26, column: 46], [[{:case, [line: 26, column: 7], [{:graph, [line: 26, column: 12], [{:vertices, [line: 26, column: 18], nil}, {:edges, [line: 26, column: 28], nil}, {:metadata, [line: 26, column: 35], nil}]}]}], {{:., [line: 27, column: 14], [{:__aliases__, [line: 27, column: 9], [:Graph]}, :graph]}, [line: 27, column: 15], [{{:., [line: 28, column: 14], [{:__aliases__, [line: 28, column: 11], [:Map]}, :put]}, [line: 28, column: 15], [{:vertices, [line: 28, column: 19], nil}, {:id, [line: 28, column: 29], nil}, {{:., [line: 28, column: 38], [{:__aliases__, [line: 28, column: 33], [:Graph]}, :vertex]}, [line: 28, column: 39], [{:id, [line: 28, column: 46], nil}, {:props, [line: 28, column: 50], nil}, {{:., [line: 28, column: 62], [{:__aliases__, [line: 28, column: 57], [:Graph]}, :empty]}, [line: 28, column: 63], []}]}]}, {:edges, [line: 29, column: 11], nil}, {:metadata, [line: 30, column: 11], nil}]}]}, {:->, [line: 34, column: 21], [[{:case, [line: 34, column: 7], [{:empty, [line: 34, column: 12], []}]}], {{:., [line: 35, column: 14], [{:__aliases__, [line: 35, column: 9], [:Graph]}, :graph]}, [line: 35, column: 15], [{:%{}, [line: 36, column: 11], [{{:id, [line: 36, column: 13], nil}, {{:., [line: 36, column: 24], [{:__aliases__, [line: 36, column: 19], [:Graph]}, :vertex]}, [line: 36, column: 25], [{:id, [line: 36, column: 32], nil}, {:props, [line: 36, column: 36], nil}, {{:., [line: 36, column: 48], [{:__aliases__, [line: 36, column: 43], [:Graph]}, :empty]}, [line: 36, column: 49], []}]}}]}, {{:., [line: 37, column: 16], [{:__aliases__, [line: 37, column: 11], [:Graph]}, :empty]}, [line: 37, column: 17], []}, {:%{}, [line: 38, column: 11], [type: :directed]}]}]}, {:->, [line: 41, column: 15], [[{:case, [line: 41, column: 7], [{:_, [line: 41, column: 12], nil}]}], {:graph, [line: 42, column: 9], nil}]}]
+
+16:22:26.810 [debug] Extracting cases from list: [{:->, [line: 26, column: 46], [[{:case, [line: 26, column: 7], [{:graph, [line: 26, column: 12], [{:vertices, [line: 26, column: 18], nil}, {:edges, [line: 26, column: 28], nil}, {:metadata, [line: 26, column: 35], nil}]}]}], {{:., [line: 27, column: 14], [{:__aliases__, [line: 27, column: 9], [:Graph]}, :graph]}, [line: 27, column: 15], [{{:., [line: 28, column: 14], [{:__aliases__, [line: 28, column: 11], [:Map]}, :put]}, [line: 28, column: 15], [{:vertices, [line: 28, column: 19], nil}, {:id, [line: 28, column: 29], nil}, {{:., [line: 28, column: 38], [{:__aliases__, [line: 28, column: 33], [:Graph]}, :vertex]}, [line: 28, column: 39], [{:id, [line: 28, column: 46], nil}, {:props, [line: 28, column: 50], nil}, {{:., [line: 28, column: 62], [{:__aliases__, [line: 28, column: 57], [:Graph]}, :empty]}, [line: 28, column: 63], []}]}]}, {:edges, [line: 29, column: 11], nil}, {:metadata, [line: 30, column: 11], nil}]}]}, {:->, [line: 34, column: 21], [[{:case, [line: 34, column: 7], [{:empty, [line: 34, column: 12], []}]}], {{:., [line: 35, column: 14], [{:__aliases__, [line: 35, column: 9], [:Graph]}, :graph]}, [line: 35, column: 15], [{:%{}, [line: 36, column: 11], [{{:id, [line: 36, column: 13], nil}, {{:., [line: 36, column: 24], [{:__aliases__, [line: 36, column: 19], [:Graph]}, :vertex]}, [line: 36, column: 25], [{:id, [line: 36, column: 32], nil}, {:props, [line: 36, column: 36], nil}, {{:., [line: 36, column: 48], [{:__aliases__, [line: 36, column: 43], [:Graph]}, :empty]}, [line: 36, column: 49], []}]}}]}, {{:., [line: 37, column: 16], [{:__aliases__, [line: 37, column: 11], [:Graph]}, :empty]}, [line: 37, column: 17], []}, {:%{}, [line: 38, column: 11], [type: :directed]}]}]}, {:->, [line: 41, column: 15], [[{:case, [line: 41, column: 7], [{:_, [line: 41, column: 12], nil}]}], {:graph, [line: 42, column: 9], nil}]}]
+
+16:22:26.810 [debug] Extracted fold cases: [{:->, [line: 26, column: 46], [[{:case, [line: 26, column: 7], [{:graph, [line: 26, column: 12], [{:vertices, [line: 26, column: 18], nil}, {:edges, [line: 26, column: 28], nil}, {:metadata, [line: 26, column: 35], nil}]}]}], {{:., [line: 27, column: 14], [{:__aliases__, [line: 27, column: 9], [:Graph]}, :graph]}, [line: 27, column: 15], [{{:., [line: 28, column: 14], [{:__aliases__, [line: 28, column: 11], [:Map]}, :put]}, [line: 28, column: 15], [{:vertices, [line: 28, column: 19], nil}, {:id, [line: 28, column: 29], nil}, {{:., [line: 28, column: 38], [{:__aliases__, [line: 28, column: 33], [:Graph]}, :vertex]}, [line: 28, column: 39], [{:id, [line: 28, column: 46], nil}, {:props, [line: 28, column: 50], nil}, {{:., [line: 28, column: 62], [{:__aliases__, [line: 28, column: 57], [:Graph]}, :empty]}, [line: 28, column: 63], []}]}]}, {:edges, [line: 29, column: 11], nil}, {:metadata, [line: 30, column: 11], nil}]}]}, {:->, [line: 34, column: 21], [[{:case, [line: 34, column: 7], [{:empty, [line: 34, column: 12], []}]}], {{:., [line: 35, column: 14], [{:__aliases__, [line: 35, column: 9], [:Graph]}, :graph]}, [line: 35, column: 15], [{:%{}, [line: 36, column: 11], [{{:id, [line: 36, column: 13], nil}, {{:., [line: 36, column: 24], [{:__aliases__, [line: 36, column: 19], [:Graph]}, :vertex]}, [line: 36, column: 25], [{:id, [line: 36, column: 32], nil}, {:props, [line: 36, column: 36], nil}, {{:., [line: 36, column: 48], [{:__aliases__, [line: 36, column: 43], [:Graph]}, :empty]}, [line: 36, column: 49], []}]}}]}, {{:., [line: 37, column: 16], [{:__aliases__, [line: 37, column: 11], [:Graph]}, :empty]}, [line: 37, column: 17], []}, {:%{}, [line: 38, column: 11], [type: :directed]}]}]}, {:->, [line: 41, column: 15], [[{:case, [line: 41, column: 7], [{:_, [line: 41, column: 12], nil}]}], {:graph, [line: 42, column: 9], nil}]}]
+
+16:22:26.810 [debug] Generating fold cases: [{:->, [line: 26, column: 46], [[{:case, [line: 26, column: 7], [{:graph, [line: 26, column: 12], [{:vertices, [line: 26, column: 18], nil}, {:edges, [line: 26, column: 28], nil}, {:metadata, [line: 26, column: 35], nil}]}]}], {{:., [line: 27, column: 14], [{:__aliases__, [line: 27, column: 9], [:Graph]}, :graph]}, [line: 27, column: 15], [{{:., [line: 28, column: 14], [{:__aliases__, [line: 28, column: 11], [:Map]}, :put]}, [line: 28, column: 15], [{:vertices, [line: 28, column: 19], nil}, {:id, [line: 28, column: 29], nil}, {{:., [line: 28, column: 38], [{:__aliases__, [line: 28, column: 33], [:Graph]}, :vertex]}, [line: 28, column: 39], [{:id, [line: 28, column: 46], nil}, {:props, [line: 28, column: 50], nil}, {{:., [line: 28, column: 62], [{:__aliases__, [line: 28, column: 57], [:Graph]}, :empty]}, [line: 28, column: 63], []}]}]}, {:edges, [line: 29, column: 11], nil}, {:metadata, [line: 30, column: 11], nil}]}]}, {:->, [line: 34, column: 21], [[{:case, [line: 34, column: 7], [{:empty, [line: 34, column: 12], []}]}], {{:., [line: 35, column: 14], [{:__aliases__, [line: 35, column: 9], [:Graph]}, :graph]}, [line: 35, column: 15], [{:%{}, [line: 36, column: 11], [{{:id, [line: 36, column: 13], nil}, {{:., [line: 36, column: 24], [{:__aliases__, [line: 36, column: 19], [:Graph]}, :vertex]}, [line: 36, column: 25], [{:id, [line: 36, column: 32], nil}, {:props, [line: 36, column: 36], nil}, {{:., [line: 36, column: 48], [{:__aliases__, [line: 36, column: 43], [:Graph]}, :empty]}, [line: 36, column: 49], []}]}}]}, {{:., [line: 37, column: 16], [{:__aliases__, [line: 37, column: 11], [:Graph]}, :empty]}, [line: 37, column: 17], []}, {:%{}, [line: 38, column: 11], [type: :directed]}]}]}, {:->, [line: 41, column: 15], [[{:case, [line: 41, column: 7], [{:_, [line: 41, column: 12], nil}]}], {:graph, [line: 42, column: 9], nil}]}]
+
+16:22:26.810 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+16:22:26.810 [debug] Transforming recursive refs:
+Body: {{:., [line: 27, column: 14], [{:__aliases__, [line: 27, column: 9], [:Graph]}, :graph]}, [line: 27, column: 15], [{{:., [line: 28, column: 14], [{:__aliases__, [line: 28, column: 11], [:Map]}, :put]}, [line: 28, column: 15], [{:vertices, [line: 28, column: 19], nil}, {:id, [line: 28, column: 29], nil}, {{:., [line: 28, column: 38], [{:__aliases__, [line: 28, column: 33], [:Graph]}, :vertex]}, [line: 28, column: 39], [{:id, [line: 28, column: 46], nil}, {:props, [line: 28, column: 50], nil}, {{:., [line: 28, column: 62], [{:__aliases__, [line: 28, column: 57], [:Graph]}, :empty]}, [line: 28, column: 63], []}]}]}, {:edges, [line: 29, column: 11], nil}, {:metadata, [line: 30, column: 11], nil}]}
+Bindings: [vertices: true, edges: true, metadata: true]
+State: nil
+
+
+16:22:26.810 [debug] Generated pattern: {:%{}, [], [variant: :empty]} for variant: :empty
+
+16:22:26.810 [debug] Transforming recursive refs:
+Body: {{:., [line: 35, column: 14], [{:__aliases__, [line: 35, column: 9], [:Graph]}, :graph]}, [line: 35, column: 15], [{:%{}, [line: 36, column: 11], [{{:id, [line: 36, column: 13], nil}, {{:., [line: 36, column: 24], [{:__aliases__, [line: 36, column: 19], [:Graph]}, :vertex]}, [line: 36, column: 25], [{:id, [line: 36, column: 32], nil}, {:props, [line: 36, column: 36], nil}, {{:., [line: 36, column: 48], [{:__aliases__, [line: 36, column: 43], [:Graph]}, :empty]}, [line: 36, column: 49], []}]}}]}, {{:., [line: 37, column: 16], [{:__aliases__, [line: 37, column: 11], [:Graph]}, :empty]}, [line: 37, column: 17], []}, {:%{}, [line: 38, column: 11], [type: :directed]}]}
+Bindings: []
+State: nil
+
+
+16:22:26.810 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.810 [debug] Transforming recursive refs:
+Body: {:graph, [line: 42, column: 9], nil}
+Bindings: []
+State: nil
+
+
+16:22:26.810 [debug] Generated fold cases after transformation: [{:->, [line: 26, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {{:., [line: 27, column: 14], [{:__aliases__, [line: 27, column: 9], [:Graph]}, :graph]}, [line: 27, column: 15], [{{:., [line: 28, column: 14], [{:__aliases__, [line: 28, column: 11], [:Map]}, :put]}, [line: 28, column: 15], [{:vertices, [line: 28, column: 19], nil}, {:id, [line: 28, column: 29], nil}, {{:., [line: 28, column: 38], [{:__aliases__, [line: 28, column: 33], [:Graph]}, :vertex]}, [line: 28, column: 39], [{:id, [line: 28, column: 46], nil}, {:props, [line: 28, column: 50], nil}, {{:., [line: 28, column: 62], [{:__aliases__, [line: 28, column: 57], [:Graph]}, :empty]}, [line: 28, column: 63], []}]}]}, {:edges, [line: 29, column: 11], nil}, {:metadata, [line: 30, column: 11], nil}]}]}, {:->, [line: 34, column: 21], [[{:%{}, [], [variant: :empty]}], {{:., [line: 35, column: 14], [{:__aliases__, [line: 35, column: 9], [:Graph]}, :graph]}, [line: 35, column: 15], [{:%{}, [line: 36, column: 11], [{{:id, [line: 36, column: 13], nil}, {{:., [line: 36, column: 24], [{:__aliases__, [line: 36, column: 19], [:Graph]}, :vertex]}, [line: 36, column: 25], [{:id, [line: 36, column: 32], nil}, {:props, [line: 36, column: 36], nil}, {{:., [line: 36, column: 48], [{:__aliases__, [line: 36, column: 43], [:Graph]}, :empty]}, [line: 36, column: 49], []}]}}]}, {{:., [line: 37, column: 16], [{:__aliases__, [line: 37, column: 11], [:Graph]}, :empty]}, [line: 37, column: 17], []}, {:%{}, [line: 38, column: 11], [type: :directed]}]}]}, {:->, [line: 41, column: 15], [[{:%{}, [], [variant: :_]}], {:graph, [line: 42, column: 9], nil}]}]
+
+16:22:26.811 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 25, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 26, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {{:., [line: 27, column: 14], [{:__aliases__, [line: 27, column: 9], [:Graph]}, :graph]}, [line: 27, column: 15], [{{:., [line: 28, column: 14], [{:__aliases__, [line: 28, column: 11], [:Map]}, :put]}, [line: 28, column: 15], [{:vertices, [line: 28, column: 19], nil}, {:id, [line: 28, column: 29], nil}, {{:., [line: 28, column: 38], [{:__aliases__, [line: 28, column: 33], [:Graph]}, :vertex]}, [line: 28, column: 39], [{:id, [line: 28, column: 46], nil}, {:props, [line: 28, column: 50], nil}, {{:., [line: 28, column: 62], [{:__aliases__, [...], ...}, :empty]}, [line: 28, column: 63], []}]}]}, {:edges, [line: 29, column: 11], nil}, {:metadata, [line: 30, column: 11], nil}]}]}, {:->, [line: 34, column: 21], [[{:%{}, [], [variant: :empty]}], {{:., [line: 35, column: 14], [{:__aliases__, [line: 35, column: 9], [:Graph]}, :graph]}, [line: 35, column: 15], [{:%{}, [line: 36, column: 11], [{{:id, [line: 36, column: 13], nil}, {{:., [line: 36, column: 24], [{:__aliases__, [line: 36, column: 19], [:Graph]}, :vertex]}, [line: 36, column: 25], [{:id, [line: 36, column: 32], nil}, {:props, [line: 36, column: 36], nil}, {{:., [line: 36, column: 48], [{:__aliases__, ...}, :empty]}, [line: 36, column: 49], []}]}}]}, {{:., [line: 37, column: 16], [{:__aliases__, [line: 37, column: 11], [:Graph]}, :empty]}, [line: 37, column: 17], []}, {:%{}, [line: 38, column: 11], [type: :directed]}]}]}, {:->, [line: 41, column: 15], [[{:%{}, [], [variant: :_]}], {:graph, [line: 42, column: 9], nil}]}]]]}]}]}]}
+
+16:22:26.815 [debug] Fold expression: {:graph, [line: 49, column: 10], nil}, opts: [], cases: [{:->, [line: 50, column: 46], [[{:case, [line: 50, column: 7], [{:graph, [line: 50, column: 12], [{:vertices, [line: 50, column: 18], nil}, {:edges, [line: 50, column: 28], nil}, {:metadata, [line: 50, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 52, column: 19], [{:all_edges, [line: 52, column: 9], nil}, {:if, [line: 53, column: 11], [{:==, [line: 53, column: 28], [{{:., [line: 53, column: 22], [{:metadata, [line: 53, column: 14], nil}, :type]}, [no_parens: true, line: 53, column: 23], []}, :undirected]}, [do: {:__block__, [], [{:=, [line: 54, column: 26], [{:reverse_edge, [line: 54, column: 13], nil}, {{:., [line: 54, column: 33], [{:__aliases__, [line: 54, column: 28], [:Graph]}, :edge]}, [line: 54, column: 34], [{:to_id, [line: 54, column: 39], nil}, {:from_id, [line: 54, column: 46], nil}, {:weight, [line: 54, column: 55], nil}, {:props, [line: 54, column: 63], nil}]}]}, [{:new_edge, [line: 55, column: 14], nil}, {:reverse_edge, [line: 55, column: 24], nil}]]}, else: [{:new_edge, [line: 57, column: 14], nil}]]]}]}, {{:., [line: 60, column: 14], [{:__aliases__, [line: 60, column: 9], [:Graph]}, :graph]}, [line: 60, column: 15], [{:vertices, [line: 61, column: 11], nil}, {{:., [line: 62, column: 15], [{:__aliases__, [line: 62, column: 11], [:Enum]}, :reduce]}, [line: 62, column: 16], [{:all_edges, [line: 62, column: 23], nil}, {:edges, [line: 62, column: 34], nil}, {:&, [line: 62, column: 41], [{:/, [line: 62, column: 58], [{:add_edge_to_list, [line: 62, column: 42], nil}, 2]}]}]}, {:metadata, [line: 63, column: 11], nil}]}]}]}, {:->, [line: 66, column: 21], [[{:case, [line: 66, column: 7], [{:empty, [line: 66, column: 12], []}]}], {{:., [line: 68, column: 14], [{:__aliases__, [line: 68, column: 9], [:Graph]}, :graph]}, [line: 68, column: 15], [{:%{}, [line: 68, column: 21], []}, [{:new_edge, [line: 68, column: 27], nil}], {:%{}, [line: 68, column: 38], [type: :directed]}]}]}, {:->, [line: 70, column: 15], [[{:case, [line: 70, column: 7], [{:_, [line: 70, column: 12], nil}]}], {:graph, [line: 71, column: 9], nil}]}]
+
+16:22:26.815 [debug] Extracting cases from list: [{:->, [line: 50, column: 46], [[{:case, [line: 50, column: 7], [{:graph, [line: 50, column: 12], [{:vertices, [line: 50, column: 18], nil}, {:edges, [line: 50, column: 28], nil}, {:metadata, [line: 50, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 52, column: 19], [{:all_edges, [line: 52, column: 9], nil}, {:if, [line: 53, column: 11], [{:==, [line: 53, column: 28], [{{:., [line: 53, column: 22], [{:metadata, [line: 53, column: 14], nil}, :type]}, [no_parens: true, line: 53, column: 23], []}, :undirected]}, [do: {:__block__, [], [{:=, [line: 54, column: 26], [{:reverse_edge, [line: 54, column: 13], nil}, {{:., [line: 54, column: 33], [{:__aliases__, [line: 54, column: 28], [:Graph]}, :edge]}, [line: 54, column: 34], [{:to_id, [line: 54, column: 39], nil}, {:from_id, [line: 54, column: 46], nil}, {:weight, [line: 54, column: 55], nil}, {:props, [line: 54, column: 63], nil}]}]}, [{:new_edge, [line: 55, column: 14], nil}, {:reverse_edge, [line: 55, column: 24], nil}]]}, else: [{:new_edge, [line: 57, column: 14], nil}]]]}]}, {{:., [line: 60, column: 14], [{:__aliases__, [line: 60, column: 9], [:Graph]}, :graph]}, [line: 60, column: 15], [{:vertices, [line: 61, column: 11], nil}, {{:., [line: 62, column: 15], [{:__aliases__, [line: 62, column: 11], [:Enum]}, :reduce]}, [line: 62, column: 16], [{:all_edges, [line: 62, column: 23], nil}, {:edges, [line: 62, column: 34], nil}, {:&, [line: 62, column: 41], [{:/, [line: 62, column: 58], [{:add_edge_to_list, [line: 62, column: 42], nil}, 2]}]}]}, {:metadata, [line: 63, column: 11], nil}]}]}]}, {:->, [line: 66, column: 21], [[{:case, [line: 66, column: 7], [{:empty, [line: 66, column: 12], []}]}], {{:., [line: 68, column: 14], [{:__aliases__, [line: 68, column: 9], [:Graph]}, :graph]}, [line: 68, column: 15], [{:%{}, [line: 68, column: 21], []}, [{:new_edge, [line: 68, column: 27], nil}], {:%{}, [line: 68, column: 38], [type: :directed]}]}]}, {:->, [line: 70, column: 15], [[{:case, [line: 70, column: 7], [{:_, [line: 70, column: 12], nil}]}], {:graph, [line: 71, column: 9], nil}]}]
+
+16:22:26.815 [debug] Extracted fold cases: [{:->, [line: 50, column: 46], [[{:case, [line: 50, column: 7], [{:graph, [line: 50, column: 12], [{:vertices, [line: 50, column: 18], nil}, {:edges, [line: 50, column: 28], nil}, {:metadata, [line: 50, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 52, column: 19], [{:all_edges, [line: 52, column: 9], nil}, {:if, [line: 53, column: 11], [{:==, [line: 53, column: 28], [{{:., [line: 53, column: 22], [{:metadata, [line: 53, column: 14], nil}, :type]}, [no_parens: true, line: 53, column: 23], []}, :undirected]}, [do: {:__block__, [], [{:=, [line: 54, column: 26], [{:reverse_edge, [line: 54, column: 13], nil}, {{:., [line: 54, column: 33], [{:__aliases__, [line: 54, column: 28], [:Graph]}, :edge]}, [line: 54, column: 34], [{:to_id, [line: 54, column: 39], nil}, {:from_id, [line: 54, column: 46], nil}, {:weight, [line: 54, column: 55], nil}, {:props, [line: 54, column: 63], nil}]}]}, [{:new_edge, [line: 55, column: 14], nil}, {:reverse_edge, [line: 55, column: 24], nil}]]}, else: [{:new_edge, [line: 57, column: 14], nil}]]]}]}, {{:., [line: 60, column: 14], [{:__aliases__, [line: 60, column: 9], [:Graph]}, :graph]}, [line: 60, column: 15], [{:vertices, [line: 61, column: 11], nil}, {{:., [line: 62, column: 15], [{:__aliases__, [line: 62, column: 11], [:Enum]}, :reduce]}, [line: 62, column: 16], [{:all_edges, [line: 62, column: 23], nil}, {:edges, [line: 62, column: 34], nil}, {:&, [line: 62, column: 41], [{:/, [line: 62, column: 58], [{:add_edge_to_list, [line: 62, column: 42], nil}, 2]}]}]}, {:metadata, [line: 63, column: 11], nil}]}]}]}, {:->, [line: 66, column: 21], [[{:case, [line: 66, column: 7], [{:empty, [line: 66, column: 12], []}]}], {{:., [line: 68, column: 14], [{:__aliases__, [line: 68, column: 9], [:Graph]}, :graph]}, [line: 68, column: 15], [{:%{}, [line: 68, column: 21], []}, [{:new_edge, [line: 68, column: 27], nil}], {:%{}, [line: 68, column: 38], [type: :directed]}]}]}, {:->, [line: 70, column: 15], [[{:case, [line: 70, column: 7], [{:_, [line: 70, column: 12], nil}]}], {:graph, [line: 71, column: 9], nil}]}]
+
+16:22:26.815 [debug] Generating fold cases: [{:->, [line: 50, column: 46], [[{:case, [line: 50, column: 7], [{:graph, [line: 50, column: 12], [{:vertices, [line: 50, column: 18], nil}, {:edges, [line: 50, column: 28], nil}, {:metadata, [line: 50, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 52, column: 19], [{:all_edges, [line: 52, column: 9], nil}, {:if, [line: 53, column: 11], [{:==, [line: 53, column: 28], [{{:., [line: 53, column: 22], [{:metadata, [line: 53, column: 14], nil}, :type]}, [no_parens: true, line: 53, column: 23], []}, :undirected]}, [do: {:__block__, [], [{:=, [line: 54, column: 26], [{:reverse_edge, [line: 54, column: 13], nil}, {{:., [line: 54, column: 33], [{:__aliases__, [line: 54, column: 28], [:Graph]}, :edge]}, [line: 54, column: 34], [{:to_id, [line: 54, column: 39], nil}, {:from_id, [line: 54, column: 46], nil}, {:weight, [line: 54, column: 55], nil}, {:props, [line: 54, column: 63], nil}]}]}, [{:new_edge, [line: 55, column: 14], nil}, {:reverse_edge, [line: 55, column: 24], nil}]]}, else: [{:new_edge, [line: 57, column: 14], nil}]]]}]}, {{:., [line: 60, column: 14], [{:__aliases__, [line: 60, column: 9], [:Graph]}, :graph]}, [line: 60, column: 15], [{:vertices, [line: 61, column: 11], nil}, {{:., [line: 62, column: 15], [{:__aliases__, [line: 62, column: 11], [:Enum]}, :reduce]}, [line: 62, column: 16], [{:all_edges, [line: 62, column: 23], nil}, {:edges, [line: 62, column: 34], nil}, {:&, [line: 62, column: 41], [{:/, [line: 62, column: 58], [{:add_edge_to_list, [line: 62, column: 42], nil}, 2]}]}]}, {:metadata, [line: 63, column: 11], nil}]}]}]}, {:->, [line: 66, column: 21], [[{:case, [line: 66, column: 7], [{:empty, [line: 66, column: 12], []}]}], {{:., [line: 68, column: 14], [{:__aliases__, [line: 68, column: 9], [:Graph]}, :graph]}, [line: 68, column: 15], [{:%{}, [line: 68, column: 21], []}, [{:new_edge, [line: 68, column: 27], nil}], {:%{}, [line: 68, column: 38], [type: :directed]}]}]}, {:->, [line: 70, column: 15], [[{:case, [line: 70, column: 7], [{:_, [line: 70, column: 12], nil}]}], {:graph, [line: 71, column: 9], nil}]}]
+
+16:22:26.815 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+16:22:26.816 [debug] Transforming recursive refs:
+Body: {:__block__, [], [{:=, [line: 52, column: 19], [{:all_edges, [line: 52, column: 9], nil}, {:if, [line: 53, column: 11], [{:==, [line: 53, column: 28], [{{:., [line: 53, column: 22], [{:metadata, [line: 53, column: 14], nil}, :type]}, [no_parens: true, line: 53, column: 23], []}, :undirected]}, [do: {:__block__, [], [{:=, [line: 54, column: 26], [{:reverse_edge, [line: 54, column: 13], nil}, {{:., [line: 54, column: 33], [{:__aliases__, [line: 54, column: 28], [:Graph]}, :edge]}, [line: 54, column: 34], [{:to_id, [line: 54, column: 39], nil}, {:from_id, [line: 54, column: 46], nil}, {:weight, [line: 54, column: 55], nil}, {:props, [line: 54, column: 63], nil}]}]}, [{:new_edge, [line: 55, column: 14], nil}, {:reverse_edge, [line: 55, column: 24], nil}]]}, else: [{:new_edge, [line: 57, column: 14], nil}]]]}]}, {{:., [line: 60, column: 14], [{:__aliases__, [line: 60, column: 9], [:Graph]}, :graph]}, [line: 60, column: 15], [{:vertices, [line: 61, column: 11], nil}, {{:., [line: 62, column: 15], [{:__aliases__, [line: 62, column: 11], [:Enum]}, :reduce]}, [line: 62, column: 16], [{:all_edges, [line: 62, column: 23], nil}, {:edges, [line: 62, column: 34], nil}, {:&, [line: 62, column: 41], [{:/, [line: 62, column: 58], [{:add_edge_to_list, [line: 62, column: 42], nil}, 2]}]}]}, {:metadata, [line: 63, column: 11], nil}]}]}
+Bindings: [vertices: true, edges: true, metadata: true]
+State: nil
+
+
+16:22:26.816 [debug] Generated pattern: {:%{}, [], [variant: :empty]} for variant: :empty
+
+16:22:26.816 [debug] Transforming recursive refs:
+Body: {{:., [line: 68, column: 14], [{:__aliases__, [line: 68, column: 9], [:Graph]}, :graph]}, [line: 68, column: 15], [{:%{}, [line: 68, column: 21], []}, [{:new_edge, [line: 68, column: 27], nil}], {:%{}, [line: 68, column: 38], [type: :directed]}]}
+Bindings: []
+State: nil
+
+
+16:22:26.816 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.816 [debug] Transforming recursive refs:
+Body: {:graph, [line: 71, column: 9], nil}
+Bindings: []
+State: nil
+
+
+16:22:26.816 [debug] Generated fold cases after transformation: [{:->, [line: 50, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:__block__, [], [{:=, [line: 52, column: 19], [{:all_edges, [line: 52, column: 9], nil}, {:if, [line: 53, column: 11], [{:==, [line: 53, column: 28], [{{:., [line: 53, column: 22], [{:metadata, [line: 53, column: 14], nil}, :type]}, [no_parens: true, line: 53, column: 23], []}, :undirected]}, [do: {:__block__, [], [{:=, [line: 54, column: 26], [{:reverse_edge, [line: 54, column: 13], nil}, {{:., [line: 54, column: 33], [{:__aliases__, [line: 54, column: 28], [:Graph]}, :edge]}, [line: 54, column: 34], [{:to_id, [line: 54, column: 39], nil}, {:from_id, [line: 54, column: 46], nil}, {:weight, [line: 54, column: 55], nil}, {:props, [line: 54, column: 63], nil}]}]}, [{:new_edge, [line: 55, column: 14], nil}, {:reverse_edge, [line: 55, column: 24], nil}]]}, else: [{:new_edge, [line: 57, column: 14], nil}]]]}]}, {{:., [line: 60, column: 14], [{:__aliases__, [line: 60, column: 9], [:Graph]}, :graph]}, [line: 60, column: 15], [{:vertices, [line: 61, column: 11], nil}, {{:., [line: 62, column: 15], [{:__aliases__, [line: 62, column: 11], [:Enum]}, :reduce]}, [line: 62, column: 16], [{:all_edges, [line: 62, column: 23], nil}, {:edges, [line: 62, column: 34], nil}, {:&, [line: 62, column: 41], [{:/, [line: 62, column: 58], [{:add_edge_to_list, [line: 62, column: 42], nil}, 2]}]}]}, {:metadata, [line: 63, column: 11], nil}]}]}]}, {:->, [line: 66, column: 21], [[{:%{}, [], [variant: :empty]}], {{:., [line: 68, column: 14], [{:__aliases__, [line: 68, column: 9], [:Graph]}, :graph]}, [line: 68, column: 15], [{:%{}, [line: 68, column: 21], []}, [{:new_edge, [line: 68, column: 27], nil}], {:%{}, [line: 68, column: 38], [type: :directed]}]}]}, {:->, [line: 70, column: 15], [[{:%{}, [], [variant: :_]}], {:graph, [line: 71, column: 9], nil}]}]
+
+16:22:26.816 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 49, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 50, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:__block__, [], [{:=, [line: 52, column: 19], [{:all_edges, [line: 52, column: 9], nil}, {:if, [line: 53, column: 11], [{:==, [line: 53, column: 28], [{{:., [line: 53, column: 22], [{:metadata, ...}, :type]}, [no_parens: true, line: 53, column: 23], []}, :undirected]}, [do: {:__block__, [], [{:=, [line: 54, column: 26], [{...}, ...]}, [{:new_edge, [...], ...}, {:reverse_edge, ...}]]}, else: [{:new_edge, [line: 57, column: 14], nil}]]]}]}, {{:., [line: 60, column: 14], [{:__aliases__, [line: 60, column: 9], [:Graph]}, :graph]}, [line: 60, column: 15], [{:vertices, [line: 61, column: 11], nil}, {{:., [line: 62, column: 15], [{:__aliases__, [line: 62, column: 11], [:Enum]}, :reduce]}, [line: 62, column: 16], [{:all_edges, [line: 62, column: 23], nil}, {:edges, [line: 62, column: 34], nil}, {:&, [line: 62, column: 41], [{:/, [line: 62, ...], [...]}]}]}, {:metadata, [line: 63, column: 11], nil}]}]}]}, {:->, [line: 66, column: 21], [[{:%{}, [], [variant: :empty]}], {{:., [line: 68, column: 14], [{:__aliases__, [line: 68, column: 9], [:Graph]}, :graph]}, [line: 68, column: 15], [{:%{}, [line: 68, column: 21], []}, [{:new_edge, [line: 68, column: 27], nil}], {:%{}, [line: 68, column: 38], [type: :directed]}]}]}, {:->, [line: 70, column: 15], [[{:%{}, [], [variant: :_]}], {:graph, [line: 71, column: 9], nil}]}]]]}]}]}]}
+
+16:22:26.817 [debug] Fold expression: {:graph, [line: 77, column: 10], nil}, opts: [], cases: [{:->, [line: 78, column: 46], [[{:case, [line: 78, column: 7], [{:graph, [line: 78, column: 12], [{:vertices, [line: 78, column: 18], nil}, {:edges, [line: 78, column: 28], nil}, {:metadata, [line: 78, column: 35], nil}]}]}], {:map_size, [line: 79, column: 9], [{:vertices, [line: 79, column: 18], nil}]}]}, {:->, [line: 81, column: 15], [[{:case, [line: 81, column: 7], [{:_, [line: 81, column: 12], nil}]}], 0]}]
+
+16:22:26.817 [debug] Extracting cases from list: [{:->, [line: 78, column: 46], [[{:case, [line: 78, column: 7], [{:graph, [line: 78, column: 12], [{:vertices, [line: 78, column: 18], nil}, {:edges, [line: 78, column: 28], nil}, {:metadata, [line: 78, column: 35], nil}]}]}], {:map_size, [line: 79, column: 9], [{:vertices, [line: 79, column: 18], nil}]}]}, {:->, [line: 81, column: 15], [[{:case, [line: 81, column: 7], [{:_, [line: 81, column: 12], nil}]}], 0]}]
+
+16:22:26.817 [debug] Extracted fold cases: [{:->, [line: 78, column: 46], [[{:case, [line: 78, column: 7], [{:graph, [line: 78, column: 12], [{:vertices, [line: 78, column: 18], nil}, {:edges, [line: 78, column: 28], nil}, {:metadata, [line: 78, column: 35], nil}]}]}], {:map_size, [line: 79, column: 9], [{:vertices, [line: 79, column: 18], nil}]}]}, {:->, [line: 81, column: 15], [[{:case, [line: 81, column: 7], [{:_, [line: 81, column: 12], nil}]}], 0]}]
+
+16:22:26.817 [debug] Generating fold cases: [{:->, [line: 78, column: 46], [[{:case, [line: 78, column: 7], [{:graph, [line: 78, column: 12], [{:vertices, [line: 78, column: 18], nil}, {:edges, [line: 78, column: 28], nil}, {:metadata, [line: 78, column: 35], nil}]}]}], {:map_size, [line: 79, column: 9], [{:vertices, [line: 79, column: 18], nil}]}]}, {:->, [line: 81, column: 15], [[{:case, [line: 81, column: 7], [{:_, [line: 81, column: 12], nil}]}], 0]}]
+
+16:22:26.817 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+16:22:26.817 [debug] Transforming recursive refs:
+Body: {:map_size, [line: 79, column: 9], [{:vertices, [line: 79, column: 18], nil}]}
+Bindings: [vertices: true, edges: true, metadata: true]
+State: nil
+
+
+16:22:26.817 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.817 [debug] Transforming recursive refs:
+Body: 0
+Bindings: []
+State: nil
+
+
+16:22:26.817 [debug] Generated fold cases after transformation: [{:->, [line: 78, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:map_size, [line: 79, column: 9], [{:vertices, [line: 79, column: 18], nil}]}]}, {:->, [line: 81, column: 15], [[{:%{}, [], [variant: :_]}], 0]}]
+
+16:22:26.817 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 77, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 78, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:map_size, [line: 79, column: 9], [{:vertices, [line: 79, column: 18], nil}]}]}, {:->, [line: 81, column: 15], [[{:%{}, [], [variant: :_]}], 0]}]]]}]}]}]}
+
+16:22:26.817 [debug] Fold expression: {:graph, [line: 87, column: 10], nil}, opts: [], cases: [{:->, [line: 88, column: 46], [[{:case, [line: 88, column: 7], [{:graph, [line: 88, column: 12], [{:vertices, [line: 88, column: 18], nil}, {:edges, [line: 88, column: 28], nil}, {:metadata, [line: 88, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 89, column: 15], [{:count, [line: 89, column: 9], nil}, {:count_edges, [line: 89, column: 17], [{:edges, [line: 89, column: 29], nil}]}]}, {:if, [line: 91, column: 9], [{:==, [line: 91, column: 26], [{{:., [line: 91, column: 20], [{:metadata, [line: 91, column: 12], nil}, :type]}, [no_parens: true, line: 91, column: 21], []}, :undirected]}, [do: {:div, [line: 93, column: 11], [{:count, [line: 93, column: 15], nil}, 2]}, else: {:count, [line: 95, column: 11], nil}]]}]}]}, {:->, [line: 98, column: 15], [[{:case, [line: 98, column: 7], [{:_, [line: 98, column: 12], nil}]}], 0]}]
+
+16:22:26.817 [debug] Extracting cases from list: [{:->, [line: 88, column: 46], [[{:case, [line: 88, column: 7], [{:graph, [line: 88, column: 12], [{:vertices, [line: 88, column: 18], nil}, {:edges, [line: 88, column: 28], nil}, {:metadata, [line: 88, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 89, column: 15], [{:count, [line: 89, column: 9], nil}, {:count_edges, [line: 89, column: 17], [{:edges, [line: 89, column: 29], nil}]}]}, {:if, [line: 91, column: 9], [{:==, [line: 91, column: 26], [{{:., [line: 91, column: 20], [{:metadata, [line: 91, column: 12], nil}, :type]}, [no_parens: true, line: 91, column: 21], []}, :undirected]}, [do: {:div, [line: 93, column: 11], [{:count, [line: 93, column: 15], nil}, 2]}, else: {:count, [line: 95, column: 11], nil}]]}]}]}, {:->, [line: 98, column: 15], [[{:case, [line: 98, column: 7], [{:_, [line: 98, column: 12], nil}]}], 0]}]
+
+16:22:26.818 [debug] Extracted fold cases: [{:->, [line: 88, column: 46], [[{:case, [line: 88, column: 7], [{:graph, [line: 88, column: 12], [{:vertices, [line: 88, column: 18], nil}, {:edges, [line: 88, column: 28], nil}, {:metadata, [line: 88, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 89, column: 15], [{:count, [line: 89, column: 9], nil}, {:count_edges, [line: 89, column: 17], [{:edges, [line: 89, column: 29], nil}]}]}, {:if, [line: 91, column: 9], [{:==, [line: 91, column: 26], [{{:., [line: 91, column: 20], [{:metadata, [line: 91, column: 12], nil}, :type]}, [no_parens: true, line: 91, column: 21], []}, :undirected]}, [do: {:div, [line: 93, column: 11], [{:count, [line: 93, column: 15], nil}, 2]}, else: {:count, [line: 95, column: 11], nil}]]}]}]}, {:->, [line: 98, column: 15], [[{:case, [line: 98, column: 7], [{:_, [line: 98, column: 12], nil}]}], 0]}]
+
+16:22:26.818 [debug] Generating fold cases: [{:->, [line: 88, column: 46], [[{:case, [line: 88, column: 7], [{:graph, [line: 88, column: 12], [{:vertices, [line: 88, column: 18], nil}, {:edges, [line: 88, column: 28], nil}, {:metadata, [line: 88, column: 35], nil}]}]}], {:__block__, [], [{:=, [line: 89, column: 15], [{:count, [line: 89, column: 9], nil}, {:count_edges, [line: 89, column: 17], [{:edges, [line: 89, column: 29], nil}]}]}, {:if, [line: 91, column: 9], [{:==, [line: 91, column: 26], [{{:., [line: 91, column: 20], [{:metadata, [line: 91, column: 12], nil}, :type]}, [no_parens: true, line: 91, column: 21], []}, :undirected]}, [do: {:div, [line: 93, column: 11], [{:count, [line: 93, column: 15], nil}, 2]}, else: {:count, [line: 95, column: 11], nil}]]}]}]}, {:->, [line: 98, column: 15], [[{:case, [line: 98, column: 7], [{:_, [line: 98, column: 12], nil}]}], 0]}]
+
+16:22:26.818 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+16:22:26.818 [debug] Transforming recursive refs:
+Body: {:__block__, [], [{:=, [line: 89, column: 15], [{:count, [line: 89, column: 9], nil}, {:count_edges, [line: 89, column: 17], [{:edges, [line: 89, column: 29], nil}]}]}, {:if, [line: 91, column: 9], [{:==, [line: 91, column: 26], [{{:., [line: 91, column: 20], [{:metadata, [line: 91, column: 12], nil}, :type]}, [no_parens: true, line: 91, column: 21], []}, :undirected]}, [do: {:div, [line: 93, column: 11], [{:count, [line: 93, column: 15], nil}, 2]}, else: {:count, [line: 95, column: 11], nil}]]}]}
+Bindings: [vertices: true, edges: true, metadata: true]
+State: nil
+
+
+16:22:26.818 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.818 [debug] Transforming recursive refs:
+Body: 0
+Bindings: []
+State: nil
+
+
+16:22:26.818 [debug] Generated fold cases after transformation: [{:->, [line: 88, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:__block__, [], [{:=, [line: 89, column: 15], [{:count, [line: 89, column: 9], nil}, {:count_edges, [line: 89, column: 17], [{:edges, [line: 89, column: 29], nil}]}]}, {:if, [line: 91, column: 9], [{:==, [line: 91, column: 26], [{{:., [line: 91, column: 20], [{:metadata, [line: 91, column: 12], nil}, :type]}, [no_parens: true, line: 91, column: 21], []}, :undirected]}, [do: {:div, [line: 93, column: 11], [{:count, [line: 93, column: 15], nil}, 2]}, else: {:count, [line: 95, column: 11], nil}]]}]}]}, {:->, [line: 98, column: 15], [[{:%{}, [], [variant: :_]}], 0]}]
+
+16:22:26.818 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 87, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 88, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:__block__, [], [{:=, [line: 89, column: 15], [{:count, [line: 89, column: 9], nil}, {:count_edges, [line: 89, column: 17], [{:edges, [line: 89, column: 29], nil}]}]}, {:if, [line: 91, column: 9], [{:==, [line: 91, column: 26], [{{:., [line: 91, column: 20], [{:metadata, [line: 91, column: 12], nil}, :type]}, [no_parens: true, line: 91, column: 21], []}, :undirected]}, [do: {:div, [line: 93, column: 11], [{:count, [line: 93, column: 15], nil}, 2]}, else: {:count, [line: 95, column: 11], nil}]]}]}]}, {:->, [line: 98, column: 15], [[{:%{}, [], [variant: :_]}], 0]}]]]}]}]}]}
+
+16:22:26.818 [debug] Fold expression: {:graph, [line: 104, column: 10], nil}, opts: [], cases: [{:->, [line: 105, column: 46], [[{:case, [line: 105, column: 7], [{:graph, [line: 105, column: 12], [{:vertices, [line: 105, column: 18], nil}, {:edges, [line: 105, column: 28], nil}, {:metadata, [line: 105, column: 35], nil}]}]}], {:case, [line: 106, column: 9], [{{:., [line: 106, column: 17], [{:__aliases__, [line: 106, column: 14], [:Map]}, :get]}, [line: 106, column: 18], [{:vertices, [line: 106, column: 22], nil}, {:vertex_id, [line: 106, column: 32], nil}]}, [do: [{:->, [line: 107, column: 15], [[nil], []]}, {:->, [line: 108, column: 18], [[{:vertex, [line: 108, column: 11], nil}], {:get_adjacent_vertices, [line: 108, column: 21], [{:vertex, [line: 108, column: 43], nil}, {:edges, [line: 108, column: 51], nil}]}]}]]]}]}, {:->, [line: 111, column: 21], [[{:case, [line: 111, column: 7], [{:empty, [line: 111, column: 12], []}]}], []]}, {:->, [line: 114, column: 15], [[{:case, [line: 114, column: 7], [{:_, [line: 114, column: 12], nil}]}], []]}]
+
+16:22:26.818 [debug] Extracting cases from list: [{:->, [line: 105, column: 46], [[{:case, [line: 105, column: 7], [{:graph, [line: 105, column: 12], [{:vertices, [line: 105, column: 18], nil}, {:edges, [line: 105, column: 28], nil}, {:metadata, [line: 105, column: 35], nil}]}]}], {:case, [line: 106, column: 9], [{{:., [line: 106, column: 17], [{:__aliases__, [line: 106, column: 14], [:Map]}, :get]}, [line: 106, column: 18], [{:vertices, [line: 106, column: 22], nil}, {:vertex_id, [line: 106, column: 32], nil}]}, [do: [{:->, [line: 107, column: 15], [[nil], []]}, {:->, [line: 108, column: 18], [[{:vertex, [line: 108, column: 11], nil}], {:get_adjacent_vertices, [line: 108, column: 21], [{:vertex, [line: 108, column: 43], nil}, {:edges, [line: 108, column: 51], nil}]}]}]]]}]}, {:->, [line: 111, column: 21], [[{:case, [line: 111, column: 7], [{:empty, [line: 111, column: 12], []}]}], []]}, {:->, [line: 114, column: 15], [[{:case, [line: 114, column: 7], [{:_, [line: 114, column: 12], nil}]}], []]}]
+
+16:22:26.818 [debug] Extracted fold cases: [{:->, [line: 105, column: 46], [[{:case, [line: 105, column: 7], [{:graph, [line: 105, column: 12], [{:vertices, [line: 105, column: 18], nil}, {:edges, [line: 105, column: 28], nil}, {:metadata, [line: 105, column: 35], nil}]}]}], {:case, [line: 106, column: 9], [{{:., [line: 106, column: 17], [{:__aliases__, [line: 106, column: 14], [:Map]}, :get]}, [line: 106, column: 18], [{:vertices, [line: 106, column: 22], nil}, {:vertex_id, [line: 106, column: 32], nil}]}, [do: [{:->, [line: 107, column: 15], [[nil], []]}, {:->, [line: 108, column: 18], [[{:vertex, [line: 108, column: 11], nil}], {:get_adjacent_vertices, [line: 108, column: 21], [{:vertex, [line: 108, column: 43], nil}, {:edges, [line: 108, column: 51], nil}]}]}]]]}]}, {:->, [line: 111, column: 21], [[{:case, [line: 111, column: 7], [{:empty, [line: 111, column: 12], []}]}], []]}, {:->, [line: 114, column: 15], [[{:case, [line: 114, column: 7], [{:_, [line: 114, column: 12], nil}]}], []]}]
+
+16:22:26.819 [debug] Generating fold cases: [{:->, [line: 105, column: 46], [[{:case, [line: 105, column: 7], [{:graph, [line: 105, column: 12], [{:vertices, [line: 105, column: 18], nil}, {:edges, [line: 105, column: 28], nil}, {:metadata, [line: 105, column: 35], nil}]}]}], {:case, [line: 106, column: 9], [{{:., [line: 106, column: 17], [{:__aliases__, [line: 106, column: 14], [:Map]}, :get]}, [line: 106, column: 18], [{:vertices, [line: 106, column: 22], nil}, {:vertex_id, [line: 106, column: 32], nil}]}, [do: [{:->, [line: 107, column: 15], [[nil], []]}, {:->, [line: 108, column: 18], [[{:vertex, [line: 108, column: 11], nil}], {:get_adjacent_vertices, [line: 108, column: 21], [{:vertex, [line: 108, column: 43], nil}, {:edges, [line: 108, column: 51], nil}]}]}]]]}]}, {:->, [line: 111, column: 21], [[{:case, [line: 111, column: 7], [{:empty, [line: 111, column: 12], []}]}], []]}, {:->, [line: 114, column: 15], [[{:case, [line: 114, column: 7], [{:_, [line: 114, column: 12], nil}]}], []]}]
+
+16:22:26.819 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+16:22:26.819 [debug] Transforming recursive refs:
+Body: {:case, [line: 106, column: 9], [{{:., [line: 106, column: 17], [{:__aliases__, [line: 106, column: 14], [:Map]}, :get]}, [line: 106, column: 18], [{:vertices, [line: 106, column: 22], nil}, {:vertex_id, [line: 106, column: 32], nil}]}, [do: [{:->, [line: 107, column: 15], [[nil], []]}, {:->, [line: 108, column: 18], [[{:vertex, [line: 108, column: 11], nil}], {:get_adjacent_vertices, [line: 108, column: 21], [{:vertex, [line: 108, column: 43], nil}, {:edges, [line: 108, column: 51], nil}]}]}]]]}
+Bindings: [vertices: true, edges: true, metadata: true]
+State: nil
+
+
+16:22:26.819 [debug] Generated pattern: {:%{}, [], [variant: :empty]} for variant: :empty
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 25 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:25: LibGraph.add_vertex/3
+
+
+16:22:26.819 [debug] Transforming recursive refs:
+Body: []
+Bindings: []
+State: nil
+
+
+16:22:26.819 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.819 [debug] Transforming recursive refs:
+Body: []
+Bindings: []
+State: nil
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 49 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:49: LibGraph.add_edge/5
+
+    warning: variable "edges" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 77 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:77: LibGraph.vertex_count/1
+
+    warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 77 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:77: LibGraph.vertex_count/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 77 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:77: LibGraph.vertex_count/1
+
+    warning: variable "vertices" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 87 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:87: LibGraph.edge_count/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 87 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:87: LibGraph.edge_count/1
+
+
+16:22:26.820 [debug] Generated fold cases after transformation: [{:->, [line: 105, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:case, [line: 106, column: 9], [{{:., [line: 106, column: 17], [{:__aliases__, [line: 106, column: 14], [:Map]}, :get]}, [line: 106, column: 18], [{:vertices, [line: 106, column: 22], nil}, {:vertex_id, [line: 106, column: 32], nil}]}, [do: [{:->, [line: 107, column: 15], [[nil], []]}, {:->, [line: 108, column: 18], [[{:vertex, [line: 108, column: 11], nil}], {:get_adjacent_vertices, [line: 108, column: 21], [{:vertex, [line: 108, column: 43], nil}, {:edges, [line: 108, column: 51], nil}]}]}]]]}]}, {:->, [line: 111, column: 21], [[{:%{}, [], [variant: :empty]}], []]}, {:->, [line: 114, column: 15], [[{:%{}, [], [variant: :_]}], []]}]
+
+16:22:26.821 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 104, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 105, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:case, [line: 106, column: 9], [{{:., [line: 106, column: 17], [{:__aliases__, [line: 106, column: 14], [:Map]}, :get]}, [line: 106, column: 18], [{:vertices, [line: 106, column: 22], nil}, {:vertex_id, [line: 106, column: 32], nil}]}, [do: [{:->, [line: 107, column: 15], [[nil], []]}, {:->, [line: 108, column: 18], [[{:vertex, [line: 108, column: 11], nil}], {:get_adjacent_vertices, [line: 108, column: 21], [{:vertex, [line: 108, column: 43], nil}, {:edges, [line: 108, column: 51], nil}]}]}]]]}]}, {:->, [line: 111, column: 21], [[{:%{}, [], [variant: :empty]}], []]}, {:->, [line: 114, column: 15], [[{:%{}, [], [variant: :_]}], []]}]]]}]}]}]}
+
+16:22:26.821 [debug] Fold expression: {:graph, [line: 121, column: 10], nil}, opts: [with: {:{}, [line: 121, column: 23], [{:%{}, [line: 121, column: 24], []}, {:%{}, [line: 121, column: 29], [{{:start_id, [line: 121, column: 31], nil}, 0}]}, [{:start_id, [line: 121, column: 48], nil}]]}], cases: [{:->, [line: 122, column: 46], [[{:case, [line: 122, column: 7], [{:graph, [line: 122, column: 12], [{:vertices, [line: 122, column: 18], nil}, {:edges, [line: 122, column: 28], nil}, {:metadata, [line: 122, column: 35], nil}]}]}], {:find_path, [line: 123, column: 9], [{:vertices, [line: 123, column: 19], nil}, {:edges, [line: 123, column: 29], nil}, {:start_id, [line: 123, column: 36], nil}, {:end_id, [line: 123, column: 46], nil}, {:state, [line: 123, column: 54], nil}]}]}, {:->, [line: 125, column: 15], [[{:case, [line: 125, column: 7], [{:_, [line: 125, column: 12], nil}]}], {:{}, [line: 126, column: 9], [{:%{}, [line: 126, column: 10], []}, {:%{}, [line: 126, column: 15], []}, []]}]}]
+     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 104 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:104: LibGraph.get_neighbors/2
+
+
+16:22:26.821 [debug] Extracting cases from list: [{:->, [line: 122, column: 46], [[{:case, [line: 122, column: 7], [{:graph, [line: 122, column: 12], [{:vertices, [line: 122, column: 18], nil}, {:edges, [line: 122, column: 28], nil}, {:metadata, [line: 122, column: 35], nil}]}]}], {:find_path, [line: 123, column: 9], [{:vertices, [line: 123, column: 19], nil}, {:edges, [line: 123, column: 29], nil}, {:start_id, [line: 123, column: 36], nil}, {:end_id, [line: 123, column: 46], nil}, {:state, [line: 123, column: 54], nil}]}]}, {:->, [line: 125, column: 15], [[{:case, [line: 125, column: 7], [{:_, [line: 125, column: 12], nil}]}], {:{}, [line: 126, column: 9], [{:%{}, [line: 126, column: 10], []}, {:%{}, [line: 126, column: 15], []}, []]}]}]
+
+16:22:26.821 [debug] Extracted fold cases: [{:->, [line: 122, column: 46], [[{:case, [line: 122, column: 7], [{:graph, [line: 122, column: 12], [{:vertices, [line: 122, column: 18], nil}, {:edges, [line: 122, column: 28], nil}, {:metadata, [line: 122, column: 35], nil}]}]}], {:find_path, [line: 123, column: 9], [{:vertices, [line: 123, column: 19], nil}, {:edges, [line: 123, column: 29], nil}, {:start_id, [line: 123, column: 36], nil}, {:end_id, [line: 123, column: 46], nil}, {:state, [line: 123, column: 54], nil}]}]}, {:->, [line: 125, column: 15], [[{:case, [line: 125, column: 7], [{:_, [line: 125, column: 12], nil}]}], {:{}, [line: 126, column: 9], [{:%{}, [line: 126, column: 10], []}, {:%{}, [line: 126, column: 15], []}, []]}]}]
+
+16:22:26.821 [debug] Generating fold cases: [{:->, [line: 122, column: 46], [[{:case, [line: 122, column: 7], [{:graph, [line: 122, column: 12], [{:vertices, [line: 122, column: 18], nil}, {:edges, [line: 122, column: 28], nil}, {:metadata, [line: 122, column: 35], nil}]}]}], {:find_path, [line: 123, column: 9], [{:vertices, [line: 123, column: 19], nil}, {:edges, [line: 123, column: 29], nil}, {:start_id, [line: 123, column: 36], nil}, {:end_id, [line: 123, column: 46], nil}, {:state, [line: 123, column: 54], nil}]}]}, {:->, [line: 125, column: 15], [[{:case, [line: 125, column: 7], [{:_, [line: 125, column: 12], nil}]}], {:{}, [line: 126, column: 9], [{:%{}, [line: 126, column: 10], []}, {:%{}, [line: 126, column: 15], []}, []]}]}]
+
+16:22:26.821 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+16:22:26.821 [debug] Transforming recursive refs:
+Body: {:find_path, [line: 123, column: 9], [{:vertices, [line: 123, column: 19], nil}, {:edges, [line: 123, column: 29], nil}, {:start_id, [line: 123, column: 36], nil}, {:end_id, [line: 123, column: 46], nil}, {:state, [line: 123, column: 54], nil}]}
+Bindings: [vertices: true, edges: true, metadata: true]
+State: {:{}, [line: 121, column: 23], [{:%{}, [line: 121, column: 24], []}, {:%{}, [line: 121, column: 29], [{{:start_id, [line: 121, column: 31], nil}, 0}]}, [{:start_id, [line: 121, column: 48], nil}]]}
+
+
+16:22:26.821 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.821 [debug] Transforming recursive refs:
+Body: {:{}, [line: 126, column: 9], [{:%{}, [line: 126, column: 10], []}, {:%{}, [line: 126, column: 15], []}, []]}
+Bindings: []
+State: {:{}, [line: 121, column: 23], [{:%{}, [line: 121, column: 24], []}, {:%{}, [line: 121, column: 29], [{{:start_id, [line: 121, column: 31], nil}, 0}]}, [{:start_id, [line: 121, column: 48], nil}]]}
+
+
+16:22:26.821 [debug] Generated fold cases after transformation: [{:->, [line: 122, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:find_path, [line: 123, column: 9], [{:vertices, [line: 123, column: 19], nil}, {:edges, [line: 123, column: 29], nil}, {:start_id, [line: 123, column: 36], nil}, {:end_id, [line: 123, column: 46], nil}, {:state, [line: 123, column: 54], nil}]}]}, {:->, [line: 125, column: 15], [[{:%{}, [], [variant: :_]}], {:{}, [line: 126, column: 9], [{:%{}, [line: 126, column: 10], []}, {:%{}, [line: 126, column: 15], []}, []]}]}]
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 104 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:104: LibGraph.get_neighbors/2
+
+
+16:22:26.821 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 121, column: 10], nil}, {:{}, [line: 121, column: 23], [{:%{}, [line: 121, column: 24], []}, {:%{}, [line: 121, column: 29], [{{:start_id, [line: 121, column: 31], nil}, 0}]}, [{:start_id, [line: 121, column: 48], nil}]]}, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 122, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:find_path, [line: 123, column: 9], [{:vertices, [line: 123, column: 19], nil}, {:edges, [line: 123, column: 29], nil}, {:start_id, [line: 123, column: 36], nil}, {:end_id, [line: 123, column: 46], nil}, {:state, [line: 123, column: 54], nil}]}]}, {:->, [line: 125, column: 15], [[{:%{}, [], [variant: :_]}], {:{}, [line: 126, column: 9], [{:%{}, [line: 126, column: 10], []}, {:%{}, [line: 126, column: 15], []}, []]}]}]]]}]}]}]}
+
+16:22:26.822 [debug] Fold expression: {:graph, [line: 132, column: 10], nil}, opts: [], cases: [{:->, [line: 133, column: 46], [[{:case, [line: 133, column: 7], [{:graph, [line: 133, column: 12], [{:vertices, [line: 133, column: 18], nil}, {:edges, [line: 133, column: 28], nil}, {:metadata, [line: 133, column: 35], nil}]}]}], {:case, [line: 134, column: 9], [{{:., [line: 134, column: 17], [{:__aliases__, [line: 134, column: 14], [:Map]}, :keys]}, [line: 134, column: 18], [{:vertices, [line: 134, column: 23], nil}]}, [do: [{:->, [line: 135, column: 14], [[[]], true]}, {:->, [line: 138, column: 38], [[{:=, [line: 138, column: 23], [[{:|, [line: 138, column: 18], [{:first, [line: 138, column: 12], nil}, {:_, [line: 138, column: 20], nil}]}], {:all_vertices, [line: 138, column: 25], nil}]}], {:__block__, [], [{:=, [line: 139, column: 21], [{:visited, [line: 139, column: 13], nil}, {:depth_first_search, [line: 139, column: 23], [{:vertices, [line: 139, column: 42], nil}, {:edges, [line: 139, column: 52], nil}, {:first, [line: 139, column: 59], nil}, {{:., [line: 139, column: 72], [{:__aliases__, [line: 139, column: 66], [:MapSet]}, :new]}, [line: 139, column: 73], []}]}]}, {:==, [line: 140, column: 34], [{{:., [line: 140, column: 19], [{:__aliases__, [line: 140, column: 13], [:MapSet]}, :size]}, [line: 140, column: 20], [{:visited, [line: 140, column: 25], nil}]}, {:length, [line: 140, column: 37], [{:all_vertices, [line: 140, column: 44], nil}]}]}]}]}]]]}]}, {:->, [line: 143, column: 15], [[{:case, [line: 143, column: 7], [{:_, [line: 143, column: 12], nil}]}], true]}]
+     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 121 │     fold graph, with: {%{}, %{start_id => 0}, [start_id]} do
+     │     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:121: LibGraph.shortest_path/3
+
+
+16:22:26.822 [debug] Extracting cases from list: [{:->, [line: 133, column: 46], [[{:case, [line: 133, column: 7], [{:graph, [line: 133, column: 12], [{:vertices, [line: 133, column: 18], nil}, {:edges, [line: 133, column: 28], nil}, {:metadata, [line: 133, column: 35], nil}]}]}], {:case, [line: 134, column: 9], [{{:., [line: 134, column: 17], [{:__aliases__, [line: 134, column: 14], [:Map]}, :keys]}, [line: 134, column: 18], [{:vertices, [line: 134, column: 23], nil}]}, [do: [{:->, [line: 135, column: 14], [[[]], true]}, {:->, [line: 138, column: 38], [[{:=, [line: 138, column: 23], [[{:|, [line: 138, column: 18], [{:first, [line: 138, column: 12], nil}, {:_, [line: 138, column: 20], nil}]}], {:all_vertices, [line: 138, column: 25], nil}]}], {:__block__, [], [{:=, [line: 139, column: 21], [{:visited, [line: 139, column: 13], nil}, {:depth_first_search, [line: 139, column: 23], [{:vertices, [line: 139, column: 42], nil}, {:edges, [line: 139, column: 52], nil}, {:first, [line: 139, column: 59], nil}, {{:., [line: 139, column: 72], [{:__aliases__, [line: 139, column: 66], [:MapSet]}, :new]}, [line: 139, column: 73], []}]}]}, {:==, [line: 140, column: 34], [{{:., [line: 140, column: 19], [{:__aliases__, [line: 140, column: 13], [:MapSet]}, :size]}, [line: 140, column: 20], [{:visited, [line: 140, column: 25], nil}]}, {:length, [line: 140, column: 37], [{:all_vertices, [line: 140, column: 44], nil}]}]}]}]}]]]}]}, {:->, [line: 143, column: 15], [[{:case, [line: 143, column: 7], [{:_, [line: 143, column: 12], nil}]}], true]}]
+
+16:22:26.822 [debug] Extracted fold cases: [{:->, [line: 133, column: 46], [[{:case, [line: 133, column: 7], [{:graph, [line: 133, column: 12], [{:vertices, [line: 133, column: 18], nil}, {:edges, [line: 133, column: 28], nil}, {:metadata, [line: 133, column: 35], nil}]}]}], {:case, [line: 134, column: 9], [{{:., [line: 134, column: 17], [{:__aliases__, [line: 134, column: 14], [:Map]}, :keys]}, [line: 134, column: 18], [{:vertices, [line: 134, column: 23], nil}]}, [do: [{:->, [line: 135, column: 14], [[[]], true]}, {:->, [line: 138, column: 38], [[{:=, [line: 138, column: 23], [[{:|, [line: 138, column: 18], [{:first, [line: 138, column: 12], nil}, {:_, [line: 138, column: 20], nil}]}], {:all_vertices, [line: 138, column: 25], nil}]}], {:__block__, [], [{:=, [line: 139, column: 21], [{:visited, [line: 139, column: 13], nil}, {:depth_first_search, [line: 139, column: 23], [{:vertices, [line: 139, column: 42], nil}, {:edges, [line: 139, column: 52], nil}, {:first, [line: 139, column: 59], nil}, {{:., [line: 139, column: 72], [{:__aliases__, [line: 139, column: 66], [:MapSet]}, :new]}, [line: 139, column: 73], []}]}]}, {:==, [line: 140, column: 34], [{{:., [line: 140, column: 19], [{:__aliases__, [line: 140, column: 13], [:MapSet]}, :size]}, [line: 140, column: 20], [{:visited, [line: 140, column: 25], nil}]}, {:length, [line: 140, column: 37], [{:all_vertices, [line: 140, column: 44], nil}]}]}]}]}]]]}]}, {:->, [line: 143, column: 15], [[{:case, [line: 143, column: 7], [{:_, [line: 143, column: 12], nil}]}], true]}]
+
+16:22:26.822 [debug] Generating fold cases: [{:->, [line: 133, column: 46], [[{:case, [line: 133, column: 7], [{:graph, [line: 133, column: 12], [{:vertices, [line: 133, column: 18], nil}, {:edges, [line: 133, column: 28], nil}, {:metadata, [line: 133, column: 35], nil}]}]}], {:case, [line: 134, column: 9], [{{:., [line: 134, column: 17], [{:__aliases__, [line: 134, column: 14], [:Map]}, :keys]}, [line: 134, column: 18], [{:vertices, [line: 134, column: 23], nil}]}, [do: [{:->, [line: 135, column: 14], [[[]], true]}, {:->, [line: 138, column: 38], [[{:=, [line: 138, column: 23], [[{:|, [line: 138, column: 18], [{:first, [line: 138, column: 12], nil}, {:_, [line: 138, column: 20], nil}]}], {:all_vertices, [line: 138, column: 25], nil}]}], {:__block__, [], [{:=, [line: 139, column: 21], [{:visited, [line: 139, column: 13], nil}, {:depth_first_search, [line: 139, column: 23], [{:vertices, [line: 139, column: 42], nil}, {:edges, [line: 139, column: 52], nil}, {:first, [line: 139, column: 59], nil}, {{:., [line: 139, column: 72], [{:__aliases__, [line: 139, column: 66], [:MapSet]}, :new]}, [line: 139, column: 73], []}]}]}, {:==, [line: 140, column: 34], [{{:., [line: 140, column: 19], [{:__aliases__, [line: 140, column: 13], [:MapSet]}, :size]}, [line: 140, column: 20], [{:visited, [line: 140, column: 25], nil}]}, {:length, [line: 140, column: 37], [{:all_vertices, [line: 140, column: 44], nil}]}]}]}]}]]]}]}, {:->, [line: 143, column: 15], [[{:case, [line: 143, column: 7], [{:_, [line: 143, column: 12], nil}]}], true]}]
+
+16:22:26.822 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+16:22:26.822 [debug] Transforming recursive refs:
+Body: {:case, [line: 134, column: 9], [{{:., [line: 134, column: 17], [{:__aliases__, [line: 134, column: 14], [:Map]}, :keys]}, [line: 134, column: 18], [{:vertices, [line: 134, column: 23], nil}]}, [do: [{:->, [line: 135, column: 14], [[[]], true]}, {:->, [line: 138, column: 38], [[{:=, [line: 138, column: 23], [[{:|, [line: 138, column: 18], [{:first, [line: 138, column: 12], nil}, {:_, [line: 138, column: 20], nil}]}], {:all_vertices, [line: 138, column: 25], nil}]}], {:__block__, [], [{:=, [line: 139, column: 21], [{:visited, [line: 139, column: 13], nil}, {:depth_first_search, [line: 139, column: 23], [{:vertices, [line: 139, column: 42], nil}, {:edges, [line: 139, column: 52], nil}, {:first, [line: 139, column: 59], nil}, {{:., [line: 139, column: 72], [{:__aliases__, [line: 139, column: 66], [:MapSet]}, :new]}, [line: 139, column: 73], []}]}]}, {:==, [line: 140, column: 34], [{{:., [line: 140, column: 19], [{:__aliases__, [line: 140, column: 13], [:MapSet]}, :size]}, [line: 140, column: 20], [{:visited, [line: 140, column: 25], nil}]}, {:length, [line: 140, column: 37], [{:all_vertices, [line: 140, column: 44], nil}]}]}]}]}]]]}
+Bindings: [vertices: true, edges: true, metadata: true]
+State: nil
+
+
+16:22:26.822 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.822 [debug] Transforming recursive refs:
+Body: true
+Bindings: []
+State: nil
+
+
+16:22:26.822 [debug] Generated fold cases after transformation: [{:->, [line: 133, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:case, [line: 134, column: 9], [{{:., [line: 134, column: 17], [{:__aliases__, [line: 134, column: 14], [:Map]}, :keys]}, [line: 134, column: 18], [{:vertices, [line: 134, column: 23], nil}]}, [do: [{:->, [line: 135, column: 14], [[[]], true]}, {:->, [line: 138, column: 38], [[{:=, [line: 138, column: 23], [[{:|, [line: 138, column: 18], [{:first, [line: 138, column: 12], nil}, {:_, [line: 138, column: 20], nil}]}], {:all_vertices, [line: 138, column: 25], nil}]}], {:__block__, [], [{:=, [line: 139, column: 21], [{:visited, [line: 139, column: 13], nil}, {:depth_first_search, [line: 139, column: 23], [{:vertices, [line: 139, column: 42], nil}, {:edges, [line: 139, column: 52], nil}, {:first, [line: 139, column: 59], nil}, {{:., [line: 139, column: 72], [{:__aliases__, [line: 139, column: 66], [:MapSet]}, :new]}, [line: 139, column: 73], []}]}]}, {:==, [line: 140, column: 34], [{{:., [line: 140, column: 19], [{:__aliases__, [line: 140, column: 13], [:MapSet]}, :size]}, [line: 140, column: 20], [{:visited, [line: 140, column: 25], nil}]}, {:length, [line: 140, column: 37], [{:all_vertices, [line: 140, column: 44], nil}]}]}]}]}]]]}]}, {:->, [line: 143, column: 15], [[{:%{}, [], [variant: :_]}], true]}]
+
+16:22:26.822 [debug] Final quoted expression: {:do_fold, [], [{:graph, [line: 132, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 133, column: 46], [[{:%{}, [], [variant: :graph, vertices: {:vertices, [], nil}, edges: {:edges, [], nil}, metadata: {:metadata, [], nil}]}], {:case, [line: 134, column: 9], [{{:., [line: 134, column: 17], [{:__aliases__, [line: 134, column: 14], [:Map]}, :keys]}, [line: 134, column: 18], [{:vertices, [line: 134, column: 23], nil}]}, [do: [{:->, [line: 135, column: 14], [[[]], true]}, {:->, [line: 138, column: 38], [[{:=, [line: 138, column: 23], [[{:|, [line: 138, column: 18], [{:first, ...}, {...}]}], {:all_vertices, [line: 138, column: 25], nil}]}], {:__block__, [], [{:=, [line: 139, column: 21], [{:visited, [...], ...}, {:depth_first_search, ...}]}, {:==, [line: 140, column: 34], [{{...}, ...}, {...}]}]}]}]]]}]}, {:->, [line: 143, column: 15], [[{:%{}, [], [variant: :_]}], true]}]]]}]}]}]}
+
+16:22:26.823 [debug] Fold expression: {:edges, [line: 157, column: 10], nil}, opts: [], cases: [{:->, [line: 158, column: 65], [[{:case, [line: 158, column: 7], [{:edge, [line: 158, column: 12], [{:source_id, [line: 158, column: 17], nil}, {:target_id, [line: 158, column: 28], nil}, {:edge_weight, [line: 158, column: 39], nil}, {:edge_props, [line: 158, column: 52], nil}]}]}], {:+, [line: 159, column: 11], [1, {:fold, [line: 160, column: 11], [{:edges, [line: 160, column: 16], nil}, [do: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]]]}]}]}, {:->, [line: 165, column: 21], [[{:case, [line: 165, column: 7], [{:empty, [line: 165, column: 12], []}]}], 0]}]
+
+16:22:26.823 [debug] Extracting cases from list: [{:->, [line: 158, column: 65], [[{:case, [line: 158, column: 7], [{:edge, [line: 158, column: 12], [{:source_id, [line: 158, column: 17], nil}, {:target_id, [line: 158, column: 28], nil}, {:edge_weight, [line: 158, column: 39], nil}, {:edge_props, [line: 158, column: 52], nil}]}]}], {:+, [line: 159, column: 11], [1, {:fold, [line: 160, column: 11], [{:edges, [line: 160, column: 16], nil}, [do: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]]]}]}]}, {:->, [line: 165, column: 21], [[{:case, [line: 165, column: 7], [{:empty, [line: 165, column: 12], []}]}], 0]}]
+
+16:22:26.823 [debug] Extracted fold cases: [{:->, [line: 158, column: 65], [[{:case, [line: 158, column: 7], [{:edge, [line: 158, column: 12], [{:source_id, [line: 158, column: 17], nil}, {:target_id, [line: 158, column: 28], nil}, {:edge_weight, [line: 158, column: 39], nil}, {:edge_props, [line: 158, column: 52], nil}]}]}], {:+, [line: 159, column: 11], [1, {:fold, [line: 160, column: 11], [{:edges, [line: 160, column: 16], nil}, [do: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]]]}]}]}, {:->, [line: 165, column: 21], [[{:case, [line: 165, column: 7], [{:empty, [line: 165, column: 12], []}]}], 0]}]
+     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 132 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:132: LibGraph.is_connected?/1
+
+
+16:22:26.823 [debug] Generating fold cases: [{:->, [line: 158, column: 65], [[{:case, [line: 158, column: 7], [{:edge, [line: 158, column: 12], [{:source_id, [line: 158, column: 17], nil}, {:target_id, [line: 158, column: 28], nil}, {:edge_weight, [line: 158, column: 39], nil}, {:edge_props, [line: 158, column: 52], nil}]}]}], {:+, [line: 159, column: 11], [1, {:fold, [line: 160, column: 11], [{:edges, [line: 160, column: 16], nil}, [do: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]]]}]}]}, {:->, [line: 165, column: 21], [[{:case, [line: 165, column: 7], [{:empty, [line: 165, column: 12], []}]}], 0]}]
+
+16:22:26.823 [debug] Generated pattern: {:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, edge_weight: {:edge_weight, [], nil}, edge_props: {:edge_props, [], nil}]} for variant: :edge
+
+16:22:26.823 [debug] Transforming recursive refs:
+Body: {:+, [line: 159, column: 11], [1, {:fold, [line: 160, column: 11], [{:edges, [line: 160, column: 16], nil}, [do: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]]]}]}
+Bindings: [source_id: true, target_id: true, edge_weight: true, edge_props: true]
+State: nil
+
+
+16:22:26.823 [debug] Generated pattern: {:%{}, [], [variant: :empty]} for variant: :empty
+
+16:22:26.823 [debug] Transforming recursive refs:
+Body: 0
+Bindings: []
+State: nil
+
+
+16:22:26.823 [debug] Generated fold cases after transformation: [{:->, [line: 158, column: 65], [[{:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, edge_weight: {:edge_weight, [], nil}, edge_props: {:edge_props, [], nil}]}], {:+, [line: 159, column: 11], [1, {:fold, [line: 160, column: 11], [{:edges, [line: 160, column: 16], nil}, [do: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]]]}]}]}, {:->, [line: 165, column: 21], [[{:%{}, [], [variant: :empty]}], 0]}]
+
+16:22:26.823 [debug] Final quoted expression: {:do_fold, [], [{:edges, [line: 157, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 158, column: 65], [[{:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, edge_weight: {:edge_weight, [], nil}, edge_props: {:edge_props, [], nil}]}], {:+, [line: 159, column: 11], [1, {:fold, [line: 160, column: 11], [{:edges, [line: 160, column: 16], nil}, [do: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [...], ...}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, ...}]}], 0]}]]]}]}]}, {:->, [line: 165, column: 21], [[{:%{}, [], [variant: :empty]}], 0]}]]]}]}]}]}
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 132 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:132: LibGraph.is_connected?/1
+
+
+16:22:26.823 [debug] Fold expression: {:edges, [line: 160, column: 16], nil}, opts: [], cases: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]
+
+16:22:26.823 [debug] Extracting cases from list: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]
+
+16:22:26.824 [debug] Extracted fold cases: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]
+
+16:22:26.824 [debug] Generating fold cases: [{:->, [line: 161, column: 71], [[{:case, [line: 161, column: 13], [{:edge, [line: 161, column: 18], [{:source_id, [line: 161, column: 23], nil}, {:target_id, [line: 161, column: 34], nil}, {:edge_weight, [line: 161, column: 45], nil}, {:edge_props, [line: 161, column: 58], nil}]}]}], 1]}, {:->, [line: 162, column: 27], [[{:case, [line: 162, column: 13], [{:empty, [line: 162, column: 18], []}]}], 0]}]
+
+16:22:26.824 [debug] Generated pattern: {:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, edge_weight: {:edge_weight, [], nil}, edge_props: {:edge_props, [], nil}]} for variant: :edge
+
+16:22:26.824 [debug] Transforming recursive refs:
+Body: 1
+Bindings: [source_id: true, target_id: true, edge_weight: true, edge_props: true]
+State: nil
+
+
+16:22:26.824 [debug] Generated pattern: {:%{}, [], [variant: :empty]} for variant: :empty
+
+16:22:26.824 [debug] Transforming recursive refs:
+Body: 0
+Bindings: []
+State: nil
+
+
+16:22:26.824 [debug] Generated fold cases after transformation: [{:->, [line: 161, column: 71], [[{:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, edge_weight: {:edge_weight, [], nil}, edge_props: {:edge_props, [], nil}]}], 1]}, {:->, [line: 162, column: 27], [[{:%{}, [], [variant: :empty]}], 0]}]
+
+16:22:26.824 [debug] Final quoted expression: {:do_fold, [], [{:edges, [line: 160, column: 16], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 161, column: 71], [[{:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, edge_weight: {:edge_weight, [], nil}, edge_props: {:edge_props, [], nil}]}], 1]}, {:->, [line: 162, column: 27], [[{:%{}, [], [variant: :empty]}], 0]}]]]}]}]}]}
+
+16:22:26.824 [debug] Fold expression: {:edges, [line: 171, column: 10], nil}, opts: [], cases: [{:->, [line: 172, column: 55], [[{:case, [line: 172, column: 7], [{:edge, [line: 172, column: 12], [{:source_id, [line: 172, column: 17], nil}, {:target_id, [line: 172, column: 28], nil}, {:weight, [line: 172, column: 39], nil}, {:props, [line: 172, column: 47], nil}]}]}], {:if, [line: 173, column: 9], [{:==, [line: 173, column: 22], [{:source_id, [line: 173, column: 12], nil}, {{:., [line: 173, column: 31], [{:vertex, [line: 173, column: 25], nil}, :vertex_id]}, [no_parens: true, line: 173, column: 32], []}]}, [do: [{:{}, [line: 174, column: 12], [{:target_id, [line: 174, column: 13], nil}, {:weight, [line: 174, column: 24], nil}, {:props, [line: 174, column: 32], nil}]}], else: []]]}]}, {:->, [line: 179, column: 21], [[{:case, [line: 179, column: 7], [{:empty, [line: 179, column: 12], []}]}], []]}, {:->, [line: 182, column: 15], [[{:case, [line: 182, column: 7], [{:_, [line: 182, column: 12], nil}]}], []]}]
+
+16:22:26.824 [debug] Extracting cases from list: [{:->, [line: 172, column: 55], [[{:case, [line: 172, column: 7], [{:edge, [line: 172, column: 12], [{:source_id, [line: 172, column: 17], nil}, {:target_id, [line: 172, column: 28], nil}, {:weight, [line: 172, column: 39], nil}, {:props, [line: 172, column: 47], nil}]}]}], {:if, [line: 173, column: 9], [{:==, [line: 173, column: 22], [{:source_id, [line: 173, column: 12], nil}, {{:., [line: 173, column: 31], [{:vertex, [line: 173, column: 25], nil}, :vertex_id]}, [no_parens: true, line: 173, column: 32], []}]}, [do: [{:{}, [line: 174, column: 12], [{:target_id, [line: 174, column: 13], nil}, {:weight, [line: 174, column: 24], nil}, {:props, [line: 174, column: 32], nil}]}], else: []]]}]}, {:->, [line: 179, column: 21], [[{:case, [line: 179, column: 7], [{:empty, [line: 179, column: 12], []}]}], []]}, {:->, [line: 182, column: 15], [[{:case, [line: 182, column: 7], [{:_, [line: 182, column: 12], nil}]}], []]}]
+
+16:22:26.824 [debug] Extracted fold cases: [{:->, [line: 172, column: 55], [[{:case, [line: 172, column: 7], [{:edge, [line: 172, column: 12], [{:source_id, [line: 172, column: 17], nil}, {:target_id, [line: 172, column: 28], nil}, {:weight, [line: 172, column: 39], nil}, {:props, [line: 172, column: 47], nil}]}]}], {:if, [line: 173, column: 9], [{:==, [line: 173, column: 22], [{:source_id, [line: 173, column: 12], nil}, {{:., [line: 173, column: 31], [{:vertex, [line: 173, column: 25], nil}, :vertex_id]}, [no_parens: true, line: 173, column: 32], []}]}, [do: [{:{}, [line: 174, column: 12], [{:target_id, [line: 174, column: 13], nil}, {:weight, [line: 174, column: 24], nil}, {:props, [line: 174, column: 32], nil}]}], else: []]]}]}, {:->, [line: 179, column: 21], [[{:case, [line: 179, column: 7], [{:empty, [line: 179, column: 12], []}]}], []]}, {:->, [line: 182, column: 15], [[{:case, [line: 182, column: 7], [{:_, [line: 182, column: 12], nil}]}], []]}]
+
+16:22:26.825 [debug] Generating fold cases: [{:->, [line: 172, column: 55], [[{:case, [line: 172, column: 7], [{:edge, [line: 172, column: 12], [{:source_id, [line: 172, column: 17], nil}, {:target_id, [line: 172, column: 28], nil}, {:weight, [line: 172, column: 39], nil}, {:props, [line: 172, column: 47], nil}]}]}], {:if, [line: 173, column: 9], [{:==, [line: 173, column: 22], [{:source_id, [line: 173, column: 12], nil}, {{:., [line: 173, column: 31], [{:vertex, [line: 173, column: 25], nil}, :vertex_id]}, [no_parens: true, line: 173, column: 32], []}]}, [do: [{:{}, [line: 174, column: 12], [{:target_id, [line: 174, column: 13], nil}, {:weight, [line: 174, column: 24], nil}, {:props, [line: 174, column: 32], nil}]}], else: []]]}]}, {:->, [line: 179, column: 21], [[{:case, [line: 179, column: 7], [{:empty, [line: 179, column: 12], []}]}], []]}, {:->, [line: 182, column: 15], [[{:case, [line: 182, column: 7], [{:_, [line: 182, column: 12], nil}]}], []]}]
+
+16:22:26.825 [debug] Generated pattern: {:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, weight: {:weight, [], nil}, props: {:props, [], nil}]} for variant: :edge
+
+16:22:26.825 [debug] Transforming recursive refs:
+Body: {:if, [line: 173, column: 9], [{:==, [line: 173, column: 22], [{:source_id, [line: 173, column: 12], nil}, {{:., [line: 173, column: 31], [{:vertex, [line: 173, column: 25], nil}, :vertex_id]}, [no_parens: true, line: 173, column: 32], []}]}, [do: [{:{}, [line: 174, column: 12], [{:target_id, [line: 174, column: 13], nil}, {:weight, [line: 174, column: 24], nil}, {:props, [line: 174, column: 32], nil}]}], else: []]]}
+Bindings: [source_id: true, target_id: true, weight: true, props: true]
+State: nil
+
+     warning: variable "edge_props" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 160 │           fold edges do
+     │           ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:160: LibGraph.count_edges/1
+
+
+16:22:26.825 [debug] Generated pattern: {:%{}, [], [variant: :empty]} for variant: :empty
+
+16:22:26.825 [debug] Transforming recursive refs:
+Body: []
+Bindings: []
+State: nil
+
+
+16:22:26.825 [debug] Generated pattern: {:%{}, [], [variant: :_]} for variant: :_
+
+16:22:26.825 [debug] Transforming recursive refs:
+Body: []
+Bindings: []
+State: nil
+
+
+16:22:26.825 [debug] Generated fold cases after transformation: [{:->, [line: 172, column: 55], [[{:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, weight: {:weight, [], nil}, props: {:props, [], nil}]}], {:if, [line: 173, column: 9], [{:==, [line: 173, column: 22], [{:source_id, [line: 173, column: 12], nil}, {{:., [line: 173, column: 31], [{:vertex, [line: 173, column: 25], nil}, :vertex_id]}, [no_parens: true, line: 173, column: 32], []}]}, [do: [{:{}, [line: 174, column: 12], [{:target_id, [line: 174, column: 13], nil}, {:weight, [line: 174, column: 24], nil}, {:props, [line: 174, column: 32], nil}]}], else: []]]}]}, {:->, [line: 179, column: 21], [[{:%{}, [], [variant: :empty]}], []]}, {:->, [line: 182, column: 15], [[{:%{}, [], [variant: :_]}], []]}]
+
+16:22:26.825 [debug] Final quoted expression: {:do_fold, [], [{:edges, [line: 171, column: 10], nil}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 172, column: 55], [[{:%{}, [], [variant: :edge, source_id: {:source_id, [], nil}, target_id: {:target_id, [], nil}, weight: {:weight, [], nil}, props: {:props, [], nil}]}], {:if, [line: 173, column: 9], [{:==, [line: 173, column: 22], [{:source_id, [line: 173, column: 12], nil}, {{:., [line: 173, column: 31], [{:vertex, [line: 173, column: 25], nil}, :vertex_id]}, [no_parens: true, line: 173, column: 32], []}]}, [do: [{:{}, [line: 174, column: 12], [{:target_id, [line: 174, column: 13], nil}, {:weight, [line: 174, column: 24], nil}, {:props, [line: 174, column: 32], nil}]}], else: []]]}]}, {:->, [line: 179, column: 21], [[{:%{}, [], [variant: :empty]}], []]}, {:->, [line: 182, column: 15], [[{:%{}, [], [variant: :_]}], []]}]]]}]}]}]}
+     warning: variable "edge_weight" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 160 │           fold edges do
+     │           ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:160: LibGraph.count_edges/1
+
+     warning: variable "source_id" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 160 │           fold edges do
+     │           ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:160: LibGraph.count_edges/1
+
+     warning: variable "target_id" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 160 │           fold edges do
+     │           ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:160: LibGraph.count_edges/1
+
+     warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 160 │           fold edges do
+     │           ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:160: LibGraph.count_edges/1
+
+     warning: variable "edge_props" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 157 │     fold edges do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:157: LibGraph.count_edges/1
+
+     warning: variable "edge_weight" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 157 │     fold edges do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:157: LibGraph.count_edges/1
+
+     warning: variable "source_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 157 │     fold edges do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:157: LibGraph.count_edges/1
+
+     warning: variable "target_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 157 │     fold edges do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:157: LibGraph.count_edges/1
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 157 │     fold edges do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:157: LibGraph.count_edges/1
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 171 │     fold edges do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:171: LibGraph.get_adjacent_vertices/2
+
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp generate_fold_cases/2" was previously defined (lib/ben_ben.ex:134)
+     │
+ 171 │   defp generate_fold_cases({:__block__, _meta, cases}, state) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:171:8
+
+     warning: variable "other" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 374 │           other ->
+     │           ~
+     │
+     └─ lib/ben_ben.ex:374:11: BenBen.process_constructed/2
+
+     warning: function generate_pattern_match/1 is unused
+     │
+ 225 │   defp generate_pattern_match({name, _, args}) when is_list(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:225:8: BenBen (module)
+
+     warning: function extract_bindings/1 is unused
+     │
+ 250 │   defp extract_bindings(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:250:8: BenBen (module)
+
+    warning: variable "id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 10 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/my_tree.ex:10: MyTree.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 19 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:19: Prototypal.get_property/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 73 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:73: Prototypal.inspect_object/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 87 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:87: Prototypal.debug_chain/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 26 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/tree_operations.ex:26: TreeOperations.map_tree/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 38 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/tree_operations.ex:38: TreeOperations.filter_tree/2
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 128 │     fold tree do
+     │     ~~~~~~~~~~~~
+     │
+     └─ lib/examples/tree_operations.ex:128: TreeOperations.collect_values/1
+
+    warning: function merge_with_level_increment/2 is unused
+    │
+ 80 │   defp merge_with_level_increment(left_counts, right_counts) do
+    │        ~
+    │
+    └─ lib/examples/tree_operations.ex:80:8: TreeOperations (module)
+
+    warning: function merge_counts/2 is unused
+    │
+ 75 │   defp merge_counts(left_counts, right_counts) do
+    │        ~
+    │
+    └─ lib/examples/tree_operations.ex:75:8: TreeOperations (module)
+
+Generated ben_ben app
+Running ExUnit with seed: 927182, max_cases: 48
+
+
+16:22:26.964 [debug] do_fold called with data: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}, variant_type: :graph, state: nil
+
+16:22:26.964 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}
+
+16:22:26.964 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+
+16:22:26.964 [debug] Processing recursive fields of: %{variant: :empty}
+
+16:22:26.965 [debug] Recursive field result for edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}
+
+16:22:26.965 [debug] do_fold called with data: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}, variant_type: :graph, state: nil
+
+16:22:26.966 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}
+
+16:22:26.966 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+
+16:22:26.966 [debug] Processing recursive fields of: %{variant: :empty}
+
+16:22:26.966 [debug] Recursive field result for edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}
+
+16:22:26.966 [debug] do_fold called with data: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}, variant_type: :graph, state: nil
+
+16:22:26.966 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}
+
+16:22:26.966 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+
+16:22:26.966 [debug] Processing recursive fields of: %{variant: :empty}
+
+16:22:26.968 [debug] Recursive field result for edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{name: "A"}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}
+
+16:22:26.968 [debug] do_fold called with data: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}, variant_type: :graph, state: nil
+
+16:22:26.968 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{variant: :empty}, variant: :graph}
+
+16:22:26.968 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+
+16:22:26.968 [debug] Processing recursive fields of: %{variant: :empty}
+
+16:22:26.968 [debug] Recursive field result for edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}
+
+
+  1) test LibGraph checks connectivity (LibGraphTest)
+     test/lib_graph_test.exs:33
+     ** (CaseClauseError) no case clause matching: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}, variant: :graph}
+     code: |> LibGraph.add_vertex(1)
+     stacktrace:
+       (ben_ben 0.1.0) lib/examples/lib_graph.ex:25: anonymous fn/5 in LibGraph.add_vertex/3
+       test/lib_graph_test.exs:36: (test)
+
+
+
+  2) test LibGraph finds neighbors (LibGraphTest)
+     test/lib_graph_test.exs:18
+     ** (CaseClauseError) no case clause matching: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}, variant: :graph}
+     code: |> LibGraph.add_vertex(1)
+     stacktrace:
+       (ben_ben 0.1.0) lib/examples/lib_graph.ex:25: anonymous fn/5 in LibGraph.add_vertex/3
+       test/lib_graph_test.exs:21: (test)
+
+
+
+  3) test LibGraph creates and modifies graphs (LibGraphTest)
+     test/lib_graph_test.exs:5
+     ** (CaseClauseError) no case clause matching: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{name: "A"}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}, variant: :graph}
+     code: |> LibGraph.add_vertex(1, %{name: "A"})
+     stacktrace:
+       (ben_ben 0.1.0) lib/examples/lib_graph.ex:25: anonymous fn/5 in LibGraph.add_vertex/3
+       test/lib_graph_test.exs:8: (test)
+
+
+
+  4) test LibGraph finds shortest path (LibGraphTest)
+     test/lib_graph_test.exs:50
+     ** (CaseClauseError) no case clause matching: %{metadata: %{type: :directed}, vertex_map: %{}, edge_list: %{metadata: %{type: :directed}, vertex_map: %{1 => %{vertex_id: 1, properties: %{}, adjacency: %{variant: :empty}, variant: :vertex}}, edge_list: %{variant: :empty}, variant: :graph}, variant: :graph}
+     code: |> LibGraph.add_vertex(1)
+     stacktrace:
+       (ben_ben 0.1.0) lib/examples/lib_graph.ex:25: anonymous fn/5 in LibGraph.add_vertex/3
+       test/lib_graph_test.exs:53: (test)
+
+
+Finished in 0.02 seconds (0.00s async, 0.02s sync)
+4 tests, 4 failures
