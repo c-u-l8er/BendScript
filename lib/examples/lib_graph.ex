@@ -23,10 +23,10 @@ defmodule LibGraph do
 
   def add_vertex(graph, id, props \\ %{}) do
     fold graph do
-      case(graph(vertices, edges, metadata)) ->
+      case(graph(vertex_map, edge_list, metadata)) ->
         Graph.graph(
-          Map.put(vertices, id, Graph.vertex(id, props, Graph.empty())),
-          edges,
+          Map.put(vertex_map, id, Graph.vertex(id, props, Graph.empty())),
+          edge_list,
           metadata
         )
 
@@ -47,8 +47,7 @@ defmodule LibGraph do
     new_edge = Graph.edge(from_id, to_id, weight, props)
 
     fold graph do
-      case(graph(vertices, edges, metadata)) ->
-        # For undirected graphs, add reverse edge
+      case(graph(vertex_map, edge_list, metadata)) ->
         all_edges =
           if metadata.type == :undirected do
             reverse_edge = Graph.edge(to_id, from_id, weight, props)
@@ -57,15 +56,17 @@ defmodule LibGraph do
             [new_edge]
           end
 
-        Graph.graph(
-          vertices,
-          Enum.reduce(all_edges, edges, &add_edge_to_list/2),
-          metadata
-        )
+        # Create new edge list without recursive processing
+        new_edge_list =
+          case edge_list do
+            %{variant: :empty} -> hd(all_edges)
+            _ -> all_edges ++ List.wrap(edge_list)
+          end
+
+        Graph.graph(vertex_map, new_edge_list, metadata)
 
       case(empty()) ->
-        # Handle empty graph case
-        Graph.graph(%{}, [new_edge], %{type: :directed})
+        Graph.graph(%{}, new_edge, %{type: :directed})
 
       case(_) ->
         graph
@@ -75,8 +76,8 @@ defmodule LibGraph do
   # Graph Analysis Functions
   def vertex_count(graph) do
     fold graph do
-      case(graph(vertices, edges, metadata)) ->
-        map_size(vertices)
+      case(graph(vertex_map, edge_list, metadata)) ->
+        map_size(vertex_map)
 
       case(_) ->
         0
@@ -85,8 +86,8 @@ defmodule LibGraph do
 
   def edge_count(graph) do
     fold graph do
-      case(graph(vertices, edges, metadata)) ->
-        count = count_edges(edges)
+      case(graph(vertex_map, edge_list, metadata)) ->
+        count = count_edges(edge_list)
 
         if metadata.type == :undirected do
           # Don't count both directions
@@ -102,10 +103,10 @@ defmodule LibGraph do
 
   def get_neighbors(graph, vertex_id) do
     fold graph do
-      case(graph(vertices, edges, metadata)) ->
-        case Map.get(vertices, vertex_id) do
+      case(graph(vertex_map, edge_list, metadata)) ->
+        case Map.get(vertex_map, vertex_id) do
           nil -> []
-          vertex -> get_adjacent_vertices(vertex, edges)
+          vertex -> extract_neighbors(edge_list, vertex_id)
         end
 
       case(empty()) ->
@@ -116,11 +117,46 @@ defmodule LibGraph do
     end
   end
 
+  # Helper function to extract neighbors from edge list
+  defp extract_neighbors(edge_list, vertex_id) do
+    case edge_list do
+      %{variant: :empty} ->
+        []
+
+      %{
+        variant: :edge,
+        source_id: ^vertex_id,
+        target_id: target_id,
+        edge_weight: weight,
+        edge_props: props
+      } ->
+        [{target_id, weight, props}]
+
+      edges when is_list(edges) ->
+        Enum.flat_map(edges, fn
+          %{
+            variant: :edge,
+            source_id: ^vertex_id,
+            target_id: target_id,
+            edge_weight: weight,
+            edge_props: props
+          } ->
+            [{target_id, weight, props}]
+
+          _ ->
+            []
+        end)
+
+      _ ->
+        []
+    end
+  end
+
   # Path Finding
   def shortest_path(graph, start_id, end_id) do
     fold graph, with: {%{}, %{start_id => 0}, [start_id]} do
-      case(graph(vertices, edges, metadata)) ->
-        find_path(vertices, edges, start_id, end_id, state)
+      case(graph(vertex_map, edge_list, metadata)) ->
+        find_path(vertex_map, edge_list, start_id, end_id, state)
 
       case(_) ->
         {%{}, %{}, []}
@@ -130,13 +166,13 @@ defmodule LibGraph do
   # Graph Properties
   def is_connected?(graph) do
     fold graph do
-      case(graph(vertices, edges, metadata)) ->
-        case Map.keys(vertices) do
+      case(graph(vertex_map, edge_list, metadata)) ->
+        case Map.keys(vertex_map) do
           [] ->
             true
 
           [first | _] = all_vertices ->
-            visited = depth_first_search(vertices, edges, first, MapSet.new())
+            visited = depth_first_search(vertex_map, edge_list, first, MapSet.new())
             MapSet.size(visited) == length(all_vertices)
         end
 
@@ -149,7 +185,8 @@ defmodule LibGraph do
   defp add_edge_to_list(edge, edges) do
     case edges do
       %{variant: :empty} -> edge
-      current -> [edge | List.wrap(current)]
+      current when is_list(current) -> [edge | current]
+      current -> [edge, current]
     end
   end
 
@@ -169,9 +206,9 @@ defmodule LibGraph do
 
   defp get_adjacent_vertices(vertex, edges) do
     fold edges do
-      case(edge(source_id, target_id, weight, props)) ->
+      case(edge(source_id, target_id, edge_weight, edge_props)) ->
         if source_id == vertex.vertex_id do
-          [{target_id, weight, props}]
+          [{target_id, edge_weight, edge_props}]
         else
           []
         end

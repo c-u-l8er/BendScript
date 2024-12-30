@@ -110,3 +110,4 @@ ai should:
 - keep/add logging
 - return only what needs to be updated
 - when filling out case arguements for fold you cant use _ you must use the full variant name
+- within bend and fold variable arguments must match the deftype variable definitions
