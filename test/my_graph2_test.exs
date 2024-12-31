@@ -1,6 +1,5 @@
 defmodule MyGraph2Test do
   use ExUnit.Case
-  import BenBen
   alias MyGraph.MyGraph, as: ExampleGraph
 
   describe "my example" do

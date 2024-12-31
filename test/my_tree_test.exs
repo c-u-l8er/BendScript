@@ -1,6 +1,5 @@
 defmodule MyTreeTest do
   use ExUnit.Case
-  import BenBen
 
   describe "my example" do
     test "tree creation and summing" do

@@ -117,9 +117,9 @@ defmodule LibGraph do
     end
   end
 
-  # Helper function to extract neighbors from edge list
-  defp extract_neighbors(edge_list, vertex_id) do
-    case edge_list do
+  # Extract neighbors helper needs better edge list handling
+  defp extract_neighbors(edges, vertex_id) do
+    case edges do
       %{variant: :empty} ->
         []
 
@@ -154,12 +154,15 @@ defmodule LibGraph do
 
   # Path Finding
   def shortest_path(graph, start_id, end_id) do
-    fold graph, with: {%{}, %{start_id => 0}, [start_id]} do
+    fold graph do
       case(graph(vertex_map, edge_list, metadata)) ->
-        find_path(vertex_map, edge_list, start_id, end_id, state)
+        {came_from, _, _} =
+          find_path(vertex_map, edge_list, start_id, end_id, {%{}, %{start_id => 0}, [start_id]})
+
+        reconstruct_path(came_from, end_id)
 
       case(_) ->
-        {%{}, %{}, []}
+        []
     end
   end
 
@@ -176,100 +179,97 @@ defmodule LibGraph do
             MapSet.size(visited) == length(all_vertices)
         end
 
+      # Empty graph is considered connected
+      case(empty()) ->
+        true
+
       case(_) ->
         true
     end
   end
 
-  # Helper Functions
-  defp add_edge_to_list(edge, edges) do
-    case edges do
-      %{variant: :empty} -> edge
-      current when is_list(current) -> [edge | current]
-      current -> [edge, current]
-    end
-  end
-
+  # Fix edge_count to properly count the edges
   defp count_edges(edges) do
-    fold edges do
-      case(edge(source_id, target_id, edge_weight, edge_props)) ->
-        1 +
-          fold edges do
-            case(edge(source_id, target_id, edge_weight, edge_props)) -> 1
-            case(empty()) -> 0
-          end
+    case edges do
+      # Single edge
+      %{variant: :edge} ->
+        1
 
-      case(empty()) ->
+      # List of edges
+      edges when is_list(edges) ->
+        # Only count actual edge variants, not nested graph structures
+        Enum.count(edges, fn
+          %{variant: :edge} -> true
+          _ -> false
+        end)
+
+      # Empty case
+      %{variant: :empty} ->
+        0
+
+      # Default
+      _ ->
         0
     end
   end
 
-  defp get_adjacent_vertices(vertex, edges) do
-    fold edges do
-      case(edge(source_id, target_id, edge_weight, edge_props)) ->
-        if source_id == vertex.vertex_id do
-          [{target_id, edge_weight, edge_props}]
-        else
-          []
-        end
-
-      case(empty()) ->
-        []
-
-      case(_) ->
-        []
-    end
-    |> List.flatten()
-  end
-
+  # Fix depth_first_search to handle the map data structure
   defp depth_first_search(vertices, edges, current, visited) do
     if MapSet.member?(visited, current) do
       visited
     else
       new_visited = MapSet.put(visited, current)
-      neighbors = get_neighbors(%{vertices: vertices, edges: edges}, current)
 
+      # Get neighbors from edge list
+      neighbors = extract_neighbors(edges, current)
+
+      # Only traverse neighbor vertices that exist
       Enum.reduce(neighbors, new_visited, fn {neighbor_id, _, _}, acc ->
-        depth_first_search(vertices, edges, neighbor_id, acc)
+        if Map.has_key?(vertices, neighbor_id) do
+          depth_first_search(vertices, edges, neighbor_id, acc)
+        else
+          acc
+        end
       end)
     end
   end
 
+  # Update find_path to handle path construction better
   defp find_path(vertices, edges, current, target, {came_from, distances, queue}) do
-    if current == target or Enum.empty?(queue) do
-      reconstruct_path(came_from, target)
-    else
-      [current | rest] = queue
-      neighbors = get_neighbors(%{vertices: vertices, edges: edges}, current)
+    cond do
+      current == target ->
+        {came_from, distances, queue}
 
-      Enum.reduce(neighbors, {came_from, distances, rest}, fn {next, weight, _}, acc ->
-        update_path(current, next, weight, acc)
-      end)
+      Enum.empty?(queue) ->
+        {came_from, distances, queue}
+
+      true ->
+        [current | rest] = queue
+        neighbors = get_neighbors(%{vertices: vertices, edges: edges}, current)
+
+        Enum.reduce(neighbors, {came_from, distances, rest}, fn {next, weight, _},
+                                                                {cf, dist, q} ->
+          new_dist = Map.get(dist, current, :infinity) + weight
+
+          if new_dist < Map.get(dist, next, :infinity) do
+            {
+              Map.put(cf, next, current),
+              Map.put(dist, next, new_dist),
+              [next | q]
+            }
+          else
+            {cf, dist, q}
+          end
+        end)
     end
   end
 
-  defp update_path(current, next, weight, {came_from, distances, queue}) do
-    new_dist = Map.get(distances, current, :infinity) + weight
-
-    if new_dist < Map.get(distances, next, :infinity) do
-      {
-        Map.put(came_from, next, current),
-        Map.put(distances, next, new_dist),
-        [next | queue]
-      }
-    else
-      {came_from, distances, queue}
-    end
-  end
-
-  defp reconstruct_path(came_from, target) do
-    build_path(came_from, target, [])
-  end
-
-  defp build_path(came_from, current, path) do
+  # Fix reconstruct_path to build proper path
+  defp reconstruct_path(came_from, current) do
     case Map.get(came_from, current) do
-      nil -> [current | path]
-      prev -> build_path(came_from, prev, [current | path])
+      # Start node
+      nil -> [current]
+      prev -> reconstruct_path(came_from, prev) ++ [current]
     end
   end
 end

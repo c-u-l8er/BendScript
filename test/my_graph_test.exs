@@ -1,6 +1,5 @@
 defmodule MyGraphTest do
   use ExUnit.Case
-  import BenBen
 
   describe "my example" do
     test "graph creation and summing" do
