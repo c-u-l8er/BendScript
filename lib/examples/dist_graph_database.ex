@@ -4,6 +4,8 @@ defmodule DistGraphDatabase do
 
   defmodule State do
     defstruct [
+      # Identifier
+      node_name: nil,
       # Node roles: :leader, :follower, :candidate
       role: :follower,
       # Current term number
@@ -40,7 +42,7 @@ defmodule DistGraphDatabase do
 
   # Client API
   def start_link(name, registry_name \\ DistGraphDatabase.Registry) do
-    GenServer.start_link(__MODULE__, [registry_name], name: via_tuple(name, registry_name))
+    GenServer.start_link(__MODULE__, [name, registry_name], name: via_tuple(name, registry_name))
   end
 
   def via_tuple(name, registry_name \\ DistGraphDatabase.Registry) do
@@ -48,6 +50,12 @@ defmodule DistGraphDatabase do
   end
 
   def join_cluster(node_name, cluster_node, registry_name \\ DistGraphDatabase.Registry) do
+    Logger.debug("""
+    Join cluster request:
+    Node: #{inspect(node_name)}
+    Target: #{inspect(cluster_node)}
+    """)
+
     GenServer.call(via_tuple(node_name, registry_name), {:join_cluster, cluster_node})
   end
 
@@ -81,7 +89,7 @@ defmodule DistGraphDatabase do
   end
 
   # Server Implementation
-  def init([registry_name]) do
+  def init([name, registry_name]) do
     state = %State{
       graph_state: %GraphDatabase.State{
         graph: LibGraph.new(:directed),
@@ -90,6 +98,8 @@ defmodule DistGraphDatabase do
         locks: %{},
         transaction_counter: 0
       },
+      # Store identifier reference
+      node_name: name,
       # Store registry reference
       registry: registry_name
     }
@@ -99,15 +109,48 @@ defmodule DistGraphDatabase do
 
   # Message Handling
   def handle_call({:join_cluster, cluster_node}, _from, state) do
-    try do
-      case GenServer.call(via_tuple(cluster_node, state.registry), :get_leader) do
-        {:ok, leader} ->
-          new_state = %{state | cluster: MapSet.put(state.cluster, cluster_node), leader: leader}
-          {:reply, :ok, new_state}
+    Logger.debug("""
+    Processing join cluster request:
+    - Self node: #{inspect(self_name(state))}
+    - Target node: #{inspect(cluster_node)}
+    - Current cluster: #{inspect(MapSet.to_list(state.cluster))}
+    """)
 
-        error ->
-          Logger.error("Failed to join cluster: #{inspect(error)}")
-          {:reply, {:error, :join_failed}, state}
+    try do
+      case Registry.lookup(state.registry, cluster_node) do
+        [{pid, _}] ->
+          # Get existing cluster from target node
+          case :sys.get_state(pid) do
+            %{cluster: existing_cluster} ->
+              # Create new cluster with unique membership
+              new_cluster =
+                MapSet.new()
+                |> MapSet.put(self_name(state))
+                |> MapSet.put(cluster_node)
+                |> MapSet.union(existing_cluster)
+
+              Logger.debug("New cluster membership: #{inspect(MapSet.to_list(new_cluster))}")
+
+              new_state = %{
+                state
+                | cluster: new_cluster,
+                  role: :follower,
+                  # Store own node name
+                  node_name: self_name(state)
+              }
+
+              # Notify all nodes about updated membership
+              broadcast_cluster_update(new_state)
+
+              {:reply, :ok, new_state}
+
+            _ ->
+              {:reply, {:error, :invalid_node_state}, state}
+          end
+
+        [] ->
+          Logger.error("Failed to find cluster node in registry")
+          {:reply, {:error, :node_not_found}, state}
       end
     catch
       :exit, reason ->
@@ -116,8 +159,26 @@ defmodule DistGraphDatabase do
     end
   end
 
-  def handle_call(:get_leader, _from, %{leader: leader} = state) do
-    {:reply, {:ok, leader}, state}
+  # Update handle_call for get_leader to be more informative
+  def handle_call(:get_leader, _from, state) do
+    Logger.debug("""
+    Get leader request:
+    - Node: #{inspect(self_name(state))}
+    - Current role: #{state.role}
+    - Current leader: #{inspect(state.leader)}
+    - Current term: #{state.term}
+    """)
+
+    case state.role do
+      :leader ->
+        {:reply, {:ok, self_name(state)}, state}
+
+      _ when not is_nil(state.leader) ->
+        {:reply, {:ok, state.leader}, state}
+
+      _ ->
+        {:reply, {:error, :no_leader}, state}
+    end
   end
 
   # Forward requests to leader if not leader
@@ -197,9 +258,20 @@ defmodule DistGraphDatabase do
     {:noreply, new_state}
   end
 
-  def handle_info(:heartbeat_timeout, %{role: :leader} = state) do
-    broadcast_heartbeat(state)
-    {:noreply, schedule_heartbeat(state)}
+  def handle_info(:heartbeat_timeout, %{role: role} = state) do
+    case role do
+      :leader ->
+        broadcast_heartbeat(state)
+        {:noreply, schedule_heartbeat(state)}
+
+      :follower ->
+        # Followers should just reset their election timeout
+        {:noreply, schedule_election_timeout(state)}
+
+      :candidate ->
+        # Candidates should continue with their election
+        {:noreply, state}
+    end
   end
 
   def handle_info({:DOWN, ref, :process, _, _}, state) do
@@ -218,7 +290,39 @@ defmodule DistGraphDatabase do
     end
   end
 
+  def handle_cast({:cluster_update, members}, state) do
+    Logger.debug("""
+    Received cluster update:
+    - Node: #{inspect(self_name(state))}
+    - Current members: #{inspect(MapSet.to_list(state.cluster))}
+    - New members: #{inspect(members)}
+    """)
+
+    new_cluster = MapSet.new(members)
+    new_state = %{state | cluster: new_cluster}
+
+    {:noreply, new_state}
+  end
+
+  def handle_cast({:node_joined, new_node}, state) do
+    new_state = %{state | cluster: MapSet.put(state.cluster, new_node)}
+
+    case add_node_monitor(new_node, new_state) do
+      {:ok, monitored_state} -> {:noreply, monitored_state}
+      {:error, _} -> {:noreply, new_state}
+    end
+  end
+
   def handle_cast({:request_vote, term, candidate_id, last_log_index, last_log_term}, state) do
+    Logger.debug("""
+    Received vote request:
+    - From: #{inspect(candidate_id)}
+    - Term: #{term}
+    - Current term: #{state.term}
+    - Current role: #{state.role}
+    - Voted for: #{inspect(state.voted_for)}
+    """)
+
     new_state = handle_vote_request(state, term, candidate_id, last_log_index, last_log_term)
     {:noreply, new_state}
   end
@@ -229,20 +333,18 @@ defmodule DistGraphDatabase do
   end
 
   def handle_cast({:vote_response, term, voter_id, granted}, state) do
-    new_state =
-      if granted && state.role == :candidate && term == state.term do
-        new_votes = MapSet.put(state.votes, voter_id)
+    Logger.debug("""
+    Received vote response:
+    - Self: #{inspect(self_name(state))}
+    - From: #{inspect(voter_id)}
+    - Term: #{term}
+    - Granted: #{granted}
+    - Current role: #{state.role}
+    - Current term: #{state.term}
+    - Current votes: #{MapSet.size(state.votes)}
+    """)
 
-        # Check if we have majority
-        if MapSet.size(new_votes) > (MapSet.size(state.cluster) + 1) / 2 do
-          become_leader(state)
-        else
-          %{state | votes: new_votes}
-        end
-      else
-        state
-      end
-
+    new_state = handle_vote_response(state, term, voter_id, granted)
     {:noreply, new_state}
   end
 
@@ -259,96 +361,212 @@ defmodule DistGraphDatabase do
   end
 
   # Internal Functions
+  # Helper to get node name
+  defp self_name(state) do
+    case Registry.keys(state.registry, self()) do
+      [name] -> name
+      _ -> nil
+    end
+  end
+
+  defp broadcast_cluster_update(state) do
+    self_name = self_name(state)
+
+    # Ensure unique membership list
+    members = MapSet.to_list(MapSet.new([self_name | MapSet.to_list(state.cluster)]))
+
+    Logger.debug("""
+    Broadcasting cluster update:
+    - From: #{inspect(self_name)}
+    - Members: #{inspect(members)}
+    """)
+
+    # Notify all nodes about the current cluster membership
+    Enum.each(state.cluster, fn node ->
+      safe_cast(node, {:cluster_update, members}, state)
+    end)
+  end
+
   defp become_leader(state) do
+    Logger.debug("""
+    Becoming leader:
+    Node: #{inspect(self_name(state))}
+    Term: #{state.term}
+    Cluster size: #{MapSet.size(state.cluster)}
+    Votes received: #{MapSet.size(state.votes)}
+    """)
+
     # Initialize leader state
-    next_index =
-      Enum.reduce(state.cluster, %{}, fn node, acc ->
-        Map.put(acc, node, length(state.log) + 1)
-      end)
-
-    match_index =
-      Enum.reduce(state.cluster, %{}, fn node, acc ->
-        Map.put(acc, node, 0)
-      end)
-
-    # Update state to leader
     new_state = %{
       state
       | role: :leader,
-        leader: node(),
-        next_index: next_index,
-        match_index: match_index
+        leader: self_name(state),
+        next_index: initialize_next_index(state),
+        match_index: initialize_match_index(state),
+        # Clear any existing timer
+        heartbeat_timer: nil,
+        # Clear election timer when becoming leader
+        election_timer: nil
     }
 
-    # Start sending heartbeats
+    # Start sending heartbeats immediately
     broadcast_heartbeat(new_state)
     schedule_heartbeat(new_state)
+    new_state
+  end
+
+  defp initialize_next_index(state) do
+    Enum.reduce(state.cluster, %{}, fn node, acc ->
+      Map.put(acc, node, length(state.log) + 1)
+    end)
+  end
+
+  defp initialize_match_index(state) do
+    Enum.reduce(state.cluster, %{}, fn node, acc ->
+      Map.put(acc, node, 0)
+    end)
   end
 
   defp schedule_election_timeout(state) do
     if state.election_timer, do: Process.cancel_timer(state.election_timer)
-    # 150-300ms
-    timeout = :rand.uniform(150) + 150
+    # Use longer timeouts with more variance (150-450ms)
+    timeout = :rand.uniform(300) + 150
     timer = Process.send_after(self(), :election_timeout, timeout)
     %{state | election_timer: timer}
   end
 
   defp schedule_heartbeat(state) do
     if state.heartbeat_timer, do: Process.cancel_timer(state.heartbeat_timer)
-    # 50ms heartbeat
-    timer = Process.send_after(self(), :heartbeat_timeout, 50)
+    # 500ms heartbeat
+    timer = Process.send_after(self(), :heartbeat_timeout, 100)
     %{state | heartbeat_timer: timer}
   end
 
   defp begin_election(state) do
-    new_term = state.term + 1
-
-    # Become candidate and initialize votes with self
-    new_state = %{
+    # Don't start new election if one is in progress
+    if state.role == :candidate do
       state
-      | role: :candidate,
-        term: new_term,
-        leader: nil,
-        voted_for: node(),
-        votes: MapSet.new([node()])
-    }
+    else
+      new_term = state.term + 1
+      self_name = self_name(state)
 
-    # Request votes from all nodes
-    last_log_index = length(state.log)
-    last_log_term = if last_log_index > 0, do: List.last(state.log).term, else: 0
+      Logger.debug("""
+      Beginning election:
+      - Node: #{inspect(self_name)}
+      - New term: #{new_term}
+      - Current cluster: #{inspect(MapSet.to_list(state.cluster))}
+      """)
 
-    Enum.each(state.cluster, fn node ->
-      GenServer.cast(
-        via_tuple(node),
-        {:request_vote, new_term, node(), last_log_index, last_log_term}
-      )
-    end)
+      # Include self in initial votes
+      initial_votes = MapSet.new([self_name])
 
-    schedule_election_timeout(new_state)
+      # Reset election state
+      new_state = %{
+        state
+        | role: :candidate,
+          term: new_term,
+          leader: nil,
+          voted_for: self_name,
+          votes: initial_votes,
+          election_timer: nil
+      }
+
+      # Request votes from all other nodes
+      Enum.each(state.cluster, fn node ->
+        Logger.debug("Requesting vote from #{inspect(node)}")
+
+        safe_cast(
+          node,
+          {:request_vote, new_term, self_name, length(state.log),
+           if(length(state.log) > 0, do: List.last(state.log).term, else: 0)},
+          new_state
+        )
+      end)
+
+      # Schedule shorter election timeout
+      schedule_election_timeout(new_state)
+    end
   end
 
-  defp handle_vote_request(state, term, candidate_id, _last_log_index, _last_log_term) do
+  defp handle_vote_request(state, term, candidate_id, last_log_index, last_log_term) do
+    self_name = self_name(state)
+
+    Logger.debug("""
+    Processing vote request:
+    - From candidate: #{inspect(candidate_id)}
+    - Term: #{term}
+    - Current term: #{state.term}
+    - Current role: #{state.role}
+    - Voted for: #{inspect(state.voted_for)}
+    """)
+
     cond do
-      term < state.term ->
-        # Reject vote if term is outdated
-        GenServer.cast(via_tuple(candidate_id), {:vote_response, state.term, node(), false})
-        state
-
-      state.voted_for == nil || state.voted_for == candidate_id ->
-        # Grant vote if we haven't voted or already voted for this candidate
-        GenServer.cast(via_tuple(candidate_id), {:vote_response, term, node(), true})
-
-        %{
+      # If the term is higher, always update our term and consider the vote
+      term > state.term ->
+        # Reset our state for the new term
+        new_state = %{
           state
           | term: term,
+            role: :follower,
+            leader: nil,
             voted_for: candidate_id,
-            election_timer: schedule_election_timeout(state).election_timer
+            election_timer: nil
         }
 
+        # Grant the vote
+        safe_cast(candidate_id, {:vote_response, term, self_name, true}, new_state)
+        %{new_state | voted_for: candidate_id}
+
+      # If same term and haven't voted yet or already voted for this candidate
+      term == state.term && (is_nil(state.voted_for) || state.voted_for == candidate_id) ->
+        new_state = %{state | voted_for: candidate_id}
+        safe_cast(candidate_id, {:vote_response, term, self_name, true}, new_state)
+        schedule_election_timeout(new_state)
+
+      # Otherwise reject
       true ->
-        # Reject vote
-        GenServer.cast(via_tuple(candidate_id), {:vote_response, state.term, node(), false})
+        safe_cast(candidate_id, {:vote_response, term, self_name, false}, state)
         state
+    end
+    |> schedule_election_timeout()
+  end
+
+  # Private helper function to handle vote response logic
+  defp handle_vote_response(state, term, voter_id, granted) do
+    cond do
+      # If we're no longer a candidate or terms don't match, ignore
+      state.role != :candidate || term != state.term ->
+        state
+
+      # Vote granted
+      granted ->
+        new_votes = MapSet.put(state.votes, voter_id)
+        total_nodes = MapSet.size(state.cluster) + 1
+        votes_needed = div(total_nodes, 2) + 1
+
+        Logger.debug("""
+        Vote count update:
+        - Total nodes: #{total_nodes}
+        - Votes needed: #{votes_needed}
+        - Current votes: #{MapSet.size(new_votes)}
+        - Voters: #{inspect(MapSet.to_list(new_votes))}
+        """)
+
+        if MapSet.size(new_votes) >= votes_needed do
+          Logger.debug("Won election with #{MapSet.size(new_votes)} votes")
+          become_leader(%{state | votes: new_votes})
+        else
+          %{state | votes: new_votes}
+        end
+
+      # Vote denied
+      !granted ->
+        if term > state.term do
+          # Step down if we see a higher term
+          %{state | term: term, role: :follower, leader: nil, voted_for: nil, votes: MapSet.new()}
+        else
+          state
+        end
     end
   end
 
@@ -369,7 +587,7 @@ defmodule DistGraphDatabase do
 
   defp replicate_log_entry(state, log_entry) do
     Enum.each(state.cluster, fn node ->
-      GenServer.cast(via_tuple(node), {:append_entries, state.term, node(), [log_entry]})
+      safe_cast(node, {:append_entries, state.term, node(), [log_entry]}, state)
     end)
   end
 
@@ -394,7 +612,7 @@ defmodule DistGraphDatabase do
 
   defp broadcast_heartbeat(state) do
     Enum.each(state.cluster, fn node ->
-      GenServer.cast(via_tuple(node), {:append_entries, state.term, node(), []})
+      safe_cast(node, {:append_entries, state.term, node(), []}, state)
     end)
   end
 
@@ -412,15 +630,68 @@ defmodule DistGraphDatabase do
     GenServer.call(via_tuple(node_name), {:define_schema, tx_id, type, properties})
   end
 
+  # Helper to add monitors for all nodes
+  defp add_cluster_monitors(cluster, state) do
+    Enum.reduce(cluster, state.node_monitors, fn node, monitors ->
+      case Registry.lookup(state.registry, node) do
+        [{pid, _}] ->
+          if Map.has_key?(monitors, node) do
+            monitors
+          else
+            ref = Process.monitor(pid)
+            Map.put(monitors, node, ref)
+          end
+
+        _ ->
+          monitors
+      end
+    end)
+  end
+
   # Monitor connected nodes
   defp add_node_monitor(node, state) do
-    case Process.whereis(via_tuple(node, state.registry)) do
-      nil ->
-        {:error, :node_not_found}
-
-      pid ->
+    case Registry.lookup(state.registry, node) do
+      [{pid, _}] ->
         ref = Process.monitor(pid)
         {:ok, %{state | node_monitors: Map.put(state.node_monitors, node, ref)}}
+
+      [] ->
+        {:error, :node_not_found}
+    end
+  end
+
+  # Helper function to safely make calls to other nodes
+  defp safe_call(node_name, message, state) do
+    try do
+      case Registry.lookup(state.registry, node_name) do
+        [{pid, _}] ->
+          GenServer.call(pid, message)
+
+        [] ->
+          {:error, :node_not_found}
+      end
+    catch
+      :exit, reason ->
+        Logger.error("Call to node #{node_name} failed: #{inspect(reason)}")
+        {:error, :node_down}
+    end
+  end
+
+  # Helper function to safely cast to other nodes
+  defp safe_cast(node_name, message, state) do
+    try do
+      case Registry.lookup(state.registry, node_name) do
+        [{pid, _}] ->
+          GenServer.cast(pid, message)
+          :ok
+
+        [] ->
+          {:error, :node_not_found}
+      end
+    catch
+      :exit, reason ->
+        Logger.error("Cast to node #{node_name} failed: #{inspect(reason)}")
+        {:error, :node_down}
     end
   end
 
