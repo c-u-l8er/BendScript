@@ -37,9 +37,6 @@ defmodule LibGraph do
           Graph.empty(),
           %{type: :directed}
         )
-
-      case(_) ->
-        graph
     end
   end
 
@@ -67,9 +64,6 @@ defmodule LibGraph do
 
       case(empty()) ->
         Graph.graph(%{}, new_edge, %{type: :directed})
-
-      case(_) ->
-        graph
     end
   end
 
@@ -79,7 +73,7 @@ defmodule LibGraph do
       case(graph(vertex_map, edge_list, metadata)) ->
         map_size(vertex_map)
 
-      case(_) ->
+      case(empty()) ->
         0
     end
   end
@@ -96,7 +90,7 @@ defmodule LibGraph do
           count
         end
 
-      case(_) ->
+      case(empty()) ->
         0
     end
   end
@@ -110,9 +104,6 @@ defmodule LibGraph do
         end
 
       case(empty()) ->
-        []
-
-      case(_) ->
         []
     end
   end
@@ -159,7 +150,7 @@ defmodule LibGraph do
         {came_from, _, _} = find_path(vertex_map, edge_list, start_id, end_id)
         reconstruct_path(came_from, end_id)
 
-      case(_) ->
+      case(empty()) ->
         []
     end
   end
@@ -179,9 +170,6 @@ defmodule LibGraph do
 
       # Empty graph is considered connected
       case(empty()) ->
-        true
-
-      case(_) ->
         true
     end
   end
