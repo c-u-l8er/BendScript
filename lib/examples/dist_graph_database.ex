@@ -12,6 +12,8 @@ defmodule DistGraphDatabase do
       leader: nil,
       # Local graph database state
       graph_state: nil,
+      # registry
+      registry: nil,
       # Cluster configuration
       cluster: MapSet.new(),
       # RAFT log entries
@@ -27,17 +29,26 @@ defmodule DistGraphDatabase do
       # Heartbeat timer
       heartbeat_timer: nil,
       # Pending requests from clients
-      pending_requests: %{}
+      pending_requests: %{},
+      # Voting state
+      votes: MapSet.new(),
+      voted_for: nil,
+      # Add node_monitors field
+      node_monitors: %{}
     ]
   end
 
   # Client API
-  def start_link(name, opts \\ []) do
-    GenServer.start_link(__MODULE__, opts, name: via_tuple(name))
+  def start_link(name, registry_name \\ DistGraphDatabase.Registry) do
+    GenServer.start_link(__MODULE__, [registry_name], name: via_tuple(name, registry_name))
   end
 
-  def join_cluster(node_name, cluster_node) do
-    GenServer.call(via_tuple(node_name), {:join_cluster, cluster_node})
+  def via_tuple(name, registry_name \\ DistGraphDatabase.Registry) do
+    {:via, Registry, {registry_name, name}}
+  end
+
+  def join_cluster(node_name, cluster_node, registry_name \\ DistGraphDatabase.Registry) do
+    GenServer.call(via_tuple(node_name, registry_name), {:join_cluster, cluster_node})
   end
 
   def get_leader(node_name) do
@@ -61,8 +72,16 @@ defmodule DistGraphDatabase do
     GenServer.call(via_tuple(node_name), {:add_edge, tx_id, from_id, to_id, type, properties})
   end
 
+  def query(node_name, pattern) do
+    GenServer.call(via_tuple(node_name), {:query, pattern})
+  end
+
+  def query_vertices(node_name, tx_id, label) do
+    GenServer.call(via_tuple(node_name), {:query_vertices, tx_id, label})
+  end
+
   # Server Implementation
-  def init(opts) do
+  def init([registry_name]) do
     state = %State{
       graph_state: %GraphDatabase.State{
         graph: LibGraph.new(:directed),
@@ -70,7 +89,9 @@ defmodule DistGraphDatabase do
         transactions: %{},
         locks: %{},
         transaction_counter: 0
-      }
+      },
+      # Store registry reference
+      registry: registry_name
     }
 
     {:ok, schedule_election_timeout(state)}
@@ -78,13 +99,20 @@ defmodule DistGraphDatabase do
 
   # Message Handling
   def handle_call({:join_cluster, cluster_node}, _from, state) do
-    case :rpc.call(cluster_node, __MODULE__, :get_leader, []) do
-      {:ok, leader} ->
-        new_state = %{state | cluster: MapSet.put(state.cluster, cluster_node), leader: leader}
-        {:reply, :ok, new_state}
+    try do
+      case GenServer.call(via_tuple(cluster_node, state.registry), :get_leader) do
+        {:ok, leader} ->
+          new_state = %{state | cluster: MapSet.put(state.cluster, cluster_node), leader: leader}
+          {:reply, :ok, new_state}
 
-      {:error, _} = error ->
-        {:reply, error, state}
+        error ->
+          Logger.error("Failed to join cluster: #{inspect(error)}")
+          {:reply, {:error, :join_failed}, state}
+      end
+    catch
+      :exit, reason ->
+        Logger.error("Join cluster failed with: #{inspect(reason)}")
+        {:reply, {:error, :node_down}, state}
     end
   end
 
@@ -141,6 +169,17 @@ defmodule DistGraphDatabase do
     {:noreply, new_state}
   end
 
+  def handle_call({:query, pattern}, _from, state) do
+    case pattern do
+      {:vertex, id} ->
+        result = GraphDatabase.query(state.graph_state, {:vertex, id})
+        {:reply, result, state}
+
+      _ ->
+        {:reply, {:error, :invalid_query}, state}
+    end
+  end
+
   def handle_call({:query_vertices, _tx_id, label}, _from, state) do
     # Query vertices with matching label from graph state
     vertices = query_vertices_with_label(state.graph_state, label)
@@ -163,6 +202,22 @@ defmodule DistGraphDatabase do
     {:noreply, schedule_heartbeat(state)}
   end
 
+  def handle_info({:DOWN, ref, :process, _, _}, state) do
+    case Enum.find(state.node_monitors, fn {_, monitor_ref} -> monitor_ref == ref end) do
+      {node, _} ->
+        new_state = %{
+          state
+          | cluster: MapSet.delete(state.cluster, node),
+            node_monitors: Map.delete(state.node_monitors, node)
+        }
+
+        {:noreply, schedule_election_timeout(new_state)}
+
+      nil ->
+        {:noreply, state}
+    end
+  end
+
   def handle_cast({:request_vote, term, candidate_id, last_log_index, last_log_term}, state) do
     new_state = handle_vote_request(state, term, candidate_id, last_log_index, last_log_term)
     {:noreply, new_state}
@@ -173,9 +228,61 @@ defmodule DistGraphDatabase do
     {:noreply, new_state}
   end
 
+  def handle_cast({:vote_response, term, voter_id, granted}, state) do
+    new_state =
+      if granted && state.role == :candidate && term == state.term do
+        new_votes = MapSet.put(state.votes, voter_id)
+
+        # Check if we have majority
+        if MapSet.size(new_votes) > (MapSet.size(state.cluster) + 1) / 2 do
+          become_leader(state)
+        else
+          %{state | votes: new_votes}
+        end
+      else
+        state
+      end
+
+    {:noreply, new_state}
+  end
+
+  def handle_cast({:forward_request, request, from}, state) do
+    try do
+      response = GenServer.call(via_tuple(state.leader, state.registry), request)
+      GenServer.reply(from, response)
+    catch
+      :exit, _ ->
+        GenServer.reply(from, {:error, :leader_down})
+    end
+
+    {:noreply, state}
+  end
+
   # Internal Functions
-  defp via_tuple(name) do
-    {:via, Registry, {DistGraphDatabase.Registry, name}}
+  defp become_leader(state) do
+    # Initialize leader state
+    next_index =
+      Enum.reduce(state.cluster, %{}, fn node, acc ->
+        Map.put(acc, node, length(state.log) + 1)
+      end)
+
+    match_index =
+      Enum.reduce(state.cluster, %{}, fn node, acc ->
+        Map.put(acc, node, 0)
+      end)
+
+    # Update state to leader
+    new_state = %{
+      state
+      | role: :leader,
+        leader: node(),
+        next_index: next_index,
+        match_index: match_index
+    }
+
+    # Start sending heartbeats
+    broadcast_heartbeat(new_state)
+    schedule_heartbeat(new_state)
   end
 
   defp schedule_election_timeout(state) do
@@ -196,12 +303,13 @@ defmodule DistGraphDatabase do
   defp begin_election(state) do
     new_term = state.term + 1
 
-    # Become candidate
+    # Become candidate and initialize votes with self
     new_state = %{
       state
       | role: :candidate,
         term: new_term,
         leader: nil,
+        voted_for: node(),
         votes: MapSet.new([node()])
     }
 
@@ -223,10 +331,13 @@ defmodule DistGraphDatabase do
     cond do
       term < state.term ->
         # Reject vote if term is outdated
+        GenServer.cast(via_tuple(candidate_id), {:vote_response, state.term, node(), false})
         state
 
       state.voted_for == nil || state.voted_for == candidate_id ->
         # Grant vote if we haven't voted or already voted for this candidate
+        GenServer.cast(via_tuple(candidate_id), {:vote_response, term, node(), true})
+
         %{
           state
           | term: term,
@@ -235,6 +346,8 @@ defmodule DistGraphDatabase do
         }
 
       true ->
+        # Reject vote
+        GenServer.cast(via_tuple(candidate_id), {:vote_response, state.term, node(), false})
         state
     end
   end
@@ -285,10 +398,6 @@ defmodule DistGraphDatabase do
     end)
   end
 
-  def query_vertices(node_name, tx_id, label) do
-    GenServer.call(via_tuple(node_name), {:query_vertices, tx_id, label})
-  end
-
   defp query_vertices_with_label(graph_state, label) do
     # Implementation would depend on how vertices are stored in the graph
     # This is a simplified example
@@ -301,5 +410,31 @@ defmodule DistGraphDatabase do
 
   def define_schema(node_name, tx_id, type, properties) do
     GenServer.call(via_tuple(node_name), {:define_schema, tx_id, type, properties})
+  end
+
+  # Monitor connected nodes
+  defp add_node_monitor(node, state) do
+    case Process.whereis(via_tuple(node, state.registry)) do
+      nil ->
+        {:error, :node_not_found}
+
+      pid ->
+        ref = Process.monitor(pid)
+        {:ok, %{state | node_monitors: Map.put(state.node_monitors, node, ref)}}
+    end
+  end
+
+  # Add cleanup function
+  def terminate(_reason, state) do
+    # Clean up monitors
+    Enum.each(state.node_monitors, fn {_node, ref} ->
+      Process.demonitor(ref)
+    end)
+
+    # Cancel timers
+    if state.election_timer, do: Process.cancel_timer(state.election_timer)
+    if state.heartbeat_timer, do: Process.cancel_timer(state.heartbeat_timer)
+
+    :ok
   end
 end
