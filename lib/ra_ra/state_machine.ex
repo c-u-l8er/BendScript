@@ -3,22 +3,14 @@ defmodule RaRa.StateMachine do
 
   # Ra machine callbacks
 
-  def init(_config) do
-    %{
-      graph_state: %GraphDatabase.State{
-        graph: LibGraph.new(:directed),
-        schema: %{},
-        transactions: %{},
-        locks: %{},
-        transaction_counter: 0
-      }
-    }
+  def init(config) do
+    config
   end
 
   def apply(_meta, {:begin_transaction, from}, state) do
     {tx_id, new_graph_state} = GraphDatabase.begin_transaction(state.graph_state)
     effects = [{:reply, from, {:ok, tx_id}}]
-    {state, effects}
+    {%{state | graph_state: new_graph_state}, effects}
   end
 
   def apply(_meta, {:commit_transaction, tx_id, from}, state) do
@@ -43,6 +35,15 @@ defmodule RaRa.StateMachine do
         effects = [{:reply, from, {:error, reason}}]
         {state, effects}
     end
+  end
+
+  def state_enter(_state_name, state) do
+    {state, []}
+  end
+
+  # Required callback for :ra_machine
+  def version do
+    1
   end
 
   # Other required Ra machine callbacks...

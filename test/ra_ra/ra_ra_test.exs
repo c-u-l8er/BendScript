@@ -4,49 +4,119 @@ defmodule RaRaTest do
 
   @base_data_dir "/tmp/ra_test"
 
+  setup_all do
+    # Start the distributed system
+    node_name = :"test_node@127.0.0.1"
+
+    unless Node.alive?() do
+      # Start the distributed system with a cookie
+      :net_kernel.start([node_name, :shortnames])
+      Node.set_cookie(:test_cookie)
+    end
+
+    Logger.debug("Started distributed node: #{inspect(Node.self())}")
+
+    Logger.debug("Starting applications for tests")
+    applications = [:ra, :sasl]
+
+    # Ensure applications are started
+    Enum.each(applications, fn app ->
+      case Application.ensure_all_started(app) do
+        {:ok, started} ->
+          Logger.debug("Started #{app} and dependencies: #{inspect(started)}")
+
+        {:error, error} ->
+          Logger.error("Failed to start #{app}: #{inspect(error)}")
+          raise "Failed to start required application: #{app}"
+      end
+    end)
+
+    # Initialize Ra
+    :ok = :ra.start()
+    Logger.debug("Ra system started")
+
+    # Wait for Ra to fully initialize
+    Process.sleep(1000)
+
+    on_exit(fn ->
+      Logger.debug("Cleaning up test environment")
+      :ra.stop()
+      File.rm_rf!(@base_data_dir)
+      :net_kernel.stop()
+    end)
+
+    :ok
+  end
+
   setup do
-    # Clean up any existing data directories
+    Logger.debug("Setting up test case")
+
+    # Clean up data directory
     File.rm_rf!(@base_data_dir)
     File.mkdir_p!(@base_data_dir)
 
-    # Start registry if not already started
+    # Start Registry if not already started
     case Registry.start_link(keys: :unique, name: RaRa.Registry) do
-      {:ok, _} -> Logger.debug("Registry started")
-      {:error, {:already_started, _}} -> Logger.debug("Registry already running")
+      {:ok, _pid} -> Logger.debug("Registry started")
+      {:error, {:already_started, _pid}} -> Logger.debug("Registry already running")
     end
 
     # Define test nodes
     nodes = [:node1, :node2, :node3]
 
-    Logger.debug("Starting Ra nodes: #{inspect(nodes)}")
-
-    # Start nodes sequentially
-    node_configs =
+    # Start nodes with retry
+    configs =
       Enum.map(nodes, fn node ->
-        config = %RaRa.Config{
+        node_dir = Path.join(@base_data_dir, to_string(node))
+        File.mkdir_p!(node_dir)
+
+        %RaRa.Config{
           node_id: node,
-          cluster_name: :test_cluster,
-          data_dir: "#{@base_data_dir}/#{node}",
+          # Pass as atom instead of string
+          cluster_name: "test_cluster",
+          data_dir: node_dir,
           members: []
         }
-
-        {:ok, _} = RaRa.Supervisor.start_node(config)
-        config
       end)
+
+    # Start each node
+    started_nodes =
+      Enum.map(configs, fn config ->
+        case start_node_with_retry(config) do
+          {:ok, _pid} = result ->
+            Logger.debug("Started node #{config.node_id}")
+            # Give node time to initialize
+            Process.sleep(500)
+            result
+
+          error ->
+            Logger.error("Failed to start node #{config.node_id}: #{inspect(error)}")
+            raise "Failed to start node #{config.node_id}"
+        end
+      end)
+      |> Enum.reject(&is_nil/1)
+      |> Map.new()
 
     [first_node | other_nodes] = nodes
 
-    Logger.debug("Forming cluster with leader node: #{inspect(first_node)}")
-
-    # Join other nodes to the cluster
+    # Join cluster with retries
     Enum.each(other_nodes, fn node ->
-      Logger.debug("Joining node #{inspect(node)} to cluster")
-      :ok = join_cluster_with_retry(node, first_node)
-      # Wait for cluster to stabilize
-      Process.sleep(1000)
+      case join_cluster_with_retry(node, first_node, 10) do
+        :ok ->
+          Logger.debug("Node #{node} joined cluster successfully")
+          # Wait for cluster stabilization
+          Process.sleep(1000)
+
+        error ->
+          Logger.error("Failed to join node #{node} to cluster: #{inspect(error)}")
+          raise "Failed to join node #{node} to cluster"
+      end
     end)
 
-    # Define schema for test data
+    # Wait for cluster to stabilize
+    Process.sleep(2000)
+
+    # Setup schema
     {:ok, tx_id} = RaRa.begin_transaction(first_node)
 
     :ok =
@@ -59,8 +129,9 @@ defmodule RaRaTest do
       )
 
     {:ok, _} = RaRa.commit_transaction(first_node, tx_id)
-    # Wait for schema to replicate
-    Process.sleep(500)
+
+    # Wait for schema replication
+    Process.sleep(1000)
 
     {:ok, nodes: nodes, first_node: first_node}
   end
@@ -219,7 +290,7 @@ defmodule RaRaTest do
     # Restart node2
     config = %RaRa.Config{
       node_id: node2,
-      cluster_name: :test_cluster,
+      cluster_name: "test_cluster",
       data_dir: "#{@base_data_dir}/node2",
       members: [node1]
     }
@@ -237,6 +308,38 @@ defmodule RaRaTest do
   end
 
   # Helper Functions
+
+  # Add helper function for starting nodes with retry w/ config
+  defp start_node_with_retry(config, retries \\ 5) do
+    Logger.debug("Attempting to start node #{inspect(node)}, retries left: #{retries}")
+
+    case RaRa.Supervisor.start_node(config) do
+      {:ok, pid} = result ->
+        # Verify node is actually running
+        case Process.alive?(pid) do
+          true ->
+            Logger.debug("Node #{config.node_id} started and verified")
+            result
+
+          false ->
+            if retries > 0 do
+              Process.sleep(1000)
+              start_node_with_retry(config, retries - 1)
+            else
+              {:error, :node_not_alive}
+            end
+        end
+
+      error when retries > 0 ->
+        Logger.warn("Failed to start node #{inspect(node)}: #{inspect(error)}, retrying...")
+        Process.sleep(1000)
+        start_node_with_retry(node, config, retries - 1)
+
+      error ->
+        Logger.error("Failed to start node #{inspect(node)} after all retries: #{inspect(error)}")
+        error
+    end
+  end
 
   defp join_cluster_with_retry(node, target, retries \\ 5) do
     Logger.debug("""

@@ -1,4 +1,19 @@
+    warning: single-quoted strings represent charlists. Use ~c"" if you indeed want a charlist or use "" instead.
+    You may run "mix format --migrate" to fix this warning automatically.
+    │
+  9 │   data_dir: '/tmp/ra_data'
+    │             ~
+    │
+    └─ config/config.exs:9:13
+
 Compiling 1 file (.ex)
+     warning: variable "pid" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 116 │       {:ok, pid} ->
+     │             ~
+     │
+     └─ lib/ra_ra.ex:116:13: RaRa.init/1
+
      warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp generate_fold_cases/2" was previously defined (lib/ben_ben.ex:134)
      │
  171 │   defp generate_fold_cases({:__block__, _meta, cases}, state) do
@@ -356,147 +371,76 @@ Compiling 1 file (.ex)
     │
     └─ lib/examples/tree_operations.ex:75:8: TreeOperations (module)
 
-    warning: variable "new_graph_state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
     │
- 19 │     {tx_id, new_graph_state} = GraphDatabase.begin_transaction(state.graph_state)
-    │             ~~~~~~~~~~~~~~~
+ 49 │         Logger.warn("No process found for node #{inspect(node_id)}")
+    │                ~
     │
-    └─ lib/ra_ra/state_machine.ex:19:13: RaRa.StateMachine.apply/3
+    └─ lib/ra_ra/supervisor.ex:49:16: RaRa.Supervisor.stop_node/1
 
 Generated ben_ben app
-Running ExUnit with seed: 700685, max_cases: 48
+11:36:40.441 [debug] Starting RaRa.Application
+11:36:40.451 [debug] Starting RaRa.Supervisor
+11:36:40.451 [debug] Initializing RaRa.Supervisor
+11:36:40.451 [debug] RaRa.Application started successfully
+Running ExUnit with seed: 458626, max_cases: 48
 Excluding tags: [:skip]
 
-    warning: variable "node_configs" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    warning: variable "started_nodes" is unused (if the variable is not meant to be used, prefix it with an underscore)
     │
- 24 │     node_configs =
-    │     ~~~~~~~~~~~~
+ 57 │     started_nodes =
+    │     ~~~~~~~~~~~~~
     │
-    └─ test/ra_ra/ra_ra_test.exs:24:5: RaRaTest.__ex_unit_setup_0/1
+    └─ test/ra_ra/ra_ra_test.exs:57:5: RaRaTest.__ex_unit_setup_0/1
 
      warning: variable "node3" is unused (if the variable is not meant to be used, prefix it with an underscore)
      │
- 184 │   test "node recovery", %{nodes: [node1, node2, node3]} do
+ 214 │   test "node recovery", %{nodes: [node1, node2, node3]} do
      │                                                 ~~~~~
      │
-     └─ test/ra_ra/ra_ra_test.exs:184:49: RaRaTest."test node recovery"/1
+     └─ test/ra_ra/ra_ra_test.exs:214:49: RaRaTest."test node recovery"/1
+
+     warning: Logger.warn/1 is deprecated. Use Logger.warning/2 instead
+     │
+ 282 │         Logger.warn("Failed to start node #{inspect(node)}: #{inspect(error)}, retrying...")
+     │                ~
+     │
+     └─ test/ra_ra/ra_ra_test.exs:282:16: RaRaTest.start_node_with_retry/3
 
      warning: variable "error" is unused (if the variable is not meant to be used, prefix it with an underscore)
      │
- 259 │       error ->
+ 310 │       error ->
      │       ~
      │
-     └─ test/ra_ra/ra_ra_test.exs:259:7: RaRaTest.join_cluster_with_retry/3
+     └─ test/ra_ra/ra_ra_test.exs:310:7: RaRaTest.join_cluster_with_retry/3
 
      warning: function cleanup/0 is unused
      │
- 277 │   defp cleanup do
+ 328 │   defp cleanup do
      │        ~
      │
-     └─ test/ra_ra/ra_ra_test.exs:277:8: RaRaTest (module)
+     └─ test/ra_ra/ra_ra_test.exs:328:8: RaRaTest (module)
 
-
-10:25:48.776 [debug] Registry started
-
-10:25:48.777 [debug] Starting Ra nodes: [:node1, :node2, :node3]
-
-10:25:48.778 [debug] Registry started
-
-10:25:48.778 [debug] Starting Ra nodes: [:node1, :node2, :node3]
-
-10:25:48.779 [debug] Registry started
-
-10:25:48.779 [debug] Starting Ra nodes: [:node1, :node2, :node3]
-
-10:25:48.779 [debug] Registry started
-
-10:25:48.779 [debug] Starting Ra nodes: [:node1, :node2, :node3]
-
-10:25:48.779 [debug] Registry started
-
-10:25:48.779 [debug] Starting Ra nodes: [:node1, :node2, :node3]
-
-10:25:48.780 [debug] Registry started
-
-10:25:48.780 [debug] Starting Ra nodes: [:node1, :node2, :node3]
-
-
-  1) test basic transaction (RaRaTest)
-     test/ra_ra/ra_ra_test.exs:76
-     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
-         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
-     stacktrace:
-       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
-       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
-       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
-       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
-       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
-
-
-
-  2) test distributed replication (RaRaTest)
-     test/ra_ra/ra_ra_test.exs:99
-     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
-         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
-     stacktrace:
-       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
-       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
-       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
-       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
-       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
-
-
-
-  3) test schema validation (RaRaTest)
-     test/ra_ra/ra_ra_test.exs:124
-     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
-         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
-     stacktrace:
-       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
-       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
-       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
-       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
-       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
-
-
-
-  4) test fault tolerance (RaRaTest)
-     test/ra_ra/ra_ra_test.exs:144
-     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
-         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
-     stacktrace:
-       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
-       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
-       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
-       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
-       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
-
-
-
-  5) test cluster formation (RaRaTest)
-     test/ra_ra/ra_ra_test.exs:68
-     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
-         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
-     stacktrace:
-       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
-       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
-       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
-       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
-       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
-
-
-
-  6) test node recovery (RaRaTest)
-     test/ra_ra/ra_ra_test.exs:184
-     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
-         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
-     stacktrace:
-       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
-       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
-       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
-       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
-       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
-
-
-Finished in 0.06 seconds (0.00s async, 0.06s sync)
-6 tests, 6 failures
+11:36:40.549 [debug] Starting applications for tests
+11:36:40.549 [debug] Started ra
+11:36:40.549 [debug] Started sasl
+11:36:40.549 [debug] Started ben_ben
+11:36:41.552 [debug] Setting up test case
+11:36:41.553 [debug] Attempting to start node :node1, retries left: 5
+11:36:41.553 [debug] Starting node :node1
+11:36:41.553 [info] Starting Ra node node1
+11:36:41.553 [info] Starting Ra node node1
+11:36:41.563 [error] Failed to start node :node1: {:error, {:function_clause, [{:ra, :start_server, [{:node1, :nonode@nohost}, %{id: {:node1, :nonode@nohost}, machine: {:module, RaRa.StateMachine, %{graph_state: %GraphDatabase.State{graph: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{}, transaction_counter: 0}}}, data_dir: ~c"/tmp/ra_test/node1", uid: "TEST_C0LVQD9ZA7F0T", cluster_name: :test_cluster, log_init_args: %{uid: "TEST_C0LVQD9ZA7F0T"}, initial_members: [node1: :nonode@nohost]}], [file: ~c"/home/travis/Projects/elixir-macros/deps/ra/src/ra.erl", line: 523]}, {RaRa, :init, 1, [file: ~c"lib/ra_ra.ex", line: 115]}, {:gen_server, :init_it, 2, [file: ~c"gen_server.erl", line: 2229]}, {:gen_server, :init_it, 6, [file: ~c"gen_server.erl", line: 2184]}, {:proc_lib, :init_p_do_apply, 3, [file: ~c"proc_lib.erl", line: 329]}]}}
+11:36:41.564 [warning] Failed to start node :node1: {:error, {:function_clause, [{:ra, :start_server, [{:node1, :nonode@nohost}, %{id: {:node1, :nonode@nohost}, machine: {:module, RaRa.StateMachine, %{graph_state: %GraphDatabase.State{graph: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{}, transaction_counter: 0}}}, data_dir: ~c"/tmp/ra_test/node1", uid: "TEST_C0LVQD9ZA7F0T", cluster_name: :test_cluster, log_init_args: %{uid: "TEST_C0LVQD9ZA7F0T"}, initial_members: [node1: :nonode@nohost]}], [file: ~c"/home/travis/Projects/elixir-macros/deps/ra/src/ra.erl", line: 523]}, {RaRa, :init, 1, [file: ~c"lib/ra_ra.ex", line: 115]}, {:gen_server, :init_it, 2, [file: ~c"gen_server.erl", line: 2229]}, {:gen_server, :init_it, 6, [file: ~c"gen_server.erl", line: 2184]}, {:proc_lib, :init_p_do_apply, 3, [file: ~c"proc_lib.erl", line: 329]}]}}, retrying...
+11:36:42.564 [debug] Attempting to start node :node1, retries left: 4
+11:36:42.564 [debug] Starting node :node1
+11:36:42.564 [info] Starting Ra node node1
+11:36:42.564 [info] Starting Ra node node1
+11:36:42.564 [error] Failed to start node :node1: {:error, {:function_clause, [{:ra, :start_server, [{:node1, :nonode@nohost}, %{id: {:node1, :nonode@nohost}, machine: {:module, RaRa.StateMachine, %{graph_state: %GraphDatabase.State{graph: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{}, transaction_counter: 0}}}, data_dir: ~c"/tmp/ra_test/node1", uid: "TEST_CFZOERTHZMXYV", cluster_name: :test_cluster, log_init_args: %{uid: "TEST_CFZOERTHZMXYV"}, initial_members: [node1: :nonode@nohost]}], [file: ~c"/home/travis/Projects/elixir-macros/deps/ra/src/ra.erl", line: 523]}, {RaRa, :init, 1, [file: ~c"lib/ra_ra.ex", line: 115]}, {:gen_server, :init_it, 2, [file: ~c"gen_server.erl", line: 2229]}, {:gen_server, :init_it, 6, [file: ~c"gen_server.erl", line: 2184]}, {:proc_lib, :init_p_do_apply, 3, [file: ~c"proc_lib.erl", line: 329]}]}}
+11:36:42.565 [warning] Failed to start node :node1: {:error, {:function_clause, [{:ra, :start_server, [{:node1, :nonode@nohost}, %{id: {:node1, :nonode@nohost}, machine: {:module, RaRa.StateMachine, %{graph_state: %GraphDatabase.State{graph: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{}, transaction_counter: 0}}}, data_dir: ~c"/tmp/ra_test/node1", uid: "TEST_CFZOERTHZMXYV", cluster_name: :test_cluster, log_init_args: %{uid: "TEST_CFZOERTHZMXYV"}, initial_members: [node1: :nonode@nohost]}], [file: ~c"/home/travis/Projects/elixir-macros/deps/ra/src/ra.erl", line: 523]}, {RaRa, :init, 1, [file: ~c"lib/ra_ra.ex", line: 115]}, {:gen_server, :init_it, 2, [file: ~c"gen_server.erl", line: 2229]}, {:gen_server, :init_it, 6, [file: ~c"gen_server.erl", line: 2184]}, {:proc_lib, :init_p_do_apply, 3, [file: ~c"proc_lib.erl", line: 329]}]}}, retrying...
+11:36:43.565 [debug] Attempting to start node :node1, retries left: 3
+11:36:43.565 [debug] Starting node :node1
+11:36:43.565 [info] Starting Ra node node1
+11:36:43.565 [info] Starting Ra node node1
+11:36:43.565 [error] Failed to start node :node1: {:error, {:function_clause, [{:ra, :start_server, [{:node1, :nonode@nohost}, %{id: {:node1, :nonode@nohost}, machine: {:module, RaRa.StateMachine, %{graph_state: %GraphDatabase.State{graph: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{}, transaction_counter: 0}}}, data_dir: ~c"/tmp/ra_test/node1", uid: "TEST_CBCTB5OQLB2GB", cluster_name: :test_cluster, log_init_args: %{uid: "TEST_CBCTB5OQLB2GB"}, initial_members: [node1: :nonode@nohost]}], [file: ~c"/home/travis/Projects/elixir-macros/deps/ra/src/ra.erl", line: 523]}, {RaRa, :init, 1, [file: ~c"lib/ra_ra.ex", line: 115]}, {:gen_server, :init_it, 2, [file: ~c"gen_server.erl", line: 2229]}, {:gen_server, :init_it, 6, [file: ~c"gen_server.erl", line: 2184]}, {:proc_lib, :init_p_do_apply, 3, [file: ~c"proc_lib.erl", line: 329]}]}}
+11:36:43.566 [warning] Failed to start node :node1: {:error, {:function_clause, [{:ra, :start_server, [{:node1, :nonode@nohost}, %{id: {:node1, :nonode@nohost}, machine: {:module, RaRa.StateMachine, %{graph_state: %GraphDatabase.State{graph: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{}, transaction_counter: 0}}}, data_dir: ~c"/tmp/ra_test/node1", uid: "TEST_CBCTB5OQLB2GB", cluster_name: :test_cluster, log_init_args: %{uid: "TEST_CBCTB5OQLB2GB"}, initial_members: [node1: :nonode@nohost]}], [file: ~c"/home/travis/Projects/elixir-macros/deps/ra/src/ra.erl", line: 523]}, {RaRa, :init, 1, [file: ~c"lib/ra_ra.ex", line: 115]}, {:gen_server, :init_it, 2, [file: ~c"gen_server.erl", line: 2229]}, {:gen_server, :init_it, 6, [file: ~c"gen_server.erl", line: 2184]}, {:proc_lib, :init_p_do_apply, 3, [file: ~c"proc_lib.erl", line: 329]}]}}, retrying...

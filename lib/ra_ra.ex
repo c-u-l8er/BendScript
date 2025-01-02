@@ -34,6 +34,21 @@ defmodule RaRa do
   # Client API
 
   def start_link(config) do
+    Logger.info("Starting Ra node #{config.node_id}")
+
+    # Ensure Ra is started
+    case :ra.start() do
+      :ok ->
+        :ok
+
+      {:error, {:already_started, _}} ->
+        :ok
+
+      error ->
+        Logger.error("Failed to start Ra system: #{inspect(error)}")
+        error
+    end
+
     GenServer.start_link(__MODULE__, config, name: via_tuple(config.node_id))
   end
 
@@ -79,41 +94,65 @@ defmodule RaRa do
     Logger.info("Starting Ra node #{config.node_id}")
 
     # Initialize Ra server
-    ra_server_id = {config.cluster_name, config.node_id}
-    machine = {:module, RaRa.StateMachine, %{}, []}
+    server_id = {config.node_id, Node.self()}
 
-    ra_server_config = %{
-      reference: config.cluster_name,
-      name: config.node_id,
-      data_dir: config.data_dir,
-      machine: machine,
-      cluster_name: config.cluster_name
+    # Create data directory if it doesn't exist
+    File.mkdir_p!(config.data_dir)
+
+    # Initialize machine state
+    initial_state = %{
+      graph_state: %GraphDatabase.State{
+        graph: LibGraph.new(:directed),
+        schema: %{},
+        transactions: %{},
+        locks: %{},
+        transaction_counter: 0
+      }
     }
 
-    case :ra.start_server(ra_server_id, ra_server_config) do
-      {:ok, _} ->
-        state = %State{
-          config: config,
-          ra_server_id: ra_server_id,
-          graph_state: %GraphDatabase.State{
-            graph: LibGraph.new(:directed),
-            schema: %{},
-            transactions: %{},
-            locks: %{},
-            transaction_counter: 0
-          },
-          pending_txns: %{}
-        }
+    # Generate unique IDs once
+    uid = :ra.new_uid("#{config.cluster_name}")
 
-        {:ok, state}
+    server_config = %{
+      id: server_id,
+      uid: uid,
+      cluster_name: String.to_atom(config.cluster_name),
+      log_init_args: %{
+        uid: uid
+      },
+      # List of initial cluster members
+      # Fix: initial_members should be a list of server_id tuples
+      initial_members: [{config.node_id, Node.self()}],
+      machine: {:module, RaRa.StateMachine, initial_state},
+      data_dir: String.to_charlist(config.data_dir)
+    }
+
+    case :ra.start_server(server_config) do
+      {:ok, pid} ->
+        case :ra.trigger_election(server_id) do
+          :ok ->
+            state = %State{
+              config: config,
+              ra_server_id: server_id,
+              graph_state: initial_state.graph_state,
+              pending_txns: %{}
+            }
+
+            {:ok, state}
+
+          error ->
+            Logger.error("Failed to trigger election: #{inspect(error)}")
+            {:stop, error}
+        end
 
       error ->
+        Logger.error("Failed to start Ra server: #{inspect(error)}")
         {:stop, error}
     end
   end
 
   def handle_call({:join_cluster, cluster_node}, _from, state) do
-    target_server_id = {state.config.cluster_name, cluster_node}
+    target_server_id = {cluster_node, node()}
 
     case :ra.add_member(state.ra_server_id, target_server_id) do
       {:ok, _, _} ->

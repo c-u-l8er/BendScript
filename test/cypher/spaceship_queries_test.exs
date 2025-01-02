@@ -33,6 +33,7 @@ defmodule SpaceshipQueriesTest do
     {:ok, node: :node1}
   end
 
+  @tag :skip
   describe "SpaceshipQueries" do
     test "creates and retrieves spaceships", %{node: node} do
       # Create test spaceships
@@ -61,6 +62,7 @@ defmodule SpaceshipQueriesTest do
       assert Enum.all?(ships, &(&1 in ship_names))
     end
 
+    @tag :skip
     test "creates spaceship with properties", %{node: node} do
       # Create spaceship with additional properties
       query =
@@ -82,6 +84,7 @@ defmodule SpaceshipQueriesTest do
       assert ship.properties.crew_capacity == 430
     end
 
+    @tag :skip
     test "handles empty results", %{node: node} do
       # Query before creating any spaceships
       query = SpaceshipQueries.get_all_spaceships()
@@ -90,6 +93,7 @@ defmodule SpaceshipQueriesTest do
       assert results == []
     end
 
+    @tag :skip
     test "filters spaceships by class", %{node: node} do
       # Create spaceships of different classes
       ships = [

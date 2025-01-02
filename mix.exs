@@ -7,15 +7,23 @@ defmodule BenBen.MixProject do
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      # Add the following to enable distributed tests
+      elixirc_options: [
+        {:warnings_as_errors, false}
+      ],
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [
+        test: :test
+      ]
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
-      mod: {DistGraphDatabase.Application, []}
+      extra_applications: [:logger, :ra, :sasl],
+      mod: {RaRa.Application, []}
     ]
   end
 
@@ -23,9 +31,7 @@ defmodule BenBen.MixProject do
   defp deps do
     [
       {:uuid, "~> 1.1"},
-      {:ra, "~> 2.0"}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:ra, "~> 2.15"}
     ]
   end
 end
