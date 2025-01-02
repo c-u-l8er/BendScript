@@ -293,15 +293,40 @@ defmodule DistGraphDatabase do
   def handle_cast({:cluster_update, members}, state) do
     Logger.debug("""
     Received cluster update:
-    - Node: #{inspect(self_name(state))}
+    - From: #{inspect(self_name(state))}
+    - Current role: #{state.role}
+    - Current term: #{state.term}
     - Current members: #{inspect(MapSet.to_list(state.cluster))}
     - New members: #{inspect(members)}
     """)
 
     new_cluster = MapSet.new(members)
-    new_state = %{state | cluster: new_cluster}
+
+    # Step down if we're leader and lost majority
+    new_state =
+      if state.role == :leader &&
+           MapSet.size(new_cluster) < MapSet.size(state.cluster) do
+        step_down(state, state.term)
+      else
+        state
+      end
+
+    # Broadcast acknowledgment
+    Enum.each(members, fn node ->
+      safe_cast(node, {:cluster_ack, self_name(state), new_cluster}, new_state)
+    end)
 
     {:noreply, new_state}
+  end
+
+  def handle_cast({:cluster_ack, from_node, cluster}, state) do
+    Logger.debug("""
+    Received cluster ack:
+    From: #{inspect(from_node)}
+    Cluster: #{inspect(MapSet.to_list(cluster))}
+    """)
+
+    {:noreply, state}
   end
 
   def handle_cast({:node_joined, new_node}, state) do
@@ -328,7 +353,33 @@ defmodule DistGraphDatabase do
   end
 
   def handle_cast({:append_entries, term, leader_id, entries}, state) do
-    new_state = handle_append_entries(state, term, leader_id, entries)
+    Logger.debug("""
+    Received append entries:
+    From: #{inspect(leader_id)}
+    Term: #{term}
+    Current term: #{state.term}
+    Current role: #{state.role}
+    """)
+
+    new_state =
+      cond do
+        # If term is lower, reject
+        term < state.term ->
+          state
+
+        # Step down if we see a higher term
+        term > state.term ->
+          step_down(state, term)
+          |> Map.put(:leader, leader_id)
+          |> apply_log_entries(entries)
+
+        # If term is higher or equal, accept leader
+        true ->
+          %{state | term: term, leader: leader_id, role: :follower, election_timer: nil}
+          |> schedule_election_timeout()
+          |> apply_log_entries(entries)
+      end
+
     {:noreply, new_state}
   end
 
@@ -411,6 +462,7 @@ defmodule DistGraphDatabase do
 
     # Start sending heartbeats immediately
     broadcast_heartbeat(new_state)
+    # Schedule regular heartbeats
     schedule_heartbeat(new_state)
     new_state
   end
@@ -437,8 +489,8 @@ defmodule DistGraphDatabase do
 
   defp schedule_heartbeat(state) do
     if state.heartbeat_timer, do: Process.cancel_timer(state.heartbeat_timer)
-    # 500ms heartbeat
-    timer = Process.send_after(self(), :heartbeat_timeout, 100)
+    # Send heartbeats every 50ms (faster than election timeout)
+    timer = Process.send_after(self(), :heartbeat_timeout, 50)
     %{state | heartbeat_timer: timer}
   end
 
@@ -501,31 +553,24 @@ defmodule DistGraphDatabase do
     """)
 
     cond do
-      # If the term is higher, always update our term and consider the vote
+      # Step down if we see a higher term
       term > state.term ->
-        # Reset our state for the new term
-        new_state = %{
-          state
-          | term: term,
-            role: :follower,
-            leader: nil,
-            voted_for: candidate_id,
-            election_timer: nil
-        }
+        new_state =
+          step_down(state, term)
+          |> Map.put(:voted_for, candidate_id)
 
-        # Grant the vote
-        safe_cast(candidate_id, {:vote_response, term, self_name, true}, new_state)
-        %{new_state | voted_for: candidate_id}
+        safe_cast(candidate_id, {:vote_response, term, self_name(state), true}, new_state)
+        new_state
 
-      # If same term and haven't voted yet or already voted for this candidate
+      # Same term and haven't voted
       term == state.term && (is_nil(state.voted_for) || state.voted_for == candidate_id) ->
         new_state = %{state | voted_for: candidate_id}
-        safe_cast(candidate_id, {:vote_response, term, self_name, true}, new_state)
+        safe_cast(candidate_id, {:vote_response, term, self_name(state), true}, new_state)
         schedule_election_timeout(new_state)
 
       # Otherwise reject
       true ->
-        safe_cast(candidate_id, {:vote_response, term, self_name, false}, state)
+        safe_cast(candidate_id, {:vote_response, term, self_name(state), false}, state)
         state
     end
     |> schedule_election_timeout()
@@ -534,6 +579,10 @@ defmodule DistGraphDatabase do
   # Private helper function to handle vote response logic
   defp handle_vote_response(state, term, voter_id, granted) do
     cond do
+      # Step down if we see a higher term
+      term > state.term ->
+        step_down(state, term)
+
       # If we're no longer a candidate or terms don't match, ignore
       state.role != :candidate || term != state.term ->
         state
@@ -561,33 +610,13 @@ defmodule DistGraphDatabase do
 
       # Vote denied
       !granted ->
-        if term > state.term do
-          # Step down if we see a higher term
-          %{state | term: term, role: :follower, leader: nil, voted_for: nil, votes: MapSet.new()}
-        else
-          state
-        end
-    end
-  end
-
-  defp handle_append_entries(state, term, leader_id, entries) do
-    cond do
-      term < state.term ->
-        # Reject if term is outdated
         state
-
-      true ->
-        # Accept entries and update state
-        new_state = %{state | term: term, leader: leader_id, role: :follower}
-
-        # Apply entries to local state
-        apply_log_entries(new_state, entries)
     end
   end
 
   defp replicate_log_entry(state, log_entry) do
     Enum.each(state.cluster, fn node ->
-      safe_cast(node, {:append_entries, state.term, node(), [log_entry]}, state)
+      safe_cast(node, {:append_entries, state.term, self_name(state), [log_entry]}, state)
     end)
   end
 
@@ -611,8 +640,10 @@ defmodule DistGraphDatabase do
   end
 
   defp broadcast_heartbeat(state) do
+    Logger.debug("Broadcasting heartbeat from #{inspect(self_name(state))} term: #{state.term}")
+
     Enum.each(state.cluster, fn node ->
-      safe_cast(node, {:append_entries, state.term, node(), []}, state)
+      safe_cast(node, {:append_entries, state.term, self_name(state), []}, state)
     end)
   end
 
@@ -693,6 +724,24 @@ defmodule DistGraphDatabase do
         Logger.error("Cast to node #{node_name} failed: #{inspect(reason)}")
         {:error, :node_down}
     end
+  end
+
+  defp step_down(state, term) do
+    # Cancel heartbeat timer if we were leader
+    if state.role == :leader and state.heartbeat_timer do
+      Process.cancel_timer(state.heartbeat_timer)
+    end
+
+    %{
+      state
+      | term: term,
+        role: :follower,
+        leader: nil,
+        voted_for: nil,
+        votes: MapSet.new(),
+        heartbeat_timer: nil
+    }
+    |> schedule_election_timeout()
   end
 
   # Add cleanup function

@@ -1,0 +1,502 @@
+Compiling 1 file (.ex)
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp generate_fold_cases/2" was previously defined (lib/ben_ben.ex:134)
+     │
+ 171 │   defp generate_fold_cases({:__block__, _meta, cases}, state) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:171:8
+
+     warning: variable "other" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 374 │           other ->
+     │           ~
+     │
+     └─ lib/ben_ben.ex:374:11: BenBen.process_constructed/2
+
+     warning: function generate_pattern_match/1 is unused
+     │
+ 225 │   defp generate_pattern_match({name, _, args}) when is_list(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:225:8: BenBen (module)
+
+     warning: function extract_bindings/1 is unused
+     │
+ 250 │   defp extract_bindings(args) do
+     │        ~
+     │
+     └─ lib/ben_ben.ex:250:8: BenBen (module)
+
+    warning: variable "id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/ben_ben/my_graph.ex:13: MyGraph.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 13 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/ben_ben/my_graph.ex:13: MyGraph.sum/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 10 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/ben_ben/my_tree.ex:10: MyTree.sum/1
+
+    warning: variable "return" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 68 │   defp execute_match_where(pattern, condition, return, node_name, tx_id) do
+    │                                                ~~~~~~
+    │
+    └─ lib/cypher_executer.ex:68:48: CypherExecutor.execute_match_where/5
+
+    warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 69 │     {:node, label, var} = parse_pattern(pattern)
+    │                    ~~~
+    │
+    └─ lib/cypher_executer.ex:69:20: CypherExecutor.execute_match_where/5
+
+    warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 92 │       {:node, label, var} ->
+    │                      ~
+    │
+    └─ lib/cypher_executer.ex:92:22: CypherExecutor.execute_match/4
+
+    warning: variable "return" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 89 │   defp execute_match(pattern, return, node_name, tx_id) do
+    │                               ~~~~~~
+    │
+    └─ lib/cypher_executer.ex:89:31: CypherExecutor.execute_match/4
+
+     warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 100 │       {:node, label, var, properties} ->
+     │                      ~
+     │
+     └─ lib/cypher_executer.ex:100:22: CypherExecutor.execute_create/3
+
+    warning: DistGraphDatabase.rollback_transaction/2 is undefined or private
+    │
+ 17 │         DistGraphDatabase.rollback_transaction(node_name, tx_id)
+    │                           ~
+    │
+    └─ lib/cypher_executer.ex:17:27: CypherExecutor.execute/2
+
+     warning: variable "last_log_index" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 543 │   defp handle_vote_request(state, term, candidate_id, last_log_index, last_log_term) do
+     │                                                       ~~~~~~~~~~~~~~
+     │
+     └─ lib/dist_gdb.ex:543:55: DistGraphDatabase.handle_vote_request/5
+
+     warning: variable "last_log_term" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 543 │   defp handle_vote_request(state, term, candidate_id, last_log_index, last_log_term) do
+     │                                                                       ~~~~~~~~~~~~~
+     │
+     └─ lib/dist_gdb.ex:543:71: DistGraphDatabase.handle_vote_request/5
+
+     warning: variable "self_name" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 544 │     self_name = self_name(state)
+     │     ~~~~~~~~~
+     │
+     └─ lib/dist_gdb.ex:544:5: DistGraphDatabase.handle_vote_request/5
+
+     warning: variable "tx_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 626 │         {:begin_transaction, tx_id} ->
+     │                              ~
+     │
+     └─ lib/dist_gdb.ex:626:30: DistGraphDatabase.apply_log_entries/2
+
+     warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 631 │           {result, new_graph_state} =
+     │            ~
+     │
+     └─ lib/dist_gdb.ex:631:12: DistGraphDatabase.apply_log_entries/2
+
+     warning: function safe_call/3 is unused
+     │
+ 695 │   defp safe_call(node_name, message, state) do
+     │        ~
+     │
+     └─ lib/dist_gdb.ex:695:8: DistGraphDatabase (module)
+
+     warning: function add_cluster_monitors/2 is unused
+     │
+ 665 │   defp add_cluster_monitors(cluster, state) do
+     │        ~
+     │
+     └─ lib/dist_gdb.ex:665:8: DistGraphDatabase (module)
+
+     warning: LibGraph.get_vertices/1 is undefined or private
+     │
+ 654 │     |> LibGraph.get_vertices()
+     │                 ~
+     │
+     └─ lib/dist_gdb.ex:654:17: DistGraphDatabase.query_vertices_with_label/2
+
+    warning: variable "ts" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 48 │       %{variant: :pending, operations: ops, timestamp: ts} ->
+    │                                                        ~
+    │
+    └─ lib/examples/graph_database.ex:48:56: GraphDatabase.commit_transaction/2
+
+     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 111 │     fold state.graph do
+     │     ~~~~~~~~~~~~~~~~~~~
+     │
+     └─ lib/examples/graph_database.ex:111: GraphDatabase.query/2
+
+     warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+     │
+ 111 │     fold state.graph do
+     │     ~~~~~~~~~~~~~~~~~~~
+     │
+     └─ lib/examples/graph_database.ex:111: GraphDatabase.query/2
+
+     warning: variable "edge_list" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 203 │   defp execute_query(pattern, vertex_map, edge_list) do
+     │                                           ~~~~~~~~~
+     │
+     └─ lib/examples/graph_database.ex:203:43: GraphDatabase.execute_query/3
+
+     warning: variable "pattern" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 203 │   defp execute_query(pattern, vertex_map, edge_list) do
+     │                      ~~~~~~~
+     │
+     └─ lib/examples/graph_database.ex:203:22: GraphDatabase.execute_query/3
+
+     warning: variable "vertex_map" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 203 │   defp execute_query(pattern, vertex_map, edge_list) do
+     │                               ~~~~~~~~~~
+     │
+     └─ lib/examples/graph_database.ex:203:31: GraphDatabase.execute_query/3
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 209 │   defp validate_edge(state, from_id, to_id, type) do
+     │                      ~~~~~
+     │
+     └─ lib/examples/graph_database.ex:209:22: GraphDatabase.validate_edge/4
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 25 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:25: LibGraph.add_vertex/3
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 46 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:46: LibGraph.add_edge/5
+
+    warning: variable "edge_list" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 72 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:72: LibGraph.vertex_count/1
+
+    warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 72 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:72: LibGraph.vertex_count/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 72 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:72: LibGraph.vertex_count/1
+
+    warning: variable "vertex_map" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 82 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:82: LibGraph.edge_count/1
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 82 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:82: LibGraph.edge_count/1
+
+     warning: variable "vertex" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 103 │           vertex -> extract_neighbors(edge_list, vertex_id)
+     │           ~
+     │
+     └─ lib/examples/lib_graph.ex:103:11: LibGraph.get_neighbors/2
+
+    warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 99 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:99: LibGraph.get_neighbors/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 99 │     fold graph do
+    │     ~~~~~~~~~~~~~
+    │
+    └─ lib/examples/lib_graph.ex:99: LibGraph.get_neighbors/2
+
+     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 148 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:148: LibGraph.shortest_path/3
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 148 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:148: LibGraph.shortest_path/3
+
+     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 160 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:160: LibGraph.is_connected?/1
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 160 │     fold graph do
+     │     ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/lib_graph.ex:160: LibGraph.is_connected?/1
+
+     warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp extract_neighbors/2" was previously defined (lib/examples/lib_graph.ex:112)
+     │
+ 285 │   defp extract_neighbors(edges, vertex_id) do
+     │        ~
+     │
+     └─ lib/examples/lib_graph.ex:285:8
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 19 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:19: Prototypal.get_property/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 73 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:73: Prototypal.inspect_object/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 87 │     fold obj do
+    │     ~~~~~~~~~~~
+    │
+    └─ lib/examples/prototypal.ex:87: Prototypal.debug_chain/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 26 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/tree_operations.ex:26: TreeOperations.map_tree/2
+
+    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 38 │     fold tree do
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/examples/tree_operations.ex:38: TreeOperations.filter_tree/2
+
+     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 128 │     fold tree do
+     │     ~~~~~~~~~~~~
+     │
+     └─ lib/examples/tree_operations.ex:128: TreeOperations.collect_values/1
+
+    warning: function merge_with_level_increment/2 is unused
+    │
+ 80 │   defp merge_with_level_increment(left_counts, right_counts) do
+    │        ~
+    │
+    └─ lib/examples/tree_operations.ex:80:8: TreeOperations (module)
+
+    warning: function merge_counts/2 is unused
+    │
+ 75 │   defp merge_counts(left_counts, right_counts) do
+    │        ~
+    │
+    └─ lib/examples/tree_operations.ex:75:8: TreeOperations (module)
+
+    warning: variable "new_graph_state" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 19 │     {tx_id, new_graph_state} = GraphDatabase.begin_transaction(state.graph_state)
+    │             ~~~~~~~~~~~~~~~
+    │
+    └─ lib/ra_ra/state_machine.ex:19:13: RaRa.StateMachine.apply/3
+
+Generated ben_ben app
+Running ExUnit with seed: 700685, max_cases: 48
+Excluding tags: [:skip]
+
+    warning: variable "node_configs" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 24 │     node_configs =
+    │     ~~~~~~~~~~~~
+    │
+    └─ test/ra_ra/ra_ra_test.exs:24:5: RaRaTest.__ex_unit_setup_0/1
+
+     warning: variable "node3" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 184 │   test "node recovery", %{nodes: [node1, node2, node3]} do
+     │                                                 ~~~~~
+     │
+     └─ test/ra_ra/ra_ra_test.exs:184:49: RaRaTest."test node recovery"/1
+
+     warning: variable "error" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 259 │       error ->
+     │       ~
+     │
+     └─ test/ra_ra/ra_ra_test.exs:259:7: RaRaTest.join_cluster_with_retry/3
+
+     warning: function cleanup/0 is unused
+     │
+ 277 │   defp cleanup do
+     │        ~
+     │
+     └─ test/ra_ra/ra_ra_test.exs:277:8: RaRaTest (module)
+
+
+10:25:48.776 [debug] Registry started
+
+10:25:48.777 [debug] Starting Ra nodes: [:node1, :node2, :node3]
+
+10:25:48.778 [debug] Registry started
+
+10:25:48.778 [debug] Starting Ra nodes: [:node1, :node2, :node3]
+
+10:25:48.779 [debug] Registry started
+
+10:25:48.779 [debug] Starting Ra nodes: [:node1, :node2, :node3]
+
+10:25:48.779 [debug] Registry started
+
+10:25:48.779 [debug] Starting Ra nodes: [:node1, :node2, :node3]
+
+10:25:48.779 [debug] Registry started
+
+10:25:48.779 [debug] Starting Ra nodes: [:node1, :node2, :node3]
+
+10:25:48.780 [debug] Registry started
+
+10:25:48.780 [debug] Starting Ra nodes: [:node1, :node2, :node3]
+
+
+  1) test basic transaction (RaRaTest)
+     test/ra_ra/ra_ra_test.exs:76
+     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
+         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+     stacktrace:
+       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
+       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
+       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
+       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
+
+
+
+  2) test distributed replication (RaRaTest)
+     test/ra_ra/ra_ra_test.exs:99
+     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
+         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+     stacktrace:
+       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
+       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
+       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
+       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
+
+
+
+  3) test schema validation (RaRaTest)
+     test/ra_ra/ra_ra_test.exs:124
+     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
+         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+     stacktrace:
+       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
+       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
+       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
+       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
+
+
+
+  4) test fault tolerance (RaRaTest)
+     test/ra_ra/ra_ra_test.exs:144
+     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
+         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+     stacktrace:
+       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
+       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
+       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
+       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
+
+
+
+  5) test cluster formation (RaRaTest)
+     test/ra_ra/ra_ra_test.exs:68
+     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
+         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+     stacktrace:
+       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
+       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
+       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
+       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
+
+
+
+  6) test node recovery (RaRaTest)
+     test/ra_ra/ra_ra_test.exs:184
+     ** (exit) exited in: GenServer.call(RaRa.Supervisor, {:start_child, %{id: :node1, restart: :permanent, start: {RaRa, :start_link, [%RaRa.Config{node_id: :node1, cluster_name: :test_cluster, data_dir: "/tmp/ra_test/node1", members: []}]}, type: :worker}}, :infinity)
+         ** (EXIT) no process: the process is not alive or there's no process currently associated with the given name, possibly because its application isn't started
+     stacktrace:
+       (elixir 1.18.1) lib/gen_server.ex:1121: GenServer.call/3
+       test/ra_ra/ra_ra_test.exs:33: anonymous fn/1 in RaRaTest.__ex_unit_setup_0/1
+       (elixir 1.18.1) lib/enum.ex:1714: Enum."-map/2-lists^map/1-1-"/2
+       test/ra_ra/ra_ra_test.exs:25: RaRaTest.__ex_unit_setup_0/1
+       test/ra_ra/ra_ra_test.exs:1: RaRaTest.__ex_unit__/2
+
+
+Finished in 0.06 seconds (0.00s async, 0.06s sync)
+6 tests, 6 failures

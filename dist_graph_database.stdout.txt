@@ -1,3 +1,67 @@
+Compiling 1 file (.ex)
+     warning: variable "last_log_index" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 543 │   defp handle_vote_request(state, term, candidate_id, last_log_index, last_log_term) do
+     │                                                       ~~~~~~~~~~~~~~
+     │
+     └─ lib/examples/dist_graph_database.ex:543:55: DistGraphDatabase.handle_vote_request/5
+
+     warning: variable "last_log_term" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 543 │   defp handle_vote_request(state, term, candidate_id, last_log_index, last_log_term) do
+     │                                                                       ~~~~~~~~~~~~~
+     │
+     └─ lib/examples/dist_graph_database.ex:543:71: DistGraphDatabase.handle_vote_request/5
+
+     warning: variable "self_name" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 544 │     self_name = self_name(state)
+     │     ~~~~~~~~~
+     │
+     └─ lib/examples/dist_graph_database.ex:544:5: DistGraphDatabase.handle_vote_request/5
+
+     warning: variable "tx_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 626 │         {:begin_transaction, tx_id} ->
+     │                              ~
+     │
+     └─ lib/examples/dist_graph_database.ex:626:30: DistGraphDatabase.apply_log_entries/2
+
+     warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 631 │           {result, new_graph_state} =
+     │            ~
+     │
+     └─ lib/examples/dist_graph_database.ex:631:12: DistGraphDatabase.apply_log_entries/2
+
+     warning: function safe_call/3 is unused
+     │
+ 695 │   defp safe_call(node_name, message, state) do
+     │        ~
+     │
+     └─ lib/examples/dist_graph_database.ex:695:8: DistGraphDatabase (module)
+
+     warning: function add_cluster_monitors/2 is unused
+     │
+ 665 │   defp add_cluster_monitors(cluster, state) do
+     │        ~
+     │
+     └─ lib/examples/dist_graph_database.ex:665:8: DistGraphDatabase (module)
+
+    warning: DistGraphDatabase.rollback_transaction/2 is undefined or private
+    │
+ 17 │         DistGraphDatabase.rollback_transaction(node_name, tx_id)
+    │                           ~
+    │
+    └─ lib/cypher_executer.ex:17:27: CypherExecutor.execute/2
+
+     warning: LibGraph.get_vertices/1 is undefined or private
+     │
+ 654 │     |> LibGraph.get_vertices()
+     │                 ~
+     │
+     └─ lib/examples/dist_graph_database.ex:654:17: DistGraphDatabase.query_vertices_with_label/2
+
      warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp generate_fold_cases/2" was previously defined (lib/ben_ben.ex:134)
      │
  171 │   defp generate_fold_cases({:__block__, _meta, cases}, state) do
@@ -60,62 +124,6 @@
      │                      ~
      │
      └─ lib/cypher_executer.ex:100:22: CypherExecutor.execute_create/3
-
-    warning: DistGraphDatabase.rollback_transaction/2 is undefined or private
-    │
- 17 │         DistGraphDatabase.rollback_transaction(node_name, tx_id)
-    │                           ~
-    │
-    └─ lib/cypher_executer.ex:17:27: CypherExecutor.execute/2
-
-     warning: variable "last_log_index" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 491 │   defp handle_vote_request(state, term, candidate_id, last_log_index, last_log_term) do
-     │                                                       ~~~~~~~~~~~~~~
-     │
-     └─ lib/examples/dist_graph_database.ex:491:55: DistGraphDatabase.handle_vote_request/5
-
-     warning: variable "last_log_term" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 491 │   defp handle_vote_request(state, term, candidate_id, last_log_index, last_log_term) do
-     │                                                                       ~~~~~~~~~~~~~
-     │
-     └─ lib/examples/dist_graph_database.ex:491:71: DistGraphDatabase.handle_vote_request/5
-
-     warning: variable "tx_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 597 │         {:begin_transaction, tx_id} ->
-     │                              ~
-     │
-     └─ lib/examples/dist_graph_database.ex:597:30: DistGraphDatabase.apply_log_entries/2
-
-     warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 602 │           {result, new_graph_state} =
-     │            ~
-     │
-     └─ lib/examples/dist_graph_database.ex:602:12: DistGraphDatabase.apply_log_entries/2
-
-     warning: function safe_call/3 is unused
-     │
- 664 │   defp safe_call(node_name, message, state) do
-     │        ~
-     │
-     └─ lib/examples/dist_graph_database.ex:664:8: DistGraphDatabase (module)
-
-     warning: function add_cluster_monitors/2 is unused
-     │
- 634 │   defp add_cluster_monitors(cluster, state) do
-     │        ~
-     │
-     └─ lib/examples/dist_graph_database.ex:634:8: DistGraphDatabase (module)
-
-     warning: LibGraph.get_vertices/1 is undefined or private
-     │
- 623 │     |> LibGraph.get_vertices()
-     │                 ~
-     │
-     └─ lib/examples/dist_graph_database.ex:623:17: DistGraphDatabase.query_vertices_with_label/2
 
     warning: variable "ts" is unused (if the variable is not meant to be used, prefix it with an underscore)
     │
@@ -348,191 +356,1034 @@
     │
     └─ lib/examples/tree_operations.ex:75:8: TreeOperations (module)
 
-Running ExUnit with seed: 150544, max_cases: 48
+Generated ben_ben app
+Running ExUnit with seed: 970421, max_cases: 48
 
-     warning: variable "node3" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 227 │   test "node recovery", %{nodes: [node1, node2, node3], registry: registry} do
-     │                                                 ~~~~~
-     │
-     └─ test/dist_graph_database_test.exs:227:49: DistGraphDatabaseTest."test node recovery"/1
-
-    warning: function verify_cluster_size/2 is unused
+    warning: function wait_for_cluster_size/4 is unused
     │
- 95 │   defp verify_cluster_size(node_name, registry) do
+ 59 │   defp wait_for_cluster_size(nodes, registry, expected_size, retries \\ 10) do
     │        ~
     │
-    └─ test/dist_graph_database_test.exs:95:8: DistGraphDatabaseTest (module)
+    └─ test/dist_graph_database_test.exs:59:8: DistGraphDatabaseTest (module)
+
+     warning: default values for the optional arguments in join_cluster_with_retry/4 are never used
+     │
+ 153 │   defp join_cluster_with_retry(node, target, registry, retries \\ 10) do
+     │        ~
+     │
+     └─ test/dist_graph_database_test.exs:153:8: DistGraphDatabaseTest (module)
 
     warning: function join_and_verify/4 is unused
     │
- 70 │   defp join_and_verify(joining_node, target_node, registry, retries \\ 5) do
+ 86 │   defp join_and_verify(joining_node, target_node, registry, retries \\ 5) do
     │        ~
     │
-    └─ test/dist_graph_database_test.exs:70:8: DistGraphDatabaseTest (module)
+    └─ test/dist_graph_database_test.exs:86:8: DistGraphDatabaseTest (module)
 
 
-15:46:51.226 [debug] Registry already running
+18:00:51.029 [debug] Registry already running
 
-15:46:51.228 [debug] Starting nodes: [:node1, :node2, :node3]
+18:00:51.030 [debug] Starting nodes: [:node1, :node2, :node3]
 
-15:46:51.503 [debug] Beginning election:
+18:00:51.458 [debug] Beginning election:
 - Node: :node1
 - New term: 1
 - Current cluster: []
 
 
-15:46:51.534 [debug] Join cluster request:
-Node: :node2
-Target: :node1
-
-
-15:46:51.534 [debug] Processing join cluster request:
-- Self node: :node2
-- Target node: :node1
+18:00:51.509 [debug] Beginning election:
+- Node: :node2
+- New term: 1
 - Current cluster: []
 
 
-15:46:51.536 [debug] New cluster membership: [:node1, :node2]
-
-15:46:51.536 [debug] Broadcasting cluster update:
-- From: :node2
-- Members: [:node1, :node2]
-
-
-15:46:51.536 [debug] Received cluster update:
-- Node: :node2
-- Current members: [:node1, :node2]
-- New members: [:node1, :node2]
-
-
-15:46:51.536 [debug] Received cluster update:
-- Node: :node1
-- Current members: []
-- New members: [:node1, :node2]
-
-
-15:46:51.678 [debug] Beginning election:
+18:00:51.609 [debug] Beginning election:
 - Node: :node3
 - New term: 1
 - Current cluster: []
 
 
-15:46:51.755 [debug] Beginning election:
+18:00:51.634 [debug] Forming cluster with leader node: :node1
+
+18:00:51.634 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 10
+
+
+18:00:51.634 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:00:51.634 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: []
+
+
+18:00:51.636 [debug] New cluster membership: [:node1, :node2]
+
+18:00:51.636 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:00:51.636 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 1
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:00:51.636 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 1
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:00:51.636 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:51.636 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:51.636 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:51.636 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:51.852 [debug] Beginning election:
 - Node: :node2
-- New term: 1
+- New term: 2
 - Current cluster: [:node1, :node2]
 
 
-15:46:51.755 [debug] Requesting vote from :node1
+18:00:51.852 [debug] Requesting vote from :node1
 
-15:46:51.755 [debug] Requesting vote from :node2
-
-15:46:51.755 [debug] Received vote request:
+18:00:51.852 [debug] Received vote request:
 - From: :node2
-- Term: 1
+- Term: 2
 - Current term: 1
 - Current role: candidate
-- Voted for: :node2
+- Voted for: :node1
 
 
-15:46:51.755 [debug] Processing vote request:
+18:00:51.852 [debug] Requesting vote from :node2
+
+18:00:51.852 [debug] Processing vote request:
 - From candidate: :node2
-- Term: 1
+- Term: 2
 - Current term: 1
+- Current role: candidate
+- Voted for: :node1
+
+
+18:00:51.852 [debug] Received vote request:
+- From: :node2
+- Term: 2
+- Current term: 2
 - Current role: candidate
 - Voted for: :node2
 
 
-15:46:51.755 [debug] Received vote response:
+18:00:51.852 [debug] Processing vote request:
+- From candidate: :node2
+- Term: 2
+- Current term: 2
+- Current role: candidate
+- Voted for: :node2
+
+
+18:00:51.852 [debug] Received vote response:
 - Self: :node2
-- From: :node2
-- Term: 1
+- From: :node1
+- Term: 2
 - Granted: true
 - Current role: candidate
-- Current term: 1
+- Current term: 2
 - Current votes: 1
 
 
-15:46:51.755 [debug] Vote count update:
+18:00:51.852 [debug] Vote count update:
+- Total nodes: 3
+- Votes needed: 2
+- Current votes: 2
+- Voters: [:node1, :node2]
+
+
+18:00:51.852 [debug] Won election with 2 votes
+
+18:00:51.852 [debug] Becoming leader:
+Node: :node2
+Term: 2
+Cluster size: 2
+Votes received: 2
+
+
+18:00:51.852 [debug] Broadcasting heartbeat from :node2 term: 2
+
+18:00:51.853 [debug] Received append entries:
+From: :node2
+Term: 2
+Current term: 2
+Current role: follower
+
+
+18:00:51.852 [debug] Received vote response:
+- Self: :node2
+- From: :node2
+- Term: 2
+- Granted: true
+- Current role: leader
+- Current term: 2
+- Current votes: 2
+
+
+18:00:51.853 [debug] Received append entries:
+From: :node2
+Term: 2
+Current term: 2
+Current role: leader
+
+
+18:00:52.065 [debug] Beginning election:
+- Node: :node2
+- New term: 3
+- Current cluster: [:node1, :node2]
+
+
+18:00:52.065 [debug] Requesting vote from :node1
+
+18:00:52.065 [debug] Received vote request:
+- From: :node2
+- Term: 3
+- Current term: 2
+- Current role: follower
+- Voted for: :node2
+
+
+18:00:52.065 [debug] Requesting vote from :node2
+
+18:00:52.065 [debug] Processing vote request:
+- From candidate: :node2
+- Term: 3
+- Current term: 2
+- Current role: follower
+- Voted for: :node2
+
+
+18:00:52.065 [debug] Received vote request:
+- From: :node2
+- Term: 3
+- Current term: 3
+- Current role: candidate
+- Voted for: :node2
+
+
+18:00:52.065 [debug] Processing vote request:
+- From candidate: :node2
+- Term: 3
+- Current term: 3
+- Current role: candidate
+- Voted for: :node2
+
+
+18:00:52.065 [debug] Received vote response:
+- Self: :node2
+- From: :node1
+- Term: 3
+- Granted: true
+- Current role: candidate
+- Current term: 3
+- Current votes: 1
+
+
+18:00:52.065 [debug] Vote count update:
+- Total nodes: 3
+- Votes needed: 2
+- Current votes: 2
+- Voters: [:node1, :node2]
+
+
+18:00:52.065 [debug] Won election with 2 votes
+
+18:00:52.065 [debug] Becoming leader:
+Node: :node2
+Term: 3
+Cluster size: 2
+Votes received: 2
+
+
+18:00:52.065 [debug] Broadcasting heartbeat from :node2 term: 3
+
+18:00:52.065 [debug] Received vote response:
+- Self: :node2
+- From: :node2
+- Term: 3
+- Granted: true
+- Current role: leader
+- Current term: 3
+- Current votes: 2
+
+
+18:00:52.065 [debug] Received append entries:
+From: :node2
+Term: 3
+Current term: 3
+Current role: leader
+
+
+18:00:52.065 [debug] Received append entries:
+From: :node2
+Term: 3
+Current term: 3
+Current role: follower
+
+
+18:00:52.181 [debug] Beginning election:
+- Node: :node1
+- New term: 4
+- Current cluster: []
+
+
+18:00:52.313 [debug] Beginning election:
+- Node: :node2
+- New term: 4
+- Current cluster: [:node1, :node2]
+
+
+18:00:52.313 [debug] Requesting vote from :node1
+
+18:00:52.313 [debug] Requesting vote from :node2
+
+18:00:52.313 [debug] Received vote request:
+- From: :node2
+- Term: 4
+- Current term: 4
+- Current role: candidate
+- Voted for: :node2
+
+
+18:00:52.313 [debug] Processing vote request:
+- From candidate: :node2
+- Term: 4
+- Current term: 4
+- Current role: candidate
+- Voted for: :node2
+
+
+18:00:52.313 [debug] Received vote response:
+- Self: :node2
+- From: :node2
+- Term: 4
+- Granted: true
+- Current role: candidate
+- Current term: 4
+- Current votes: 1
+
+
+18:00:52.313 [debug] Vote count update:
 - Total nodes: 3
 - Votes needed: 2
 - Current votes: 1
 - Voters: [:node2]
 
 
-15:46:51.755 [debug] Received vote request:
+18:00:52.313 [debug] Received vote request:
 - From: :node2
-- Term: 1
-- Current term: 1
+- Term: 4
+- Current term: 4
 - Current role: candidate
 - Voted for: :node1
 
 
-15:46:51.755 [debug] Processing vote request:
+18:00:52.313 [debug] Processing vote request:
 - From candidate: :node2
-- Term: 1
-- Current term: 1
+- Term: 4
+- Current term: 4
 - Current role: candidate
 - Voted for: :node1
 
 
-15:46:51.755 [debug] Received vote response:
+18:00:52.313 [debug] Received vote response:
 - Self: :node2
 - From: :node1
-- Term: 1
+- Term: 4
 - Granted: false
 - Current role: candidate
-- Current term: 1
+- Current term: 4
 - Current votes: 1
 
 
-15:46:53.038 [debug] Join cluster request:
-Node: :node3
+18:00:52.637 [debug] Verifying cluster membership:
+Node: :node2
 Target: :node1
 
 
-15:46:53.038 [debug] Processing join cluster request:
-- Self node: :node3
+18:00:52.637 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:00:52.637 [debug] Cluster verification failed, retrying...
+
+18:00:53.638 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 9
+
+
+18:00:53.638 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:00:53.638 [debug] Processing join cluster request:
+- Self node: :node2
 - Target node: :node1
-- Current cluster: []
+- Current cluster: [:node1, :node2]
 
 
-15:46:53.038 [debug] New cluster membership: [:node1, :node2, :node3]
+18:00:53.638 [debug] New cluster membership: [:node1, :node2]
 
-15:46:53.038 [debug] Broadcasting cluster update:
-- From: :node3
-- Members: [:node1, :node2, :node3]
-
-
-15:46:53.038 [debug] Received cluster update:
-- Node: :node3
-- Current members: [:node1, :node2, :node3]
-- New members: [:node1, :node2, :node3]
+18:00:53.638 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
 
 
-15:46:53.038 [debug] Received cluster update:
-- Node: :node2
+18:00:53.638 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:00:53.638 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
 - Current members: [:node1, :node2]
-- New members: [:node1, :node2, :node3]
+- New members: [:node1, :node2]
 
 
-15:46:53.038 [debug] Received cluster update:
-- Node: :node1
+18:00:53.638 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:53.638 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:53.638 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:53.638 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:54.639 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:00:54.639 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:00:54.639 [debug] Cluster verification failed, retrying...
+
+18:00:55.640 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 8
+
+
+18:00:55.640 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:00:55.640 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:00:55.640 [debug] New cluster membership: [:node1, :node2]
+
+18:00:55.640 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:00:55.640 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:00:55.640 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
 - Current members: [:node1, :node2]
-- New members: [:node1, :node2, :node3]
+- New members: [:node1, :node2]
 
 
-15:47:04.552 [debug] Registry already running
+18:00:55.640 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
 
-15:47:04.552 [debug] Starting nodes: [:node1, :node2, :node3]
+
+18:00:55.640 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
 
 
-  1) test node recovery (DistGraphDatabaseTest)
-     test/dist_graph_database_test.exs:227
-     ** (RuntimeError) Failed to achieve expected cluster size
-     stacktrace:
-       test/dist_graph_database_test.exs:45: DistGraphDatabaseTest.wait_for_cluster_size/4
-       test/dist_graph_database_test.exs:37: DistGraphDatabaseTest.__ex_unit_setup_0/1
-       test/dist_graph_database_test.exs:1: DistGraphDatabaseTest.__ex_unit__/2
+18:00:55.640 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
 
+
+18:00:55.640 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:56.641 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:00:56.641 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:00:56.641 [debug] Cluster verification failed, retrying...
+
+18:00:57.642 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 7
+
+
+18:00:57.642 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:00:57.643 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:00:57.643 [debug] New cluster membership: [:node1, :node2]
+
+18:00:57.643 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:00:57.643 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:00:57.643 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:00:57.643 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:57.643 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:57.643 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:57.643 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:58.644 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:00:58.644 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:00:58.644 [debug] Cluster verification failed, retrying...
+
+18:00:59.645 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 6
+
+
+18:00:59.645 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:00:59.645 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:00:59.645 [debug] New cluster membership: [:node1, :node2]
+
+18:00:59.645 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:00:59.645 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:00:59.645 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:00:59.645 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:59.645 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:00:59.645 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:00:59.645 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:00.646 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:01:00.646 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:01:00.646 [debug] Cluster verification failed, retrying...
+
+18:01:01.647 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 5
+
+
+18:01:01.647 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:01:01.647 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:01:01.647 [debug] New cluster membership: [:node1, :node2]
+
+18:01:01.647 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:01:01.647 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:01:01.647 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:01:01.647 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:01.647 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:01.647 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:01.647 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:02.648 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:01:02.648 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:01:02.648 [debug] Cluster verification failed, retrying...
+
+18:01:03.649 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 4
+
+
+18:01:03.649 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:01:03.649 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:01:03.649 [debug] New cluster membership: [:node1, :node2]
+
+18:01:03.649 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:01:03.649 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:01:03.649 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:01:03.649 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:03.649 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:03.649 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:03.649 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:04.650 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:01:04.650 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:01:04.650 [debug] Cluster verification failed, retrying...
+
+18:01:05.651 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 3
+
+
+18:01:05.651 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:01:05.651 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:01:05.651 [debug] New cluster membership: [:node1, :node2]
+
+18:01:05.651 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:01:05.651 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:01:05.651 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:05.651 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:01:05.651 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:05.651 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:05.651 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:06.652 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:01:06.652 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:01:06.652 [debug] Cluster verification failed, retrying...
+
+18:01:07.653 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 2
+
+
+18:01:07.653 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:01:07.653 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:01:07.653 [debug] New cluster membership: [:node1, :node2]
+
+18:01:07.653 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:01:07.653 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:01:07.653 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:01:07.653 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:07.653 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:07.653 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:07.653 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:08.654 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:01:08.654 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:01:08.654 [debug] Cluster verification failed, retrying...
+
+18:01:09.655 [debug] Attempting to join cluster:
+Node: :node2
+Target: :node1
+Attempts left: 1
+
+
+18:01:09.655 [debug] Join cluster request:
+Node: :node2
+Target: :node1
+
+
+18:01:09.655 [debug] Processing join cluster request:
+- Self node: :node2
+- Target node: :node1
+- Current cluster: [:node1, :node2]
+
+
+18:01:09.655 [debug] New cluster membership: [:node1, :node2]
+
+18:01:09.655 [debug] Broadcasting cluster update:
+- From: :node2
+- Members: [:node1, :node2]
+
+
+18:01:09.655 [debug] Received cluster update:
+- From: :node1
+- Current role: candidate
+- Current term: 4
+- Current members: []
+- New members: [:node1, :node2]
+
+
+18:01:09.655 [debug] Received cluster update:
+- From: :node2
+- Current role: follower
+- Current term: 4
+- Current members: [:node1, :node2]
+- New members: [:node1, :node2]
+
+
+18:01:09.655 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:09.655 [debug] Received cluster ack:
+From: :node1
+Cluster: [:node1, :node2]
+
+
+18:01:09.655 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:09.655 [debug] Received cluster ack:
+From: :node2
+Cluster: [:node1, :node2]
+
+
+18:01:10.656 [debug] Verifying cluster membership:
+Node: :node2
+Target: :node1
+
+
+18:01:10.656 [debug] Cluster state:
+Node cluster: [:node1, :node2]
+Target cluster: []
+
+
+18:01:10.656 [debug] Cluster verification failed, retrying...

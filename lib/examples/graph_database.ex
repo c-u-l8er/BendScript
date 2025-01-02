@@ -80,10 +80,10 @@ defmodule GraphDatabase do
 
   # Graph Operations with Transactions
   def add_vertex(state, tx_id, type, id, properties) do
-    with {:ok, _} <- validate_schema(state, type, properties),
+    with {:ok, validated_props} <- validate_schema(state, type, properties),
          {:ok, state} <- acquire_vertex_lock(state, tx_id, id) do
       # Record operation in transaction
-      operation = {:add_vertex, type, id, properties}
+      operation = {:add_vertex, type, id, validated_props}
       new_transactions = update_transaction_operations(state.transactions, tx_id, operation)
 
       {:ok, %{state | transactions: new_transactions}}
@@ -112,7 +112,7 @@ defmodule GraphDatabase do
       case(graph(vertex_map, edge_list, metadata)) ->
         execute_query(pattern, vertex_map, edge_list)
 
-      case(_) ->
+      case(empty()) ->
         []
     end
   end
