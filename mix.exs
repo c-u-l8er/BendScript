@@ -22,16 +22,14 @@ defmodule BenBen.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :ra, :sasl],
-      mod: {RaRa.Application, []}
+      extra_applications: [:logger]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:uuid, "~> 1.1"},
-      {:ra, "~> 2.15"}
+      {:uuid, "~> 1.1"}
     ]
   end
 end

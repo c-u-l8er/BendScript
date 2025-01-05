@@ -47,7 +47,23 @@ defmodule RegServer do
         def handle_call({__MODULE__, unquote(name), [unquote_splicing(args)]}, _from, state) do
           var!(state) = state
           result = unquote(body)
-          {:reply, result, state}
+
+          {reply, new_state} = case result do
+            %{} = new_state ->
+              # Check if maps have same keys
+              state_keys = Map.keys(state)
+              if map_size(new_state) == map_size(state) and
+                 Enum.all?(state_keys, &Map.has_key?(new_state, &1)) do
+                # Use first changed value as reply
+                {Map.get(new_state, hd(state_keys)), new_state}
+              else
+                {result, state}
+              end
+            other ->
+              {other, state}
+          end
+
+          {:reply, reply, new_state}
         end
       end
     end
@@ -68,7 +84,7 @@ defmodule RegServer do
 
     defmacro defstate(do: block) do
       quote do
-        def init(args) do
+        def init(_args) do
           {:ok, unquote(block)}
         end
       end
@@ -87,7 +103,7 @@ defmodule RegServer do
 
     def call(server, request) do
       ref = make_ref()
-      send(server, {:call, self(), ref, request})
+      send(server, {:call, {self(), ref}, ref, request})
       receive do
         {:reply, ^ref, reply} -> reply
       after
@@ -109,10 +125,10 @@ defmodule RegServer do
 
     defp loop(module, state) do
       receive do
-        {:call, from, ref, request} ->
+        {:call, from = {pid, _ref}, ref, request} ->
           case module.handle_call(request, from, state) do
             {:reply, reply, new_state} ->
-              send(elem(from, 0), {:reply, ref, reply})
+              send(pid, {:reply, ref, reply})
               loop(module, new_state)
           end
 

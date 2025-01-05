@@ -44,7 +44,7 @@ defmodule RegServerTest do
         Task.async(fn -> Counter.increment(pid, i) end)
       end
 
-      results = Task.await_many(tasks)
+      _results = Task.await_many(tasks)
       assert Enum.sum(1..5) == Counter.get_count(pid)
     end
 
