@@ -1,8 +1,9 @@
-16:44:53.815 [debug] Starting RaRa.Application
-16:44:53.828 [debug] Starting RaRa.Supervisor
-16:44:53.830 [debug] Initializing RaRa.Supervisor
-16:44:53.830 [debug] RaRa.Application started successfully
-16:44:53.844 [notice] Can't set short node name!
+Generated ben_ben app
+12:43:13.719 [debug] Starting RaRa.Application
+12:43:13.727 [debug] Starting RaRa.Supervisor
+12:43:13.728 [debug] Initializing RaRa.Supervisor
+12:43:13.728 [debug] RaRa.Application started successfully
+12:43:13.738 [notice] Can't set short node name!
 Please check your configuration
 
 ** (ArgumentError) errors were found at the given arguments:
