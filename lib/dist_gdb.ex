@@ -91,7 +91,7 @@ defmodule DistGraphDatabase do
   # Server Implementation
   def init([name, registry_name]) do
     state = %State{
-      graph_state: %GraphDatabase.State{
+      graph_state: %GraphTrx.State{
         graph: LibGraph.new(:directed),
         schema: %{},
         transactions: %{},
@@ -193,7 +193,7 @@ defmodule DistGraphDatabase do
 
   # Leader handles database operations
   def handle_call({:begin_transaction}, from, %{role: :leader} = state) do
-    {tx_id, new_graph_state} = GraphDatabase.begin_transaction(state.graph_state)
+    {tx_id, new_graph_state} = GraphTrx.begin_transaction(state.graph_state)
 
     # Create log entry
     log_entry = %{
@@ -233,7 +233,7 @@ defmodule DistGraphDatabase do
   def handle_call({:query, pattern}, _from, state) do
     case pattern do
       {:vertex, id} ->
-        result = GraphDatabase.query(state.graph_state, {:vertex, id})
+        result = GraphTrx.query(state.graph_state, {:vertex, id})
         {:reply, result, state}
 
       _ ->
@@ -248,7 +248,7 @@ defmodule DistGraphDatabase do
   end
 
   def handle_call({:define_schema, _tx_id, type, properties}, _from, state) do
-    new_graph_state = GraphDatabase.define_vertex_type(state.graph_state, type, properties)
+    new_graph_state = GraphTrx.define_vertex_type(state.graph_state, type, properties)
     {:reply, {:ok, new_graph_state}, %{state | graph_state: new_graph_state}}
   end
 
@@ -624,12 +624,12 @@ defmodule DistGraphDatabase do
     Enum.reduce(entries, state, fn entry, acc_state ->
       case entry.command do
         {:begin_transaction, tx_id} ->
-          {_, new_graph_state} = GraphDatabase.begin_transaction(acc_state.graph_state)
+          {_, new_graph_state} = GraphTrx.begin_transaction(acc_state.graph_state)
           %{acc_state | graph_state: new_graph_state}
 
         {:commit_transaction, tx_id} ->
           {result, new_graph_state} =
-            GraphDatabase.commit_transaction(acc_state.graph_state, tx_id)
+            GraphTrx.commit_transaction(acc_state.graph_state, tx_id)
 
           %{acc_state | graph_state: new_graph_state}
 

@@ -1,4 +1,4 @@
-defmodule GraphDatabase do
+defmodule GraphTrx do
   import BenBen
   alias LibGraph, as: Graph
 

@@ -3,11 +3,35 @@ BenBen
 
 ## Features
 
+### RegServer as GenServer
+A regular server is the same as a generic server except with macros.
+```elixir
+use RegServer
+
+# Define initial state
+defstate do
+  %{count: 0}
+end
+
+# Define synchronous calls
+defcall(:increment, [amount]) do
+  new_count = state.count + amount
+  %{state | count: new_count}
+end
+
+# Define asynchronous casts
+defcast(:reset, []) do
+  %{state | count: 0}
+end
+```
+
 ### Algebraic Data Types
 
 Define recursive data structures using a declarative syntax:
 
 ```elixir
+import BenBen # includes deftype, bend, fold, fork, and recu marcos
+
 deftype BinaryTree do
   node(val, recu(left), recu(right))  # recu indicates recursive fields
   leaf()
@@ -79,18 +103,18 @@ end
 
 ## Early setup
 ```bash
-mix new ben_ben
+mix new elixir_macros
 ```
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `benben` to your list of dependencies in `mix.exs`:
+by adding `elixir_macros` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:ben_ben, "~> 0.1.0"}
+    {:elixir_macros, "~> 0.1.0"}
   ]
 end
 ```

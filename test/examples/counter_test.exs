@@ -1,4 +1,4 @@
-defmodule RegServerTest do
+defmodule CounterTest do
   use ExUnit.Case, async: true
 
   describe "Counter with RegServer" do
