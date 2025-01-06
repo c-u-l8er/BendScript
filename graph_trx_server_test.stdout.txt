@@ -1,0 +1,286 @@
+Excluding tags: [:skip]
+
+15:03:46.970 [debug] Beginning new transaction
+.15:03:46.977 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true]]
+15:03:46.977 [debug] Beginning new transaction
+15:03:46.980 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{name: "Alice"}
+
+15:03:46.980 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.980 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "2"
+  Properties: %{name: "Bob"}
+
+15:03:46.980 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.980 [debug] Committing transaction 1
+15:03:46.983 [error] Commit failed: Invalid transaction state
+15:03:46.984 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true]]
+15:03:46.984 [debug] Beginning new transaction
+15:03:46.984 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{name: "Alice"}
+
+15:03:46.984 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.984 [debug] Committing transaction 1
+15:03:46.984 [error] Commit failed: Invalid transaction state
+15:03:46.984 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true], age: [type: :integer]]
+15:03:46.984 [debug] Beginning new transaction
+15:03:46.984 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{name: "Alice"}
+
+15:03:46.984 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.984 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "2"
+  Properties: %{name: "Bob"}
+
+15:03:46.984 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.984 [debug] Adding edge:
+  Transaction: 1
+  From: "1"
+  To: "2"
+  Type: :knows
+  Properties: %{}
+
+15:03:46.984 [debug] Failed to add edge: "Source vertex not found"
+15:03:46.988 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true], age: [type: :integer]]
+15:03:46.988 [debug] Beginning new transaction
+15:03:46.988 [debug] Rolling back transaction 1 with reason: "Test rollback"
+15:03:46.988 [error] Rollback failed: Invalid transaction state
+15:03:46.988 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true]]
+15:03:46.988 [debug] Beginning new transaction
+15:03:46.989 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{name: "Alice"}
+
+15:03:46.989 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.989 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "2"
+  Properties: %{name: "Bob"}
+
+15:03:46.989 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.989 [debug] Adding edge:
+  Transaction: 1
+  From: "1"
+  To: "2"
+  Type: :knows
+  Properties: %{}
+
+15:03:46.989 [debug] Failed to add edge: "Source vertex not found"
+15:03:46.989 [debug] Committing transaction 1
+15:03:46.989 [error] Commit failed: Invalid transaction state
+15:03:46.989 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true]]
+15:03:46.989 [debug] Beginning new transaction
+15:03:46.989 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{name: "Alice"}
+
+15:03:46.989 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.989 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "2"
+  Properties: %{name: "Bob"}
+
+15:03:46.989 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.989 [debug] Adding edge:
+  Transaction: 1
+  From: "1"
+  To: "2"
+  Type: :knows
+  Properties: %{}
+
+15:03:46.989 [debug] Failed to add edge: "Source vertex not found"
+15:03:46.989 [debug] Committing transaction 1
+15:03:46.989 [error] Commit failed: Invalid transaction state
+15:03:46.989 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true], age: [type: :integer]]
+15:03:46.989 [debug] Beginning new transaction
+15:03:46.989 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{age: 30}
+
+15:03:46.989 [debug] Failed to add vertex: "Invalid transaction state"
+
+
+  1) test graph metrics tracks vertex count (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:129
+     ** (EXIT from #PID<0.213.0>) an exception was raised:
+         ** (GraphTrx.Error) Invalid transaction state
+             (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+             (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+
+15:03:46.983 [error] Process #PID<0.214.0> raised an exception
+** (GraphTrx.Error) Invalid transaction state
+    (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+    (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+15:03:46.989 [debug] Beginning new transaction
+15:03:46.984 [error] Process #PID<0.216.0> raised an exception
+** (GraphTrx.Error) Invalid transaction state
+    (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+    (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+15:03:46.989 [debug] Adding vertex:
+  Transaction: 1
+  Type: :invalid_type
+  ID: "1"
+  Properties: %{}
+
+15:03:46.989 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.988 [error] Process #PID<0.222.0> raised an exception
+** (GraphTrx.Error) Invalid transaction state
+    (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:57: GraphTrxServer.handle_call/3
+    (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+15:03:46.989 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true], age: [type: :integer]]
+15:03:46.989 [debug] Beginning new transaction
+15:03:46.989 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{age: 30, name: "Alice"}
+
+15:03:46.989 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.989 [debug] Defining vertex type: :person with properties: [name: [type: :string, required: true]]
+15:03:46.989 [error] Process #PID<0.224.0> raised an exception
+** (GraphTrx.Error) Invalid transaction state
+    (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+    (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+15:03:46.990 [debug] Beginning new transaction
+15:03:46.990 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{name: "Alice"}
+
+15:03:46.989 [error] Process #PID<0.226.0> raised an exception
+** (GraphTrx.Error) Invalid transaction state
+    (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+    (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+15:03:46.990 [debug] Failed to add vertex: "Invalid transaction state"
+15:03:46.990 [debug] Adding vertex:
+  Transaction: 1
+  Type: :person
+  ID: "1"
+  Properties: %{name: "Bob"}
+
+15:03:46.990 [debug] Failed to add vertex: "Invalid transaction state"
+
+
+  2) test transaction management can commit transaction (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:31
+     ** (EXIT from #PID<0.215.0>) an exception was raised:
+         ** (GraphTrx.Error) Invalid transaction state
+             (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+             (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+
+15:03:46.990 [debug] Committing transaction 999
+15:03:46.990 [error] Commit failed: Invalid transaction state
+15:03:46.990 [error] Process #PID<0.236.0> raised an exception
+** (GraphTrx.Error) Invalid transaction state
+    (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+    (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+
+
+  3) test graph operations can add edge (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:92
+     match (match?) failed
+     code:  assert match?({true, %GraphTrx.State{}}, result)
+     left:  {true, %GraphTrx.State{}}
+     right: {{:error, "Source vertex not found"},
+             %GraphTrx.State{
+               graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}},
+               transactions: %{},
+               locks: %{},
+               schema: %{person: %{properties: [name: [type: :string, required: true], age: [type: :integer]], required: [:name]}},
+               transaction_counter: 0
+             }}
+     stacktrace:
+       test/examples/graph_trx_server_test.exs:99: (test)
+
+
+
+  4) test schema management can define vertex type (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:11
+     match (match?) failed
+     code:  assert match?(%GraphTrx.State{}, result)
+     left:  %GraphTrx.State{}
+     right: GraphTrx.State
+     stacktrace:
+       test/examples/graph_trx_server_test.exs:18: (test)
+
+
+
+  5) test transaction management can rollback transaction (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:53
+     ** (EXIT from #PID<0.221.0>) an exception was raised:
+         ** (GraphTrx.Error) Invalid transaction state
+             (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:57: GraphTrxServer.handle_call/3
+             (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+
+
+
+  6) test graph metrics tracks edge count (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:145
+     ** (EXIT from #PID<0.223.0>) an exception was raised:
+         ** (GraphTrx.Error) Invalid transaction state
+             (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+             (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+
+
+
+  7) test query operations can query graph (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:122
+     ** (EXIT from #PID<0.225.0>) an exception was raised:
+         ** (GraphTrx.Error) Invalid transaction state
+             (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+             (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+
+..
+
+  8) test graph operations can add vertex (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:75
+     match (match?) failed
+     code:  assert match?({true, %GraphTrx.State{}}, result)
+     left:  {true, %GraphTrx.State{}}
+     right: {{:error, "Invalid transaction state"},
+             %GraphTrx.State{
+               graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}},
+               transactions: %{},
+               locks: %{},
+               schema: %{person: %{properties: [name: [type: :string, required: true], age: [type: :integer]], required: [:name]}},
+               transaction_counter: 0
+             }}
+     stacktrace:
+       test/examples/graph_trx_server_test.exs:81: (test)
+
+.
+
+  9) test error handling handles invalid transaction id (GraphTrxServerTest)
+     test/examples/graph_trx_server_test.exs:164
+     ** (EXIT from #PID<0.235.0>) an exception was raised:
+         ** (GraphTrx.Error) Invalid transaction state
+             (elixir_macros 0.1.0) lib/examples/graph_trx_server.ex:44: GraphTrxServer.handle_call/3
+             (elixir_macros 0.1.0) lib/reg_server.ex:129: RegServer.Server.loop/2
+
+
+Finished in 0.1 seconds (0.00s async, 0.1s sync)
+13 tests, 9 failures
+
+Randomized with seed 847697

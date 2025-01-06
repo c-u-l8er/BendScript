@@ -1,4 +1,4 @@
-BenBen
+ElixirMacros
 ========
 
 ## Features
