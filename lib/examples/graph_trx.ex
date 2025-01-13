@@ -284,16 +284,12 @@ defmodule GraphTrx do
   end
 
   defp execute_query(pattern, vertex_map, edges) do
-    case pattern do
-      # Dynamic pattern matching based on vertex types and edge types
-      [from_type, edge_type, to_type]
-      when is_atom(from_type) and is_atom(edge_type) and is_atom(to_type) ->
-        query_pattern(edges, vertex_map, {%{type: from_type}, edge_type, %{type: to_type}})
+    Logger.debug("Executing query with pattern: #{inspect(pattern)}")
 
-      # Property-based queries
-      [from_props, edge_type, to_props]
-      when is_map(from_props) and is_atom(edge_type) and is_map(to_props) ->
-        query_pattern(edges, vertex_map, {from_props, edge_type, to_props})
+    case pattern do
+      # Dynamic pattern matching for any combination of types and property maps
+      [from_pattern, edge_type, to_pattern] when is_atom(edge_type) ->
+        query_pattern(edges, vertex_map, {from_pattern, edge_type, to_pattern})
 
       _ ->
         Logger.warn("Unsupported query pattern: #{inspect(pattern)}")
@@ -302,6 +298,13 @@ defmodule GraphTrx do
   end
 
   defp query_pattern(edges, vertex_map, {from_pattern, edge_type, to_pattern}) do
+    Logger.debug("""
+    Querying with pattern:
+      From: #{inspect(from_pattern)}
+      Edge: #{inspect(edge_type)}
+      To: #{inspect(to_pattern)}
+    """)
+
     Enum.flat_map(edges, fn
       %{
         variant: :edge,
@@ -310,15 +313,18 @@ defmodule GraphTrx do
         edge_props: %{type: ^edge_type}
       } ->
         case {Map.get(vertex_map, from_id), Map.get(vertex_map, to_id)} do
-          {from_vertex, to_vertex} ->
+          {from_vertex, to_vertex} when not is_nil(from_vertex) and not is_nil(to_vertex) ->
             if matches_pattern?(from_vertex, from_pattern) and
                  matches_pattern?(to_vertex, to_pattern) do
+              Logger.debug("Found matching pattern for #{from_id} -> #{to_id}")
               [{from_id, edge_type, to_id}]
             else
+              Logger.debug("Pattern match failed for #{from_id} -> #{to_id}")
               []
             end
 
           _ ->
+            Logger.debug("Could not find vertices for #{from_id} -> #{to_id}")
             []
         end
 
@@ -328,13 +334,18 @@ defmodule GraphTrx do
   end
 
   defp matches_pattern?(vertex, pattern) do
-    case vertex do
-      %{properties: props} ->
-        Enum.all?(pattern, fn
-          {:type, type} -> props[:type] == type
-          {key, value} -> props[key] == value
+    case {vertex, pattern} do
+      # When pattern is just a type atom
+      {%{properties: %{type: type}}, pattern_type} when is_atom(pattern_type) ->
+        type == pattern_type
+
+      # When pattern is a map of properties to match
+      {%{properties: props}, pattern} when is_map(pattern) ->
+        Enum.all?(pattern, fn {key, value} ->
+          Map.get(props, key) == value
         end)
 
+      # No match
       _ ->
         false
     end
