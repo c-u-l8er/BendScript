@@ -220,4 +220,142 @@ defmodule GraphTrxTest do
              end)
     end
   end
+
+  describe "advanced query operations" do
+    setup %{state: state} do
+      # Setup more complex test data
+      {tx_id, state} = GraphTrx.begin_transaction(state)
+
+      # Define additional vertex types
+      state =
+        GraphTrx.define_vertex_type(state, :company,
+          name: [type: :string, required: true],
+          industry: [type: :string, required: true]
+        )
+
+      state =
+        GraphTrx.define_vertex_type(state, :project,
+          name: [type: :string, required: true],
+          status: [type: :string, required: true]
+        )
+
+      # Add vertices
+      {:ok, state} =
+        GraphTrx.add_vertex(state, tx_id, :person, "p1", %{
+          name: "Alice",
+          age: 30,
+          role: "Developer"
+        })
+
+      {:ok, state} =
+        GraphTrx.add_vertex(state, tx_id, :person, "p2", %{
+          name: "Bob",
+          age: 25,
+          role: "Manager"
+        })
+
+      {:ok, state} =
+        GraphTrx.add_vertex(state, tx_id, :company, "c1", %{
+          name: "TechCorp",
+          industry: "Software"
+        })
+
+      {:ok, state} =
+        GraphTrx.add_vertex(state, tx_id, :project, "proj1", %{
+          name: "GraphDB",
+          status: "Active"
+        })
+
+      # Add various relationship types
+      {:ok, state} = GraphTrx.add_edge(state, tx_id, "p1", "p2", :knows)
+      {:ok, state} = GraphTrx.add_edge(state, tx_id, "p1", "c1", :works_at)
+      {:ok, state} = GraphTrx.add_edge(state, tx_id, "p2", "c1", :works_at)
+      {:ok, state} = GraphTrx.add_edge(state, tx_id, "p1", "proj1", :works_on)
+      {:ok, state} = GraphTrx.add_edge(state, tx_id, "c1", "proj1", :owns)
+
+      {_result, state} = GraphTrx.commit_transaction(state, tx_id)
+
+      {:ok, state: state}
+    end
+
+    test "queries with different vertex types", %{state: state} do
+      # Test person-knows-person relationship
+      {results, _} = GraphTrx.query(state, [:person, :knows, :person])
+      assert length(results) == 1
+      assert Enum.member?(results, {"p1", :knows, "p2"})
+
+      # Test person-works_at-company relationship
+      {results, _} = GraphTrx.query(state, [:person, :works_at, :company])
+      assert length(results) == 2
+      assert Enum.member?(results, {"p1", :works_at, "c1"})
+      assert Enum.member?(results, {"p2", :works_at, "c1"})
+
+      # Test company-owns-project relationship
+      {results, _} = GraphTrx.query(state, [:company, :owns, :project])
+      assert length(results) == 1
+      assert Enum.member?(results, {"c1", :owns, "proj1"})
+    end
+
+    test "queries with property filters", %{state: state} do
+      # Query for developers working at software companies
+      {results, _} =
+        GraphTrx.query(state, [
+          %{role: "Developer"},
+          :works_at,
+          %{industry: "Software"}
+        ])
+
+      assert length(results) == 1
+      assert Enum.member?(results, {"p1", :works_at, "c1"})
+
+      # Query for managers working on active projects
+      {results, _} =
+        GraphTrx.query(state, [
+          %{role: "Manager"},
+          :works_on,
+          %{status: "Active"}
+        ])
+
+      # Bob (manager) doesn't work directly on projects
+      assert length(results) == 0
+    end
+
+    test "queries with non-existent patterns", %{state: state} do
+      # Query for a relationship type that doesn't exist
+      {results, _} = GraphTrx.query(state, [:person, :reports_to, :person])
+      assert results == []
+
+      # Query with non-existent property values
+      {results, _} =
+        GraphTrx.query(state, [
+          %{role: "Designer"},
+          :works_at,
+          %{industry: "Software"}
+        ])
+
+      assert results == []
+    end
+
+    test "queries with mixed vertex types and properties", %{state: state} do
+      # Query for any person working at software companies
+      {results, _} =
+        GraphTrx.query(state, [
+          :person,
+          :works_at,
+          %{industry: "Software"}
+        ])
+
+      assert length(results) == 2
+
+      # Query for developers working at any company
+      {results, _} =
+        GraphTrx.query(state, [
+          %{role: "Developer"},
+          :works_at,
+          :company
+        ])
+
+      assert length(results) == 1
+    end
+  end
 end

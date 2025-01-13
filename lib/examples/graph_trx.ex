@@ -285,31 +285,58 @@ defmodule GraphTrx do
 
   defp execute_query(pattern, vertex_map, edges) do
     case pattern do
-      [:person, :knows, :person] ->
-        Enum.flat_map(edges, fn
-          %{
-            variant: :edge,
-            source_id: from_id,
-            target_id: to_id,
-            edge_props: %{type: :knows}
-          } ->
-            case {Map.get(vertex_map, from_id), Map.get(vertex_map, to_id)} do
-              {
-                %{properties: %{type: :person}},
-                %{properties: %{type: :person}}
-              } ->
-                [{from_id, :knows, to_id}]
+      # Dynamic pattern matching based on vertex types and edge types
+      [from_type, edge_type, to_type]
+      when is_atom(from_type) and is_atom(edge_type) and is_atom(to_type) ->
+        query_pattern(edges, vertex_map, {%{type: from_type}, edge_type, %{type: to_type}})
 
-              _ ->
-                []
+      # Property-based queries
+      [from_props, edge_type, to_props]
+      when is_map(from_props) and is_atom(edge_type) and is_map(to_props) ->
+        query_pattern(edges, vertex_map, {from_props, edge_type, to_props})
+
+      _ ->
+        Logger.warn("Unsupported query pattern: #{inspect(pattern)}")
+        []
+    end
+  end
+
+  defp query_pattern(edges, vertex_map, {from_pattern, edge_type, to_pattern}) do
+    Enum.flat_map(edges, fn
+      %{
+        variant: :edge,
+        source_id: from_id,
+        target_id: to_id,
+        edge_props: %{type: ^edge_type}
+      } ->
+        case {Map.get(vertex_map, from_id), Map.get(vertex_map, to_id)} do
+          {from_vertex, to_vertex} ->
+            if matches_pattern?(from_vertex, from_pattern) and
+                 matches_pattern?(to_vertex, to_pattern) do
+              [{from_id, edge_type, to_id}]
+            else
+              []
             end
 
           _ ->
             []
-        end)
+        end
 
       _ ->
         []
+    end)
+  end
+
+  defp matches_pattern?(vertex, pattern) do
+    case vertex do
+      %{properties: props} ->
+        Enum.all?(pattern, fn
+          {:type, type} -> props[:type] == type
+          {key, value} -> props[key] == value
+        end)
+
+      _ ->
+        false
     end
   end
 
