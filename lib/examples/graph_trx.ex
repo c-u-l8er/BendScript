@@ -1,4 +1,5 @@
 defmodule GraphTrx do
+  require Logger
   import BenBen
   alias LibGraph, as: Graph
 
@@ -117,14 +118,26 @@ defmodule GraphTrx do
 
   # Query Operations
   def query(state, pattern) do
-    # Execute query on current graph state
-    # Returns vertices/edges matching pattern
+    Logger.debug("Executing query with pattern: #{inspect(pattern)}")
+    Logger.debug("Current state: #{inspect(state)}")
+
     results =
       fold state.graph do
         case(graph(vertex_map, edge_list, metadata)) ->
-          execute_query(pattern, vertex_map, edge_list)
+          Logger.debug("Processing graph with:")
+          Logger.debug("  vertex_map: #{inspect(vertex_map)}")
+          Logger.debug("  edge_list: #{inspect(edge_list)}")
+
+          edges = extract_edges(edge_list)
+          Logger.debug("Extracted edges: #{inspect(edges)}")
+
+          results = execute_query(pattern, vertex_map, edges)
+          Logger.debug("Query results: #{inspect(results)}")
+
+          results
 
         case(empty()) ->
+          Logger.debug("Empty graph, returning empty results")
           []
       end
 
@@ -233,20 +246,58 @@ defmodule GraphTrx do
     end)
   end
 
-  defp execute_query(pattern, vertex_map, edge_list) do
-    # Basic implementation for testing
+  # Add helper to extract edges from recursive structure
+  defp extract_edges(edge_list) do
+    Logger.debug("Extracting edges from: #{inspect(edge_list)}")
+
+    result =
+      case edge_list do
+        %{variant: :edge} = single_edge ->
+          Logger.debug("Single edge found")
+
+          [single_edge]
+
+        edges when is_list(edges) ->
+          Logger.debug("Processing list of edges")
+
+          Enum.flat_map(edges, fn
+            %{variant: :edge} = edge ->
+              Logger.debug("Found edge: #{inspect(edge)}")
+              [edge]
+
+            other ->
+              Logger.debug("Skipping non-edge: #{inspect(other)}")
+              []
+          end)
+
+        %{variant: :empty} ->
+          Logger.debug("Empty edge list")
+          []
+
+        other ->
+          Logger.debug("Unknown edge list format: #{inspect(other)}")
+          []
+      end
+
+    Logger.debug("Extracted edges result: #{inspect(result)}")
+    result
+  end
+
+  defp execute_query(pattern, vertex_map, edges) do
     case pattern do
       [:person, :knows, :person] ->
-        Enum.flat_map(edge_list, fn
+        Enum.flat_map(edges, fn
           %{
             variant: :edge,
             source_id: from_id,
             target_id: to_id,
-            edge_weight: _,
             edge_props: %{type: :knows}
           } ->
             case {Map.get(vertex_map, from_id), Map.get(vertex_map, to_id)} do
-              {%{properties: %{type: :person}}, %{properties: %{type: :person}}} ->
+              {
+                %{properties: %{type: :person}},
+                %{properties: %{type: :person}}
+              } ->
                 [{from_id, :knows, to_id}]
 
               _ ->
