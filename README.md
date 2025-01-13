@@ -129,7 +129,7 @@ be found at <https://hexdocs.pm/benben>.
 mix test 2>&1 | tee test.sdtout.txt
 
 # test reg server
-mix test test/examples/reg_server_test.exs 2>&1 | tee reg_server.stdout.txt
+mix test test/examples/counter_test.exs 2>&1 | tee counter.stdout.txt
 
 ```
 

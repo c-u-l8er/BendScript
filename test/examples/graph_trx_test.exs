@@ -105,4 +105,99 @@ defmodule GraphTrxTest do
       assert reason =~ "locked by another transaction"
     end
   end
+
+  test "vertex operations are applied before edge validation", %{state: state} do
+    {tx_id, state} = GraphTrx.begin_transaction(state)
+
+    # Add vertices
+    {:ok, state} =
+      GraphTrx.add_vertex(state, tx_id, :person, "1", %{
+        name: "Alice",
+        age: 30
+      })
+
+    {:ok, state} =
+      GraphTrx.add_vertex(state, tx_id, :person, "2", %{
+        name: "Bob",
+        age: 25
+      })
+
+    # Add edge between pending vertices should succeed
+    {:ok, state} = GraphTrx.add_edge(state, tx_id, "1", "2", :knows)
+
+    # Commit and verify
+    {result, state} = GraphTrx.commit_transaction(state, tx_id)
+
+    assert Enum.any?(result, fn
+             {:edge_added, "1", "2"} -> true
+             _ -> false
+           end)
+  end
+
+  test "prevents adding edges to non-existent vertices", %{state: state} do
+    {tx_id, state} = GraphTrx.begin_transaction(state)
+
+    # Try to add edge between non-existent vertices
+    {:error, reason, _state} = GraphTrx.add_edge(state, tx_id, "1", "2", :knows)
+    assert reason == "Source vertex not found"
+  end
+
+  test "handles multiple transactions with vertex and edge operations", %{state: state} do
+    # First transaction
+    {tx1, state} = GraphTrx.begin_transaction(state)
+
+    {:ok, state} =
+      GraphTrx.add_vertex(state, tx1, :person, "1", %{
+        name: "Alice",
+        age: 30
+      })
+
+    {_result, state} = GraphTrx.commit_transaction(state, tx1)
+
+    # Second transaction
+    {tx2, state} = GraphTrx.begin_transaction(state)
+
+    {:ok, state} =
+      GraphTrx.add_vertex(state, tx2, :person, "2", %{
+        name: "Bob",
+        age: 25
+      })
+
+    {:ok, state} = GraphTrx.add_edge(state, tx2, "1", "2", :knows)
+    {result, _state} = GraphTrx.commit_transaction(state, tx2)
+
+    assert Enum.any?(result, fn
+             {:edge_added, "1", "2"} -> true
+             _ -> false
+           end)
+  end
+
+  test "query operations with committed data", %{state: state} do
+    # Setup test data
+    {tx_id, state} = GraphTrx.begin_transaction(state)
+
+    {:ok, state} =
+      GraphTrx.add_vertex(state, tx_id, :person, "1", %{
+        name: "Alice",
+        age: 30
+      })
+
+    {:ok, state} =
+      GraphTrx.add_vertex(state, tx_id, :person, "2", %{
+        name: "Bob",
+        age: 25
+      })
+
+    {:ok, state} = GraphTrx.add_edge(state, tx_id, "1", "2", :knows)
+    {_result, state} = GraphTrx.commit_transaction(state, tx_id)
+
+    # Test query
+    {results, _state} = GraphTrx.query(state, [:person, :knows, :person])
+    assert length(results) > 0
+
+    assert Enum.any?(results, fn
+             {"1", :knows, "2"} -> true
+             _ -> false
+           end)
+  end
 end

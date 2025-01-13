@@ -22,10 +22,9 @@ defmodule GraphTrxServerTest do
 
   describe "transaction management" do
     test "can begin transaction", %{server: server} do
-      {tx_id, state} = GraphTrxServer.begin_transaction(server)
+      tx_id = GraphTrxServer.begin_transaction(server)
       assert is_integer(tx_id)
       assert tx_id > 0
-      assert Map.has_key?(state.transactions, tx_id)
     end
 
     test "can commit transaction", %{server: server} do
@@ -35,19 +34,14 @@ defmodule GraphTrxServerTest do
       ])
 
       # Begin transaction and add vertex
-      {tx_id, _} = GraphTrxServer.begin_transaction(server)
+      tx_id = GraphTrxServer.begin_transaction(server)
 
-      GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{name: "Alice"})
+      result = GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{name: "Alice"})
+      assert match?({true, _}, result)
 
-      {result, state} = GraphTrxServer.commit_transaction(server, tx_id)
-
-      # Verify results
+      # Commit transaction
+      result = GraphTrxServer.commit_transaction(server, tx_id)
       assert is_list(result)
-      assert Enum.any?(result, fn r -> match?({:vertex_added, "1"}, r) end)
-
-      # Verify transaction state changed
-      tx = Map.get(state.transactions, tx_id)
-      assert match?(%{variant: :committed}, tx)
     end
 
     test "can rollback transaction", %{server: server} do

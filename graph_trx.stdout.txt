@@ -1,383 +1,203 @@
-     warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp generate_fold_cases/2" was previously defined (lib/ben_ben.ex:134)
-     │
- 171 │   defp generate_fold_cases({:__block__, _meta, cases}, state) do
-     │        ~
-     │
-     └─ lib/ben_ben.ex:171:8
-
-     warning: variable "other" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 374 │           other ->
-     │           ~
-     │
-     └─ lib/ben_ben.ex:374:11: BenBen.process_constructed/2
-
-     warning: function generate_pattern_match/1 is unused
-     │
- 225 │   defp generate_pattern_match({name, _, args}) when is_list(args) do
-     │        ~
-     │
-     └─ lib/ben_ben.ex:225:8: BenBen (module)
-
-     warning: function extract_bindings/1 is unused
-     │
- 250 │   defp extract_bindings(args) do
-     │        ~
-     │
-     └─ lib/ben_ben.ex:250:8: BenBen (module)
-
-    warning: variable "return" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 68 │   defp execute_match_where(pattern, condition, return, node_name, tx_id) do
-    │                                                ~~~~~~
-    │
-    └─ lib/cypher_executer.ex:68:48: CypherExecutor.execute_match_where/5
-
-    warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 69 │     {:node, label, var} = parse_pattern(pattern)
-    │                    ~~~
-    │
-    └─ lib/cypher_executer.ex:69:20: CypherExecutor.execute_match_where/5
-
-    warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 92 │       {:node, label, var} ->
-    │                      ~
-    │
-    └─ lib/cypher_executer.ex:92:22: CypherExecutor.execute_match/4
-
-    warning: variable "return" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 89 │   defp execute_match(pattern, return, node_name, tx_id) do
-    │                               ~~~~~~
-    │
-    └─ lib/cypher_executer.ex:89:31: CypherExecutor.execute_match/4
-
-     warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 100 │       {:node, label, var, properties} ->
-     │                      ~
-     │
-     └─ lib/cypher_executer.ex:100:22: CypherExecutor.execute_create/3
-
-    warning: DistGraphDatabase.rollback_transaction/2 is undefined or private
-    │
- 17 │         DistGraphDatabase.rollback_transaction(node_name, tx_id)
-    │                           ~
-    │
-    └─ lib/cypher_executer.ex:17:27: CypherExecutor.execute/2
-
-    warning: variable "opts" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 65 │   def init(opts) do
-    │            ~~~~
-    │
-    └─ lib/examples/dist_graph_database.ex:65:12: DistGraphDatabase.init/1
-
-     warning: variable "tx_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 266 │         {:begin_transaction, tx_id} ->
-     │                              ~
-     │
-     └─ lib/examples/dist_graph_database.ex:266:30: DistGraphDatabase.apply_log_entries/2
-
-     warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 271 │           {result, new_graph_state} =
-     │            ~
-     │
-     └─ lib/examples/dist_graph_database.ex:271:12: DistGraphDatabase.apply_log_entries/2
-
-     warning: LibGraph.get_vertices/1 is undefined or private
-     │
- 296 │     |> LibGraph.get_vertices()
-     │                 ~
-     │
-     └─ lib/examples/dist_graph_database.ex:296:17: DistGraphDatabase.query_vertices_with_label/2
-
-    warning: variable "ts" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 48 │       %{variant: :pending, operations: ops, timestamp: ts} ->
-    │                                                        ~
-    │
-    └─ lib/examples/graph_database.ex:48:56: GraphDatabase.commit_transaction/2
-
-     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 111 │     fold state.graph do
-     │     ~~~~~~~~~~~~~~~~~~~
-     │
-     └─ lib/examples/graph_database.ex:111: GraphDatabase.query/2
-
-     warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
-     │
- 111 │     fold state.graph do
-     │     ~~~~~~~~~~~~~~~~~~~
-     │
-     └─ lib/examples/graph_database.ex:111: GraphDatabase.query/2
-
-     warning: variable "edge_list" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 203 │   defp execute_query(pattern, vertex_map, edge_list) do
-     │                                           ~~~~~~~~~
-     │
-     └─ lib/examples/graph_database.ex:203:43: GraphDatabase.execute_query/3
-
-     warning: variable "pattern" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 203 │   defp execute_query(pattern, vertex_map, edge_list) do
-     │                      ~~~~~~~
-     │
-     └─ lib/examples/graph_database.ex:203:22: GraphDatabase.execute_query/3
-
-     warning: variable "vertex_map" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 203 │   defp execute_query(pattern, vertex_map, edge_list) do
-     │                               ~~~~~~~~~~
-     │
-     └─ lib/examples/graph_database.ex:203:31: GraphDatabase.execute_query/3
-
-     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 209 │   defp validate_edge(state, from_id, to_id, type) do
-     │                      ~~~~~
-     │
-     └─ lib/examples/graph_database.ex:209:22: GraphDatabase.validate_edge/4
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 25 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:25: LibGraph.add_vertex/3
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 46 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:46: LibGraph.add_edge/5
-
-    warning: variable "edge_list" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 72 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:72: LibGraph.vertex_count/1
-
-    warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 72 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:72: LibGraph.vertex_count/1
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 72 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:72: LibGraph.vertex_count/1
-
-    warning: variable "vertex_map" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 82 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:82: LibGraph.edge_count/1
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 82 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:82: LibGraph.edge_count/1
-
-     warning: variable "vertex" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 103 │           vertex -> extract_neighbors(edge_list, vertex_id)
-     │           ~
-     │
-     └─ lib/examples/lib_graph.ex:103:11: LibGraph.get_neighbors/2
-
-    warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 99 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:99: LibGraph.get_neighbors/2
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 99 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/lib_graph.ex:99: LibGraph.get_neighbors/2
-
-     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 148 │     fold graph do
-     │     ~~~~~~~~~~~~~
-     │
-     └─ lib/examples/lib_graph.ex:148: LibGraph.shortest_path/3
-
-     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 148 │     fold graph do
-     │     ~~~~~~~~~~~~~
-     │
-     └─ lib/examples/lib_graph.ex:148: LibGraph.shortest_path/3
-
-     warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 160 │     fold graph do
-     │     ~~~~~~~~~~~~~
-     │
-     └─ lib/examples/lib_graph.ex:160: LibGraph.is_connected?/1
-
-     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 160 │     fold graph do
-     │     ~~~~~~~~~~~~~
-     │
-     └─ lib/examples/lib_graph.ex:160: LibGraph.is_connected?/1
-
-     warning: clauses with the same name and arity (number of arguments) should be grouped together, "defp extract_neighbors/2" was previously defined (lib/examples/lib_graph.ex:112)
-     │
- 285 │   defp extract_neighbors(edges, vertex_id) do
-     │        ~
-     │
-     └─ lib/examples/lib_graph.ex:285:8
-
-    warning: variable "id" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 13 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 13 │     fold graph do
-    │     ~~~~~~~~~~~~~
-    │
-    └─ lib/examples/my_graph.ex:13: MyGraph.sum/1
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 10 │     fold tree do
-    │     ~~~~~~~~~~~~
-    │
-    └─ lib/examples/my_tree.ex:10: MyTree.sum/1
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 19 │     fold obj do
-    │     ~~~~~~~~~~~
-    │
-    └─ lib/examples/prototypal.ex:19: Prototypal.get_property/2
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 73 │     fold obj do
-    │     ~~~~~~~~~~~
-    │
-    └─ lib/examples/prototypal.ex:73: Prototypal.inspect_object/2
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 87 │     fold obj do
-    │     ~~~~~~~~~~~
-    │
-    └─ lib/examples/prototypal.ex:87: Prototypal.debug_chain/2
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 26 │     fold tree do
-    │     ~~~~~~~~~~~~
-    │
-    └─ lib/examples/tree_operations.ex:26: TreeOperations.map_tree/2
-
-    warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 38 │     fold tree do
-    │     ~~~~~~~~~~~~
-    │
-    └─ lib/examples/tree_operations.ex:38: TreeOperations.filter_tree/2
-
-     warning: variable "state" is unused (if the variable is not meant to be used, prefix it with an underscore)
-     │
- 128 │     fold tree do
-     │     ~~~~~~~~~~~~
-     │
-     └─ lib/examples/tree_operations.ex:128: TreeOperations.collect_values/1
-
-    warning: function merge_with_level_increment/2 is unused
-    │
- 80 │   defp merge_with_level_increment(left_counts, right_counts) do
-    │        ~
-    │
-    └─ lib/examples/tree_operations.ex:80:8: TreeOperations (module)
-
-    warning: function merge_counts/2 is unused
-    │
- 75 │   defp merge_counts(left_counts, right_counts) do
-    │        ~
-    │
-    └─ lib/examples/tree_operations.ex:75:8: TreeOperations (module)
-
-Running ExUnit with seed: 897475, max_cases: 48
-
-    warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
-    │
- 45 │       {result, state} = GraphDatabase.commit_transaction(state, tx_id)
-    │                ~~~~~
-    │
-    └─ test/graph_database_test.exs:45:16: GraphDatabaseTest."test GraphDatabase successful transaction"/1
-
-    warning: variable "reason" is unused (if the variable is not meant to be used, prefix it with an underscore)
-    │
- 68 │       {reason, state} = GraphDatabase.rollback_transaction(state, tx_id)
-    │        ~~~~~~
-    │
-    └─ test/graph_database_test.exs:68:8: GraphDatabaseTest."test GraphDatabase transaction rollback"/1
-
-    warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
-    │
- 78 │       {:error, reason, state} =
-    │                        ~~~~~
-    │
-    └─ test/graph_database_test.exs:78:24: GraphDatabaseTest."test GraphDatabase schema validation"/1
-
-
-10:57:48.944 [debug] do_fold called with data: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, variant_type: :graph, state: nil
-
-10:57:48.945 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}
-
-10:57:48.945 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-
-10:57:48.945 [debug] Processing recursive fields of: %{variant: :empty}
-
-10:57:48.946 [debug] Recursive field result for edge_list: 0
-..
-10:57:48.946 [debug] do_fold called with data: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}, variant_type: :graph, state: nil
-
-10:57:48.946 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :empty}, vertex_map: %{}}
-
-10:57:48.946 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-
-10:57:48.946 [debug] Processing recursive fields of: %{variant: :empty}
-
-10:57:48.947 [debug] Recursive field result for edge_list: %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, vertex_map: %{}}
-
-10:57:48.947 [debug] do_fold called with data: %{metadata: %{type: :directed}, variant: :graph, edge_list: [%{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, vertex_map: %{}}], vertex_map: %{}}, variant_type: :graph, state: nil
-
-10:57:48.947 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, variant: :graph, edge_list: [%{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, vertex_map: %{}}], vertex_map: %{}}
-
-10:57:48.947 [debug] do_fold called with data: %{metadata: %{type: :directed}, variant: :graph, edge_list: [%{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, vertex_map: %{}}], vertex_map: %{"2" => %{variant: :vertex, adjacency: %{variant: :empty}, properties: %{name: "Bob", type: :person, age: 25}, vertex_id: "2"}}}, variant_type: :graph, state: nil
-
-10:57:48.947 [debug] Processing recursive fields of: %{metadata: %{type: :directed}, variant: :graph, edge_list: [%{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, %{metadata: %{type: :directed}, variant: :graph, edge_list: %{variant: :edge, target_id: "2", source_id: "1", edge_weight: 1, edge_props: %{type: :knows}}, vertex_map: %{}}], vertex_map: %{"2" => %{variant: :vertex, adjacency: %{variant: :empty}, properties: %{name: "Bob", type: :person, age: 25}, vertex_id: "2"}}}
-..
-Finished in 0.04 seconds (0.00s async, 0.04s sync)
-4 tests, 0 failures
+Compiling 1 file (.ex)
+
+15:14:29.145 [debug] Defining type {:__aliases__, [line: 5], [:Transaction]} with block: {:__block__, [], [{:pending, [line: 7], [{:operations, [line: 7], nil}, {:timestamp, [line: 7], nil}]}, {:committed, [line: 8], [{:changes, [line: 8], nil}, {:timestamp, [line: 8], nil}]}, {:rolled_back, [line: 9], [{:reason, [line: 9], nil}, {:timestamp, [line: 9], nil}]}]}
+
+15:14:29.147 [debug] Extracted variants: [{:pending, [line: 7], [{:operations, [line: 7], nil}, {:timestamp, [line: 7], nil}]}, {:committed, [line: 8], [{:changes, [line: 8], nil}, {:timestamp, [line: 8], nil}]}, {:rolled_back, [line: 9], [{:reason, [line: 9], nil}, {:timestamp, [line: 9], nil}]}]
+
+15:14:29.147 [debug] Generating constructors for variants: [{:pending, [line: 7], [{:operations, [line: 7], nil}, {:timestamp, [line: 7], nil}]}, {:committed, [line: 8], [{:changes, [line: 8], nil}, {:timestamp, [line: 8], nil}]}, {:rolled_back, [line: 9], [{:reason, [line: 9], nil}, {:timestamp, [line: 9], nil}]}]
+
+15:14:29.147 [debug] Processing variant: {:pending, [line: 7], [{:operations, [line: 7], nil}, {:timestamp, [line: 7], nil}]}
+
+15:14:29.147 [debug] Constructor: :pending, meta: [line: 7], args: [{:operations, [line: 7], nil}, {:timestamp, [line: 7], nil}]
+
+15:14:29.147 [debug] Extracting constructor args from: [{:operations, [line: 7], nil}, {:timestamp, [line: 7], nil}]
+
+15:14:29.147 [debug] Found value arg: :operations
+
+15:14:29.147 [debug] Found value arg: :timestamp
+
+15:14:29.147 [debug] Extracted arg_names: [:operations, :timestamp]
+
+15:14:29.147 [debug] Generated arg vars: [{:operations, [], nil}, {:timestamp, [], nil}]
+
+15:14:29.147 [debug] Field pairs: [operations: {:operations, [], nil}, timestamp: {:timestamp, [], nil}]
+
+15:14:29.147 [debug] Processing variant: {:committed, [line: 8], [{:changes, [line: 8], nil}, {:timestamp, [line: 8], nil}]}
+
+15:14:29.147 [debug] Constructor: :committed, meta: [line: 8], args: [{:changes, [line: 8], nil}, {:timestamp, [line: 8], nil}]
+
+15:14:29.147 [debug] Extracting constructor args from: [{:changes, [line: 8], nil}, {:timestamp, [line: 8], nil}]
+
+15:14:29.147 [debug] Found value arg: :changes
+
+15:14:29.147 [debug] Found value arg: :timestamp
+
+15:14:29.147 [debug] Extracted arg_names: [:changes, :timestamp]
+
+15:14:29.147 [debug] Generated arg vars: [{:changes, [], nil}, {:timestamp, [], nil}]
+
+15:14:29.147 [debug] Field pairs: [changes: {:changes, [], nil}, timestamp: {:timestamp, [], nil}]
+
+15:14:29.147 [debug] Processing variant: {:rolled_back, [line: 9], [{:reason, [line: 9], nil}, {:timestamp, [line: 9], nil}]}
+
+15:14:29.147 [debug] Constructor: :rolled_back, meta: [line: 9], args: [{:reason, [line: 9], nil}, {:timestamp, [line: 9], nil}]
+
+15:14:29.147 [debug] Extracting constructor args from: [{:reason, [line: 9], nil}, {:timestamp, [line: 9], nil}]
+
+15:14:29.147 [debug] Found value arg: :reason
+
+15:14:29.147 [debug] Found value arg: :timestamp
+
+15:14:29.148 [debug] Extracted arg_names: [:reason, :timestamp]
+
+15:14:29.148 [debug] Generated arg vars: [{:reason, [], nil}, {:timestamp, [], nil}]
+
+15:14:29.148 [debug] Field pairs: [reason: {:reason, [], nil}, timestamp: {:timestamp, [], nil}]
+
+15:14:29.235 [debug] Fold expression: {{:., [line: 123], [{:state, [line: 123], nil}, :graph]}, [no_parens: true, line: 123], []}, opts: [], cases: [{:->, [line: 124], [[{:case, [line: 124], [{:graph, [line: 124], [{:vertex_map, [line: 124], nil}, {:edge_list, [line: 124], nil}, {:metadata, [line: 124], nil}]}]}], {:execute_query, [line: 125], [{:pattern, [line: 125], nil}, {:vertex_map, [line: 125], nil}, {:edge_list, [line: 125], nil}]}]}, {:->, [line: 127], [[{:case, [line: 127], [{:empty, [line: 127], []}]}], []]}]
+
+15:14:29.235 [debug] Extracting cases from list: [{:->, [line: 124], [[{:case, [line: 124], [{:graph, [line: 124], [{:vertex_map, [line: 124], nil}, {:edge_list, [line: 124], nil}, {:metadata, [line: 124], nil}]}]}], {:execute_query, [line: 125], [{:pattern, [line: 125], nil}, {:vertex_map, [line: 125], nil}, {:edge_list, [line: 125], nil}]}]}, {:->, [line: 127], [[{:case, [line: 127], [{:empty, [line: 127], []}]}], []]}]
+
+15:14:29.235 [debug] Extracted fold cases: [{:->, [line: 124], [[{:case, [line: 124], [{:graph, [line: 124], [{:vertex_map, [line: 124], nil}, {:edge_list, [line: 124], nil}, {:metadata, [line: 124], nil}]}]}], {:execute_query, [line: 125], [{:pattern, [line: 125], nil}, {:vertex_map, [line: 125], nil}, {:edge_list, [line: 125], nil}]}]}, {:->, [line: 127], [[{:case, [line: 127], [{:empty, [line: 127], []}]}], []]}]
+
+15:14:29.236 [debug] Generating fold cases: [{:->, [line: 124], [[{:case, [line: 124], [{:graph, [line: 124], [{:vertex_map, [line: 124], nil}, {:edge_list, [line: 124], nil}, {:metadata, [line: 124], nil}]}]}], {:execute_query, [line: 125], [{:pattern, [line: 125], nil}, {:vertex_map, [line: 125], nil}, {:edge_list, [line: 125], nil}]}]}, {:->, [line: 127], [[{:case, [line: 127], [{:empty, [line: 127], []}]}], []]}]
+
+15:14:29.236 [debug] Generated pattern: {:%{}, [], [variant: :graph, vertex_map: {:vertex_map, [], nil}, edge_list: {:edge_list, [], nil}, metadata: {:metadata, [], nil}]} for variant: :graph
+
+15:14:29.236 [debug] Transforming recursive refs:
+Body: {:execute_query, [line: 125], [{:pattern, [line: 125], nil}, {:vertex_map, [line: 125], nil}, {:edge_list, [line: 125], nil}]}
+Bindings: [vertex_map: true, edge_list: true, metadata: true]
+State: nil
+
+
+15:14:29.236 [debug] Generated pattern: {:%{}, [], [variant: :empty]} for variant: :empty
+
+15:14:29.236 [debug] Transforming recursive refs:
+Body: []
+Bindings: []
+State: nil
+
+
+15:14:29.236 [debug] Generated fold cases after transformation: [{:->, [line: 124], [[{:%{}, [], [variant: :graph, vertex_map: {:vertex_map, [], nil}, edge_list: {:edge_list, [], nil}, metadata: {:metadata, [], nil}]}], {:execute_query, [line: 125], [{:pattern, [line: 125], nil}, {:vertex_map, [line: 125], nil}, {:edge_list, [line: 125], nil}]}]}, {:->, [line: 127], [[{:%{}, [], [variant: :empty]}], []]}]
+
+15:14:29.236 [debug] Final quoted expression: {:do_fold, [], [{{:., [line: 123], [{:state, [line: 123], nil}, :graph]}, [no_parens: true, line: 123], []}, nil, {:fn, [], [{:->, [], [[{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, {:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:state, [], BenBen}]}], {:case, [], [{:var!, [context: BenBen, imports: [{1, Kernel}, {2, Kernel}]], [{:value, [], BenBen}]}, [do: [{:->, [line: 124], [[{:%{}, [], [variant: :graph, vertex_map: {:vertex_map, [], nil}, edge_list: {:edge_list, [], nil}, metadata: {:metadata, [], nil}]}], {:execute_query, [line: 125], [{:pattern, [line: 125], nil}, {:vertex_map, [line: 125], nil}, {:edge_list, [line: 125], nil}]}]}, {:->, [line: 127], [[{:%{}, [], [variant: :empty]}], []]}]]]}]}]}]}
+warning: variable "metadata" is unused (if the variable is not meant to be used, prefix it with an underscore)
+  lib/examples/graph_trx.ex:123: GraphTrx.query/2
+
+warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+  lib/examples/graph_trx.ex:123: GraphTrx.query/2
+
+warning: DistGraphDatabase.rollback_transaction/2 is undefined or private
+  lib/cypher_executer.ex:17: CypherExecutor.execute/2
+
+warning: LibGraph.get_vertices/1 is undefined or private
+  lib/dist_gdb.ex:654: DistGraphDatabase.query_vertices_with_label/2
+
+Excluding tags: [:skip]
+
+warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+  test/examples/graph_trx_test.exs:45: GraphTrxTest."test GraphTrx successful transaction"/1
+
+warning: variable "reason" is unused (if the variable is not meant to be used, prefix it with an underscore)
+  test/examples/graph_trx_test.exs:68: GraphTrxTest."test GraphTrx transaction rollback"/1
+
+warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+  test/examples/graph_trx_test.exs:78: GraphTrxTest."test GraphTrx schema validation"/1
+
+warning: variable "state" is unused (there is a variable with the same name in the context, use the pin operator (^) to match on it or prefix this variable with underscore if it is not meant to be used)
+  test/examples/graph_trx_test.exs:129: GraphTrxTest."test vertex operations are applied before edge validation"/1
+
+15:14:29.489 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
+15:14:29.489 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+15:14:29.489 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+15:14:29.489 [debug] Processing recursive fields of: %{variant: :empty}
+15:14:29.491 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}}}
+15:14:29.491 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}}}, variant_type: :graph, state: nil
+15:14:29.492 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}}}
+15:14:29.492 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}}}, variant_type: :graph, state: nil
+15:14:29.492 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}}}
+15:14:29.492 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+15:14:29.492 [debug] Processing recursive fields of: %{variant: :empty}
+15:14:29.492 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}
+15:14:29.492 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}
+15:14:29.492 [debug] do_fold called with data: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, variant_type: :graph, state: nil
+15:14:29.492 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}
+15:14:29.493 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, variant_type: :graph, state: nil
+15:14:29.493 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}
+15:14:29.493 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}, variant_type: :graph, state: nil
+15:14:29.493 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}
+15:14:29.493 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+15:14:29.493 [debug] Processing recursive fields of: %{variant: :empty}
+15:14:29.493 [debug] Recursive field result for edge_list: %{edge_list: %{edge_props: %{type: :knows}, edge_weight: 1, source_id: "1", target_id: "2", variant: :edge}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+15:14:29.493 [debug] Recursive field result for edge_list: %{edge_list: [%{edge_props: %{type: :knows}, edge_weight: 1, source_id: "1", target_id: "2", variant: :edge}, %{edge_list: %{edge_props: %{type: :knows}, edge_weight: 1, source_id: "1", target_id: "2", variant: :edge}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}], metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}
+15:14:29.493 [debug] Recursive field result for edge_list: %{edge_list: [%{edge_props: %{type: :knows}, edge_weight: 1, source_id: "1", target_id: "2", variant: :edge}, %{edge_list: [%{edge_props: %{type: :knows}, edge_weight: 1, source_id: "1", target_id: "2", variant: :edge}, %{edge_list: %{edge_props: %{type: :knows}, edge_weight: 1, source_id: "1", target_id: "2", variant: :edge}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}], metadata: %{type: :directed}, variant: :graph, vertex_map: %{"2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}], metadata: %{type: :directed}, variant: :graph, vertex_map: %{"1" => %{adjacency: %{variant: :empty}, properties: %{age: 30, name: "Alice", type: :person}, variant: :vertex, vertex_id: "1"}, "2" => %{adjacency: %{variant: :empty}, properties: %{age: 25, name: "Bob", type: :person}, variant: :vertex, vertex_id: "2"}}}
+15:14:29.494 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
+15:14:29.494 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+15:14:29.494 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+15:14:29.494 [debug] Processing recursive fields of: %{variant: :empty}
+15:14:29.494 [debug] Recursive field result for edge_list: 0
+
+
+  1) test vertex operations are applied before edge validation (GraphTrxTest)
+     test/examples/graph_trx_test.exs:109
+     ** (FunctionClauseError) no function clause matching in GraphTrxTest."test vertex operations are applied before edge validation"/1
+
+     The following arguments were given to GraphTrxTest."test vertex operations are applied before edge validation"/1:
+     
+         # 1
+         %{async: false, case: GraphTrxTest, describe: nil, describe_line: nil, file: "/home/travis/Projects/elixir-macros/test/examples/graph_trx_test.exs", line: 109, module: GraphTrxTest, registered: %{}, test: :"test vertex operations are applied before edge validation", test_type: :test}
+     
+     code: test "vertex operations are applied before edge validation", %{state: state} do
+     stacktrace:
+       test/examples/graph_trx_test.exs:109: (test)
+
+
+
+  2) test query operations with committed data (GraphTrxTest)
+     test/examples/graph_trx_test.exs:175
+     ** (FunctionClauseError) no function clause matching in GraphTrxTest."test query operations with committed data"/1
+
+     The following arguments were given to GraphTrxTest."test query operations with committed data"/1:
+     
+         # 1
+         %{async: false, case: GraphTrxTest, describe: nil, describe_line: nil, file: "/home/travis/Projects/elixir-macros/test/examples/graph_trx_test.exs", line: 175, module: GraphTrxTest, registered: %{}, test: :"test query operations with committed data", test_type: :test}
+     
+     code: test "query operations with committed data", %{state: state} do
+     stacktrace:
+       test/examples/graph_trx_test.exs:175: (test)
+
+...
+
+  3) test prevents adding edges to non-existent vertices (GraphTrxTest)
+     test/examples/graph_trx_test.exs:137
+     ** (FunctionClauseError) no function clause matching in GraphTrxTest."test prevents adding edges to non-existent vertices"/1
+
+     The following arguments were given to GraphTrxTest."test prevents adding edges to non-existent vertices"/1:
+     
+         # 1
+         %{async: false, case: GraphTrxTest, describe: nil, describe_line: nil, file: "/home/travis/Projects/elixir-macros/test/examples/graph_trx_test.exs", line: 137, module: GraphTrxTest, registered: %{}, test: :"test prevents adding edges to non-existent vertices", test_type: :test}
+     
+     code: test "prevents adding edges to non-existent vertices", %{state: state} do
+     stacktrace:
+       test/examples/graph_trx_test.exs:137: (test)
+
+
+
+  4) test handles multiple transactions with vertex and edge operations (GraphTrxTest)
+     test/examples/graph_trx_test.exs:145
+     ** (FunctionClauseError) no function clause matching in GraphTrxTest."test handles multiple transactions with vertex and edge operations"/1
+
+     The following arguments were given to GraphTrxTest."test handles multiple transactions with vertex and edge operations"/1:
+     
+         # 1
+         %{async: false, case: GraphTrxTest, describe: nil, describe_line: nil, file: "/home/travis/Projects/elixir-macros/test/examples/graph_trx_test.exs", line: 145, module: GraphTrxTest, registered: %{}, test: :"test handles multiple transactions with vertex and edge operations", test_type: :test}
+     
+     code: test "handles multiple transactions with vertex and edge operations", %{state: state} do
+     stacktrace:
+       test/examples/graph_trx_test.exs:145: (test)
+
+.
+Finished in 0.08 seconds (0.00s async, 0.08s sync)
+8 tests, 4 failures
+
+Randomized with seed 371170

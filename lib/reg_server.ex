@@ -105,7 +105,11 @@ defmodule RegServer do
       ref = make_ref()
       send(server, {:call, {self(), ref}, ref, request})
       receive do
-        {:reply, ^ref, reply} -> reply
+        {:reply, ^ref, reply} ->
+          case reply do
+            {response, _new_state} -> response  # Unwrap the response
+            other -> other # Pass through other responses
+          end
       after
         5000 -> {:error, :timeout}
       end

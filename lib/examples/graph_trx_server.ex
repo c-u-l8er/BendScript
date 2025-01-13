@@ -29,15 +29,14 @@ defmodule GraphTrxServer do
   defcall(:begin_transaction, []) do
     Logger.debug("Beginning new transaction")
     {tx_id, new_state} = GraphTrx.begin_transaction(state)
-    {tx_id, new_state}  # Return just the tuple, not nested
+    {{tx_id, new_state}, new_state}  # Return both result and state
   end
 
   defcall(:commit_transaction, [tx_id]) do
     Logger.debug("Committing transaction #{inspect(tx_id)}")
     try do
       {result, new_state} = GraphTrx.commit_transaction(state, tx_id)
-      Logger.debug("Commit result: #{inspect(result)}")
-      {{result, new_state}, new_state}
+      {result, new_state}  # Return both the result and new state
     rescue
       e in GraphTrx.Error ->
         Logger.error("Commit failed: #{Exception.message(e)}")
@@ -139,7 +138,8 @@ defmodule GraphTrxServer do
   end
 
   def begin_transaction(server) do
-    call(:begin_transaction, [], server)
+    {tx_id, _state} = call(:begin_transaction, [], server)
+    tx_id
   end
 
   def commit_transaction(server, tx_id) do

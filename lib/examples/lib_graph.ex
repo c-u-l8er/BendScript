@@ -108,41 +108,6 @@ defmodule LibGraph do
     end
   end
 
-  # Extract neighbors helper needs better edge list handling
-  defp extract_neighbors(edges, vertex_id) do
-    case edges do
-      %{variant: :empty} ->
-        []
-
-      %{
-        variant: :edge,
-        source_id: ^vertex_id,
-        target_id: target_id,
-        edge_weight: weight,
-        edge_props: props
-      } ->
-        [{target_id, weight, props}]
-
-      edges when is_list(edges) ->
-        Enum.flat_map(edges, fn
-          %{
-            variant: :edge,
-            source_id: ^vertex_id,
-            target_id: target_id,
-            edge_weight: weight,
-            edge_props: props
-          } ->
-            [{target_id, weight, props}]
-
-          _ ->
-            []
-        end)
-
-      _ ->
-        []
-    end
-  end
-
   # Path Finding
   def shortest_path(graph, start_id, end_id) do
     fold graph do
@@ -281,7 +246,6 @@ defmodule LibGraph do
     end
   end
 
-  # Extract neighbors from edge list
   defp extract_neighbors(edges, vertex_id) do
     case edges do
       %{variant: :empty} ->
