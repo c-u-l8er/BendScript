@@ -1,7 +1,7 @@
 defmodule LibGraph do
   import BenBen
 
-  deftype Graph do
+  phrenia Graph do
     # Each variant with unique field names
     graph(vertex_map, recu(edge_list), metadata)
     vertex(vertex_id, properties, recu(adjacency))

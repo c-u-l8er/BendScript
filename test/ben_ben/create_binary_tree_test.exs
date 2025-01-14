@@ -3,7 +3,7 @@ defmodule CreateBinaryTreeTest do
   import BenBen
 
   # Define test types
-  deftype BinaryTree do
+  phrenia BinaryTree do
     node(val, recu(left), recu(right))
     leaf()
   end

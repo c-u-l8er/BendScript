@@ -2,7 +2,7 @@ defmodule Prototypal do
   import BenBen
 
   # Define the object type structure
-  deftype ProtoObject do
+  phrenia ProtoObject do
     # Object with properties and prototype chain
     object(props, recu(proto))
     # End of prototype chain

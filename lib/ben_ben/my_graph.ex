@@ -1,7 +1,7 @@
 defmodule MyGraph do
   import BenBen
 
-  deftype MyGraph do
+  phrenia MyGraph do
     # edges is recursive reference
     vertex(id, value, recu(edges))
     # non-recursive edge reference

@@ -22,21 +22,25 @@ defmodule GraphTrxServer do
   defcall(:define_vertex_type, [type, properties]) do
     Logger.debug("Defining vertex type: #{inspect(type)} with properties: #{inspect(properties)}")
     new_state = GraphTrx.define_vertex_type(state, type, properties)
-    new_state  # Just return the new state
+    # Return both as result and state
+    {new_state, new_state}
   end
 
   # Transaction Management
   defcall(:begin_transaction, []) do
     Logger.debug("Beginning new transaction")
     {tx_id, new_state} = GraphTrx.begin_transaction(state)
-    {{tx_id, new_state}, new_state}  # Return both result and state
+    # Return the tx_id directly, not as part of a tuple
+    {tx_id, new_state}
   end
 
   defcall(:commit_transaction, [tx_id]) do
     Logger.debug("Committing transaction #{inspect(tx_id)}")
+
     try do
       {result, new_state} = GraphTrx.commit_transaction(state, tx_id)
-      {result, new_state}  # Return both the result and new state
+      # Return the result directly
+      {result, new_state}
     rescue
       e in GraphTrx.Error ->
         Logger.error("Commit failed: #{Exception.message(e)}")
@@ -46,10 +50,11 @@ defmodule GraphTrxServer do
 
   defcall(:rollback_transaction, [tx_id, reason]) do
     Logger.debug("Rolling back transaction #{inspect(tx_id)} with reason: #{inspect(reason)}")
+
     try do
       {result, new_state} = GraphTrx.rollback_transaction(state, tx_id, reason)
       Logger.debug("Rollback result: #{inspect(result)}")
-      {{result, new_state}, new_state}
+      {result, new_state}
     rescue
       e in GraphTrx.Error ->
         Logger.error("Rollback failed: #{Exception.message(e)}")
@@ -71,6 +76,7 @@ defmodule GraphTrxServer do
       {:ok, new_state} ->
         Logger.debug("Vertex added successfully")
         {true, new_state}
+
       {:error, reason, new_state} ->
         Logger.debug("Failed to add vertex: #{inspect(reason)}")
         {{:error, reason}, new_state}
@@ -91,6 +97,7 @@ defmodule GraphTrxServer do
       {:ok, new_state} ->
         Logger.debug("Edge added successfully")
         {true, new_state}
+
       {:error, reason, new_state} ->
         Logger.debug("Failed to add edge: #{inspect(reason)}")
         {{:error, reason}, new_state}
@@ -138,8 +145,7 @@ defmodule GraphTrxServer do
   end
 
   def begin_transaction(server) do
-    {tx_id, _state} = call(:begin_transaction, [], server)
-    tx_id
+    call(:begin_transaction, [], server)
   end
 
   def commit_transaction(server, tx_id) do
@@ -151,7 +157,11 @@ defmodule GraphTrxServer do
   end
 
   def add_vertex(server, tx_id, type, id, properties) do
-    call(:add_vertex, [tx_id, type, id, properties], server)
+    case call(:add_vertex, [tx_id, type, id, properties], server) do
+      {{:error, reason}, _new_state} -> {:error, reason}
+      {true, _} -> {:ok, nil}
+      other -> other
+    end
   end
 
   def add_edge(server, tx_id, from_id, to_id, type, properties \\ %{}) do

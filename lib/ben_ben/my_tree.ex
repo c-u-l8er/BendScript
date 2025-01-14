@@ -1,7 +1,7 @@
 defmodule MyTree do
   import BenBen
 
-  deftype MyTree do
+  phrenia MyTree do
     node(val, recu(left), recu(right))
     leaf()
   end

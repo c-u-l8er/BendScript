@@ -1,7 +1,7 @@
 defmodule BenBen do
   require Logger
 
-  defmacro deftype(name, do: block) do
+  defmacro phrenia(name, do: block) do
     Logger.debug("Defining type #{inspect(name)} with block: #{inspect(block)}")
     variants = extract_variants(block)
     Logger.debug("Extracted variants: #{inspect(variants)}")

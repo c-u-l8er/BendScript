@@ -3,7 +3,7 @@ defmodule GraphTrx do
   import BenBen
   alias LibGraph, as: Graph
 
-  deftype Transaction do
+  phrenia Transaction do
     # Transaction states
     pending(operations, timestamp)
     committed(changes, timestamp)

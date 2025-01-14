@@ -3,7 +3,7 @@ defmodule FoldWithStateTest do
   import BenBen
 
   # Define test types
-  deftype LinkedList do
+  phrenia LinkedList do
     cons(head, recu(tail))
     null()
   end

@@ -1,7 +1,7 @@
 defmodule TreeOperations do
   import BenBen
 
-  deftype Tree do
+  phrenia Tree do
     node(value, recu(left), recu(right))
     leaf()
   end

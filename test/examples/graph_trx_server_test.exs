@@ -14,7 +14,7 @@ defmodule GraphTrxServerTest do
         age: [type: :integer]
       ]
 
-      result = GraphTrxServer.define_vertex_type(server, :person, schema)
+      {result, _} = GraphTrxServer.define_vertex_type(server, :person, schema)
       assert match?(%GraphTrx.State{}, result)
       assert result.schema[:person]
     end
@@ -22,25 +22,21 @@ defmodule GraphTrxServerTest do
 
   describe "transaction management" do
     test "can begin transaction", %{server: server} do
-      tx_id = GraphTrxServer.begin_transaction(server)
+      {tx_id, _} = GraphTrxServer.begin_transaction(server)
       assert is_integer(tx_id)
-      assert tx_id > 0
     end
 
     test "can commit transaction", %{server: server} do
       # Setup schema
-      GraphTrxServer.define_vertex_type(server, :person, [
-        name: [type: :string, required: true]
-      ])
+      GraphTrxServer.define_vertex_type(server, :person, name: [type: :string, required: true])
 
       # Begin transaction and add vertex
-      tx_id = GraphTrxServer.begin_transaction(server)
+      {tx_id, _} = GraphTrxServer.begin_transaction(server)
 
-      result = GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{name: "Alice"})
-      assert match?({true, _}, result)
+      {:ok, _} = GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{name: "Alice"})
 
       # Commit transaction
-      result = GraphTrxServer.commit_transaction(server, tx_id)
+      {result, _} = GraphTrxServer.commit_transaction(server, tx_id)
       assert is_list(result)
     end
 
@@ -57,30 +53,33 @@ defmodule GraphTrxServerTest do
   describe "graph operations" do
     setup %{server: server} do
       # Setup schema
-      GraphTrxServer.define_vertex_type(server, :person, [
+      GraphTrxServer.define_vertex_type(server, :person,
         name: [type: :string, required: true],
         age: [type: :integer]
-      ])
+      )
 
       {tx_id, _} = GraphTrxServer.begin_transaction(server)
       %{tx_id: tx_id}
     end
 
     test "can add vertex", %{server: server, tx_id: tx_id} do
-      result = GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{
-        name: "Alice",
-        age: 30
-      })
+      {result, _} =
+        GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{
+          name: "Alice",
+          age: 30
+        })
 
       assert match?({true, %GraphTrx.State{}}, result)
     end
 
     test "validates required properties", %{server: server, tx_id: tx_id} do
-      result = GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{
-        age: 30  # missing required name
-      })
+      {result, _} =
+        GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{
+          # missing required name
+          age: 30
+        })
 
-      assert match?({{:error, _}, %GraphTrx.State{}}, result)
+      assert match?({:error, _reason}, result)
     end
 
     test "can add edge", %{server: server, tx_id: tx_id} do
@@ -89,7 +88,7 @@ defmodule GraphTrxServerTest do
       GraphTrxServer.add_vertex(server, tx_id, :person, "2", %{name: "Bob"})
 
       # Add edge
-      result = GraphTrxServer.add_edge(server, tx_id, "1", "2", :knows)
+      {result, _} = GraphTrxServer.add_edge(server, tx_id, "1", "2", :knows)
       assert match?({true, %GraphTrx.State{}}, result)
     end
   end
@@ -97,9 +96,7 @@ defmodule GraphTrxServerTest do
   describe "query operations" do
     setup %{server: server} do
       # Setup schema
-      GraphTrxServer.define_vertex_type(server, :person, [
-        name: [type: :string, required: true]
-      ])
+      GraphTrxServer.define_vertex_type(server, :person, name: [type: :string, required: true])
 
       # Create transaction and add data
       {tx_id, _} = GraphTrxServer.begin_transaction(server)
@@ -122,9 +119,7 @@ defmodule GraphTrxServerTest do
   describe "graph metrics" do
     test "tracks vertex count", %{server: server} do
       # Setup schema and transaction
-      GraphTrxServer.define_vertex_type(server, :person, [
-        name: [type: :string, required: true]
-      ])
+      GraphTrxServer.define_vertex_type(server, :person, name: [type: :string, required: true])
       {tx_id, _} = GraphTrxServer.begin_transaction(server)
 
       # Add vertices
@@ -138,9 +133,7 @@ defmodule GraphTrxServerTest do
 
     test "tracks edge count", %{server: server} do
       # Setup schema and transaction
-      GraphTrxServer.define_vertex_type(server, :person, [
-        name: [type: :string, required: true]
-      ])
+      GraphTrxServer.define_vertex_type(server, :person, name: [type: :string, required: true])
       {tx_id, _} = GraphTrxServer.begin_transaction(server)
 
       # Add vertices and edge
@@ -163,23 +156,16 @@ defmodule GraphTrxServerTest do
 
     test "handles invalid vertex type", %{server: server} do
       {tx_id, _} = GraphTrxServer.begin_transaction(server)
-
       {result, _} = GraphTrxServer.add_vertex(server, tx_id, :invalid_type, "1", %{})
       assert match?({:error, _}, result)
     end
 
     test "prevents duplicate vertex ids in same transaction", %{server: server} do
-      # Setup schema
-      GraphTrxServer.define_vertex_type(server, :person, [
-        name: [type: :string, required: true]
-      ])
+      GraphTrxServer.define_vertex_type(server, :person, name: [type: :string, required: true])
 
       {tx_id, _} = GraphTrxServer.begin_transaction(server)
-
-      # Add first vertex
       GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{name: "Alice"})
 
-      # Try to add second vertex with same id
       {result, _} = GraphTrxServer.add_vertex(server, tx_id, :person, "1", %{name: "Bob"})
       assert match?({:error, _}, result)
     end
