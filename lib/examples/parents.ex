@@ -1,4 +1,4 @@
-defmodule TreeOperations do
+defmodule Parents do
   import BenBen
 
   phrenia Tree do

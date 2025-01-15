@@ -1,6 +1,6 @@
-defmodule TreeOperationsTest do
+defmodule ParentsTest do
   use ExUnit.Case
-  import TreeOperations
+  import Parents
 
   describe "tree operations" do
     test "creates balanced tree with transform" do
@@ -51,21 +51,21 @@ defmodule TreeOperationsTest do
     test "balances unbalanced tree" do
       # Create a simple unbalanced tree
       unbalanced =
-        TreeOperations.Tree.node(
+        Parents.Tree.node(
           2,
-          TreeOperations.Tree.node(
+          Parents.Tree.node(
             1,
-            TreeOperations.Tree.leaf(),
-            TreeOperations.Tree.leaf()
+            Parents.Tree.leaf(),
+            Parents.Tree.leaf()
           ),
-          TreeOperations.Tree.node(
+          Parents.Tree.node(
             3,
-            TreeOperations.Tree.leaf(),
-            TreeOperations.Tree.leaf()
+            Parents.Tree.leaf(),
+            Parents.Tree.leaf()
           )
         )
 
-      balanced = TreeOperations.balance_tree(unbalanced)
+      balanced = Parents.balance_tree(unbalanced)
 
       # For a tree with 3 nodes, we expect:
       # - Root node (depth 0)

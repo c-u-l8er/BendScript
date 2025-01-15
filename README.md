@@ -45,8 +45,14 @@ phrenia BinaryTree do
   leaf()
 end
 
-# other types of brains such as lists and graphs are possible
-phrenia Graph do
+# other types of brains such as lists are possible
+phrenia List do
+  cons(head, recu(tail))
+  null()
+end
+
+# as well as property graphs
+phrenia PropGraph do
   graph(vertex_map, recu(edge_list), metadata)
   vertex(vertex_id, properties, recu(adjacency))
   edge(source_id, target_id, edge_weight, edge_props)
@@ -208,8 +214,10 @@ mix test 2>&1 | tee test.sdtout.txt
 
 # test reg server
 mix test test/examples/counter_test.exs 2>&1 | tee counter.stdout.txt
-mix test test/examples/graph_trx_test.exs 2>&1 | tee graph_trx.stdout.txt
-
+mix test test/examples/chain_test.exs 2>&1 | tee chain.stdout.txt
+mix test test/examples/graffiti_test.exs 2>&1 | tee graffiti.stdout.txt
+mix test test/examples/parents_test.exs 2>&1 | tee parents.stdout.txt
+mix test test/examples/prop_graph_test.exs 2>&1 | tee prop_graph.stdout.txt
 ```
 
 ## AI Prompt Notes

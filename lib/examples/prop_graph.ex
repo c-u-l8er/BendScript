@@ -1,4 +1,4 @@
-defmodule LibGraph do
+defmodule PropGraph do
   import BenBen
 
   phrenia Graph do

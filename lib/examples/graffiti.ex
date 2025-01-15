@@ -1,7 +1,8 @@
-defmodule GraphTrx do
+defmodule Graffiti do
   require Logger
   import BenBen
-  alias LibGraph, as: Graph
+  alias PropGraph
+  alias Graffiti.Persistence
 
   phrenia Transaction do
     # Transaction states
@@ -15,11 +16,20 @@ defmodule GraphTrx do
   end
 
   defmodule State do
-    defstruct graph: LibGraph.new(),
+    defstruct graph: PropGraph.new(),
               transactions: %{},
               locks: %{},
               schema: %{},
               transaction_counter: 0
+  end
+
+  def start_link(opts \\ []) do
+    # Start the persistence layer
+    Memento.start()
+    Persistence.Schema.setup()
+
+    # Start the connection pool
+    Persistence.Pool.start_link(opts)
   end
 
   # Schema Definition
@@ -39,6 +49,10 @@ defmodule GraphTrx do
     timestamp = System.system_time(:millisecond)
 
     tx = Transaction.pending([], timestamp)
+
+    # Persist the transaction
+    Persistence.persist_transaction(tx_id, tx)
+
     transactions = Map.put(state.transactions, tx_id, tx)
     new_state = %{state | transactions: transactions, transaction_counter: tx_id}
 
@@ -51,8 +65,9 @@ defmodule GraphTrx do
         # Apply operations and update graph
         {new_graph, result} = apply_operations(state.graph, Enum.reverse(ops))
 
-        # Update transaction state
+        # Update transaction state with persistance
         new_tx = Transaction.committed(result, System.system_time(:millisecond))
+        Persistence.persist_transaction(tx_id, new_tx)
         new_transactions = Map.put(state.transactions, tx_id, new_tx)
 
         # Release locks
@@ -85,6 +100,16 @@ defmodule GraphTrx do
     with {:ok, tx} <- get_transaction(state, tx_id),
          {:ok, validated_props} <- validate_schema(state, type, properties),
          {:ok, new_state} <- acquire_vertex_lock(state, tx_id, id) do
+      # persist vertex
+      vertex =
+        PropGraph.Graph.vertex(
+          id,
+          Map.put(validated_props, :type, type),
+          PropGraph.Graph.empty()
+        )
+
+      Persistence.save_vertex(tx_id, vertex)
+
       operation = {:add_vertex, type, id, validated_props}
       new_tx = %{tx | operations: [operation | tx.operations]}
       new_transactions = Map.put(new_state.transactions, tx_id, new_tx)
@@ -107,6 +132,10 @@ defmodule GraphTrx do
   def add_edge(state, tx_id, from_id, to_id, type, properties \\ %{}) do
     with {:ok, _} <- acquire_edge_lock(state, tx_id, from_id, to_id),
          {:ok, _} <- validate_edge(state, from_id, to_id, type) do
+      # persist edge
+      edge = PropGraph.Graph.edge(from_id, to_id, 1, Map.put(properties, :type, type))
+      Persistence.save_edge(tx_id, edge)
+
       operation = {:add_edge, from_id, to_id, type, properties}
       new_transactions = update_transaction_operations(state.transactions, tx_id, operation)
 
@@ -226,7 +255,7 @@ defmodule GraphTrx do
     {graph_with_vertices, vertex_results} =
       Enum.reduce(operations, {graph, []}, fn
         {:add_vertex, type, id, props}, {g, results} ->
-          new_g = Graph.add_vertex(g, id, Map.put(props, :type, type))
+          new_g = PropGraph.add_vertex(g, id, Map.put(props, :type, type))
           {new_g, [{:vertex_added, id} | results]}
 
         # Skip edge operations in first pass
@@ -237,7 +266,7 @@ defmodule GraphTrx do
     # Second pass - apply all edge operations
     Enum.reduce(operations, {graph_with_vertices, vertex_results}, fn
       {:add_edge, from_id, to_id, type, props}, {g, results} ->
-        new_g = Graph.add_edge(g, from_id, to_id, 1, Map.put(props, :type, type))
+        new_g = PropGraph.add_edge(g, from_id, to_id, 1, Map.put(props, :type, type))
         {new_g, [{:edge_added, from_id, to_id} | results]}
 
       # Skip vertex operations in second pass
