@@ -59,6 +59,13 @@ phrenia PropGraph do
   empty()
 end
 
+# this one is without weights or properties
+phrenia SimpleGraph do
+  graph(vertices, recu(edges))
+  edge(from, to)
+  empty()
+end
+
 # here is an example without recursion
 phrenia Transaction do
   pending(operations, timestamp)
@@ -218,6 +225,7 @@ mix test test/examples/chain_test.exs 2>&1 | tee chain.stdout.txt
 mix test test/examples/graffiti_test.exs 2>&1 | tee graffiti.stdout.txt
 mix test test/examples/parents_test.exs 2>&1 | tee parents.stdout.txt
 mix test test/examples/prop_graph_test.exs 2>&1 | tee prop_graph.stdout.txt
+mix test test/examples/simple_graph_test.exs 2>&1 | tee simple_graph.stdout.txt
 ```
 
 ## AI Prompt Notes

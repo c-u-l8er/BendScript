@@ -1,527 +1,527 @@
 Excluding tags: [:skip]
 
-13:14:05.868 [debug] Bend initial value: 0
-13:14:05.872 [debug] Executing bend with initial: 0
-13:14:05.873 [debug] Executing fun with value: 0
-13:14:05.873 [debug] Evaluating bend block with value: 0
-13:14:05.876 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.876 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.876 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.876 [debug] Executing bend with initial: 1
-13:14:05.876 [debug] Executing fun with value: 1
-13:14:05.876 [debug] Evaluating bend block with value: 1
-13:14:05.876 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
-13:14:05.876 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
-13:14:05.876 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
-13:14:05.876 [debug] Executing bend with initial: 2
-13:14:05.876 [debug] Executing fun with value: 2
-13:14:05.876 [debug] Evaluating bend block with value: 2
-13:14:05.876 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.876 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.876 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.876 [debug] Executing bend with initial: 3
-13:14:05.876 [debug] Executing fun with value: 3
-13:14:05.876 [debug] Evaluating bend block with value: 3
-13:14:05.876 [debug] Block returned: %{variant: :leaf}
-13:14:05.876 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.876 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.876 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.876 [debug] Executing bend with initial: 3
-13:14:05.876 [debug] Executing fun with value: 3
-13:14:05.876 [debug] Evaluating bend block with value: 3
-13:14:05.876 [debug] Block returned: %{variant: :leaf}
-13:14:05.876 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.876 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.876 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.876 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
-13:14:05.876 [debug] Executing bend with initial: 2
-13:14:05.876 [debug] Executing fun with value: 2
-13:14:05.876 [debug] Evaluating bend block with value: 2
-13:14:05.876 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.876 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.876 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.876 [debug] Executing bend with initial: 3
-13:14:05.876 [debug] Executing fun with value: 3
-13:14:05.876 [debug] Evaluating bend block with value: 3
-13:14:05.876 [debug] Block returned: %{variant: :leaf}
-13:14:05.876 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.876 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.876 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.876 [debug] Executing bend with initial: 3
-13:14:05.876 [debug] Executing fun with value: 3
-13:14:05.876 [debug] Evaluating bend block with value: 3
-13:14:05.876 [debug] Block returned: %{variant: :leaf}
-13:14:05.876 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.876 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.876 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.876 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
-13:14:05.876 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}
-13:14:05.876 [debug] Executing bend with initial: 1
-13:14:05.876 [debug] Executing fun with value: 1
-13:14:05.876 [debug] Evaluating bend block with value: 1
-13:14:05.877 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
-13:14:05.877 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
-13:14:05.877 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
-13:14:05.877 [debug] Executing bend with initial: 2
-13:14:05.877 [debug] Executing fun with value: 2
-13:14:05.877 [debug] Evaluating bend block with value: 2
-13:14:05.877 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.877 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.877 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.877 [debug] Executing bend with initial: 3
-13:14:05.877 [debug] Executing fun with value: 3
-13:14:05.877 [debug] Evaluating bend block with value: 3
-13:14:05.877 [debug] Block returned: %{variant: :leaf}
-13:14:05.877 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.877 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.877 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.877 [debug] Executing bend with initial: 3
-13:14:05.877 [debug] Executing fun with value: 3
-13:14:05.877 [debug] Evaluating bend block with value: 3
-13:14:05.877 [debug] Block returned: %{variant: :leaf}
-13:14:05.877 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.877 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.877 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.877 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
-13:14:05.877 [debug] Executing bend with initial: 2
-13:14:05.877 [debug] Executing fun with value: 2
-13:14:05.877 [debug] Evaluating bend block with value: 2
-13:14:05.877 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.877 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.877 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
-13:14:05.877 [debug] Executing bend with initial: 3
-13:14:05.877 [debug] Executing fun with value: 3
-13:14:05.877 [debug] Evaluating bend block with value: 3
-13:14:05.877 [debug] Block returned: %{variant: :leaf}
-13:14:05.877 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.877 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.877 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.877 [debug] Executing bend with initial: 3
-13:14:05.877 [debug] Executing fun with value: 3
-13:14:05.877 [debug] Evaluating bend block with value: 3
-13:14:05.877 [debug] Block returned: %{variant: :leaf}
-13:14:05.877 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.877 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.877 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.877 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
-13:14:05.877 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}
-13:14:05.877 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, value: 0, variant: :node}
-13:14:05.877 [debug] Final bend result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, value: 0, variant: :node}
-.13:14:05.877 [debug] Bend initial value: 0
-13:14:05.878 [debug] Executing bend with initial: 0
-13:14:05.878 [debug] Executing fun with value: 0
-13:14:05.878 [debug] Evaluating bend block with value: 0
-13:14:05.878 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.878 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.878 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 1
-13:14:05.878 [debug] Executing fun with value: 1
-13:14:05.878 [debug] Evaluating bend block with value: 1
-13:14:05.878 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.878 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.878 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 2
-13:14:05.878 [debug] Executing fun with value: 2
-13:14:05.878 [debug] Evaluating bend block with value: 2
-13:14:05.878 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 3
-13:14:05.878 [debug] Executing fun with value: 3
-13:14:05.878 [debug] Evaluating bend block with value: 3
-13:14:05.878 [debug] Block returned: %{variant: :leaf}
-13:14:05.878 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.878 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.878 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.878 [debug] Executing bend with initial: 3
-13:14:05.878 [debug] Executing fun with value: 3
-13:14:05.878 [debug] Evaluating bend block with value: 3
-13:14:05.878 [debug] Block returned: %{variant: :leaf}
-13:14:05.878 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.878 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.878 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.878 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 2
-13:14:05.878 [debug] Executing fun with value: 2
-13:14:05.878 [debug] Evaluating bend block with value: 2
-13:14:05.878 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 3
-13:14:05.878 [debug] Executing fun with value: 3
-13:14:05.878 [debug] Evaluating bend block with value: 3
-13:14:05.878 [debug] Block returned: %{variant: :leaf}
-13:14:05.878 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.878 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.878 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.878 [debug] Executing bend with initial: 3
-13:14:05.878 [debug] Executing fun with value: 3
-13:14:05.878 [debug] Evaluating bend block with value: 3
-13:14:05.878 [debug] Block returned: %{variant: :leaf}
-13:14:05.878 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.878 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.878 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.878 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.878 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 1
-13:14:05.878 [debug] Executing fun with value: 1
-13:14:05.878 [debug] Evaluating bend block with value: 1
-13:14:05.878 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.878 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.878 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 2
-13:14:05.878 [debug] Executing fun with value: 2
-13:14:05.878 [debug] Evaluating bend block with value: 2
-13:14:05.878 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.878 [debug] Executing bend with initial: 3
-13:14:05.878 [debug] Executing fun with value: 3
-13:14:05.878 [debug] Evaluating bend block with value: 3
-13:14:05.878 [debug] Block returned: %{variant: :leaf}
-13:14:05.878 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.878 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.878 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.878 [debug] Executing bend with initial: 3
-13:14:05.878 [debug] Executing fun with value: 3
-13:14:05.878 [debug] Evaluating bend block with value: 3
-13:14:05.878 [debug] Block returned: %{variant: :leaf}
-13:14:05.878 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.879 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.879 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.879 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.879 [debug] Executing bend with initial: 2
-13:14:05.879 [debug] Executing fun with value: 2
-13:14:05.879 [debug] Evaluating bend block with value: 2
-13:14:05.879 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.879 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.879 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.879 [debug] Executing bend with initial: 3
-13:14:05.879 [debug] Executing fun with value: 3
-13:14:05.879 [debug] Evaluating bend block with value: 3
-13:14:05.879 [debug] Block returned: %{variant: :leaf}
-13:14:05.879 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.879 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.879 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.879 [debug] Executing bend with initial: 3
-13:14:05.879 [debug] Executing fun with value: 3
-13:14:05.879 [debug] Evaluating bend block with value: 3
-13:14:05.879 [debug] Block returned: %{variant: :leaf}
-13:14:05.879 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.879 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.879 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.879 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.879 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.879 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.879 [debug] Final bend result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.879 [debug] do_fold called with data: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}, variant_type: :node, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.879 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.879 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.879 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.879 [debug] Recursive field result for left: %{variant: :leaf}
-13:14:05.879 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.879 [debug] Recursive field result for right: %{variant: :leaf}
-13:14:05.879 [debug] Recursive field result for left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.879 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.879 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.879 [debug] Recursive field result for left: %{variant: :leaf}
-13:14:05.879 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.879 [debug] Recursive field result for right: %{variant: :leaf}
-13:14:05.879 [debug] Recursive field result for right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.879 [debug] Recursive field result for left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 0, variant: :node}
-13:14:05.879 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: nil
-13:14:05.879 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.880 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
-13:14:05.880 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.880 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.880 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.880 [debug] Recursive field result for left: %{variant: :leaf}
-13:14:05.880 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.880 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.880 [debug] Recursive field result for right: %{variant: :leaf}
-13:14:05.880 [debug] Recursive field result for left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.880 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
-13:14:05.880 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.880 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.880 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.880 [debug] Recursive field result for left: %{variant: :leaf}
-13:14:05.880 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.880 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.880 [debug] Recursive field result for right: %{variant: :leaf}
-13:14:05.880 [debug] Recursive field result for right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.880 [debug] Recursive field result for right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 0, variant: :node}
-.13:14:05.880 [debug] Bend initial value: 0
-13:14:05.880 [debug] Executing bend with initial: 0
-13:14:05.880 [debug] Executing fun with value: 0
-13:14:05.880 [debug] Evaluating bend block with value: 0
-13:14:05.880 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.880 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.880 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.880 [debug] Executing bend with initial: 1
-13:14:05.880 [debug] Executing fun with value: 1
-13:14:05.880 [debug] Evaluating bend block with value: 1
-13:14:05.880 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.880 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.880 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.880 [debug] Executing bend with initial: 2
-13:14:05.880 [debug] Executing fun with value: 2
-13:14:05.880 [debug] Evaluating bend block with value: 2
-13:14:05.880 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.880 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.880 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.880 [debug] Executing bend with initial: 3
-13:14:05.880 [debug] Executing fun with value: 3
-13:14:05.880 [debug] Evaluating bend block with value: 3
-13:14:05.880 [debug] Block returned: %{variant: :leaf}
-13:14:05.880 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.880 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.880 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.880 [debug] Executing bend with initial: 3
-13:14:05.880 [debug] Executing fun with value: 3
-13:14:05.880 [debug] Evaluating bend block with value: 3
-13:14:05.880 [debug] Block returned: %{variant: :leaf}
-13:14:05.880 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.881 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.881 [debug] Executing bend with initial: 2
-13:14:05.881 [debug] Executing fun with value: 2
-13:14:05.881 [debug] Evaluating bend block with value: 2
-13:14:05.881 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Executing bend with initial: 3
-13:14:05.881 [debug] Executing fun with value: 3
-13:14:05.881 [debug] Evaluating bend block with value: 3
-13:14:05.881 [debug] Block returned: %{variant: :leaf}
-13:14:05.881 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.881 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.881 [debug] Executing bend with initial: 3
-13:14:05.881 [debug] Executing fun with value: 3
-13:14:05.881 [debug] Evaluating bend block with value: 3
-13:14:05.881 [debug] Block returned: %{variant: :leaf}
-13:14:05.881 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.881 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.881 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.881 [debug] Executing bend with initial: 1
-13:14:05.881 [debug] Executing fun with value: 1
-13:14:05.881 [debug] Evaluating bend block with value: 1
-13:14:05.881 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.881 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.881 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.881 [debug] Executing bend with initial: 2
-13:14:05.881 [debug] Executing fun with value: 2
-13:14:05.881 [debug] Evaluating bend block with value: 2
-13:14:05.881 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Executing bend with initial: 3
-13:14:05.881 [debug] Executing fun with value: 3
-13:14:05.881 [debug] Evaluating bend block with value: 3
-13:14:05.881 [debug] Block returned: %{variant: :leaf}
-13:14:05.881 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.881 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.881 [debug] Executing bend with initial: 3
-13:14:05.881 [debug] Executing fun with value: 3
-13:14:05.881 [debug] Evaluating bend block with value: 3
-13:14:05.881 [debug] Block returned: %{variant: :leaf}
-13:14:05.881 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.881 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.881 [debug] Executing bend with initial: 2
-13:14:05.881 [debug] Executing fun with value: 2
-13:14:05.881 [debug] Evaluating bend block with value: 2
-13:14:05.881 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
-13:14:05.881 [debug] Executing bend with initial: 3
-13:14:05.881 [debug] Executing fun with value: 3
-13:14:05.881 [debug] Evaluating bend block with value: 3
-13:14:05.881 [debug] Block returned: %{variant: :leaf}
-13:14:05.881 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.881 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.881 [debug] Executing bend with initial: 3
-13:14:05.881 [debug] Executing fun with value: 3
-13:14:05.881 [debug] Evaluating bend block with value: 3
-13:14:05.881 [debug] Block returned: %{variant: :leaf}
-13:14:05.881 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.881 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.881 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.882 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.882 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.882 [debug] Final bend result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.882 [debug] do_fold called with data: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}, variant_type: :node, state: %{0 => 1}
-13:14:05.882 [debug] Processing recursive fields of: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.882 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: %{0 => 1}
-13:14:05.882 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.882 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1}
-13:14:05.882 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.882 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1}
-13:14:05.882 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.882 [debug] Recursive field result for left: {0, %{0 => 1}}
-13:14:05.882 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1}
-13:14:05.882 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.882 [debug] Recursive field result for right: {0, %{0 => 1}}
-13:14:05.882 [debug] do_fold called with non-variant data: 0
-13:14:05.882 [debug] do_fold called with non-variant data: 0
-13:14:05.882 [debug] Recursive field result for left: {2, %{0 => 1, 1 => 2}}
-13:14:05.882 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2}
-13:14:05.882 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.882 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2}
-13:14:05.882 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.882 [debug] Recursive field result for left: {0, %{0 => 1, 1 => 2}}
-13:14:05.882 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2}
-13:14:05.882 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.882 [debug] Recursive field result for right: {0, %{0 => 1, 1 => 2}}
-13:14:05.882 [debug] do_fold called with non-variant data: 0
-13:14:05.882 [debug] do_fold called with non-variant data: 0
-13:14:05.882 [debug] Recursive field result for right: {2, %{0 => 1, 1 => 2, 2 => 4}}
-13:14:05.882 [debug] do_fold called with non-variant data: 2
-13:14:05.882 [debug] do_fold called with non-variant data: 2
-13:14:05.882 [debug] Recursive field result for left: {1, %{0 => 1, 1 => 2, 2 => 4, 3 => 8}}
-13:14:05.882 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
-13:14:05.882 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
-13:14:05.882 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
-13:14:05.882 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.882 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
-13:14:05.882 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.882 [debug] Recursive field result for left: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8}}
-13:14:05.882 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
-13:14:05.882 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.882 [debug] Recursive field result for right: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8}}
-13:14:05.882 [debug] do_fold called with non-variant data: 0
-13:14:05.882 [debug] do_fold called with non-variant data: 0
-13:14:05.882 [debug] Recursive field result for left: {2, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}}
-13:14:05.882 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}
-13:14:05.883 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
-13:14:05.883 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}
-13:14:05.883 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.883 [debug] Recursive field result for left: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}}
-13:14:05.883 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}
-13:14:05.883 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.883 [debug] Recursive field result for right: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}}
-13:14:05.883 [debug] do_fold called with non-variant data: 0
-13:14:05.883 [debug] do_fold called with non-variant data: 0
-13:14:05.883 [debug] Recursive field result for right: {2, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16, 5 => 32}}
-13:14:05.883 [debug] do_fold called with non-variant data: 2
-13:14:05.883 [debug] do_fold called with non-variant data: 2
-13:14:05.883 [debug] Recursive field result for right: {1, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16, 5 => 32, 6 => 64}}
-13:14:05.883 [debug] do_fold called with non-variant data: 1
-13:14:05.883 [debug] do_fold called with non-variant data: 1
-.13:14:05.883 [debug] Bend initial value: 0
-13:14:05.883 [debug] Executing bend with initial: 0
-13:14:05.883 [debug] Executing fun with value: 0
-13:14:05.883 [debug] Evaluating bend block with value: 0
-13:14:05.883 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.883 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.883 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
-13:14:05.883 [debug] Executing bend with initial: 1
-13:14:05.883 [debug] Executing fun with value: 1
-13:14:05.883 [debug] Evaluating bend block with value: 1
-13:14:05.883 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.883 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.883 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.883 [debug] Executing bend with initial: 2
-13:14:05.883 [debug] Executing fun with value: 2
-13:14:05.883 [debug] Evaluating bend block with value: 2
-13:14:05.883 [debug] Block returned: %{variant: :leaf}
-13:14:05.883 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.883 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.883 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.883 [debug] Executing bend with initial: 2
-13:14:05.883 [debug] Executing fun with value: 2
-13:14:05.883 [debug] Evaluating bend block with value: 2
-13:14:05.883 [debug] Block returned: %{variant: :leaf}
-13:14:05.883 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.883 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.883 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.883 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
-13:14:05.883 [debug] Executing bend with initial: 1
-13:14:05.883 [debug] Executing fun with value: 1
-13:14:05.883 [debug] Evaluating bend block with value: 1
-13:14:05.883 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.883 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.883 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
-13:14:05.883 [debug] Executing bend with initial: 2
-13:14:05.883 [debug] Executing fun with value: 2
-13:14:05.883 [debug] Evaluating bend block with value: 2
-13:14:05.883 [debug] Block returned: %{variant: :leaf}
-13:14:05.883 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.883 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.883 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.883 [debug] Executing bend with initial: 2
-13:14:05.883 [debug] Executing fun with value: 2
-13:14:05.883 [debug] Evaluating bend block with value: 2
-13:14:05.883 [debug] Block returned: %{variant: :leaf}
-13:14:05.883 [debug] Fun returned result: %{variant: :leaf}
-13:14:05.883 [debug] Processing constructed value: %{variant: :leaf}
-13:14:05.883 [debug] do_bend final result: %{variant: :leaf}
-13:14:05.883 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
-13:14:05.884 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.884 [debug] Final bend result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}, variant_type: :node, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, variant_type: :node, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for left: %{variant: :leaf}
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for right: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, variant_type: :node, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for left: %{variant: :leaf}
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for right: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}
-.13:14:05.884 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}, value: 2, variant: :node}, variant_type: :node, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}, value: 2, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, variant_type: :node, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for left: []
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for right: []
-13:14:05.884 [debug] do_fold called with non-variant data: []
-13:14:05.884 [debug] do_fold called with non-variant data: []
-13:14:05.884 [debug] Recursive field result for left: [1]
-13:14:05.884 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}, variant_type: :node, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for left: []
-13:14:05.884 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
-13:14:05.884 [debug] Processing recursive fields of: %{variant: :leaf}
-13:14:05.884 [debug] Recursive field result for right: []
-.13:14:05.884 [debug] do_fold called with non-variant data: []
-13:14:05.884 [debug] do_fold called with non-variant data: []
-13:14:05.884 [debug] Recursive field result for right: [3]
-13:14:05.884 [debug] do_fold called with non-variant data: [1]
-13:14:05.884 [debug] do_fold called with non-variant data: [3]
+14:13:52.698 [debug] Bend initial value: 0
+14:13:52.701 [debug] Executing bend with initial: 0
+14:13:52.701 [debug] Executing fun with value: 0
+14:13:52.701 [debug] Evaluating bend block with value: 0
+14:13:52.704 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.704 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.704 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.704 [debug] Executing bend with initial: 1
+14:13:52.704 [debug] Executing fun with value: 1
+14:13:52.704 [debug] Evaluating bend block with value: 1
+14:13:52.704 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.704 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.704 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.704 [debug] Executing bend with initial: 2
+14:13:52.704 [debug] Executing fun with value: 2
+14:13:52.704 [debug] Evaluating bend block with value: 2
+14:13:52.704 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.704 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.704 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.704 [debug] Executing bend with initial: 3
+14:13:52.704 [debug] Executing fun with value: 3
+14:13:52.704 [debug] Evaluating bend block with value: 3
+14:13:52.704 [debug] Block returned: %{variant: :leaf}
+14:13:52.704 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.704 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.704 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.704 [debug] Executing bend with initial: 3
+14:13:52.704 [debug] Executing fun with value: 3
+14:13:52.704 [debug] Evaluating bend block with value: 3
+14:13:52.704 [debug] Block returned: %{variant: :leaf}
+14:13:52.704 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.704 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.704 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.704 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.704 [debug] Executing bend with initial: 2
+14:13:52.704 [debug] Executing fun with value: 2
+14:13:52.704 [debug] Evaluating bend block with value: 2
+14:13:52.704 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.704 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.704 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.704 [debug] Executing bend with initial: 3
+14:13:52.704 [debug] Executing fun with value: 3
+14:13:52.705 [debug] Evaluating bend block with value: 3
+14:13:52.705 [debug] Block returned: %{variant: :leaf}
+14:13:52.705 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.705 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.705 [debug] Executing bend with initial: 3
+14:13:52.705 [debug] Executing fun with value: 3
+14:13:52.705 [debug] Evaluating bend block with value: 3
+14:13:52.705 [debug] Block returned: %{variant: :leaf}
+14:13:52.705 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.705 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.705 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.705 [debug] Executing bend with initial: 1
+14:13:52.705 [debug] Executing fun with value: 1
+14:13:52.705 [debug] Evaluating bend block with value: 1
+14:13:52.705 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.705 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.705 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.705 [debug] Executing bend with initial: 2
+14:13:52.705 [debug] Executing fun with value: 2
+14:13:52.705 [debug] Evaluating bend block with value: 2
+14:13:52.705 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.705 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.705 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.705 [debug] Executing bend with initial: 3
+14:13:52.705 [debug] Executing fun with value: 3
+14:13:52.705 [debug] Evaluating bend block with value: 3
+14:13:52.705 [debug] Block returned: %{variant: :leaf}
+14:13:52.705 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.705 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.705 [debug] Executing bend with initial: 3
+14:13:52.705 [debug] Executing fun with value: 3
+14:13:52.705 [debug] Evaluating bend block with value: 3
+14:13:52.705 [debug] Block returned: %{variant: :leaf}
+14:13:52.705 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.705 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.705 [debug] Executing bend with initial: 2
+14:13:52.705 [debug] Executing fun with value: 2
+14:13:52.705 [debug] Evaluating bend block with value: 2
+14:13:52.705 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.705 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.705 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.705 [debug] Executing bend with initial: 3
+14:13:52.705 [debug] Executing fun with value: 3
+14:13:52.705 [debug] Evaluating bend block with value: 3
+14:13:52.705 [debug] Block returned: %{variant: :leaf}
+14:13:52.705 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.705 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.705 [debug] Executing bend with initial: 3
+14:13:52.705 [debug] Executing fun with value: 3
+14:13:52.705 [debug] Evaluating bend block with value: 3
+14:13:52.705 [debug] Block returned: %{variant: :leaf}
+14:13:52.705 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.705 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.705 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.705 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.705 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.705 [debug] Final bend result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}, variant_type: :node, state: %{0 => 1}
+14:13:52.706 [debug] Processing recursive fields of: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: %{0 => 1}
+14:13:52.706 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1}
+14:13:52.706 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1}
+14:13:52.706 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.706 [debug] Recursive field result for left: {0, %{0 => 1}}
+14:13:52.706 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1}
+14:13:52.706 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.706 [debug] Recursive field result for right: {0, %{0 => 1}}
+14:13:52.706 [debug] do_fold called with non-variant data: 0
+14:13:52.706 [debug] do_fold called with non-variant data: 0
+14:13:52.706 [debug] Recursive field result for left: {2, %{0 => 1, 1 => 2}}
+14:13:52.706 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2}
+14:13:52.706 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2}
+14:13:52.706 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.706 [debug] Recursive field result for left: {0, %{0 => 1, 1 => 2}}
+14:13:52.706 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2}
+14:13:52.706 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.706 [debug] Recursive field result for right: {0, %{0 => 1, 1 => 2}}
+14:13:52.706 [debug] do_fold called with non-variant data: 0
+14:13:52.706 [debug] do_fold called with non-variant data: 0
+14:13:52.706 [debug] Recursive field result for right: {2, %{0 => 1, 1 => 2, 2 => 4}}
+14:13:52.706 [debug] do_fold called with non-variant data: 2
+14:13:52.706 [debug] do_fold called with non-variant data: 2
+14:13:52.706 [debug] Recursive field result for left: {1, %{0 => 1, 1 => 2, 2 => 4, 3 => 8}}
+14:13:52.706 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
+14:13:52.706 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
+14:13:52.706 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
+14:13:52.706 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.706 [debug] Recursive field result for left: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8}}
+14:13:52.706 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8}
+14:13:52.706 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.706 [debug] Recursive field result for right: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8}}
+14:13:52.706 [debug] do_fold called with non-variant data: 0
+14:13:52.706 [debug] do_fold called with non-variant data: 0
+14:13:52.706 [debug] Recursive field result for left: {2, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}}
+14:13:52.706 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}
+14:13:52.706 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.706 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}
+14:13:52.707 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.707 [debug] Recursive field result for left: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}}
+14:13:52.707 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}
+14:13:52.707 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.707 [debug] Recursive field result for right: {0, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16}}
+14:13:52.707 [debug] do_fold called with non-variant data: 0
+14:13:52.707 [debug] do_fold called with non-variant data: 0
+14:13:52.707 [debug] Recursive field result for right: {2, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16, 5 => 32}}
+14:13:52.707 [debug] do_fold called with non-variant data: 2
+14:13:52.707 [debug] do_fold called with non-variant data: 2
+14:13:52.707 [debug] Recursive field result for right: {1, %{0 => 1, 1 => 2, 2 => 4, 3 => 8, 4 => 16, 5 => 32, 6 => 64}}
+14:13:52.707 [debug] do_fold called with non-variant data: 1
+14:13:52.707 [debug] do_fold called with non-variant data: 1
+.14:13:52.707 [debug] Bend initial value: 0
+14:13:52.707 [debug] Executing bend with initial: 0
+14:13:52.707 [debug] Executing fun with value: 0
+14:13:52.707 [debug] Evaluating bend block with value: 0
+14:13:52.707 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.707 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.707 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.707 [debug] Executing bend with initial: 1
+14:13:52.707 [debug] Executing fun with value: 1
+14:13:52.707 [debug] Evaluating bend block with value: 1
+14:13:52.707 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
+14:13:52.707 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
+14:13:52.707 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
+14:13:52.707 [debug] Executing bend with initial: 2
+14:13:52.707 [debug] Executing fun with value: 2
+14:13:52.707 [debug] Evaluating bend block with value: 2
+14:13:52.707 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.707 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.707 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.707 [debug] Executing bend with initial: 3
+14:13:52.707 [debug] Executing fun with value: 3
+14:13:52.707 [debug] Evaluating bend block with value: 3
+14:13:52.707 [debug] Block returned: %{variant: :leaf}
+14:13:52.707 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.707 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.707 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.707 [debug] Executing bend with initial: 3
+14:13:52.707 [debug] Executing fun with value: 3
+14:13:52.707 [debug] Evaluating bend block with value: 3
+14:13:52.707 [debug] Block returned: %{variant: :leaf}
+14:13:52.707 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.707 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.707 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.707 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
+14:13:52.707 [debug] Executing bend with initial: 2
+14:13:52.707 [debug] Executing fun with value: 2
+14:13:52.707 [debug] Evaluating bend block with value: 2
+14:13:52.707 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.707 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.707 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.707 [debug] Executing bend with initial: 3
+14:13:52.707 [debug] Executing fun with value: 3
+14:13:52.707 [debug] Evaluating bend block with value: 3
+14:13:52.708 [debug] Block returned: %{variant: :leaf}
+14:13:52.708 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.708 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.708 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.708 [debug] Executing bend with initial: 3
+14:13:52.708 [debug] Executing fun with value: 3
+14:13:52.708 [debug] Evaluating bend block with value: 3
+14:13:52.708 [debug] Block returned: %{variant: :leaf}
+14:13:52.708 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.708 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.708 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.708 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
+14:13:52.708 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}
+14:13:52.708 [debug] Executing bend with initial: 1
+14:13:52.708 [debug] Executing fun with value: 1
+14:13:52.708 [debug] Evaluating bend block with value: 1
+14:13:52.708 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
+14:13:52.708 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
+14:13:52.708 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 2, variant: :node}
+14:13:52.708 [debug] Executing bend with initial: 2
+14:13:52.708 [debug] Executing fun with value: 2
+14:13:52.708 [debug] Evaluating bend block with value: 2
+14:13:52.708 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.708 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.708 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.708 [debug] Executing bend with initial: 3
+14:13:52.708 [debug] Executing fun with value: 3
+14:13:52.708 [debug] Evaluating bend block with value: 3
+14:13:52.708 [debug] Block returned: %{variant: :leaf}
+14:13:52.708 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.708 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.708 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.708 [debug] Executing bend with initial: 3
+14:13:52.708 [debug] Executing fun with value: 3
+14:13:52.708 [debug] Evaluating bend block with value: 3
+14:13:52.708 [debug] Block returned: %{variant: :leaf}
+14:13:52.708 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.708 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.708 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.708 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
+14:13:52.708 [debug] Executing bend with initial: 2
+14:13:52.708 [debug] Executing fun with value: 2
+14:13:52.708 [debug] Evaluating bend block with value: 2
+14:13:52.708 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.708 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.708 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 4, variant: :node}
+14:13:52.708 [debug] Executing bend with initial: 3
+14:13:52.708 [debug] Executing fun with value: 3
+14:13:52.708 [debug] Evaluating bend block with value: 3
+14:13:52.708 [debug] Block returned: %{variant: :leaf}
+14:13:52.708 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.708 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.708 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.708 [debug] Executing bend with initial: 3
+14:13:52.708 [debug] Executing fun with value: 3
+14:13:52.709 [debug] Evaluating bend block with value: 3
+14:13:52.709 [debug] Block returned: %{variant: :leaf}
+14:13:52.709 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.709 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.709 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.709 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}
+14:13:52.709 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}
+14:13:52.709 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, value: 0, variant: :node}
+14:13:52.709 [debug] Final bend result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 4, variant: :node}, value: 2, variant: :node}, value: 0, variant: :node}
+.14:13:52.709 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}, value: 2, variant: :node}, variant_type: :node, state: nil
+14:13:52.709 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}, value: 2, variant: :node}
+14:13:52.709 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, variant_type: :node, state: nil
+14:13:52.709 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
+14:13:52.709 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.709 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.709 [debug] Recursive field result for left: []
+14:13:52.709 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.709 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.709 [debug] Recursive field result for right: []
+14:13:52.709 [debug] do_fold called with non-variant data: []
+14:13:52.709 [debug] do_fold called with non-variant data: []
+14:13:52.709 [debug] Recursive field result for left: [1]
+14:13:52.709 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}, variant_type: :node, state: nil
+14:13:52.709 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}
+14:13:52.709 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.709 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.709 [debug] Recursive field result for left: []
+14:13:52.709 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.709 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.709 [debug] Recursive field result for right: []
+14:13:52.709 [debug] do_fold called with non-variant data: []
+14:13:52.709 [debug] do_fold called with non-variant data: []
+14:13:52.709 [debug] Recursive field result for right: [3]
+14:13:52.709 [debug] do_fold called with non-variant data: [1]
+14:13:52.709 [debug] do_fold called with non-variant data: [3]
+.14:13:52.709 [debug] Bend initial value: 0
+14:13:52.709 [debug] Executing bend with initial: 0
+14:13:52.709 [debug] Executing fun with value: 0
+14:13:52.709 [debug] Evaluating bend block with value: 0
+14:13:52.709 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.709 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.710 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.710 [debug] Executing bend with initial: 1
+14:13:52.710 [debug] Executing fun with value: 1
+14:13:52.710 [debug] Evaluating bend block with value: 1
+14:13:52.710 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.710 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.710 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.710 [debug] Executing bend with initial: 2
+14:13:52.710 [debug] Executing fun with value: 2
+14:13:52.710 [debug] Evaluating bend block with value: 2
+14:13:52.710 [debug] Block returned: %{variant: :leaf}
+14:13:52.710 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.710 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.710 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.710 [debug] Executing bend with initial: 2
+14:13:52.710 [debug] Executing fun with value: 2
+14:13:52.710 [debug] Evaluating bend block with value: 2
+14:13:52.710 [debug] Block returned: %{variant: :leaf}
+14:13:52.710 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.710 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.710 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.710 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
+14:13:52.710 [debug] Executing bend with initial: 1
+14:13:52.710 [debug] Executing fun with value: 1
+14:13:52.710 [debug] Evaluating bend block with value: 1
+14:13:52.710 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.710 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.710 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.710 [debug] Executing bend with initial: 2
+14:13:52.710 [debug] Executing fun with value: 2
+14:13:52.710 [debug] Evaluating bend block with value: 2
+14:13:52.710 [debug] Block returned: %{variant: :leaf}
+14:13:52.710 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.710 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.710 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.710 [debug] Executing bend with initial: 2
+14:13:52.710 [debug] Executing fun with value: 2
+14:13:52.710 [debug] Evaluating bend block with value: 2
+14:13:52.710 [debug] Block returned: %{variant: :leaf}
+14:13:52.710 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.710 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.710 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.710 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
+14:13:52.710 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.710 [debug] Final bend result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.710 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}, variant_type: :node, state: nil
+14:13:52.710 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.710 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, variant_type: :node, state: nil
+14:13:52.710 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
+14:13:52.711 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.711 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.711 [debug] Recursive field result for left: %{variant: :leaf}
+14:13:52.711 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.711 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.711 [debug] Recursive field result for right: %{variant: :leaf}
+14:13:52.711 [debug] Recursive field result for left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}
+14:13:52.711 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}, variant_type: :node, state: nil
+14:13:52.711 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 1, variant: :node}
+14:13:52.711 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.711 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.711 [debug] Recursive field result for left: %{variant: :leaf}
+14:13:52.711 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.711 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.711 [debug] Recursive field result for right: %{variant: :leaf}
+14:13:52.711 [debug] Recursive field result for right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 3, variant: :node}
+.14:13:52.711 [debug] Bend initial value: 0
+14:13:52.711 [debug] Executing bend with initial: 0
+14:13:52.711 [debug] Executing fun with value: 0
+14:13:52.711 [debug] Evaluating bend block with value: 0
+14:13:52.711 [debug] Block returned: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.711 [debug] Fun returned result: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.711 [debug] Processing constructed value: %{left: {:fork, 1}, right: {:fork, 1}, value: 0, variant: :node}
+14:13:52.711 [debug] Executing bend with initial: 1
+14:13:52.711 [debug] Executing fun with value: 1
+14:13:52.711 [debug] Evaluating bend block with value: 1
+14:13:52.711 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.711 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.711 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.711 [debug] Executing bend with initial: 2
+14:13:52.711 [debug] Executing fun with value: 2
+14:13:52.711 [debug] Evaluating bend block with value: 2
+14:13:52.711 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.711 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.711 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.711 [debug] Executing bend with initial: 3
+14:13:52.711 [debug] Executing fun with value: 3
+14:13:52.711 [debug] Evaluating bend block with value: 3
+14:13:52.711 [debug] Block returned: %{variant: :leaf}
+14:13:52.711 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.711 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.711 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.711 [debug] Executing bend with initial: 3
+14:13:52.711 [debug] Executing fun with value: 3
+14:13:52.711 [debug] Evaluating bend block with value: 3
+14:13:52.711 [debug] Block returned: %{variant: :leaf}
+14:13:52.711 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.711 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.711 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.711 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.711 [debug] Executing bend with initial: 2
+14:13:52.711 [debug] Executing fun with value: 2
+14:13:52.711 [debug] Evaluating bend block with value: 2
+14:13:52.711 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.711 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.711 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.711 [debug] Executing bend with initial: 3
+14:13:52.711 [debug] Executing fun with value: 3
+14:13:52.711 [debug] Evaluating bend block with value: 3
+14:13:52.711 [debug] Block returned: %{variant: :leaf}
+14:13:52.711 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.711 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.712 [debug] Executing bend with initial: 3
+14:13:52.712 [debug] Executing fun with value: 3
+14:13:52.712 [debug] Evaluating bend block with value: 3
+14:13:52.712 [debug] Block returned: %{variant: :leaf}
+14:13:52.712 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.712 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.712 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.712 [debug] Executing bend with initial: 1
+14:13:52.712 [debug] Executing fun with value: 1
+14:13:52.712 [debug] Evaluating bend block with value: 1
+14:13:52.712 [debug] Block returned: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.712 [debug] Fun returned result: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.712 [debug] Processing constructed value: %{left: {:fork, 2}, right: {:fork, 2}, value: 1, variant: :node}
+14:13:52.712 [debug] Executing bend with initial: 2
+14:13:52.712 [debug] Executing fun with value: 2
+14:13:52.712 [debug] Evaluating bend block with value: 2
+14:13:52.712 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.712 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.712 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.712 [debug] Executing bend with initial: 3
+14:13:52.712 [debug] Executing fun with value: 3
+14:13:52.712 [debug] Evaluating bend block with value: 3
+14:13:52.712 [debug] Block returned: %{variant: :leaf}
+14:13:52.712 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.712 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.712 [debug] Executing bend with initial: 3
+14:13:52.712 [debug] Executing fun with value: 3
+14:13:52.712 [debug] Evaluating bend block with value: 3
+14:13:52.712 [debug] Block returned: %{variant: :leaf}
+14:13:52.712 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.712 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.712 [debug] Executing bend with initial: 2
+14:13:52.712 [debug] Executing fun with value: 2
+14:13:52.712 [debug] Evaluating bend block with value: 2
+14:13:52.712 [debug] Block returned: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.712 [debug] Fun returned result: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.712 [debug] Processing constructed value: %{left: {:fork, 3}, right: {:fork, 3}, value: 2, variant: :node}
+14:13:52.712 [debug] Executing bend with initial: 3
+14:13:52.712 [debug] Executing fun with value: 3
+14:13:52.712 [debug] Evaluating bend block with value: 3
+14:13:52.712 [debug] Block returned: %{variant: :leaf}
+14:13:52.712 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.712 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.712 [debug] Executing bend with initial: 3
+14:13:52.712 [debug] Executing fun with value: 3
+14:13:52.712 [debug] Evaluating bend block with value: 3
+14:13:52.712 [debug] Block returned: %{variant: :leaf}
+14:13:52.712 [debug] Fun returned result: %{variant: :leaf}
+14:13:52.712 [debug] Processing constructed value: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{variant: :leaf}
+14:13:52.712 [debug] do_bend final result: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.712 [debug] do_bend final result: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.712 [debug] do_bend final result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.712 [debug] Final bend result: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}, variant_type: :node, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, value: 0, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for left: %{variant: :leaf}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for right: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for left: %{variant: :leaf}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for right: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.713 [debug] Recursive field result for left: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 0, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}, variant_type: :node, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 1, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for left: %{variant: :leaf}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for right: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, variant_type: :node, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for left: %{variant: :leaf}
+14:13:52.713 [debug] do_fold called with data: %{variant: :leaf}, variant_type: :leaf, state: nil
+14:13:52.713 [debug] Processing recursive fields of: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for right: %{variant: :leaf}
+14:13:52.713 [debug] Recursive field result for right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}
+.14:13:52.713 [debug] Recursive field result for right: %{left: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, right: %{left: %{variant: :leaf}, right: %{variant: :leaf}, value: 2, variant: :node}, value: 0, variant: :node}
 
-Finished in 0.09 seconds (0.00s async, 0.09s sync)
+Finished in 0.06 seconds (0.00s async, 0.06s sync)
 5 tests, 0 failures
 
-Randomized with seed 759729
+Randomized with seed 620765
