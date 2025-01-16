@@ -58,17 +58,20 @@ defmodule ChainTest do
   end
 
   describe "reduce/3" do
+    @tag run: true
     test "reduces empty list" do
       {result, _} = Chain.reduce(Chain.tool([]), 0, &(&1 + &2))
       assert result == 0
     end
 
+    @tag run: true
     test "reduces list to sum" do
       list = sample_list()
       {result, _} = Chain.reduce(list, 0, &(&1 + &2))
       assert result == 15
     end
 
+    @tag run: true
     test "reduces with string concatenation" do
       list = Chain.tool(["a", "b", "c"])
       {result, _} = Chain.reduce(list, "", &(&2 <> &1))
@@ -126,6 +129,7 @@ defmodule ChainTest do
       assert Chain.breaker(result) == []
     end
 
+    @tag run: true
     test "takes less than list length" do
       list = sample_list()
       {result, _} = Chain.take(list, 3)
@@ -157,6 +161,7 @@ defmodule ChainTest do
       assert Chain.breaker(result) == []
     end
 
+    @tag run: true
     test "drops more than list length" do
       list = sample_list()
       {result, _} = Chain.drop(list, 10)

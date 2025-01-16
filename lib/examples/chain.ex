@@ -10,8 +10,8 @@ defmodule Chain do
   end
 
   # Create a new list from an Elixir list
-  def tool(enum) do
-    bend val = Enum.reverse(enum) do
+  def tool(enum) when is_list(enum) do
+    bend val = enum do
       case val do
         [] -> List.null()
         [head | tail] -> List.cons(head, fork(tail))
@@ -19,53 +19,94 @@ defmodule Chain do
     end
   end
 
+  def tool(enum) do
+    # Handle any other enumerable by converting to list first
+    enum
+    |> Enum.to_list()
+    |> tool()
+  end
+
   # Convert to Elixir list for easier printing/debugging
   def breaker(linked_list) do
-    fold linked_list do
-      case(cons(head, tail)) ->
-        [head | recu(tail)]
+    result =
+      case linked_list do
+        # Handle fork tuples from bend
+        {:fork, list} ->
+          breaker(list)
 
-      case(null()) ->
-        []
+        # Handle state tuples from fold/reverse operations
+        {list, _state} ->
+          # Process the actual list part from the tuple
+          fold list do
+            case(cons(head, tail)) -> [head | recu(tail)]
+            case(null()) -> []
+          end
+
+        # Process actual list structure
+        list ->
+          fold list do
+            case(cons(head, tail)) ->
+              [head | recu(tail)]
+
+            case(null()) ->
+              []
+          end
+      end
+
+    # Ensure we handle both direct lists and tupled results
+    case result do
+      {list, _state} when is_list(list) -> list
+      list when is_list(list) -> list
+      other -> raise "Unexpected result: #{inspect(other)}"
     end
   end
 
   # Map over list elements with a transform function
   def map(list, transform_fn) do
-    fold list do
-      case(cons(head, tail)) ->
-        List.cons(transform_fn.(head), recu(tail))
+    result =
+      fold list do
+        case(cons(head, tail)) ->
+          List.cons(transform_fn.(head), recu(tail))
 
-      case(null()) ->
-        List.null()
-    end
+        case(null()) ->
+          List.null()
+      end
+
+    {result, nil}
   end
 
   # Filter list elements based on predicate
   def filter(list, predicate) do
-    fold list do
-      case(cons(head, tail)) ->
-        if predicate.(head) do
-          List.cons(head, recu(tail))
-        else
-          recu(tail)
-        end
+    result =
+      fold list do
+        case(cons(head, tail)) ->
+          if predicate.(head) do
+            List.cons(head, recu(tail))
+          else
+            recu(tail)
+          end
 
-      case(null()) ->
-        List.null()
-    end
+        case(null()) ->
+          List.null()
+      end
+
+    {result, nil}
   end
 
-  # Reduce list to single value with accumulator
-  def reduce(list, initial, reducer_fn) do
-    fold list, with: initial do
-      case(cons(head, tail)) ->
-        {tail_result, new_acc} = recu(tail)
-        result = reducer_fn.(head, new_acc)
-        {result, result}
+  def reverse(list) do
+    {do_reverse(list, List.null()), nil}
+  end
 
-      case(null()) ->
-        {state, state}
+  # Helper function to do the actual recursion
+  defp do_reverse(list, acc) do
+    case list do
+      %{variant: :cons, head: head, tail: tail} ->
+        # Take head and prepend to accumulator
+        do_reverse(tail, List.cons(head, acc))
+
+      %{variant: :null} ->
+        # Return accumulated reversed list
+        acc
     end
   end
 
@@ -79,26 +120,45 @@ defmodule Chain do
 
   # Reverse the list
   def reverse(list) do
-    fold list, with: List.null() do
-      case(cons(head, tail)) ->
-        {_, acc} = recu(tail)
-        result = List.cons(head, acc)
-        {result, result}
+    # Initialize and track state through bend's value
+    result =
+      bend val = {list, List.null()} do
+        case elem(val, 0) do
+          %{variant: :cons, head: head, tail: tail} ->
+            # First create our new list node with current head
+            List.cons(
+              head,
+              case fork(tail) do
+                # Handle recursive result
+                %{variant: :cons} = next -> next
+                %{variant: :null} -> List.null()
+                # Handle initial processing
+                {:fork, next} -> next
+              end
+            )
 
-      case(null()) ->
-        {state, state}
-    end
+          %{variant: :null} ->
+            # At end of list, return the accumulated reversed list
+            elem(val, 1)
+        end
+      end
+
+    # The result is already in reversed order, no need to reverse again
+    {result, result}
   end
 
   # Concatenate two lists
   def concat(list1, list2) do
-    fold list1 do
-      case(cons(head, tail)) ->
-        List.cons(head, recu(tail))
+    result =
+      fold list1 do
+        case(cons(head, tail)) ->
+          List.cons(head, recu(tail))
 
-      case(null()) ->
-        list2
-    end
+        case(null()) ->
+          list2
+      end
+
+    {result, nil}
   end
 
   # Take first n elements
@@ -122,8 +182,8 @@ defmodule Chain do
     fold list, with: n do
       case(cons(head, tail)) ->
         if state > 0 do
-          {result, new_count} = recu(tail)
-          {result, new_count - 1}
+          {result, new_state} = recu(tail)
+          {result, new_state - 1}
         else
           {List.cons(head, recu(tail)), 0}
         end

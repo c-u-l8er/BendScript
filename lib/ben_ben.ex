@@ -265,7 +265,7 @@ defmodule BenBen do
     end)
   end
 
-  def do_fold(%{variant: variant_type} = data, state, fun) do
+  def do_fold(%{variant: variant_type} = data, state, fun) when is_function(fun) do
     Logger.debug(
       "do_fold called with data: #{inspect(data)}, variant_type: #{inspect(variant_type)}, state: #{inspect(state)}"
     )
@@ -275,6 +275,19 @@ defmodule BenBen do
 
     # Apply fun to processed data, maintaining the full structure
     fun.(processed, new_state)
+  end
+
+  # Add new clause for when the third argument is not a function
+  def do_fold(%{variant: variant_type} = data, state, non_fun) when not is_function(non_fun) do
+    Logger.debug(
+      "do_fold called with non-function: #{inspect(data)}, variant_type: #{inspect(variant_type)}, state: #{inspect(state)}, non_fun: #{inspect(non_fun)}"
+    )
+
+    if state != nil do
+      {data, state}
+    else
+      data
+    end
   end
 
   # Handle non-variant values by wrapping them in a structure
