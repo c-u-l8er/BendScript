@@ -217,7 +217,7 @@ be found at <https://hexdocs.pm/benben>.
 ## Run
 ```bash
 # test everything
-mix test 2>&1 | tee test.sdtout.txt
+mix test 2>&1 | tee test.stdout.txt
 
 # test specific files
 mix test test/examples/counter_test.exs 2>&1 | tee counter.stdout.txt
