@@ -161,35 +161,67 @@ defmodule Chain do
     {result, nil}
   end
 
-  # Take first n elements
-  def take(list, n) when n > 0 do
-    fold list, with: n do
+  # Reduce implementation
+  def reduce(list, initial, fun) do
+    fold list, with: initial do
       case(cons(head, tail)) ->
-        if state > 0 do
-          {tail_result, new_count} = recu(tail)
-          {List.cons(head, tail_result), new_count - 1}
-        else
-          {List.null(), 0}
-        end
+        # Get the recursive result first
+        {_tail_result, acc} = recu(tail)
+        # Apply function to accumulator and current head
+        # Changed order here
+        {List.null(), fun.(acc, head)}
 
       case(null()) ->
+        # Return initial value for empty list
         {List.null(), state}
     end
+    |> case do
+      {_list, acc} -> {acc, nil}
+    end
+  end
+
+  # Take first n elements
+  def take(list, n) when n > 0 do
+    result =
+      fold list, with: n do
+        case(cons(head, tail)) ->
+          if state > 0 do
+            {tail_result, new_count} = recu(tail)
+            {List.cons(head, tail_result), new_count - 1}
+          else
+            {List.null(), 0}
+          end
+
+        case(null()) ->
+          {List.null(), state}
+      end
+      # Take just the list part
+      |> elem(0)
+
+    {result, nil}
   end
 
   # Drop first n elements
   def drop(list, n) when n > 0 do
-    fold list, with: n do
-      case(cons(head, tail)) ->
-        if state > 0 do
-          {result, new_state} = recu(tail)
-          {result, new_state - 1}
-        else
-          {List.cons(head, recu(tail)), 0}
-        end
+    result =
+      fold list, with: n do
+        case(cons(head, tail)) ->
+          if state > 0 do
+            # Still dropping elements
+            {tail_result, remaining} = recu(tail)
+            {tail_result, remaining - 1}
+          else
+            # Keep current and remaining elements
+            {tail_result, _} = recu(tail)
+            {List.cons(head, tail_result), 0}
+          end
 
-      case(null()) ->
-        {List.null(), state}
-    end
+        case(null()) ->
+          {List.null(), state}
+      end
+      # Take just the list part
+      |> elem(0)
+
+    {result, nil}
   end
 end
