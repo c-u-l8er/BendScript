@@ -183,45 +183,40 @@ defmodule Chain do
   # Take first n elements
   def take(list, n) when n > 0 do
     result =
-      fold list, with: n do
-        case(cons(head, tail)) ->
-          if state > 0 do
-            {tail_result, new_count} = recu(tail)
-            {List.cons(head, tail_result), new_count - 1}
-          else
-            {List.null(), 0}
-          end
+      bend val = {list, n} do
+        case elem(val, 0) do
+          %{variant: :cons, head: head, tail: tail} ->
+            count = elem(val, 1)
 
-        case(null()) ->
-          {List.null(), state}
+            if count > 0 do
+              List.cons(head, fork({tail, count - 1}))
+            else
+              List.null()
+            end
+
+          %{variant: :null} ->
+            List.null()
+        end
       end
-      # Take just the list part
-      |> elem(0)
 
     {result, nil}
   end
 
   # Drop first n elements
   def drop(list, n) when n > 0 do
-    result =
-      fold list, with: n do
-        case(cons(head, tail)) ->
-          if state > 0 do
-            # Still dropping elements
-            {tail_result, remaining} = recu(tail)
-            {tail_result, remaining - 1}
-          else
-            # Keep current and remaining elements
-            {tail_result, _} = recu(tail)
-            {List.cons(head, tail_result), 0}
-          end
+    {do_drop(list, n), nil}
+  end
 
-        case(null()) ->
-          {List.null(), state}
-      end
-      # Take just the list part
-      |> elem(0)
+  defp do_drop(%{variant: :cons, head: _head, tail: tail}, n) when n > 0 do
+    do_drop(tail, n - 1)
+  end
 
-    {result, nil}
+  defp do_drop(%{variant: :null}, _n) do
+    List.null()
+  end
+
+  # Once we've dropped n elements, return the rest of the list
+  defp do_drop(list, 0) do
+    list
   end
 end

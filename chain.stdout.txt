@@ -1,176 +1,1487 @@
-Excluding tags: [:test, :skip]
-Including tags: [run: "true"]
+Excluding tags: [:skip]
 
-11:32:59.971 [debug] Bend initial value: [1, 2, 3, 4, 5]
-11:32:59.975 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
-11:32:59.975 [debug] Executing fun with value: [1, 2, 3, 4, 5]
-11:32:59.975 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
-11:32:59.978 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
-11:32:59.978 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
-11:32:59.978 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
-11:32:59.978 [debug] Executing bend with initial: [2, 3, 4, 5]
-11:32:59.978 [debug] Executing fun with value: [2, 3, 4, 5]
-11:32:59.978 [debug] Evaluating bend block with value: [2, 3, 4, 5]
-11:32:59.978 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
-11:32:59.978 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
-11:32:59.978 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
-11:32:59.978 [debug] Executing bend with initial: [3, 4, 5]
-11:32:59.978 [debug] Executing fun with value: [3, 4, 5]
-11:32:59.978 [debug] Evaluating bend block with value: [3, 4, 5]
-11:32:59.978 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
-11:32:59.978 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
-11:32:59.978 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
-11:32:59.978 [debug] Executing bend with initial: [4, 5]
-11:32:59.978 [debug] Executing fun with value: [4, 5]
-11:32:59.978 [debug] Evaluating bend block with value: [4, 5]
-11:32:59.978 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
-11:32:59.978 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
-11:32:59.978 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
-11:32:59.978 [debug] Executing bend with initial: [5]
-11:32:59.978 [debug] Executing fun with value: [5]
-11:32:59.978 [debug] Evaluating bend block with value: [5]
-11:32:59.978 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
-11:32:59.978 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
-11:32:59.978 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
-11:32:59.978 [debug] Executing bend with initial: []
-11:32:59.978 [debug] Executing fun with value: []
-11:32:59.978 [debug] Evaluating bend block with value: []
-11:32:59.978 [debug] Block returned: %{variant: :null}
-11:32:59.978 [debug] Fun returned result: %{variant: :null}
-11:32:59.978 [debug] Processing constructed value: %{variant: :null}
-11:32:59.978 [debug] do_bend final result: %{variant: :null}
-11:32:59.978 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
-11:32:59.978 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 2
-11:32:59.978 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 2
-11:32:59.978 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 2
-11:32:59.978 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 2
-11:32:59.978 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
-11:32:59.978 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: 2
-11:32:59.978 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
-11:32:59.978 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: 2
-11:32:59.978 [debug] Processing recursive fields of: %{variant: :null}
-11:32:59.978 [debug] Recursive field result for tail: {%{variant: :null}, 2}
-11:32:59.978 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 2, non_fun: %{head: 5, tail: %{variant: :null}, variant: :cons}
-11:32:59.978 [debug] Recursive field result for tail: {%{variant: :null}, 1}
-11:32:59.978 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 1, non_fun: %{head: 4, tail: %{variant: :null}, variant: :cons}
-11:32:59.978 [debug] Recursive field result for tail: {%{variant: :null}, 0}
-11:32:59.978 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 0, non_fun: %{head: 3, tail: %{variant: :null}, variant: :cons}
-11:32:59.978 [debug] Recursive field result for tail: {%{head: 3, tail: %{variant: :null}, variant: :cons}, 0}
-11:32:59.979 [debug] do_fold called with non-function: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: 0, non_fun: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
-11:32:59.979 [debug] Recursive field result for tail: {%{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 0}
-11:32:59.979 [debug] do_fold called with non-function: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 0, non_fun: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.979 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
-11:32:59.979 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.979 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
-11:32:59.979 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
-11:32:59.979 [debug] do_fold called with data: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
-11:32:59.979 [debug] Processing recursive fields of: %{head: 3, tail: %{variant: :null}, variant: :cons}
-11:32:59.979 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
-11:32:59.979 [debug] Processing recursive fields of: %{variant: :null}
-11:32:59.979 [debug] Recursive field result for tail: []
-11:32:59.979 [debug] do_fold called with non-variant data: []
-11:32:59.979 [debug] Recursive field result for tail: [3]
-11:32:59.979 [debug] do_fold called with non-variant data: [3]
-11:32:59.979 [debug] Recursive field result for tail: [2, 3]
-11:32:59.979 [debug] do_fold called with non-variant data: [2, 3]
-11:32:59.982 [debug] Bend initial value: [1, 2, 3, 4, 5]
-11:32:59.982 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
-11:32:59.982 [debug] Executing fun with value: [1, 2, 3, 4, 5]
-11:32:59.982 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
-11:32:59.982 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
-11:32:59.982 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
-11:32:59.982 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
-11:32:59.982 [debug] Executing bend with initial: [2, 3, 4, 5]
-11:32:59.982 [debug] Executing fun with value: [2, 3, 4, 5]
-11:32:59.982 [debug] Evaluating bend block with value: [2, 3, 4, 5]
-11:32:59.982 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
-11:32:59.982 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
-11:32:59.982 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
-11:32:59.982 [debug] Executing bend with initial: [3, 4, 5]
-11:32:59.982 [debug] Executing fun with value: [3, 4, 5]
-11:32:59.982 [debug] Evaluating bend block with value: [3, 4, 5]
-11:32:59.982 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
-11:32:59.982 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
-11:32:59.982 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
-11:32:59.982 [debug] Executing bend with initial: [4, 5]
-11:32:59.982 [debug] Executing fun with value: [4, 5]
-11:32:59.982 [debug] Evaluating bend block with value: [4, 5]
-11:32:59.982 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
-11:32:59.982 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
-11:32:59.982 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
-11:32:59.982 [debug] Executing bend with initial: [5]
-11:32:59.983 [debug] Executing fun with value: [5]
-11:32:59.983 [debug] Evaluating bend block with value: [5]
-11:32:59.983 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
-11:32:59.983 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
-11:32:59.983 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
-11:32:59.983 [debug] Executing bend with initial: []
-11:32:59.983 [debug] Executing fun with value: []
-11:32:59.983 [debug] Evaluating bend block with value: []
-11:32:59.983 [debug] Block returned: %{variant: :null}
-11:32:59.983 [debug] Fun returned result: %{variant: :null}
-11:32:59.983 [debug] Processing constructed value: %{variant: :null}
-11:32:59.983 [debug] do_bend final result: %{variant: :null}
-11:32:59.983 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
-11:32:59.983 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 3
-11:32:59.983 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 3
-11:32:59.983 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 3
-11:32:59.983 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 3
-11:32:59.983 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
-11:32:59.983 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: 3
-11:32:59.983 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
-11:32:59.983 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: 3
-11:32:59.983 [debug] Processing recursive fields of: %{variant: :null}
-11:32:59.983 [debug] Recursive field result for tail: {%{variant: :null}, 3}
-11:32:59.983 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 3, non_fun: %{head: 5, tail: %{variant: :null}, variant: :cons}
-11:32:59.983 [debug] Recursive field result for tail: {%{head: 5, tail: %{variant: :null}, variant: :cons}, 2}
-11:32:59.984 [debug] do_fold called with non-function: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: 2, non_fun: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
-11:32:59.984 [debug] Recursive field result for tail: {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 1}
-11:32:59.984 [debug] do_fold called with non-function: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 1, non_fun: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
-11:32:59.984 [debug] Recursive field result for tail: {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 0}
-11:32:59.984 [debug] Recursive field result for tail: {%{variant: :null}, 0}
-11:32:59.984 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
-11:32:59.984 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.314 [debug] Bend initial value: [1, 2, 3]
+11:45:51.318 [debug] Executing bend with initial: [1, 2, 3]
+11:45:51.318 [debug] Executing fun with value: [1, 2, 3]
+11:45:51.318 [debug] Evaluating bend block with value: [1, 2, 3]
+11:45:51.320 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3]}, variant: :cons}
+11:45:51.320 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3]}, variant: :cons}
+11:45:51.320 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3]}, variant: :cons}
+11:45:51.320 [debug] Executing bend with initial: [2, 3]
+11:45:51.321 [debug] Executing fun with value: [2, 3]
+11:45:51.321 [debug] Evaluating bend block with value: [2, 3]
+11:45:51.321 [debug] Block returned: %{head: 2, tail: {:fork, [3]}, variant: :cons}
+11:45:51.321 [debug] Fun returned result: %{head: 2, tail: {:fork, [3]}, variant: :cons}
+11:45:51.321 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3]}, variant: :cons}
+11:45:51.321 [debug] Executing bend with initial: [3]
+11:45:51.321 [debug] Executing fun with value: [3]
+11:45:51.321 [debug] Evaluating bend block with value: [3]
+11:45:51.321 [debug] Block returned: %{head: 3, tail: {:fork, []}, variant: :cons}
+11:45:51.321 [debug] Fun returned result: %{head: 3, tail: {:fork, []}, variant: :cons}
+11:45:51.321 [debug] Processing constructed value: %{head: 3, tail: {:fork, []}, variant: :cons}
+11:45:51.321 [debug] Executing bend with initial: []
+11:45:51.321 [debug] Executing fun with value: []
+11:45:51.321 [debug] Evaluating bend block with value: []
+11:45:51.321 [debug] Block returned: %{variant: :null}
+11:45:51.321 [debug] Fun returned result: %{variant: :null}
+11:45:51.321 [debug] Processing constructed value: %{variant: :null}
+11:45:51.321 [debug] do_bend final result: %{variant: :null}
+11:45:51.321 [debug] do_bend final result: %{head: 3, tail: %{variant: :null}, variant: :cons}
+11:45:51.321 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.321 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.321 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.321 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.321 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.321 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.321 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.321 [debug] do_fold called with data: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.321 [debug] Processing recursive fields of: %{head: 3, tail: %{variant: :null}, variant: :cons}
+11:45:51.321 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.321 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.321 [debug] Recursive field result for tail: []
+11:45:51.321 [debug] do_fold called with non-variant data: []
+11:45:51.321 [debug] Recursive field result for tail: [3]
+11:45:51.321 [debug] do_fold called with non-variant data: [3]
+11:45:51.321 [debug] Recursive field result for tail: [2, 3]
+11:45:51.321 [debug] do_fold called with non-variant data: [2, 3]
+.11:45:51.322 [debug] Bend initial value: ["a", "b", "c"]
+11:45:51.322 [debug] Executing bend with initial: ["a", "b", "c"]
+11:45:51.322 [debug] Executing fun with value: ["a", "b", "c"]
+11:45:51.322 [debug] Evaluating bend block with value: ["a", "b", "c"]
+11:45:51.322 [debug] Block returned: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.322 [debug] Fun returned result: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.322 [debug] Processing constructed value: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: ["b", "c"]
+11:45:51.323 [debug] Executing fun with value: ["b", "c"]
+11:45:51.323 [debug] Evaluating bend block with value: ["b", "c"]
+11:45:51.323 [debug] Block returned: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.323 [debug] Fun returned result: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.323 [debug] Processing constructed value: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: ["c"]
+11:45:51.323 [debug] Executing fun with value: ["c"]
+11:45:51.323 [debug] Evaluating bend block with value: ["c"]
+11:45:51.323 [debug] Block returned: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.323 [debug] Fun returned result: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.323 [debug] Processing constructed value: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: []
+11:45:51.323 [debug] Executing fun with value: []
+11:45:51.323 [debug] Evaluating bend block with value: []
+11:45:51.323 [debug] Block returned: %{variant: :null}
+11:45:51.323 [debug] Fun returned result: %{variant: :null}
+11:45:51.323 [debug] Processing constructed value: %{variant: :null}
+11:45:51.323 [debug] do_bend final result: %{variant: :null}
+11:45:51.323 [debug] do_bend final result: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.323 [debug] do_bend final result: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.323 [debug] do_bend final result: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.323 [debug] Final bend result: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.323 [debug] do_fold called with data: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.323 [debug] Processing recursive fields of: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.323 [debug] do_fold called with data: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.323 [debug] Processing recursive fields of: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.323 [debug] do_fold called with data: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.323 [debug] Processing recursive fields of: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.323 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.323 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.323 [debug] Recursive field result for tail: []
+11:45:51.323 [debug] do_fold called with non-variant data: []
+11:45:51.323 [debug] Recursive field result for tail: ["c"]
+11:45:51.323 [debug] do_fold called with non-variant data: ["c"]
+11:45:51.323 [debug] Recursive field result for tail: ["b", "c"]
+11:45:51.323 [debug] do_fold called with non-variant data: ["b", "c"]
+.11:45:51.323 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.323 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.323 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.323 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.323 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.323 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.323 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.323 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.323 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.323 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.323 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.323 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.323 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.323 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.323 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.323 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.323 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: [4, 5]
+11:45:51.323 [debug] Executing fun with value: [4, 5]
+11:45:51.323 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.323 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.323 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.323 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: [5]
+11:45:51.323 [debug] Executing fun with value: [5]
+11:45:51.323 [debug] Evaluating bend block with value: [5]
+11:45:51.323 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.323 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.323 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.323 [debug] Executing bend with initial: []
+11:45:51.323 [debug] Executing fun with value: []
+11:45:51.323 [debug] Evaluating bend block with value: []
+11:45:51.323 [debug] Block returned: %{variant: :null}
+11:45:51.323 [debug] Fun returned result: %{variant: :null}
+11:45:51.323 [debug] Processing constructed value: %{variant: :null}
+11:45:51.323 [debug] do_bend final result: %{variant: :null}
+11:45:51.323 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.323 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.323 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 0
+11:45:51.324 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 0
+11:45:51.324 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 0
+11:45:51.324 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: 0
+11:45:51.324 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.324 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: 0
+11:45:51.324 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.324 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: 0
+11:45:51.324 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.324 [debug] Recursive field result for tail: {%{variant: :null}, 0}
+11:45:51.324 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 0, non_fun: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.324 [debug] Recursive field result for tail: {%{variant: :null}, 5}
+11:45:51.324 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 5, non_fun: %{head: 4, tail: %{variant: :null}, variant: :cons}
+11:45:51.324 [debug] Recursive field result for tail: {%{variant: :null}, 9}
+11:45:51.324 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 9, non_fun: %{head: 3, tail: %{variant: :null}, variant: :cons}
+11:45:51.324 [debug] Recursive field result for tail: {%{variant: :null}, 12}
+11:45:51.324 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 12, non_fun: %{head: 2, tail: %{variant: :null}, variant: :cons}
+11:45:51.324 [debug] Recursive field result for tail: {%{variant: :null}, 14}
+11:45:51.324 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: 14, non_fun: %{head: 1, tail: %{variant: :null}, variant: :cons}
+.11:45:51.324 [debug] Bend initial value: []
+11:45:51.324 [debug] Executing bend with initial: []
+11:45:51.324 [debug] Executing fun with value: []
+11:45:51.324 [debug] Evaluating bend block with value: []
+11:45:51.324 [debug] Block returned: %{variant: :null}
+11:45:51.324 [debug] Fun returned result: %{variant: :null}
+11:45:51.324 [debug] Processing constructed value: %{variant: :null}
+11:45:51.324 [debug] do_bend final result: %{variant: :null}
+11:45:51.324 [debug] Final bend result: %{variant: :null}
+11:45:51.324 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.324 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.324 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.324 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.324 [debug] Bend initial value: []
+11:45:51.324 [debug] Executing bend with initial: []
+11:45:51.324 [debug] Executing fun with value: []
+11:45:51.324 [debug] Evaluating bend block with value: []
+11:45:51.324 [debug] Block returned: %{variant: :null}
+11:45:51.324 [debug] Fun returned result: %{variant: :null}
+11:45:51.324 [debug] Processing constructed value: %{variant: :null}
+11:45:51.324 [debug] do_bend final result: %{variant: :null}
+11:45:51.324 [debug] Final bend result: %{variant: :null}
+11:45:51.324 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.324 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.324 [debug] Bend initial value: []
+11:45:51.324 [debug] Executing bend with initial: []
+11:45:51.324 [debug] Executing fun with value: []
+11:45:51.324 [debug] Evaluating bend block with value: []
+11:45:51.324 [debug] Block returned: %{variant: :null}
+11:45:51.324 [debug] Fun returned result: %{variant: :null}
+11:45:51.324 [debug] Processing constructed value: %{variant: :null}
+11:45:51.324 [debug] do_bend final result: %{variant: :null}
+11:45:51.324 [debug] Final bend result: %{variant: :null}
+11:45:51.324 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.324 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.324 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+.11:45:51.324 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.324 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.324 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.324 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.324 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.324 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.324 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.324 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.324 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.324 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.324 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.324 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.324 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.324 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.324 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.324 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.324 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.325 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.325 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.325 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.325 [debug] Executing bend with initial: [4, 5]
+11:45:51.325 [debug] Executing fun with value: [4, 5]
+11:45:51.325 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.325 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.325 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.325 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.325 [debug] Executing bend with initial: [5]
+11:45:51.325 [debug] Executing fun with value: [5]
+11:45:51.325 [debug] Evaluating bend block with value: [5]
+11:45:51.325 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.325 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.325 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.325 [debug] Executing bend with initial: []
+11:45:51.325 [debug] Executing fun with value: []
+11:45:51.325 [debug] Evaluating bend block with value: []
+11:45:51.325 [debug] Block returned: %{variant: :null}
+11:45:51.325 [debug] Fun returned result: %{variant: :null}
+11:45:51.325 [debug] Processing constructed value: %{variant: :null}
+11:45:51.325 [debug] do_bend final result: %{variant: :null}
+11:45:51.325 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.325 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.325 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.325 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.325 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.325 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.325 [debug] Bend initial value: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 3}
+11:45:51.325 [debug] Executing bend with initial: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 3}
+11:45:51.325 [debug] Executing fun with value: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 3}
+11:45:51.325 [debug] Evaluating bend block with value: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 3}
+11:45:51.325 [debug] Block returned: %{head: 1, tail: {:fork, {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 2}}, variant: :cons}
+11:45:51.325 [debug] Fun returned result: %{head: 1, tail: {:fork, {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 2}}, variant: :cons}
+11:45:51.325 [debug] Processing constructed value: %{head: 1, tail: {:fork, {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 2}}, variant: :cons}
+11:45:51.325 [debug] Executing bend with initial: {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 2}
+11:45:51.325 [debug] Executing fun with value: {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 2}
+11:45:51.325 [debug] Evaluating bend block with value: {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 2}
+11:45:51.325 [debug] Block returned: %{head: 2, tail: {:fork, {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 1}}, variant: :cons}
+11:45:51.325 [debug] Fun returned result: %{head: 2, tail: {:fork, {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 1}}, variant: :cons}
+11:45:51.325 [debug] Processing constructed value: %{head: 2, tail: {:fork, {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 1}}, variant: :cons}
+11:45:51.325 [debug] Executing bend with initial: {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 1}
+11:45:51.325 [debug] Executing fun with value: {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 1}
+11:45:51.325 [debug] Evaluating bend block with value: {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 1}
+11:45:51.325 [debug] Block returned: %{head: 3, tail: {:fork, {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 0}}, variant: :cons}
+11:45:51.325 [debug] Fun returned result: %{head: 3, tail: {:fork, {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 0}}, variant: :cons}
+11:45:51.325 [debug] Processing constructed value: %{head: 3, tail: {:fork, {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 0}}, variant: :cons}
+11:45:51.325 [debug] Executing bend with initial: {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 0}
+11:45:51.325 [debug] Executing fun with value: {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 0}
+11:45:51.325 [debug] Evaluating bend block with value: {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 0}
+11:45:51.325 [debug] Block returned: %{variant: :null}
+11:45:51.325 [debug] Fun returned result: %{variant: :null}
+11:45:51.325 [debug] Processing constructed value: %{variant: :null}
+11:45:51.325 [debug] do_bend final result: %{variant: :null}
+11:45:51.325 [debug] do_bend final result: %{head: 3, tail: %{variant: :null}, variant: :cons}
+11:45:51.326 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.326 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.326 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.326 [debug] Processing recursive fields of: %{head: 3, tail: %{variant: :null}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.326 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.326 [debug] Recursive field result for tail: []
+11:45:51.326 [debug] do_fold called with non-variant data: []
+11:45:51.326 [debug] Recursive field result for tail: [3]
+11:45:51.326 [debug] do_fold called with non-variant data: [3]
+11:45:51.326 [debug] Recursive field result for tail: [2, 3]
+11:45:51.326 [debug] do_fold called with non-variant data: [2, 3]
+.11:45:51.326 [debug] Bend initial value: ["a", "b", "c"]
+11:45:51.326 [debug] Executing bend with initial: ["a", "b", "c"]
+11:45:51.326 [debug] Executing fun with value: ["a", "b", "c"]
+11:45:51.326 [debug] Evaluating bend block with value: ["a", "b", "c"]
+11:45:51.326 [debug] Block returned: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.326 [debug] Fun returned result: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.326 [debug] Processing constructed value: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.326 [debug] Executing bend with initial: ["b", "c"]
+11:45:51.326 [debug] Executing fun with value: ["b", "c"]
+11:45:51.326 [debug] Evaluating bend block with value: ["b", "c"]
+11:45:51.326 [debug] Block returned: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.326 [debug] Fun returned result: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.326 [debug] Processing constructed value: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.326 [debug] Executing bend with initial: ["c"]
+11:45:51.326 [debug] Executing fun with value: ["c"]
+11:45:51.326 [debug] Evaluating bend block with value: ["c"]
+11:45:51.326 [debug] Block returned: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.326 [debug] Fun returned result: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.326 [debug] Processing constructed value: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.326 [debug] Executing bend with initial: []
+11:45:51.326 [debug] Executing fun with value: []
+11:45:51.326 [debug] Evaluating bend block with value: []
+11:45:51.326 [debug] Block returned: %{variant: :null}
+11:45:51.326 [debug] Fun returned result: %{variant: :null}
+11:45:51.326 [debug] Processing constructed value: %{variant: :null}
+11:45:51.326 [debug] do_bend final result: %{variant: :null}
+11:45:51.326 [debug] do_bend final result: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.326 [debug] do_bend final result: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_bend final result: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] Final bend result: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: ""
+11:45:51.326 [debug] Processing recursive fields of: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: ""
+11:45:51.326 [debug] Processing recursive fields of: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: ""
+11:45:51.326 [debug] Processing recursive fields of: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.326 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: ""
+11:45:51.326 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.326 [debug] Recursive field result for tail: {%{variant: :null}, ""}
+11:45:51.326 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: "", non_fun: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.326 [debug] Recursive field result for tail: {%{variant: :null}, "c"}
+11:45:51.326 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: "c", non_fun: %{head: "b", tail: %{variant: :null}, variant: :cons}
+11:45:51.326 [debug] Recursive field result for tail: {%{variant: :null}, "bc"}
+11:45:51.326 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: "bc", non_fun: %{head: "a", tail: %{variant: :null}, variant: :cons}
+.11:45:51.327 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.327 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.327 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.327 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.327 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.327 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.327 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.327 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.327 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.327 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.327 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.327 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.327 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.327 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.327 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.327 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.327 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.327 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.327 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.327 [debug] Executing bend with initial: [4, 5]
+11:45:51.327 [debug] Executing fun with value: [4, 5]
+11:45:51.327 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.327 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.327 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.327 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.327 [debug] Executing bend with initial: [5]
+11:45:51.327 [debug] Executing fun with value: [5]
+11:45:51.327 [debug] Evaluating bend block with value: [5]
+11:45:51.327 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.327 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.327 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.327 [debug] Executing bend with initial: []
+11:45:51.327 [debug] Executing fun with value: []
+11:45:51.327 [debug] Evaluating bend block with value: []
+11:45:51.327 [debug] Block returned: %{variant: :null}
+11:45:51.327 [debug] Fun returned result: %{variant: :null}
+11:45:51.327 [debug] Processing constructed value: %{variant: :null}
+11:45:51.327 [debug] do_bend final result: %{variant: :null}
+11:45:51.327 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.327 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.327 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.327 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.327 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.327 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.327 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.327 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.327 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.327 [debug] Recursive field result for tail: %{variant: :null}
+11:45:51.327 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: nil, non_fun: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.327 [debug] Recursive field result for tail: %{variant: :null}
+11:45:51.327 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: nil, non_fun: %{head: 4, tail: %{variant: :null}, variant: :cons}
+11:45:51.327 [debug] Recursive field result for tail: %{head: 4, tail: %{variant: :null}, variant: :cons}
+11:45:51.327 [debug] do_fold called with non-function: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 3, tail: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] Recursive field result for tail: %{head: 4, tail: %{variant: :null}, variant: :cons}
+11:45:51.327 [debug] do_fold called with non-function: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 2, tail: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] Recursive field result for tail: %{head: 2, tail: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.327 [debug] do_fold called with non-function: %{head: 2, tail: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 1, tail: %{head: 2, tail: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_fold called with data: %{head: 2, tail: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.328 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_fold called with data: %{head: 4, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.328 [debug] Processing recursive fields of: %{head: 4, tail: %{variant: :null}, variant: :cons}
+11:45:51.328 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.328 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.328 [debug] Recursive field result for tail: []
+11:45:51.328 [debug] do_fold called with non-variant data: []
+11:45:51.328 [debug] Recursive field result for tail: [4]
+11:45:51.328 [debug] do_fold called with non-variant data: [4]
+.11:45:51.328 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.328 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.328 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.328 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.328 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.328 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.328 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.328 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.328 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.328 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.328 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.328 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.328 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.328 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.328 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.328 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.328 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.328 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.328 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.328 [debug] Executing bend with initial: [4, 5]
+11:45:51.328 [debug] Executing fun with value: [4, 5]
+11:45:51.328 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.328 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.328 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.328 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.328 [debug] Executing bend with initial: [5]
+11:45:51.328 [debug] Executing fun with value: [5]
+11:45:51.328 [debug] Evaluating bend block with value: [5]
+11:45:51.328 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.328 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.328 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.328 [debug] Executing bend with initial: []
+11:45:51.328 [debug] Executing fun with value: []
+11:45:51.328 [debug] Evaluating bend block with value: []
+11:45:51.328 [debug] Block returned: %{variant: :null}
+11:45:51.328 [debug] Fun returned result: %{variant: :null}
+11:45:51.328 [debug] Processing constructed value: %{variant: :null}
+11:45:51.328 [debug] do_bend final result: %{variant: :null}
+11:45:51.328 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.328 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.328 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.328 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.328 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.328 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.328 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.328 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.328 [debug] Recursive field result for tail: []
+11:45:51.328 [debug] do_fold called with non-variant data: []
+11:45:51.328 [debug] Recursive field result for tail: [5]
+11:45:51.328 [debug] do_fold called with non-variant data: [5]
+11:45:51.328 [debug] Recursive field result for tail: [4, 5]
+11:45:51.328 [debug] do_fold called with non-variant data: [4, 5]
+.11:45:51.328 [debug] Bend initial value: []
+11:45:51.328 [debug] Executing bend with initial: []
+11:45:51.328 [debug] Executing fun with value: []
+11:45:51.328 [debug] Evaluating bend block with value: []
+11:45:51.328 [debug] Block returned: %{variant: :null}
+11:45:51.329 [debug] Fun returned result: %{variant: :null}
+11:45:51.329 [debug] Processing constructed value: %{variant: :null}
+11:45:51.329 [debug] do_bend final result: %{variant: :null}
+11:45:51.329 [debug] Final bend result: %{variant: :null}
+11:45:51.329 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.329 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.329 [debug] Bend initial value: [1, 2, 3]
+11:45:51.329 [debug] Executing bend with initial: [1, 2, 3]
+11:45:51.329 [debug] Executing fun with value: [1, 2, 3]
+11:45:51.329 [debug] Evaluating bend block with value: [1, 2, 3]
+11:45:51.329 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3]}, variant: :cons}
+11:45:51.329 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3]}, variant: :cons}
+11:45:51.329 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3]}, variant: :cons}
+11:45:51.329 [debug] Executing bend with initial: [2, 3]
+11:45:51.329 [debug] Executing fun with value: [2, 3]
+11:45:51.329 [debug] Evaluating bend block with value: [2, 3]
+11:45:51.329 [debug] Block returned: %{head: 2, tail: {:fork, [3]}, variant: :cons}
+11:45:51.329 [debug] Fun returned result: %{head: 2, tail: {:fork, [3]}, variant: :cons}
+11:45:51.329 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3]}, variant: :cons}
+11:45:51.329 [debug] Executing bend with initial: [3]
+11:45:51.329 [debug] Executing fun with value: [3]
+11:45:51.329 [debug] Evaluating bend block with value: [3]
+11:45:51.329 [debug] Block returned: %{head: 3, tail: {:fork, []}, variant: :cons}
+11:45:51.329 [debug] Fun returned result: %{head: 3, tail: {:fork, []}, variant: :cons}
+11:45:51.329 [debug] Processing constructed value: %{head: 3, tail: {:fork, []}, variant: :cons}
+11:45:51.329 [debug] Executing bend with initial: []
+11:45:51.329 [debug] Executing fun with value: []
+11:45:51.329 [debug] Evaluating bend block with value: []
+11:45:51.329 [debug] Block returned: %{variant: :null}
+11:45:51.329 [debug] Fun returned result: %{variant: :null}
+11:45:51.329 [debug] Processing constructed value: %{variant: :null}
+11:45:51.329 [debug] do_bend final result: %{variant: :null}
+11:45:51.329 [debug] do_bend final result: %{head: 3, tail: %{variant: :null}, variant: :cons}
+11:45:51.329 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.329 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.329 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.329 [debug] Bend initial value: [4, 5, 6]
+11:45:51.329 [debug] Executing bend with initial: [4, 5, 6]
+11:45:51.329 [debug] Executing fun with value: [4, 5, 6]
+11:45:51.329 [debug] Evaluating bend block with value: [4, 5, 6]
+11:45:51.329 [debug] Block returned: %{head: 4, tail: {:fork, [5, 6]}, variant: :cons}
+11:45:51.329 [debug] Fun returned result: %{head: 4, tail: {:fork, [5, 6]}, variant: :cons}
+11:45:51.329 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5, 6]}, variant: :cons}
+11:45:51.329 [debug] Executing bend with initial: [5, 6]
+11:45:51.329 [debug] Executing fun with value: [5, 6]
+11:45:51.329 [debug] Evaluating bend block with value: [5, 6]
+11:45:51.329 [debug] Block returned: %{head: 5, tail: {:fork, [6]}, variant: :cons}
+11:45:51.329 [debug] Fun returned result: %{head: 5, tail: {:fork, [6]}, variant: :cons}
+11:45:51.329 [debug] Processing constructed value: %{head: 5, tail: {:fork, [6]}, variant: :cons}
+11:45:51.329 [debug] Executing bend with initial: [6]
+11:45:51.329 [debug] Executing fun with value: [6]
+11:45:51.329 [debug] Evaluating bend block with value: [6]
+11:45:51.329 [debug] Block returned: %{head: 6, tail: {:fork, []}, variant: :cons}
+11:45:51.329 [debug] Fun returned result: %{head: 6, tail: {:fork, []}, variant: :cons}
+11:45:51.329 [debug] Processing constructed value: %{head: 6, tail: {:fork, []}, variant: :cons}
+11:45:51.329 [debug] Executing bend with initial: []
+11:45:51.329 [debug] Executing fun with value: []
+11:45:51.329 [debug] Evaluating bend block with value: []
+11:45:51.329 [debug] Block returned: %{variant: :null}
+11:45:51.329 [debug] Fun returned result: %{variant: :null}
+11:45:51.329 [debug] Processing constructed value: %{variant: :null}
+11:45:51.329 [debug] do_bend final result: %{variant: :null}
+11:45:51.329 [debug] do_bend final result: %{head: 6, tail: %{variant: :null}, variant: :cons}
+11:45:51.329 [debug] do_bend final result: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.329 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.329 [debug] Final bend result: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.329 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.329 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.329 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{head: 3, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 3, tail: %{variant: :null}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.330 [debug] Recursive field result for tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with non-function: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] Recursive field result for tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with non-function: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] Recursive field result for tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with non-function: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 5, tail: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{head: 6, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{head: 6, tail: %{variant: :null}, variant: :cons}
+11:45:51.330 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.330 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.330 [debug] Recursive field result for tail: []
+11:45:51.330 [debug] do_fold called with non-variant data: []
+11:45:51.330 [debug] Recursive field result for tail: [6]
+11:45:51.330 [debug] do_fold called with non-variant data: [6]
+11:45:51.330 [debug] Recursive field result for tail: [5, 6]
+11:45:51.330 [debug] do_fold called with non-variant data: [5, 6]
+11:45:51.330 [debug] Recursive field result for tail: [4, 5, 6]
+11:45:51.330 [debug] do_fold called with non-variant data: [4, 5, 6]
+11:45:51.330 [debug] Recursive field result for tail: [3, 4, 5, 6]
+11:45:51.330 [debug] do_fold called with non-variant data: [3, 4, 5, 6]
+11:45:51.330 [debug] Recursive field result for tail: [2, 3, 4, 5, 6]
+11:45:51.330 [debug] do_fold called with non-variant data: [2, 3, 4, 5, 6]
+.11:45:51.330 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.330 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.330 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.330 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.330 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.330 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.330 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.330 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.330 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.330 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.330 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.330 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.330 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.330 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.330 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.330 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.330 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.330 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.330 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.330 [debug] Executing bend with initial: [4, 5]
+11:45:51.330 [debug] Executing fun with value: [4, 5]
+11:45:51.330 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.330 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.330 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.330 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.330 [debug] Executing bend with initial: [5]
+11:45:51.330 [debug] Executing fun with value: [5]
+11:45:51.330 [debug] Evaluating bend block with value: [5]
+11:45:51.330 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.330 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.331 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.331 [debug] Executing bend with initial: []
+11:45:51.331 [debug] Executing fun with value: []
+11:45:51.331 [debug] Evaluating bend block with value: []
+11:45:51.331 [debug] Block returned: %{variant: :null}
+11:45:51.331 [debug] Fun returned result: %{variant: :null}
+11:45:51.331 [debug] Processing constructed value: %{variant: :null}
+11:45:51.331 [debug] do_bend final result: %{variant: :null}
+11:45:51.331 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.331 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_fold called with data: %{head: 5, tail: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.331 [debug] Processing recursive fields of: %{head: 5, tail: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_fold called with data: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.331 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_fold called with data: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.331 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_fold called with data: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.331 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.331 [debug] do_fold called with data: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.331 [debug] Processing recursive fields of: %{head: 1, tail: %{variant: :null}, variant: :cons}
+11:45:51.331 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.331 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.331 [debug] Recursive field result for tail: []
+11:45:51.331 [debug] do_fold called with non-variant data: []
+11:45:51.331 [debug] Recursive field result for tail: [1]
+11:45:51.331 [debug] do_fold called with non-variant data: [1]
+11:45:51.331 [debug] Recursive field result for tail: [2, 1]
+11:45:51.331 [debug] do_fold called with non-variant data: [2, 1]
+11:45:51.331 [debug] Recursive field result for tail: [3, 2, 1]
+11:45:51.331 [debug] do_fold called with non-variant data: [3, 2, 1]
+11:45:51.331 [debug] Recursive field result for tail: [4, 3, 2, 1]
+11:45:51.331 [debug] do_fold called with non-variant data: [4, 3, 2, 1]
+.11:45:51.331 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.331 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.331 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.331 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.331 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.331 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.331 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.331 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.331 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.331 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.331 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.331 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.332 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.332 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.332 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.332 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.332 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.332 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.332 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.332 [debug] Executing bend with initial: [4, 5]
+11:45:51.332 [debug] Executing fun with value: [4, 5]
+11:45:51.332 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.332 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.332 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.332 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.332 [debug] Executing bend with initial: [5]
+11:45:51.332 [debug] Executing fun with value: [5]
+11:45:51.332 [debug] Evaluating bend block with value: [5]
+11:45:51.332 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.332 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.332 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.332 [debug] Executing bend with initial: []
+11:45:51.332 [debug] Executing fun with value: []
+11:45:51.332 [debug] Evaluating bend block with value: []
+11:45:51.332 [debug] Block returned: %{variant: :null}
+11:45:51.332 [debug] Fun returned result: %{variant: :null}
+11:45:51.332 [debug] Processing constructed value: %{variant: :null}
+11:45:51.332 [debug] do_bend final result: %{variant: :null}
+11:45:51.332 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.332 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.332 [debug] Recursive field result for tail: %{variant: :null}
+11:45:51.332 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: nil, non_fun: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.332 [debug] Recursive field result for tail: %{head: 10, tail: %{variant: :null}, variant: :cons}
+11:45:51.332 [debug] do_fold called with non-function: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 4, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] Recursive field result for tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with non-function: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 3, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] Recursive field result for tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with non-function: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 2, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] Recursive field result for tail: %{head: 4, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with non-function: %{head: 4, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 1, tail: %{head: 4, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 2, tail: %{head: 4, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 4, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 4, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 6, tail: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 8, tail: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{head: 10, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{head: 10, tail: %{variant: :null}, variant: :cons}
+11:45:51.332 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.332 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.333 [debug] Recursive field result for tail: []
+11:45:51.333 [debug] do_fold called with non-variant data: []
+11:45:51.333 [debug] Recursive field result for tail: '\n'
+11:45:51.333 [debug] do_fold called with non-variant data: '\n'
+11:45:51.333 [debug] Recursive field result for tail: '\b\n'
+11:45:51.333 [debug] do_fold called with non-variant data: '\b\n'
+11:45:51.333 [debug] Recursive field result for tail: [6, 8, 10]
+11:45:51.333 [debug] do_fold called with non-variant data: [6, 8, 10]
+11:45:51.333 [debug] Recursive field result for tail: [4, 6, 8, 10]
+11:45:51.333 [debug] do_fold called with non-variant data: [4, 6, 8, 10]
+.11:45:51.333 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.333 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.333 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.333 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.333 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.333 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.333 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.333 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.333 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.333 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.333 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.333 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.333 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.333 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.333 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.333 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.333 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.333 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.333 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.333 [debug] Executing bend with initial: [4, 5]
+11:45:51.333 [debug] Executing fun with value: [4, 5]
+11:45:51.333 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.333 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.333 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.333 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.333 [debug] Executing bend with initial: [5]
+11:45:51.333 [debug] Executing fun with value: [5]
+11:45:51.333 [debug] Evaluating bend block with value: [5]
+11:45:51.333 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.333 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.333 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.333 [debug] Executing bend with initial: []
+11:45:51.333 [debug] Executing fun with value: []
+11:45:51.333 [debug] Evaluating bend block with value: []
+11:45:51.333 [debug] Block returned: %{variant: :null}
+11:45:51.333 [debug] Fun returned result: %{variant: :null}
+11:45:51.333 [debug] Processing constructed value: %{variant: :null}
+11:45:51.333 [debug] do_bend final result: %{variant: :null}
+11:45:51.333 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.333 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.333 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.333 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.333 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.333 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.333 [debug] Bend initial value: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 10}
+11:45:51.333 [debug] Executing bend with initial: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 10}
+11:45:51.333 [debug] Executing fun with value: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 10}
+11:45:51.333 [debug] Evaluating bend block with value: {%{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 10}
+11:45:51.334 [debug] Block returned: %{head: 1, tail: {:fork, {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 9}}, variant: :cons}
+11:45:51.334 [debug] Fun returned result: %{head: 1, tail: {:fork, {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 9}}, variant: :cons}
+11:45:51.334 [debug] Processing constructed value: %{head: 1, tail: {:fork, {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 9}}, variant: :cons}
+11:45:51.334 [debug] Executing bend with initial: {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 9}
+11:45:51.334 [debug] Executing fun with value: {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 9}
+11:45:51.334 [debug] Evaluating bend block with value: {%{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, 9}
+11:45:51.334 [debug] Block returned: %{head: 2, tail: {:fork, {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 8}}, variant: :cons}
+11:45:51.334 [debug] Fun returned result: %{head: 2, tail: {:fork, {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 8}}, variant: :cons}
+11:45:51.334 [debug] Processing constructed value: %{head: 2, tail: {:fork, {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 8}}, variant: :cons}
+11:45:51.334 [debug] Executing bend with initial: {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 8}
+11:45:51.334 [debug] Executing fun with value: {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 8}
+11:45:51.334 [debug] Evaluating bend block with value: {%{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, 8}
+11:45:51.334 [debug] Block returned: %{head: 3, tail: {:fork, {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 7}}, variant: :cons}
+11:45:51.334 [debug] Fun returned result: %{head: 3, tail: {:fork, {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 7}}, variant: :cons}
+11:45:51.334 [debug] Processing constructed value: %{head: 3, tail: {:fork, {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 7}}, variant: :cons}
+11:45:51.334 [debug] Executing bend with initial: {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 7}
+11:45:51.334 [debug] Executing fun with value: {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 7}
+11:45:51.334 [debug] Evaluating bend block with value: {%{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, 7}
+11:45:51.334 [debug] Block returned: %{head: 4, tail: {:fork, {%{head: 5, tail: %{variant: :null}, variant: :cons}, 6}}, variant: :cons}
+11:45:51.334 [debug] Fun returned result: %{head: 4, tail: {:fork, {%{head: 5, tail: %{variant: :null}, variant: :cons}, 6}}, variant: :cons}
+11:45:51.334 [debug] Processing constructed value: %{head: 4, tail: {:fork, {%{head: 5, tail: %{variant: :null}, variant: :cons}, 6}}, variant: :cons}
+11:45:51.334 [debug] Executing bend with initial: {%{head: 5, tail: %{variant: :null}, variant: :cons}, 6}
+11:45:51.334 [debug] Executing fun with value: {%{head: 5, tail: %{variant: :null}, variant: :cons}, 6}
+11:45:51.334 [debug] Evaluating bend block with value: {%{head: 5, tail: %{variant: :null}, variant: :cons}, 6}
+11:45:51.334 [debug] Block returned: %{head: 5, tail: {:fork, {%{variant: :null}, 5}}, variant: :cons}
+11:45:51.334 [debug] Fun returned result: %{head: 5, tail: {:fork, {%{variant: :null}, 5}}, variant: :cons}
+11:45:51.334 [debug] Processing constructed value: %{head: 5, tail: {:fork, {%{variant: :null}, 5}}, variant: :cons}
+11:45:51.334 [debug] Executing bend with initial: {%{variant: :null}, 5}
+11:45:51.334 [debug] Executing fun with value: {%{variant: :null}, 5}
+11:45:51.334 [debug] Evaluating bend block with value: {%{variant: :null}, 5}
+11:45:51.334 [debug] Block returned: %{variant: :null}
+11:45:51.334 [debug] Fun returned result: %{variant: :null}
+11:45:51.334 [debug] Processing constructed value: %{variant: :null}
+11:45:51.334 [debug] do_bend final result: %{variant: :null}
+11:45:51.334 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.334 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.334 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.334 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.334 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.334 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.334 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.335 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.335 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.335 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.335 [debug] Recursive field result for tail: []
+11:45:51.335 [debug] do_fold called with non-variant data: []
+11:45:51.335 [debug] Recursive field result for tail: [5]
+11:45:51.335 [debug] do_fold called with non-variant data: [5]
+11:45:51.335 [debug] Recursive field result for tail: [4, 5]
+11:45:51.335 [debug] do_fold called with non-variant data: [4, 5]
+11:45:51.335 [debug] Recursive field result for tail: [3, 4, 5]
+.11:45:51.335 [debug] do_fold called with non-variant data: [3, 4, 5]
+11:45:51.335 [debug] Recursive field result for tail: [2, 3, 4, 5]
+11:45:51.335 [debug] do_fold called with non-variant data: [2, 3, 4, 5]
+11:45:51.335 [debug] Bend initial value: []
+11:45:51.335 [debug] Executing bend with initial: []
+11:45:51.335 [debug] Executing fun with value: []
+11:45:51.335 [debug] Evaluating bend block with value: []
+11:45:51.335 [debug] Block returned: %{variant: :null}
+11:45:51.335 [debug] Fun returned result: %{variant: :null}
+11:45:51.335 [debug] Processing constructed value: %{variant: :null}
+11:45:51.335 [debug] do_bend final result: %{variant: :null}
+11:45:51.335 [debug] Final bend result: %{variant: :null}
+11:45:51.335 [debug] Bend initial value: {%{variant: :null}, 3}
+11:45:51.335 [debug] Executing bend with initial: {%{variant: :null}, 3}
+11:45:51.335 [debug] Executing fun with value: {%{variant: :null}, 3}
+11:45:51.335 [debug] Evaluating bend block with value: {%{variant: :null}, 3}
+11:45:51.335 [debug] Block returned: %{variant: :null}
+11:45:51.335 [debug] Fun returned result: %{variant: :null}
+11:45:51.335 [debug] Processing constructed value: %{variant: :null}
+11:45:51.335 [debug] do_bend final result: %{variant: :null}
+11:45:51.335 [debug] Final bend result: %{variant: :null}
+11:45:51.335 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.335 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.335 [debug] Bend initial value: []
+11:45:51.335 [debug] Executing bend with initial: []
+11:45:51.335 [debug] Executing fun with value: []
+11:45:51.335 [debug] Evaluating bend block with value: []
+11:45:51.335 [debug] Block returned: %{variant: :null}
+11:45:51.335 [debug] Fun returned result: %{variant: :null}
+11:45:51.335 [debug] Processing constructed value: %{variant: :null}
+11:45:51.335 [debug] do_bend final result: %{variant: :null}
+11:45:51.335 [debug] Final bend result: %{variant: :null}
+11:45:51.335 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.335 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.335 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.335 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.335 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.335 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.335 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.335 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.335 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.335 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.335 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.335 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.335 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.335 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.335 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.335 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.335 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.335 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.335 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.335 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.335 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.336 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.336 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.336 [debug] Executing bend with initial: [4, 5]
+11:45:51.336 [debug] Executing fun with value: [4, 5]
+11:45:51.336 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.336 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.336 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.336 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.336 [debug] Executing bend with initial: [5]
+11:45:51.336 [debug] Executing fun with value: [5]
+11:45:51.336 [debug] Evaluating bend block with value: [5]
+11:45:51.336 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.336 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.336 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.336 [debug] Executing bend with initial: []
+11:45:51.336 [debug] Executing fun with value: []
+11:45:51.336 [debug] Evaluating bend block with value: []
+11:45:51.336 [debug] Block returned: %{variant: :null}
+11:45:51.336 [debug] Fun returned result: %{variant: :null}
+11:45:51.336 [debug] Processing constructed value: %{variant: :null}
+11:45:51.336 [debug] do_bend final result: %{variant: :null}
+11:45:51.336 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.336 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.336 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.336 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.336 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.336 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.336 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.336 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.336 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.336 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.336 [debug] Recursive field result for tail: 0
+11:45:51.336 [debug] do_fold called with non-variant data: 0
+11:45:51.336 [debug] Recursive field result for tail: 1
+11:45:51.336 [debug] do_fold called with non-variant data: 1
+11:45:51.336 [debug] Recursive field result for tail: 2
+11:45:51.336 [debug] do_fold called with non-variant data: 2
+11:45:51.336 [debug] Recursive field result for tail: 3
+11:45:51.336 [debug] do_fold called with non-variant data: 3
+11:45:51.336 [debug] Recursive field result for tail: 4
+11:45:51.336 [debug] do_fold called with non-variant data: 4
+.11:45:51.336 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.336 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.336 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.336 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.336 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.336 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.336 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.336 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.336 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.336 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.336 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.336 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.336 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.336 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.336 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.336 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.336 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.336 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.336 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.336 [debug] Executing bend with initial: [4, 5]
+11:45:51.336 [debug] Executing fun with value: [4, 5]
+11:45:51.336 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.336 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.336 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.336 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.336 [debug] Executing bend with initial: [5]
+11:45:51.336 [debug] Executing fun with value: [5]
+11:45:51.336 [debug] Evaluating bend block with value: [5]
+11:45:51.336 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.337 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.337 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.337 [debug] Executing bend with initial: []
+11:45:51.337 [debug] Executing fun with value: []
+11:45:51.337 [debug] Evaluating bend block with value: []
+11:45:51.337 [debug] Block returned: %{variant: :null}
+11:45:51.337 [debug] Fun returned result: %{variant: :null}
+11:45:51.337 [debug] Processing constructed value: %{variant: :null}
+11:45:51.337 [debug] do_bend final result: %{variant: :null}
+11:45:51.337 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.337 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.337 [debug] Bend initial value: ["a", "b", "aa", "bb", "aaa"]
+11:45:51.337 [debug] Executing bend with initial: ["a", "b", "aa", "bb", "aaa"]
+11:45:51.337 [debug] Executing fun with value: ["a", "b", "aa", "bb", "aaa"]
+11:45:51.337 [debug] Evaluating bend block with value: ["a", "b", "aa", "bb", "aaa"]
+11:45:51.337 [debug] Block returned: %{head: "a", tail: {:fork, ["b", "aa", "bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Fun returned result: %{head: "a", tail: {:fork, ["b", "aa", "bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Processing constructed value: %{head: "a", tail: {:fork, ["b", "aa", "bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Executing bend with initial: ["b", "aa", "bb", "aaa"]
+11:45:51.337 [debug] Executing fun with value: ["b", "aa", "bb", "aaa"]
+11:45:51.337 [debug] Evaluating bend block with value: ["b", "aa", "bb", "aaa"]
+11:45:51.337 [debug] Block returned: %{head: "b", tail: {:fork, ["aa", "bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Fun returned result: %{head: "b", tail: {:fork, ["aa", "bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Processing constructed value: %{head: "b", tail: {:fork, ["aa", "bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Executing bend with initial: ["aa", "bb", "aaa"]
+11:45:51.337 [debug] Executing fun with value: ["aa", "bb", "aaa"]
+11:45:51.337 [debug] Evaluating bend block with value: ["aa", "bb", "aaa"]
+11:45:51.337 [debug] Block returned: %{head: "aa", tail: {:fork, ["bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Fun returned result: %{head: "aa", tail: {:fork, ["bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Processing constructed value: %{head: "aa", tail: {:fork, ["bb", "aaa"]}, variant: :cons}
+11:45:51.337 [debug] Executing bend with initial: ["bb", "aaa"]
+11:45:51.337 [debug] Executing fun with value: ["bb", "aaa"]
+11:45:51.337 [debug] Evaluating bend block with value: ["bb", "aaa"]
+11:45:51.337 [debug] Block returned: %{head: "bb", tail: {:fork, ["aaa"]}, variant: :cons}
+11:45:51.337 [debug] Fun returned result: %{head: "bb", tail: {:fork, ["aaa"]}, variant: :cons}
+11:45:51.337 [debug] Processing constructed value: %{head: "bb", tail: {:fork, ["aaa"]}, variant: :cons}
+11:45:51.337 [debug] Executing bend with initial: ["aaa"]
+11:45:51.337 [debug] Executing fun with value: ["aaa"]
+11:45:51.337 [debug] Evaluating bend block with value: ["aaa"]
+11:45:51.337 [debug] Block returned: %{head: "aaa", tail: {:fork, []}, variant: :cons}
+11:45:51.337 [debug] Fun returned result: %{head: "aaa", tail: {:fork, []}, variant: :cons}
+11:45:51.337 [debug] Processing constructed value: %{head: "aaa", tail: {:fork, []}, variant: :cons}
+11:45:51.337 [debug] Executing bend with initial: []
+11:45:51.337 [debug] Executing fun with value: []
+11:45:51.337 [debug] Evaluating bend block with value: []
+11:45:51.337 [debug] Block returned: %{variant: :null}
+11:45:51.337 [debug] Fun returned result: %{variant: :null}
+11:45:51.337 [debug] Processing constructed value: %{variant: :null}
+11:45:51.337 [debug] do_bend final result: %{variant: :null}
+11:45:51.337 [debug] do_bend final result: %{head: "aaa", tail: %{variant: :null}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_bend final result: %{head: "a", tail: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] Final bend result: %{head: "a", tail: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_fold called with data: %{head: "a", tail: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.337 [debug] Processing recursive fields of: %{head: "a", tail: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.337 [debug] do_fold called with data: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{head: "aaa", tail: %{variant: :null}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.338 [debug] Recursive field result for tail: %{variant: :null}
+11:45:51.338 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: nil, non_fun: %{head: "aaa", tail: %{variant: :null}, variant: :cons}
+11:45:51.338 [debug] Recursive field result for tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}
+11:45:51.338 [debug] do_fold called with non-function: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] Recursive field result for tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with non-function: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] Recursive field result for tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with non-function: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: "b", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] Recursive field result for tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with non-function: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: "a", tail: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{head: "aa", tail: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{head: "bb", tail: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{head: "aaa", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{head: "aaa", tail: %{variant: :null}, variant: :cons}
+11:45:51.338 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.338 [debug] Recursive field result for tail: []
+11:45:51.338 [debug] do_fold called with non-variant data: []
+11:45:51.338 [debug] Recursive field result for tail: ["aaa"]
+11:45:51.338 [debug] do_fold called with non-variant data: ["aaa"]
+11:45:51.338 [debug] Recursive field result for tail: ["bb", "aaa"]
+11:45:51.338 [debug] do_fold called with non-variant data: ["bb", "aaa"]
+.11:45:51.338 [debug] Bend initial value: []
+11:45:51.338 [debug] Executing bend with initial: []
+11:45:51.338 [debug] Executing fun with value: []
+11:45:51.338 [debug] Evaluating bend block with value: []
+11:45:51.338 [debug] Block returned: %{variant: :null}
+11:45:51.338 [debug] Fun returned result: %{variant: :null}
+11:45:51.338 [debug] Processing constructed value: %{variant: :null}
+11:45:51.338 [debug] do_bend final result: %{variant: :null}
+11:45:51.338 [debug] Final bend result: %{variant: :null}
+11:45:51.338 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.338 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.339 [debug] Bend initial value: ["a", "b", "c"]
+11:45:51.339 [debug] Executing bend with initial: ["a", "b", "c"]
+11:45:51.339 [debug] Executing fun with value: ["a", "b", "c"]
+11:45:51.339 [debug] Evaluating bend block with value: ["a", "b", "c"]
+11:45:51.339 [debug] Block returned: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.339 [debug] Fun returned result: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.339 [debug] Processing constructed value: %{head: "a", tail: {:fork, ["b", "c"]}, variant: :cons}
+11:45:51.339 [debug] Executing bend with initial: ["b", "c"]
+11:45:51.339 [debug] Executing fun with value: ["b", "c"]
+11:45:51.339 [debug] Evaluating bend block with value: ["b", "c"]
+11:45:51.339 [debug] Block returned: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.339 [debug] Fun returned result: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.339 [debug] Processing constructed value: %{head: "b", tail: {:fork, ["c"]}, variant: :cons}
+11:45:51.339 [debug] Executing bend with initial: ["c"]
+11:45:51.339 [debug] Executing fun with value: ["c"]
+11:45:51.339 [debug] Evaluating bend block with value: ["c"]
+11:45:51.339 [debug] Block returned: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.339 [debug] Fun returned result: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.339 [debug] Processing constructed value: %{head: "c", tail: {:fork, []}, variant: :cons}
+11:45:51.339 [debug] Executing bend with initial: []
+11:45:51.339 [debug] Executing fun with value: []
+11:45:51.339 [debug] Evaluating bend block with value: []
+11:45:51.339 [debug] Block returned: %{variant: :null}
+11:45:51.339 [debug] Fun returned result: %{variant: :null}
+11:45:51.339 [debug] Processing constructed value: %{variant: :null}
+11:45:51.339 [debug] do_bend final result: %{variant: :null}
+11:45:51.339 [debug] do_bend final result: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.339 [debug] do_bend final result: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.339 [debug] do_bend final result: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.339 [debug] Final bend result: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.339 [debug] do_fold called with data: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.339 [debug] Processing recursive fields of: %{head: "a", tail: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.339 [debug] do_fold called with data: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.339 [debug] Processing recursive fields of: %{head: "b", tail: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.339 [debug] do_fold called with data: %{head: "c", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.339 [debug] Processing recursive fields of: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.339 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.339 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.339 [debug] Recursive field result for tail: %{variant: :null}
+11:45:51.344 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: nil, non_fun: %{head: "c", tail: %{variant: :null}, variant: :cons}
+11:45:51.344 [debug] Recursive field result for tail: %{head: "C", tail: %{variant: :null}, variant: :cons}
+11:45:51.344 [debug] do_fold called with non-function: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: "b", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.344 [debug] Recursive field result for tail: %{head: "B", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.344 [debug] do_fold called with non-function: %{head: "B", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: "a", tail: %{head: "B", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.344 [debug] do_fold called with data: %{head: "A", tail: %{head: "B", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.344 [debug] Processing recursive fields of: %{head: "A", tail: %{head: "B", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.344 [debug] do_fold called with data: %{head: "B", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.344 [debug] Processing recursive fields of: %{head: "B", tail: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.344 [debug] do_fold called with data: %{head: "C", tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.344 [debug] Processing recursive fields of: %{head: "C", tail: %{variant: :null}, variant: :cons}
+11:45:51.344 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.344 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.344 [debug] Recursive field result for tail: []
+11:45:51.344 [debug] do_fold called with non-variant data: []
+11:45:51.344 [debug] Recursive field result for tail: ["C"]
+11:45:51.344 [debug] do_fold called with non-variant data: ["C"]
+11:45:51.344 [debug] Recursive field result for tail: ["B", "C"]
+11:45:51.344 [debug] do_fold called with non-variant data: ["B", "C"]
+.11:45:51.344 [debug] Bend initial value: []
+11:45:51.344 [debug] Executing bend with initial: []
+11:45:51.344 [debug] Executing fun with value: []
+11:45:51.344 [debug] Evaluating bend block with value: []
+11:45:51.344 [debug] Block returned: %{variant: :null}
+11:45:51.344 [debug] Fun returned result: %{variant: :null}
+11:45:51.344 [debug] Processing constructed value: %{variant: :null}
+11:45:51.344 [debug] do_bend final result: %{variant: :null}
+11:45:51.344 [debug] Final bend result: %{variant: :null}
+11:45:51.344 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.344 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.344 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.345 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.345 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.345 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.345 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.345 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.345 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.345 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.345 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.345 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.345 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.345 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.345 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.345 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.345 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.345 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.345 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.345 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.345 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.345 [debug] Executing bend with initial: [4, 5]
+11:45:51.345 [debug] Executing fun with value: [4, 5]
+11:45:51.345 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.345 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.345 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.345 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.345 [debug] Executing bend with initial: [5]
+11:45:51.345 [debug] Executing fun with value: [5]
+11:45:51.345 [debug] Evaluating bend block with value: [5]
+11:45:51.345 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.345 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.345 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.345 [debug] Executing bend with initial: []
+11:45:51.345 [debug] Executing fun with value: []
+11:45:51.345 [debug] Evaluating bend block with value: []
+11:45:51.345 [debug] Block returned: %{variant: :null}
+11:45:51.345 [debug] Fun returned result: %{variant: :null}
+11:45:51.345 [debug] Processing constructed value: %{variant: :null}
+11:45:51.345 [debug] do_bend final result: %{variant: :null}
+11:45:51.345 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.345 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.345 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.345 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.345 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.345 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.345 [debug] Bend initial value: []
+11:45:51.345 [debug] Executing bend with initial: []
+11:45:51.345 [debug] Executing fun with value: []
+11:45:51.345 [debug] Evaluating bend block with value: []
+11:45:51.345 [debug] Block returned: %{variant: :null}
+11:45:51.345 [debug] Fun returned result: %{variant: :null}
+11:45:51.345 [debug] Processing constructed value: %{variant: :null}
+11:45:51.345 [debug] do_bend final result: %{variant: :null}
+11:45:51.345 [debug] Final bend result: %{variant: :null}
+11:45:51.345 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.345 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.345 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.346 [debug] Recursive field result for tail: %{variant: :null}
+11:45:51.346 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: nil, non_fun: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.346 [debug] Recursive field result for tail: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.346 [debug] do_fold called with non-function: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] Recursive field result for tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with non-function: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] Recursive field result for tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with non-function: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] Recursive field result for tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with non-function: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.346 [debug] Recursive field result for tail: []
+11:45:51.346 [debug] do_fold called with non-variant data: []
+11:45:51.346 [debug] Recursive field result for tail: [5]
+11:45:51.346 [debug] do_fold called with non-variant data: [5]
+11:45:51.346 [debug] Recursive field result for tail: [4, 5]
+11:45:51.346 [debug] do_fold called with non-variant data: [4, 5]
+11:45:51.346 [debug] Recursive field result for tail: [3, 4, 5]
+11:45:51.346 [debug] do_fold called with non-variant data: [3, 4, 5]
+11:45:51.346 [debug] Recursive field result for tail: [2, 3, 4, 5]
+11:45:51.346 [debug] do_fold called with non-variant data: [2, 3, 4, 5]
+11:45:51.346 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.346 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.346 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.346 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.347 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.347 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.347 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.347 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.347 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.347 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.347 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.347 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.347 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.347 [debug] Recursive field result for tail: []
+11:45:51.347 [debug] do_fold called with non-variant data: []
+11:45:51.347 [debug] Recursive field result for tail: [5]
+11:45:51.347 [debug] do_fold called with non-variant data: [5]
+11:45:51.347 [debug] Recursive field result for tail: [4, 5]
+11:45:51.347 [debug] do_fold called with non-variant data: [4, 5]
+11:45:51.347 [debug] Recursive field result for tail: [3, 4, 5]
+11:45:51.347 [debug] do_fold called with non-variant data: [3, 4, 5]
+11:45:51.347 [debug] Recursive field result for tail: [2, 3, 4, 5]
+11:45:51.347 [debug] do_fold called with non-variant data: [2, 3, 4, 5]
+.11:45:51.347 [debug] Bend initial value: []
+11:45:51.347 [debug] Executing bend with initial: []
+11:45:51.347 [debug] Executing fun with value: []
+11:45:51.347 [debug] Evaluating bend block with value: []
+11:45:51.347 [debug] Block returned: %{variant: :null}
+11:45:51.347 [debug] Fun returned result: %{variant: :null}
+11:45:51.347 [debug] Processing constructed value: %{variant: :null}
+11:45:51.347 [debug] do_bend final result: %{variant: :null}
+11:45:51.347 [debug] Final bend result: %{variant: :null}
+11:45:51.347 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: 0
+11:45:51.347 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.347 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.347 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.347 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.347 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.347 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.347 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.347 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.347 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.347 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.347 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.347 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.347 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.347 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.347 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.347 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.347 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.347 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.347 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.347 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.347 [debug] Executing bend with initial: [4, 5]
+11:45:51.347 [debug] Executing fun with value: [4, 5]
+11:45:51.347 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.347 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.347 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.347 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.347 [debug] Executing bend with initial: [5]
+11:45:51.347 [debug] Executing fun with value: [5]
+11:45:51.347 [debug] Evaluating bend block with value: [5]
+11:45:51.347 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.348 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.348 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.348 [debug] Executing bend with initial: []
+11:45:51.348 [debug] Executing fun with value: []
+11:45:51.348 [debug] Evaluating bend block with value: []
+11:45:51.348 [debug] Block returned: %{variant: :null}
+11:45:51.348 [debug] Fun returned result: %{variant: :null}
+11:45:51.348 [debug] Processing constructed value: %{variant: :null}
+11:45:51.348 [debug] do_bend final result: %{variant: :null}
+11:45:51.348 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.348 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{head: 5, tail: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{head: 5, tail: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{head: 1, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{head: 1, tail: %{variant: :null}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.348 [debug] Recursive field result for tail: %{variant: :null}
+11:45:51.348 [debug] do_fold called with non-function: %{variant: :null}, variant_type: :null, state: nil, non_fun: %{head: 1, tail: %{variant: :null}, variant: :cons}
+11:45:51.348 [debug] Recursive field result for tail: %{head: 2, tail: %{variant: :null}, variant: :cons}
+11:45:51.348 [debug] do_fold called with non-function: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 2, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] Recursive field result for tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with non-function: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 3, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] Recursive field result for tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with non-function: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 4, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] Recursive field result for tail: %{head: 8, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with non-function: %{head: 8, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil, non_fun: %{head: 5, tail: %{head: 8, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{head: 10, tail: %{head: 8, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{head: 10, tail: %{head: 8, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.348 [debug] do_fold called with data: %{head: 8, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.348 [debug] Processing recursive fields of: %{head: 8, tail: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.349 [debug] Processing recursive fields of: %{head: 6, tail: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.349 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{head: 2, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.349 [debug] Processing recursive fields of: %{head: 2, tail: %{variant: :null}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.349 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.349 [debug] Recursive field result for tail: []
+11:45:51.349 [debug] do_fold called with non-variant data: []
+11:45:51.349 [debug] Recursive field result for tail: [2]
+11:45:51.349 [debug] do_fold called with non-variant data: [2]
+11:45:51.349 [debug] Recursive field result for tail: [4, 2]
+11:45:51.349 [debug] do_fold called with non-variant data: [4, 2]
+11:45:51.349 [debug] Recursive field result for tail: [6, 4, 2]
+11:45:51.349 [debug] do_fold called with non-variant data: [6, 4, 2]
+11:45:51.349 [debug] Recursive field result for tail: [8, 6, 4, 2]
+11:45:51.349 [debug] do_fold called with non-variant data: [8, 6, 4, 2]
+.11:45:51.349 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.349 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.349 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.349 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.349 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.349 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.349 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.349 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.349 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.349 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.349 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.349 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.349 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.349 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.349 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.349 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.349 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.349 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.349 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.349 [debug] Executing bend with initial: [4, 5]
+11:45:51.349 [debug] Executing fun with value: [4, 5]
+11:45:51.349 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.349 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.349 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.349 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.349 [debug] Executing bend with initial: [5]
+11:45:51.349 [debug] Executing fun with value: [5]
+11:45:51.349 [debug] Evaluating bend block with value: [5]
+11:45:51.349 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.349 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.349 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.349 [debug] Executing bend with initial: []
+11:45:51.349 [debug] Executing fun with value: []
+11:45:51.349 [debug] Evaluating bend block with value: []
+11:45:51.349 [debug] Block returned: %{variant: :null}
+11:45:51.349 [debug] Fun returned result: %{variant: :null}
+11:45:51.349 [debug] Processing constructed value: %{variant: :null}
+11:45:51.349 [debug] do_bend final result: %{variant: :null}
+11:45:51.349 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.349 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.349 [debug] Processing recursive fields of: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.349 [debug] Processing recursive fields of: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.349 [debug] Processing recursive fields of: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.349 [debug] do_fold called with data: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant_type: :cons, state: nil
+.11:45:51.350 [debug] Processing recursive fields of: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.350 [debug] do_fold called with data: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant_type: :cons, state: nil
+11:45:51.350 [debug] Processing recursive fields of: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.350 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.350 [debug] Processing recursive fields of: %{variant: :null}
+11:45:51.350 [debug] Recursive field result for tail: []
+11:45:51.350 [debug] do_fold called with non-variant data: []
+11:45:51.350 [debug] Recursive field result for tail: [5]
+11:45:51.350 [debug] do_fold called with non-variant data: [5]
+11:45:51.350 [debug] Recursive field result for tail: [4, 5]
+11:45:51.350 [debug] do_fold called with non-variant data: [4, 5]
+11:45:51.350 [debug] Recursive field result for tail: [3, 4, 5]
+11:45:51.350 [debug] do_fold called with non-variant data: [3, 4, 5]
+11:45:51.350 [debug] Recursive field result for tail: [2, 3, 4, 5]
+11:45:51.350 [debug] do_fold called with non-variant data: [2, 3, 4, 5]
+11:45:51.350 [debug] Bend initial value: [1, 2, 3, 4, 5]
+11:45:51.350 [debug] Executing bend with initial: [1, 2, 3, 4, 5]
+11:45:51.350 [debug] Executing fun with value: [1, 2, 3, 4, 5]
+11:45:51.350 [debug] Evaluating bend block with value: [1, 2, 3, 4, 5]
+11:45:51.350 [debug] Block returned: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.350 [debug] Fun returned result: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.350 [debug] Processing constructed value: %{head: 1, tail: {:fork, [2, 3, 4, 5]}, variant: :cons}
+11:45:51.350 [debug] Executing bend with initial: [2, 3, 4, 5]
+11:45:51.350 [debug] Executing fun with value: [2, 3, 4, 5]
+11:45:51.350 [debug] Evaluating bend block with value: [2, 3, 4, 5]
+11:45:51.350 [debug] Block returned: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.350 [debug] Fun returned result: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.350 [debug] Processing constructed value: %{head: 2, tail: {:fork, [3, 4, 5]}, variant: :cons}
+11:45:51.350 [debug] Executing bend with initial: [3, 4, 5]
+11:45:51.350 [debug] Executing fun with value: [3, 4, 5]
+11:45:51.350 [debug] Evaluating bend block with value: [3, 4, 5]
+11:45:51.350 [debug] Block returned: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.350 [debug] Fun returned result: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.350 [debug] Processing constructed value: %{head: 3, tail: {:fork, [4, 5]}, variant: :cons}
+11:45:51.350 [debug] Executing bend with initial: [4, 5]
+11:45:51.350 [debug] Executing fun with value: [4, 5]
+11:45:51.350 [debug] Evaluating bend block with value: [4, 5]
+11:45:51.350 [debug] Block returned: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.350 [debug] Fun returned result: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.350 [debug] Processing constructed value: %{head: 4, tail: {:fork, [5]}, variant: :cons}
+11:45:51.350 [debug] Executing bend with initial: [5]
+11:45:51.350 [debug] Executing fun with value: [5]
+11:45:51.350 [debug] Evaluating bend block with value: [5]
+11:45:51.350 [debug] Block returned: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.350 [debug] Fun returned result: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.350 [debug] Processing constructed value: %{head: 5, tail: {:fork, []}, variant: :cons}
+11:45:51.350 [debug] Executing bend with initial: []
+11:45:51.350 [debug] Executing fun with value: []
+11:45:51.350 [debug] Evaluating bend block with value: []
+11:45:51.350 [debug] Block returned: %{variant: :null}
+11:45:51.350 [debug] Fun returned result: %{variant: :null}
+11:45:51.350 [debug] Processing constructed value: %{variant: :null}
+11:45:51.350 [debug] do_bend final result: %{variant: :null}
+11:45:51.350 [debug] do_bend final result: %{head: 5, tail: %{variant: :null}, variant: :cons}
+11:45:51.350 [debug] do_bend final result: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}
+11:45:51.350 [debug] do_bend final result: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.350 [debug] do_bend final result: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.350 [debug] do_bend final result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.350 [debug] Final bend result: %{head: 1, tail: %{head: 2, tail: %{head: 3, tail: %{head: 4, tail: %{head: 5, tail: %{variant: :null}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}, variant: :cons}
+11:45:51.350 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.350 [debug] Processing recursive fields of: %{variant: :null}
+.11:45:51.350 [debug] Bend initial value: []
+11:45:51.350 [debug] Executing bend with initial: []
+11:45:51.350 [debug] Executing fun with value: []
+11:45:51.350 [debug] Evaluating bend block with value: []
+11:45:51.350 [debug] Block returned: %{variant: :null}
+11:45:51.350 [debug] Fun returned result: %{variant: :null}
+11:45:51.350 [debug] Processing constructed value: %{variant: :null}
+11:45:51.350 [debug] do_bend final result: %{variant: :null}
+11:45:51.350 [debug] Final bend result: %{variant: :null}
+11:45:51.350 [debug] do_fold called with data: %{variant: :null}, variant_type: :null, state: nil
+11:45:51.350 [debug] Processing recursive fields of: %{variant: :null}
+.
+Finished in 0.09 seconds (0.00s async, 0.09s sync)
+29 tests, 0 failures
 
-
-  1) test drop/2 drops less than list length (ChainTest)
-     test/examples/chain_test.exs:153
-     Assertion with == failed
-     code:  assert Chain.breaker(result) == [3, 4, 5]
-     left:  [1, 2, 3]
-     right: [3, 4, 5]
-     stacktrace:
-       test/examples/chain_test.exs:156: (test)
-
-
-
-  2) test take/2 takes less than list length (ChainTest)
-     test/examples/chain_test.exs:133
-     Assertion with == failed
-     code:  assert Chain.breaker(result) == [1, 2, 3]
-     left:  []
-     right: [1, 2, 3]
-     stacktrace:
-       test/examples/chain_test.exs:136: (test)
-
-
-Finished in 0.07 seconds (0.00s async, 0.07s sync)
-29 tests, 2 failures, 27 excluded
-
-Randomized with seed 887105
+Randomized with seed 231458

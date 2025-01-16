@@ -129,7 +129,7 @@ defmodule ChainTest do
       assert Chain.breaker(result) == []
     end
 
-    @tag run: true
+    # @tag run: true
     test "takes less than list length" do
       list = sample_list()
       {result, _} = Chain.take(list, 3)
@@ -156,12 +156,14 @@ defmodule ChainTest do
       assert Chain.breaker(result) == [3, 4, 5]
     end
 
+    @tag run: true
     test "drops exact list length" do
       list = sample_list()
       {result, _} = Chain.drop(list, 5)
       assert Chain.breaker(result) == []
     end
 
+    @tag run: true
     test "drops more than list length" do
       list = sample_list()
       {result, _} = Chain.drop(list, 10)

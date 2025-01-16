@@ -219,13 +219,16 @@ be found at <https://hexdocs.pm/benben>.
 # test everything
 mix test 2>&1 | tee test.sdtout.txt
 
-# test reg server
+# test specific files
 mix test test/examples/counter_test.exs 2>&1 | tee counter.stdout.txt
 mix test test/examples/chain_test.exs 2>&1 | tee chain.stdout.txt
 mix test test/examples/graffiti_test.exs 2>&1 | tee graffiti.stdout.txt
 mix test test/examples/parents_test.exs 2>&1 | tee parents.stdout.txt
 mix test test/examples/prop_graph_test.exs 2>&1 | tee prop_graph.stdout.txt
 mix test test/examples/simple_graph_test.exs 2>&1 | tee simple_graph.stdout.txt
+
+# test specific tests within a file
+mix test test/examples/chain_test.exs --only run:true 2>&1 | tee chain.stdout.txt
 ```
 
 ## AI Prompt Notes
