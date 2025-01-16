@@ -94,8 +94,8 @@ so BenBen it is!
 when it comes to looping over the phrenia data type...
 
 we have two methods:
-bend -> which is about recusive splitting and allocation using conditions
-fold -> which is about recusive merging and computation using cases
+- bend -> which is about recusive splitting and allocation using conditions
+- fold -> which is about recusive merging and computation using cases
 
 first, let's have a look at bend...
 ```elixir
@@ -161,8 +161,8 @@ couple of projects. the main goal is still compsci but i'd like to
 fit in at least 2 big projects as stepping stones that will hopefully
 get me there.
 
-the first is, "DeJa: Video Ultra"
-the second is, "Thread & Burl"
+- the first is, "DeJa: Video Ultra"
+- the second is, "Thread & Burl"
 
 i wont be registering official domain names for them to save money
 instead i'll just create seperate github repos and link to this
