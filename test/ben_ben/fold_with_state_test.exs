@@ -1,6 +1,6 @@
 defmodule FoldWithStateTest do
   use ExUnit.Case
-  import BenBen
+  import KernelShtf.BenBen
 
   # Define test types
   phrenia LinkedList do

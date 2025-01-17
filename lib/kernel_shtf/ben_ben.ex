@@ -1,4 +1,4 @@
-defmodule BenBen do
+defmodule KernelShtf.BenBen do
   require Logger
 
   defmacro phrenia(name, do: block) do

@@ -1,5 +1,5 @@
 defmodule PropGraph do
-  import BenBen
+  import KernelShtf.BenBen
 
   phrenia Graph do
     # Each variant with unique field names

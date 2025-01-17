@@ -1,6 +1,6 @@
 defmodule Graffiti do
   require Logger
-  import BenBen
+  import KernelShtf.BenBen
   alias PropGraph
   alias Graffiti.Persistence
 

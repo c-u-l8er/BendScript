@@ -1,23 +1,23 @@
 defmodule Counter do
-  use RegServer
+  use KernelShtf.Wonder
 
   # Define initial state
-  defstate do
+  magic do
     %{count: 0}
   end
 
   # Define synchronous calls
-  defcall(:get_count, []) do
+  force(:get_count, []) do
     state.count
   end
 
-  defcall(:increment, [amount]) do
+  force(:increment, [amount]) do
     new_count = state.count + amount
     %{state | count: new_count}
   end
 
   # Define asynchronous casts
-  defcast(:reset, []) do
+  spell(:reset, []) do
     %{state | count: 0}
   end
 

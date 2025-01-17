@@ -1,5 +1,5 @@
 defmodule Chain do
-  import BenBen
+  import KernelShtf.BenBen
 
   # Define our linked list data type with two variants:
   # cons - for list nodes with a value and next pointer

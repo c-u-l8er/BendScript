@@ -1,5 +1,5 @@
 defmodule Parents do
-  import BenBen
+  import KernelShtf.BenBen
 
   phrenia Tree do
     node(value, recu(left), recu(right))

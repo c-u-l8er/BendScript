@@ -1,6 +1,6 @@
 defmodule BenBenTest do
   use ExUnit.Case
-  import BenBen
+  import KernelShtf.BenBen
 
   # Define test types
   phrenia BinaryTree do

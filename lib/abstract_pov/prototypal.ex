@@ -1,5 +1,5 @@
 defmodule Prototypal do
-  import BenBen
+  import KernelShtf.BenBen
 
   # Define the object type structure
   phrenia ProtoObject do

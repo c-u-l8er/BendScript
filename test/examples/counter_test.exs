@@ -40,9 +40,10 @@ defmodule CounterTest do
     end
 
     test "handles multiple concurrent calls", %{server: pid} do
-      tasks = for i <- 1..5 do
-        Task.async(fn -> Counter.increment(pid, i) end)
-      end
+      tasks =
+        for i <- 1..5 do
+          Task.async(fn -> Counter.increment(pid, i) end)
+        end
 
       _results = Task.await_many(tasks)
       assert Enum.sum(1..5) == Counter.get_count(pid)
@@ -50,18 +51,19 @@ defmodule CounterTest do
 
     test "server survives unexpected messages", %{server: pid} do
       send(pid, :unexpected_message)
-      assert Counter.get_count(pid) == 0  # Server should still be responsive
+      # Server should still be responsive
+      assert Counter.get_count(pid) == 0
       assert Counter.increment(pid, 1) == 1
     end
   end
 
   describe "RegServer error handling" do
     test "timeout on call to non-existent server" do
-      assert RegServer.Server.call(self(), {:any, :request}) == {:error, :timeout}
+      assert KernelShtf.Wonder.Server.call(self(), {:any, :request}) == {:error, :timeout}
     end
 
     test "cast to non-existent server doesn't raise" do
-      assert RegServer.Server.cast(self(), {:any, :request}) == :ok
+      assert KernelShtf.Wonder.Server.cast(self(), {:any, :request}) == :ok
     end
   end
 

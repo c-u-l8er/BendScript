@@ -1,5 +1,5 @@
 defmodule SimpleGraph do
-  import BenBen
+  import KernelShtf.BenBen
 
   # Define our simple graph structure without weights or properties
   phrenia Graph do
