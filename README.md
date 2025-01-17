@@ -37,7 +37,7 @@ the splitting and merging phrenia:
 ```elixir
 # benben includes phrenia, bend, fold, fork, and recu marcos
 # where recu indicates recursive fields
-import BenBen
+import KernelShtf.BenBen
 
 # here is a type of brain that can be defined
 phrenia BinaryTree do
@@ -73,7 +73,6 @@ phrenia Transaction do
   rolled_back(reason, timestamp)
 end
 ```
-> full examples are in ./lib/examples
 
 what is a BenBen tho?
 ```text
@@ -172,7 +171,7 @@ everything in graphrenia will act as a singleton. i only have a one
 old xeon machine connected to the internet that will run BEAM.
 
 when i need more machines i will just add them as soon as i can
-afford them but soon i'm hoping to save $250 a month for a couple
+afford them but soon i'm hoping to save $200 a month for a couple
 of mini pcs or even try getting one of those new Ryzen 16 core CPUs.
 
 when i say act as a singleton i mean when i add more machines they
@@ -188,9 +187,67 @@ a test or staging and then use the cloud or find a nearby
 datacenter and colocate :)
 
 the plus side is that i have a fiber connection at home and can
-run any kind of business up until i reach 5Gbps max speed connection
+run any kind of home setup up until i reach 5Gbps max speed connection
 but i am currently paying $60 month for 500Mbps.
 
+besides a brain for a data structure the next most and equally important
+thing is memory and the ability to think or "wonder" about on that
+said memory.
+
+```elixir
+use KernelShtf.Wonder
+
+# Define initial state
+magic do
+  %{count: 0}
+end
+
+# Define synchronous calls
+force(:increment, [amount]) do
+  new_count = state.count + amount
+  %{state | count: new_count}
+end
+
+# Define asynchronous casts
+spell(:reset, []) do
+  %{state | count: 0}
+end
+```
+
+the above is basically an elixir generic server with syntax that
+will make you feel like a wizard with a wond when you code in it.
+
+in the above example state and magic mean the same thing and it
+can be used as memory for your phrenia recu data types. more on
+this later.
+
+so far we have seen 2 modules from KernelShtf that are a key part
+to what we are about to layer on top next which is abstract and
+concrete concepts and the ability to bridge between the two. we
+are also going to add domain driven design struct on top of that which
+looks something like the following in layers.
+
+```elixir
+# layer 0 (system)
+import KernelShtf
+
+# layer 1.A (mental)
+import AbstractPov
+
+# layer 1.B (physical)
+import ConcreteIrl
+
+# layer 2 (mind-body connection)
+import BridgeImo
+
+# layer 3 (core)
+import XyzCore
+
+# layer 3.X (applications)
+import XyzApps.Api
+import XyzApps.Web
+```
+> checkout `./lib` for the full source code.
 
 ## Early setup
 ```bash
