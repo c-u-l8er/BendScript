@@ -249,6 +249,10 @@ import XyzApps.Web
 ```
 > checkout `./lib` for the full source code.
 
+```elixir
+# READ `./STORY.md` for a coninuation of this documentation :)
+```
+
 ## Early setup
 ```bash
 mix new graphrenia
