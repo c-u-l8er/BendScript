@@ -249,8 +249,11 @@ import XyzApps.Web
 ```
 > checkout `./lib` for the full source code.
 
-```elixir
-# READ `./STORY.md` for a coninuation of this documentation :)
+```bash
+# READ!!! sotries for a coninuation of this documentation :)
+cat ./STORY1.md
+cat ./STORY2.md
+cat ./STORY3.md
 ```
 
 ## Early setup
