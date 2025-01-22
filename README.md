@@ -22,10 +22,13 @@ all self hosted & local at home... because
 i can't afford the cloud on disability
 worst retirement ever :)
 
-now,
-exploration and discovery is the goal
-where compsci is just a means to an end
-and gr is that playing field
+now:
+exploration by both detection and discovery
+is the goal
+
+where:
+compsci is just a means to an end
+and gr is our field+trait
 
 so let's get started!
 
@@ -45,7 +48,7 @@ phrenia BinaryTree do
   leaf()
 end
 
-# other types of brains such as lists are possible
+# other types of brains such as linked lists are possible
 phrenia List do
   cons(head, recu(tail))
   null()
@@ -251,10 +254,144 @@ import XyzApps.Web
 
 ```bash
 # READ!!! sotries for a coninuation of this documentation :)
-cat ./STORY1.md
-cat ./STORY2.md
-cat ./STORY3.md
+cat ./storeis/STORY1.md
+cat ./storeis/STORY2.md
+cat ./storeis/STORY3.md
 ```
+
+> note: story driven design seams like a great way to get the compsci juices flowing. the above stories are great but i still have some concepts that i'd like to further develop like better characters.
+
+*(hand is to glove as foot is to sock)*
+
+Are "is to" statemnets more harmful than "go to" statements?
+
+The "is to" -> Analogy Statement Table (AST):
+
+| kind | field+trait | attack | strength | defense |
+|------|-------------|--------|----------|---------|
+| rabbit | electromagnetism | short | strong | distributed |
+| lion | gravity | long | weak | centralized |
+| dragon | magic | medium | medium | balanced |
+
+```bash
+# READ!!! where we unravel the above "is to" AST's mystories
+cat ./resonance_patterns/INTRO.md
+cat ./resonance_patterns/SYSTEM_UNDER_STRESS.md
+cat ./resonance_patterns/EMERGENT_EVOLUTION.md
+```
+
+in the above pantheon we got 3 main characters:
+- Echo
+- Nexus
+- Harmony
+
+let's call them the founders of our LEAGUE who are going to detect and
+discover RACE. as they work together they will build RACE from scratch
+starting from themselves, the knowledge that they gained from
+their own "is to" -> Analogy Statement Table, and their
+combined resonance patterns.
+
+so far we have intro/structured BenBen and Wonder...
+
+the above intro/structures AST pantheons called LEAGUES...
+
+now we are going to intro/structure stage-based
+workflows aka checkpoint-based tracks called RACE...
+
+in Elixir this is known as GenStage, Flow, and Broadway however
+we are going to simplify and codify a better solution using macros.
+
+here is how to define a track aka "pipeline"
+with checkpoints aka "producers"
+```elixir
+use KernelShtf.Race
+
+track TestTrack do
+  checkpoints(
+    module: DummyJumper,
+    checker_concurrency: 2,
+    batch_size: 50
+  )
+end
+```
+
+quantifying abstract terminology:
+- producer -> jumper
+- consumer -> lander
+- processor -> checker
+
+let's define "DummyJumper" that was stated in our checkpoints module...
+```elixir
+defmodule TestMessage do
+  defstruct [:data]
+end
+
+defmodule DummyJumper do
+  use GenStage
+
+  def start_link(opts \\ []) do
+    GenStage.start_link(__MODULE__, opts)
+  end
+
+  def init(counter: counter) do
+    {:jumper, counter}
+  end
+
+  def handle_demand(demand, counter) when demand > 0 do
+    events = Enum.map(counter..(counter + demand - 1), &%TestMessage{data: &1})
+    {:noreply, events, counter + demand}
+  end
+end
+```
+
+here is the MAP checkpoints (jumps and landings)...
+```elixir
+jump TestJump do
+  def handle_demand(demand, state) do
+    events = Enum.to_list(1..demand)
+    {:noreply, events, state}
+  end
+end
+
+land TestLand, [TestJump] do
+  def handle_events(events, _from, state) do
+    send(state.test_pid, {:events_received, events})
+    {:noreply, [], state}
+  end
+end
+```
+
+here is how we can test this MAP and it's checkpoints...
+```elixir
+describe "jump and land" do
+  test "producer-consumer communication" do
+    {:ok, jumper} = TestJump.start_link([])
+    {:ok, lander} = TestLand.start_link(%{test_pid: self()})
+
+    # Wait for events
+    assert_receive {:events_received, events}, 1000
+    assert length(events) > 0
+    assert Enum.all?(events, &is_integer/1)
+  end
+end
+```
+
+In Elixir, **GenStage**, **Flow**, and **Broadway** are tools for working with concurrent, parallel, and distributed data processing. Here's a comparison chart:
+| Feature             | GenStage                | Flow                   | Broadway                  |
+|---------------------|-------------------------|------------------------|---------------------------|
+| Abstraction Level   | Low-level primitives    | Higher-level abstraction | High-level, production-ready framework |
+| Focus               | Producer-consumer stages | Data transformation   | External system integrations |
+| Built-in Adapters   | No                      | No                     | Yes (e.g., SQS, RabbitMQ) |
+| Use Cases           | Custom workflows        | Parallel data processing | Scalable data pipelines   |
+
+conclusion:
+- Use **GenStage** if you need fine-grained control over stage-based workflows.
+- Use **Flow** for parallel data processing and stream transformations.
+- Use **Broadway** for building robust, production-ready pipelines that integrate with external systems.
+
+reflection:
+now that we have BenBen, Wonder, and Race kernel modules as well as three 10x developers (Echo, Nexus, and Harmony)
+let's see if we now generate better stories that have more solid foundation of our core values.
 
 ## Early setup
 ```bash
@@ -284,15 +421,18 @@ be found at <https://hexdocs.pm/benben>.
 mix test 2>&1 | tee test.stdout.txt
 
 # test specific files
-mix test test/examples/counter_test.exs 2>&1 | tee counter.stdout.txt
-mix test test/examples/chain_test.exs 2>&1 | tee chain.stdout.txt
-mix test test/examples/graffiti_test.exs 2>&1 | tee graffiti.stdout.txt
-mix test test/examples/parents_test.exs 2>&1 | tee parents.stdout.txt
-mix test test/examples/prop_graph_test.exs 2>&1 | tee prop_graph.stdout.txt
-mix test test/examples/simple_graph_test.exs 2>&1 | tee simple_graph.stdout.txt
+mix test test/kernel_shtf/race_test.exs 2>&1 | tee kernel_shft_race.stdout.txt
+
+mix test test/concrete_irl/graffiti_test.exs 2>&1 | tee concrete_irl_graffiti.stdout.txt
+
+mix test test/abstract_pov/counter_test.exs 2>&1 | tee abstract_pov_counter.stdout.txt
+mix test test/abstract_pov/chain_test.exs 2>&1 | tee abstract_pov_chain.stdout.txt
+mix test test/abstract_pov/parents_test.exs 2>&1 | tee abstract_pov_parents.stdout.txt
+mix test test/abstract_pov/prop_graph_test.exs 2>&1 | tee abstract_pov_prop_graph.stdout.txt
+mix test test/abstract_pov/simple_graph_test.exs 2>&1 | tee abstract_pov_simple_graph.stdout.txt
 
 # test specific tests within a file
-mix test test/examples/chain_test.exs --only run:true 2>&1 | tee chain.stdout.txt
+mix test test/abstract_pov/chain_test.exs --only run:true 2>&1 | tee abstract_pov_chain.stdout.txt
 ```
 
 ## AI Prompt Notes

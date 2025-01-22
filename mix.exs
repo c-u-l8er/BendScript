@@ -31,7 +31,10 @@ defmodule Graphrenia.MixProject do
     [
       {:uuid, "~> 1.1"},
       {:memento, "~> 0.3.2"},
-      {:poolboy, "~> 1.5"}
+      {:poolboy, "~> 1.5"},
+      {:gen_stage, "~> 1.2"},
+      {:flow, "~> 1.2"},
+      {:broadway, "~> 1.0"}
     ]
   end
 end
