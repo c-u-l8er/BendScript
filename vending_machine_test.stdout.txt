@@ -1,0 +1,80 @@
+Compiling 2 files (.ex)
+warning: variable "name" is unused (if the variable is not meant to be used, prefix it with an underscore)
+  lib/kernel_shtf/gov.ex:17: KernelShtf.Gov.fabric/2
+
+Excluding tags: [:skip]
+
+14:52:09.086 [info] Starting test setup
+14:52:09.089 [info] Test setup complete with pid: #PID<0.273.0>
+14:52:09.089 [info] Running initial state test
+14:52:09.091 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
+.14:52:09.091 [info] Starting test setup
+14:52:09.091 [info] Test setup complete with pid: #PID<0.275.0>
+14:52:09.092 [info] Starting test setup
+14:52:09.092 [info] Test setup complete with pid: #PID<0.277.0>
+14:52:09.092 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+14:52:09.092 [info] Starting test setup
+14:52:09.092 [info] Test setup complete with pid: #PID<0.279.0>
+14:52:09.092 [info] Starting test setup
+14:52:09.092 [info] Test setup complete with pid: #PID<0.281.0>
+14:52:09.092 [info] Running coin insertion test
+14:52:09.092 [info] Running coin insertion test
+14:52:09.092 [info] Transition result: {:ok, :ready}
+14:52:09.092 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+
+
+  1) test purchase handling allows purchase with sufficient funds (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:52
+     match (=) failed
+     code:  assert {:ok, :dispensing} = GenServer.call(machine, {:state, :ready, :purchase})
+     left:  {:ok, :dispensing}
+     right: {:ok, :ready}
+     stacktrace:
+       test/abc_law/vending_machine_test.exs:57: (test)
+
+.14:52:09.093 [info] Starting test setup
+14:52:09.093 [info] Test setup complete with pid: #PID<0.283.0>
+14:52:09.093 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
+14:52:09.093 [info] Starting test setup
+
+
+14:52:09.093 [info] Test setup complete with pid: #PID<0.285.0>
+  2) test dispensing process completes dispensing cycle (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:98
+     match (=) failed
+     code:  assert {:ok, :idle} = GenServer.call(machine, {:state, :dispensing, :dispense_complete})
+     left:  {:ok, :idle}
+     right: {:error, :invalid_state}
+     stacktrace:
+       test/abc_law/vending_machine_test.exs:104: (test)
+
+.14:52:09.093 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 50, inventory: 5}}}
+14:52:09.093 [info] Starting test setup
+14:52:09.093 [info] Test setup complete with pid: #PID<0.287.0>
+
+
+  3) test full purchase cycle handles complete purchase flow (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:116
+     match (=) failed
+     code:  assert {:ok, :dispensing} = GenServer.call(machine, {:state, :ready, :purchase})
+     left:  {:ok, :dispensing}
+     right: {:ok, :ready}
+     stacktrace:
+       test/abc_law/vending_machine_test.exs:128: (test)
+
+.
+
+  4) test purchase handling prevents purchase with empty inventory (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:82
+     match (=) failed
+     code:  assert {:ok, :ready} = GenServer.call(machine, {:state, :ready, :purchase})
+     left:  {:ok, :ready}
+     right: {:error, :invalid_state}
+     stacktrace:
+       test/abc_law/vending_machine_test.exs:88: (test)
+
+
+Finished in 0.09 seconds (0.00s async, 0.09s sync)
+8 tests, 4 failures
+
+Randomized with seed 971057

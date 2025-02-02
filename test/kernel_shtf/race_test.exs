@@ -33,6 +33,18 @@ defmodule KernelShtf.RaceTest do
       checker_concurrency: 2,
       batch_size: 50
     )
+
+    def handle_message(_, message, _) do
+      message
+    end
+
+    # Modified handle_batch to properly handle message acknowledgment
+    def handle_batch(_batcher, messages, _batch_info, _context) do
+      messages
+      |> Enum.map(fn message ->
+        %{message | data: message.data.data}
+      end)
+    end
   end
 
   jump TestJump do
@@ -52,8 +64,7 @@ defmodule KernelShtf.RaceTest do
   describe "track" do
     test "starts broadway pipeline" do
       opts = [
-        name: :test_pipeline,
-        producer: [module: {DummyJumper, [counter: 0]}]
+        name: :test_pipeline
       ]
 
       {:ok, pid} = TestTrack.start_link(opts)
@@ -127,20 +138,38 @@ defmodule KernelShtf.RaceTest do
 
       jump NumberJumper do
         def init(opts) do
-          start_from = Keyword.get(opts, :start_from, 1)
-          {:producer, start_from}
+          # Explicitly convert any input to a map with appropriate defaults
+          state =
+            case opts do
+              opts when is_list(opts) ->
+                # Convert keyword list to map with default
+                Enum.into(opts, %{counter: 1})
+
+              %{} = map ->
+                # Ensure counter exists in map
+                Map.put_new(map, :counter, 1)
+
+              _ ->
+                # Default state if neither list nor map
+                %{counter: 1}
+            end
+
+          # Set counter from start_from if specified
+          counter = if state[:start_from], do: state.start_from, else: state.counter
+
+          {:producer, %{counter: counter}}
         end
 
-        def handle_demand(demand, counter) when is_integer(demand) and is_integer(counter) do
-          # Add pattern matching guard to ensure both args are integers
+        def handle_demand(demand, %{counter: counter} = state)
+            when is_integer(demand) and is_integer(counter) do
           events = Enum.to_list(counter..(counter + demand - 1))
-          {:noreply, events, counter + demand}
+          {:noreply, events, %{state | counter: counter + demand}}
         end
       end
 
       land NumberChecker, [NumberJumper] do
         def init(opts) do
-          {:ok, opts}
+          {:consumer, opts}
         end
 
         def handle_events(events, _from, state) do
@@ -154,14 +183,20 @@ defmodule KernelShtf.RaceTest do
         checkpoints(
           module: {DummyJumper, [counter: 0]},
           checker_concurrency: 2,
-          batch_size: 10,
-          transformer: fn event ->
-            %Broadway.Message{
-              data: event,
-              acknowledger: Broadway.NoopAcknowledger
-            }
-          end
+          batch_size: 10
         )
+
+        def handle_message(_, message, _) do
+          message
+        end
+
+        # Modified handle_batch to properly handle message acknowledgment
+        def handle_batch(_batcher, messages, _batch_info, _context) do
+          messages
+          |> Enum.map(fn message ->
+            %{message | data: message.data.data}
+          end)
+        end
       end
     end
 
@@ -170,16 +205,15 @@ defmodule KernelShtf.RaceTest do
       {:ok, checker} = ComplexPipeline.NumberChecker.start_link(%{test_pid: self()})
 
       opts = [
-        name: :metrics_pipeline,
-        producer: [module: {DummyJumper, [counter: 0]}]
+        name: :metrics_pipeline
       ]
 
       {:ok, metrics} = ComplexPipeline.MetricsPipeline.start_link(opts)
 
       # Give pipeline time to start
-      Process.sleep(100)
+      Process.sleep(200)
 
-      assert_receive {:processed, events}, 1000
+      assert_receive {:checked, events}, 1000
       assert length(events) > 0
       # All numbers should be even
       assert Enum.all?(events, &(rem(&1, 2) == 0))

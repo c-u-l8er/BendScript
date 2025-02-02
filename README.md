@@ -421,6 +421,8 @@ be found at <https://hexdocs.pm/benben>.
 mix test 2>&1 | tee test.stdout.txt
 
 # test specific files
+mix test test/abc_law/vending_machine_test.exs 2>&1 | tee vending_machine_test.stdout.txt
+
 mix test test/kernel_shtf/race_test.exs 2>&1 | tee kernel_shft_race.stdout.txt
 
 mix test test/concrete_irl/graffiti_test.exs 2>&1 | tee concrete_irl_graffiti.stdout.txt
