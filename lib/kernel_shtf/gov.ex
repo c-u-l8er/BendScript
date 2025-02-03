@@ -57,8 +57,7 @@ defmodule KernelShtf.Gov do
             {:warp, new_state} ->
               Logger.debug("Staying in #{current_state}")
               Logger.info("new_state!!! -> #{inspect(new_state)}")
-              # Use the entire new state
-              {:reply, {:ok, new_state.current_state}, new_state}
+              {:reply, {:ok, current_state}, new_state}
 
             other ->
               Logger.error("Unexpected handle_state_event result: #{inspect(other)}")
@@ -87,10 +86,13 @@ defmodule KernelShtf.Gov do
   # allow FSM "state" to be defined
   defmacro pattern(state_name, do: block) do
     quote do
-      defp handle_state_event(event, %{current_state: unquote(state_name)} = state) do
-        var!(state) = state
-        var!(event) = event
-        unquote(block)
+      defp handle_state_event(event_data, current_state_data) do
+        var!(state) = current_state_data
+        var!(event) = event_data
+
+        result = unquote(block)
+        Logger.info("Pattern result: #{inspect(result)}")
+        result
       end
     end
   end
@@ -105,8 +107,9 @@ defmodule KernelShtf.Gov do
   # allow FSM state "stay" to be defined
   defmacro warp(state: state_expr) do
     quote do
-      # Simply return the entire new state
-      {:warp, unquote(state_expr)}
+      state_to_return = unquote(state_expr)
+      Logger.info("WARP - Returning state: #{inspect(state_to_return)}")
+      {:warp, state_to_return}
     end
   end
 

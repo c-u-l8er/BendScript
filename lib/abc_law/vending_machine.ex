@@ -33,18 +33,7 @@ defmodule VendingMachine do
         new_state = add_coins(amount, state)
         Logger.info("READY - State after add_coins: #{inspect(new_state)}")
 
-        # Try forcing the state update explicitly
-        updated_state = %{
-          current_state: :ready,
-          data: %{
-            coins: new_state.data.coins,
-            inventory: state.data.inventory
-          }
-        }
-
-        Logger.info("READY - Final state to be returned: #{inspect(updated_state)}")
-
-        warp(state: updated_state)
+        warp(state: new_state)
       end
 
       weave :purchase do
@@ -78,10 +67,10 @@ defmodule VendingMachine do
         weft(to: :idle, state: %{state | data: new_data})
       end
 
-      weave :other do
-        # Keep state for any other events while dispensing
-        warp(state: state)
-      end
+      # weave :other do
+      #   # Keep state for any other events while dispensing
+      #   warp(state: state)
+      # end
     end
   end
 end

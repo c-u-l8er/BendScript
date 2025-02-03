@@ -57,6 +57,7 @@ defmodule VendingMachineTest do
   end
 
   describe "purchase handling" do
+    @tag run: true
     test "allows purchase with sufficient funds", %{machine: machine} do
       # Insert enough coins
       GenServer.call(machine, {:state, :idle, {:insert_coin, 100}})
@@ -102,6 +103,7 @@ defmodule VendingMachineTest do
   end
 
   describe "dispensing process" do
+    @tag run: true
     test "completes dispensing cycle", %{machine: machine} do
       # Get to dispensing state
       GenServer.call(machine, {:state, :idle, {:insert_coin, 100}})
@@ -120,6 +122,7 @@ defmodule VendingMachineTest do
   end
 
   describe "full purchase cycle" do
+    @tag run: true
     test "handles complete purchase flow", %{machine: machine} do
       # Initial state check
       initial_state = VendingMachine.get_state(machine)
