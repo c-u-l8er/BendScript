@@ -23,8 +23,8 @@ defmodule KernelShtf.Gov do
         GenServer.start_link(__MODULE__, opts, name: name)
       end
 
-      # Add get_state function
-      def get_state(pid) do
+      # Add get_drum function
+      def get_drum(pid) do
         {:ok, :sys.get_state(pid)}
       end
 
@@ -40,41 +40,41 @@ defmodule KernelShtf.Gov do
 
       @impl true
       def handle_call(
-            {:state, expected_state, event},
+            {:drum, expected_state, event},
             _from,
-            %{current_state: current_state} = state
+            %{memory: current_state} = drum
           ) do
         Logger.debug(
           "Handling event: #{inspect(event)}. Current state: #{current_state}, Expected state: #{expected_state}"
         )
 
         if expected_state == current_state do
-          case handle_state_event(event, state) do
+          case handle_state_event(event, drum) do
             {:weft, new_data, next_state} ->
               Logger.debug("Transitioning to #{next_state}")
-              {:reply, {:ok, next_state}, %{current_state: next_state, data: new_data}}
+              {:reply, {:ok, next_state}, %{memory: next_state, rotate: new_data}}
 
             {:warp, new_state} ->
               Logger.debug("Staying in #{current_state}")
               Logger.info("new_state!!! -> #{inspect(new_state)}")
-              {:reply, {:ok, new_state.current_state}, new_state}
+              {:reply, {:ok, new_state.memory}, new_state}
 
             other ->
               Logger.error("Unexpected handle_state_event result: #{inspect(other)}")
-              {:reply, {:error, :invalid_transition}, state}
+              {:reply, {:error, :invalid_transition}, drum}
           end
         else
           Logger.error(
             "Invalid state transition. Expected #{expected_state}, got #{current_state}"
           )
 
-          {:reply, {:error, :invalid_state}, state}
+          {:reply, {:error, :invalid_state}, drum}
         end
       end
 
       @impl true
-      def handle_call({:state, expected_state, _event}, _from, state) do
-        {:reply, {:error, :invalid_state}, state}
+      def handle_call({:drum, expected_state, _event}, _from, drum) do
+        {:reply, {:error, :invalid_drum}, drum}
       end
 
       defoverridable init: 1
@@ -87,8 +87,8 @@ defmodule KernelShtf.Gov do
   defmacro pattern(state_name, do: {:__block__, _, weaves}) do
     quote do
       defp handle_state_event(event_data, current_state_data)
-           when current_state_data.current_state == unquote(state_name) do
-        var!(state) = current_state_data
+           when current_state_data.memory == unquote(state_name) do
+        var!(drum) = current_state_data
         var!(event) = event_data
 
         result =
@@ -111,8 +111,8 @@ defmodule KernelShtf.Gov do
   defmacro pattern(state_name, do: single_weave) do
     quote do
       defp handle_state_event(event_data, current_state_data)
-           when current_state_data.current_state == unquote(state_name) do
-        var!(state) = current_state_data
+           when current_state_data.memory == unquote(state_name) do
+        var!(drum) = current_state_data
         var!(event) = event_data
 
         result = unquote(single_weave)
@@ -123,14 +123,14 @@ defmodule KernelShtf.Gov do
   end
 
   # allow FSM state "transition" to be defined
-  defmacro weft(to: next_state, state: state_expr) do
+  defmacro weft(to: next_state, drum: state_expr) do
     quote do
-      {:weft, unquote(state_expr).data, unquote(next_state)}
+      {:weft, unquote(state_expr).rotate, unquote(next_state)}
     end
   end
 
   # allow FSM state "stay" to be defined
-  defmacro warp(state: state_expr) do
+  defmacro warp(drum: state_expr) do
     quote do
       state_to_return = unquote(state_expr)
       Logger.info("WARP - Returning state: #{inspect(state_to_return)}")

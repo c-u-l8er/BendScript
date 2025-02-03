@@ -4,110 +4,110 @@ warning: variable "name" is unused (if the variable is not meant to be used, pre
 
 Excluding tags: [:skip]
 
-11:45:00.186 [info] Starting test setup
-11:45:00.190 [info] Test setup complete with pid: #PID<0.273.0>
-11:45:00.190 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-11:45:00.190 [info] Inventory is empty; stay in :ready
-11:45:00.194 [info] WARP - Returning state: %{current_state: :ready, data: %{coins: 500, inventory: 0}}
-11:45:00.195 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 500, inventory: 0}}}
-11:45:00.195 [debug] Staying in ready
-11:45:00.195 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 500, inventory: 0}}
-.11:45:00.195 [info] Starting test setup
-11:45:00.196 [info] Test setup complete with pid: #PID<0.275.0>
-11:45:00.196 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
-11:45:00.196 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-11:45:00.196 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
-11:45:00.196 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
-11:45:00.196 [debug] Transitioning to ready
-11:45:00.196 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-11:45:00.196 [info] DISPENSING
-11:45:00.196 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :dispensing}
-11:45:00.196 [debug] Transitioning to dispensing
-11:45:00.196 [debug] Handling event: :dispense_complete. Current state: dispensing, Expected state: dispensing
-11:45:00.196 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :idle}
-11:45:00.196 [debug] Transitioning to idle
-11:45:00.196 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 4}}}
-.11:45:00.196 [info] Starting test setup
-11:45:00.196 [info] Test setup complete with pid: #PID<0.277.0>
-11:45:00.196 [info] TEST - Starting coin accumulation test
-11:45:00.196 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
-11:45:00.196 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-11:45:00.196 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 50, inventory: 5}}
-11:45:00.196 [info] Pattern result: {:weft, %{coins: 50, inventory: 5}, :ready}
-11:45:00.196 [debug] Transitioning to ready
-11:45:00.196 [info] TEST - After first insertion: {:ok, :ready}
-11:45:00.196 [info] TEST - State after first insertion: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
-11:45:00.196 [debug] Handling event: {:insert_coin, 50}. Current state: ready, Expected state: ready
-11:45:00.196 [info] READY - Current coins before add: 50
-11:45:00.196 [info] ADD_COINS - Before: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
-11:45:00.196 [info] ADD_COINS - After: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-11:45:00.196 [info] READY - State after add_coins: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-11:45:00.196 [info] READY - Final state to be returned: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-11:45:00.196 [info] WARP - Returning state: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-11:45:00.196 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
-11:45:00.196 [debug] Staying in ready
-11:45:00.196 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-11:45:00.196 [info] TEST - After second insertion: {:ok, :ready}
-11:45:00.196 [info] TEST - State after second insertion: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-.11:45:00.196 [info] Starting test setup
-11:45:00.196 [info] Test setup complete with pid: #PID<0.279.0>
-11:45:00.196 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
-11:45:00.196 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
-11:45:00.196 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-11:45:00.196 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
-11:45:00.196 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
-11:45:00.196 [debug] Transitioning to ready
-11:45:00.196 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-11:45:00.196 [info] DISPENSING
-11:45:00.196 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :dispensing}
-11:45:00.196 [debug] Transitioning to dispensing
-11:45:00.196 [debug] Handling event: :dispense_complete. Current state: dispensing, Expected state: dispensing
-11:45:00.196 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :idle}
-11:45:00.196 [debug] Transitioning to idle
-11:45:00.197 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 4}}}
-.11:45:00.197 [info] Starting test setup
-11:45:00.197 [info] Test setup complete with pid: #PID<0.281.0>
-11:45:00.197 [info] Running coin insertion test
-11:45:00.197 [info] Running coin insertion test
-11:45:00.197 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
-11:45:00.197 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-11:45:00.197 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
-11:45:00.197 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
-11:45:00.197 [debug] Transitioning to ready
-11:45:00.197 [info] Transition result: {:ok, :ready}
-11:45:00.197 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
-.11:45:00.197 [info] Starting test setup
-11:45:00.197 [info] Test setup complete with pid: #PID<0.283.0>
-11:45:00.197 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
-11:45:00.197 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-11:45:00.197 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
-11:45:00.197 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
-11:45:00.197 [debug] Transitioning to ready
-11:45:00.197 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-11:45:00.197 [info] DISPENSING
-11:45:00.197 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :dispensing}
-11:45:00.197 [debug] Transitioning to dispensing
-11:45:00.197 [info] Got state: {:ok, %{current_state: :dispensing, data: %{coins: 0, inventory: 4}}}
-.11:45:00.197 [info] Starting test setup
-11:45:00.197 [info] Test setup complete with pid: #PID<0.285.0>
-11:45:00.197 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
-11:45:00.197 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-11:45:00.197 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 50, inventory: 5}}
-11:45:00.197 [info] Pattern result: {:weft, %{coins: 50, inventory: 5}, :ready}
-11:45:00.197 [debug] Transitioning to ready
-11:45:00.197 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-11:45:00.197 [info] Insufficient funds; stay in :ready
-11:45:00.197 [info] WARP - Returning state: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
-11:45:00.198 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 50, inventory: 5}}}
-11:45:00.198 [debug] Staying in ready
-11:45:00.198 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 50, inventory: 5}}
-11:45:00.198 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 50, inventory: 5}}}
-.11:45:00.198 [info] Starting test setup
-11:45:00.198 [info] Test setup complete with pid: #PID<0.287.0>
-11:45:00.198 [info] Running initial state test
-.11:45:00.198 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
-
+15:35:34.460 [info] Starting test setup
+15:35:34.464 [info] Test setup complete with pid: #PID<0.273.0>
+15:35:34.465 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
+15:35:34.466 [info] ADD_COINS - Before: %{memory: :idle, rotate: %{coins: 0, inventory: 5}}
+15:35:34.466 [info] ADD_COINS - After: %{memory: :idle, rotate: %{coins: 50, inventory: 5}}
+15:35:34.466 [info] Pattern result: {:weft, %{coins: 50, inventory: 5}, :ready}
+15:35:34.466 [debug] Transitioning to ready
+15:35:34.466 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+15:35:34.466 [info] Insufficient funds; stay in :ready
+15:35:34.466 [info] WARP - Returning state: %{memory: :ready, rotate: %{coins: 50, inventory: 5}}
+15:35:34.467 [info] Pattern result: {:warp, %{memory: :ready, rotate: %{coins: 50, inventory: 5}}}
+15:35:34.467 [debug] Staying in ready
+15:35:34.467 [info] new_state!!! -> %{memory: :ready, rotate: %{coins: 50, inventory: 5}}
+15:35:34.467 [info] Got state: {:ok, %{memory: :ready, rotate: %{coins: 50, inventory: 5}}}
+.15:35:34.467 [info] Starting test setup
+15:35:34.467 [info] Test setup complete with pid: #PID<0.275.0>
+15:35:34.467 [info] Running initial state test
+15:35:34.467 [info] Got state: {:ok, %{memory: :idle, rotate: %{coins: 0, inventory: 5}}}
+.15:35:34.467 [info] Starting test setup
+15:35:34.467 [info] Test setup complete with pid: #PID<0.277.0>
+15:35:34.467 [info] Got state: {:ok, %{memory: :idle, rotate: %{coins: 0, inventory: 5}}}
+15:35:34.467 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+15:35:34.467 [info] ADD_COINS - Before: %{memory: :idle, rotate: %{coins: 0, inventory: 5}}
+15:35:34.467 [info] ADD_COINS - After: %{memory: :idle, rotate: %{coins: 100, inventory: 5}}
+15:35:34.467 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+15:35:34.467 [debug] Transitioning to ready
+15:35:34.467 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+15:35:34.467 [info] DISPENSING
+15:35:34.467 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :dispensing}
+15:35:34.467 [debug] Transitioning to dispensing
+15:35:34.467 [debug] Handling event: :dispense_complete. Current state: dispensing, Expected state: dispensing
+15:35:34.467 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :idle}
+15:35:34.467 [debug] Transitioning to idle
+15:35:34.467 [info] Got state: {:ok, %{memory: :idle, rotate: %{coins: 0, inventory: 4}}}
+.15:35:34.467 [info] Starting test setup
+15:35:34.467 [info] Test setup complete with pid: #PID<0.279.0>
+15:35:34.467 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+15:35:34.467 [info] Inventory is empty; stay in :ready
+15:35:34.467 [info] WARP - Returning state: %{memory: :ready, rotate: %{coins: 500, inventory: 0}}
+15:35:34.467 [info] Pattern result: {:warp, %{memory: :ready, rotate: %{coins: 500, inventory: 0}}}
+15:35:34.467 [debug] Staying in ready
+15:35:34.467 [info] new_state!!! -> %{memory: :ready, rotate: %{coins: 500, inventory: 0}}
+.15:35:34.467 [info] Starting test setup
+15:35:34.467 [info] Test setup complete with pid: #PID<0.281.0>
+15:35:34.467 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+15:35:34.467 [info] ADD_COINS - Before: %{memory: :idle, rotate: %{coins: 0, inventory: 5}}
+15:35:34.467 [info] ADD_COINS - After: %{memory: :idle, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+15:35:34.468 [debug] Transitioning to ready
+15:35:34.468 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+15:35:34.468 [info] DISPENSING
+15:35:34.468 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :dispensing}
+15:35:34.468 [debug] Transitioning to dispensing
+15:35:34.468 [debug] Handling event: :dispense_complete. Current state: dispensing, Expected state: dispensing
+15:35:34.468 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :idle}
+15:35:34.468 [debug] Transitioning to idle
+15:35:34.468 [info] Got state: {:ok, %{memory: :idle, rotate: %{coins: 0, inventory: 4}}}
+.15:35:34.468 [info] Starting test setup
+15:35:34.468 [info] Test setup complete with pid: #PID<0.283.0>
+15:35:34.468 [info] Running coin insertion test
+15:35:34.468 [info] Running coin insertion test
+15:35:34.468 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+15:35:34.468 [info] ADD_COINS - Before: %{memory: :idle, rotate: %{coins: 0, inventory: 5}}
+15:35:34.468 [info] ADD_COINS - After: %{memory: :idle, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+15:35:34.468 [debug] Transitioning to ready
+15:35:34.468 [info] Transition result: {:ok, :ready}
+15:35:34.468 [info] Got state: {:ok, %{memory: :ready, rotate: %{coins: 100, inventory: 5}}}
+.15:35:34.468 [info] Starting test setup
+15:35:34.468 [info] Test setup complete with pid: #PID<0.285.0>
+15:35:34.468 [info] TEST - Starting coin accumulation test
+15:35:34.468 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
+15:35:34.468 [info] ADD_COINS - Before: %{memory: :idle, rotate: %{coins: 0, inventory: 5}}
+15:35:34.468 [info] ADD_COINS - After: %{memory: :idle, rotate: %{coins: 50, inventory: 5}}
+15:35:34.468 [info] Pattern result: {:weft, %{coins: 50, inventory: 5}, :ready}
+15:35:34.468 [debug] Transitioning to ready
+15:35:34.468 [info] TEST - After first insertion: {:ok, :ready}
+15:35:34.468 [info] TEST - State after first insertion: %{memory: :ready, rotate: %{coins: 50, inventory: 5}}
+15:35:34.468 [debug] Handling event: {:insert_coin, 50}. Current state: ready, Expected state: ready
+15:35:34.468 [info] READY - Current coins before add: 50
+15:35:34.468 [info] ADD_COINS - Before: %{memory: :ready, rotate: %{coins: 50, inventory: 5}}
+15:35:34.468 [info] ADD_COINS - After: %{memory: :ready, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] READY - State after add_coins: %{memory: :ready, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] READY - Final state to be returned: %{memory: :ready, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] WARP - Returning state: %{memory: :ready, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] Pattern result: {:warp, %{memory: :ready, rotate: %{coins: 100, inventory: 5}}}
+15:35:34.468 [debug] Staying in ready
+15:35:34.468 [info] new_state!!! -> %{memory: :ready, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] TEST - After second insertion: {:ok, :ready}
+15:35:34.468 [info] TEST - State after second insertion: %{memory: :ready, rotate: %{coins: 100, inventory: 5}}
+.15:35:34.468 [info] Starting test setup
+15:35:34.468 [info] Test setup complete with pid: #PID<0.287.0>
+15:35:34.468 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+15:35:34.468 [info] ADD_COINS - Before: %{memory: :idle, rotate: %{coins: 0, inventory: 5}}
+15:35:34.468 [info] ADD_COINS - After: %{memory: :idle, rotate: %{coins: 100, inventory: 5}}
+15:35:34.468 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+15:35:34.468 [debug] Transitioning to ready
+15:35:34.468 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+15:35:34.468 [info] DISPENSING
+15:35:34.468 [info] Pattern result: {:weft, %{coins: 0, inventory: 4}, :dispensing}
+15:35:34.468 [debug] Transitioning to dispensing
+15:35:34.468 [info] Got state: {:ok, %{memory: :dispensing, rotate: %{coins: 0, inventory: 4}}}
+.
 Finished in 0.1 seconds (0.00s async, 0.1s sync)
 8 tests, 0 failures
 
-Randomized with seed 43472
+Randomized with seed 317124
