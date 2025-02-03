@@ -84,14 +84,38 @@ defmodule KernelShtf.Gov do
   end
 
   # allow FSM "state" to be defined
-  defmacro pattern(state_name, do: block) do
+  defmacro pattern(state_name, do: {:__block__, _, weaves}) do
     quote do
       defp handle_state_event(event_data, current_state_data)
            when current_state_data.current_state == unquote(state_name) do
         var!(state) = current_state_data
         var!(event) = event_data
 
-        result = unquote(block)
+        result =
+          Enum.find_value(unquote(weaves), {:warp, current_state_data}, fn
+            weave_result ->
+              case weave_result do
+                {:weft, _, _} = r -> r
+                {:warp, _} = r -> r
+                _ -> false
+              end
+          end)
+
+        Logger.info("Pattern result: #{inspect(result)}")
+        result
+      end
+    end
+  end
+
+  # Single weave case
+  defmacro pattern(state_name, do: single_weave) do
+    quote do
+      defp handle_state_event(event_data, current_state_data)
+           when current_state_data.current_state == unquote(state_name) do
+        var!(state) = current_state_data
+        var!(event) = event_data
+
+        result = unquote(single_weave)
         Logger.info("Pattern result: #{inspect(result)}")
         result
       end
@@ -122,7 +146,7 @@ defmodule KernelShtf.Gov do
           unquote(block)
 
         _ ->
-          {:warp, %{current_state: var!(state).current_state, data: var!(state).data}}
+          false
       end
     end
   end
