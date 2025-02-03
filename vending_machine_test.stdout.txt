@@ -1,45 +1,88 @@
-Excluding tags: [:test, :skip]
-Including tags: [run: "true"]
+Compiling 1 file (.ex)
+Excluding tags: [:skip]
 
-10:51:50.919 [info] Starting test setup
-10:51:50.925 [info] Test setup complete with pid: #PID<0.257.0>
-10:51:50.928 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
-10:51:50.930 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-10:51:50.930 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
-10:51:50.930 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
-10:51:50.930 [debug] Transitioning to ready
-10:51:50.930 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-10:51:50.930 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
-10:51:50.930 [debug] Staying in ready
-10:51:50.930 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-10:51:50.934 [info] Starting test setup
-10:51:50.935 [info] Test setup complete with pid: #PID<0.259.0>
-10:51:50.935 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
-10:51:50.935 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-10:51:50.935 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
-10:51:50.935 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
-10:51:50.935 [debug] Transitioning to ready
-10:51:50.935 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-10:51:50.935 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
-10:51:50.935 [debug] Staying in ready
-10:51:50.935 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
-10:51:50.935 [debug] Handling event: :dispense_complete. Current state: ready, Expected state: dispensing
-10:51:50.935 [error] Invalid state transition. Expected dispensing, got ready
-10:51:50.935 [info] Starting test setup
-10:51:50.935 [info] Test setup complete with pid: #PID<0.261.0>
-10:51:50.935 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
-10:51:50.935 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
-10:51:50.935 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
-10:51:50.935 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
-10:51:50.935 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
-10:51:50.935 [debug] Transitioning to ready
-10:51:50.935 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
-10:51:50.936 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
-10:51:50.936 [debug] Staying in ready
-10:51:50.936 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.521 [info] Starting test setup
+11:36:15.525 [info] Test setup complete with pid: #PID<0.267.0>
+11:36:15.529 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
+11:36:15.529 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+11:36:15.529 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+11:36:15.529 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+11:36:15.529 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+11:36:15.529 [debug] Transitioning to ready
+11:36:15.530 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+11:36:15.530 [info] DISPENSING
+11:36:15.530 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+11:36:15.530 [debug] Staying in ready
+11:36:15.530 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.533 [info] Starting test setup
+11:36:15.533 [info] Test setup complete with pid: #PID<0.269.0>
+11:36:15.533 [info] TEST - Starting coin accumulation test
+11:36:15.533 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
+11:36:15.533 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+11:36:15.533 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 50, inventory: 5}}
+11:36:15.533 [info] Pattern result: {:weft, %{coins: 50, inventory: 5}, :ready}
+11:36:15.533 [debug] Transitioning to ready
+11:36:15.533 [info] TEST - After first insertion: {:ok, :ready}
+11:36:15.533 [info] TEST - State after first insertion: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+11:36:15.533 [debug] Handling event: {:insert_coin, 50}. Current state: ready, Expected state: ready
+11:36:15.533 [info] READY - Current coins before add: 50
+11:36:15.533 [info] ADD_COINS - Before: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+11:36:15.533 [info] ADD_COINS - After: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.533 [info] READY - State after add_coins: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.533 [info] READY - Final state to be returned: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.533 [info] WARP - Returning state: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.533 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+11:36:15.533 [debug] Staying in ready
+11:36:15.533 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.534 [info] TEST - After second insertion: {:ok, :ready}
+11:36:15.534 [info] TEST - State after second insertion: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.534 [info] Starting test setup
+11:36:15.534 [info] Test setup complete with pid: #PID<0.271.0>
+11:36:15.534 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+11:36:15.534 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+11:36:15.534 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+11:36:15.534 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+11:36:15.534 [debug] Transitioning to ready
+11:36:15.534 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+11:36:15.534 [info] DISPENSING
+11:36:15.534 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+11:36:15.534 [debug] Staying in ready
+11:36:15.534 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.534 [info] Starting test setup
+11:36:15.534 [info] Test setup complete with pid: #PID<0.273.0>
+11:36:15.534 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+11:36:15.534 [info] Inventory is empty; stay in :ready
+11:36:15.534 [info] WARP - Returning state: %{current_state: :ready, data: %{coins: 500, inventory: 0}}
+11:36:15.534 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 500, inventory: 0}}}
+11:36:15.534 [debug] Staying in ready
+11:36:15.534 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 500, inventory: 0}}
 
 
-  1) test purchase handling allows purchase with sufficient funds (VendingMachineTest)
+  1) test full purchase cycle handles complete purchase flow (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:126
+     match (=) failed
+     code:  assert {:ok, :dispensing} = GenServer.call(machine, {:state, :ready, :purchase})
+     left:  {:ok, :dispensing}
+     right: {:ok, :ready}
+     stacktrace:
+       test/abc_law/vending_machine_test.exs:138: (test)
+
+.11:36:15.534 [info] Starting test setup
+11:36:15.534 [info] Test setup complete with pid: #PID<0.275.0>
+11:36:15.534 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
+11:36:15.534 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+11:36:15.534 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 50, inventory: 5}}
+11:36:15.534 [info] Pattern result: {:weft, %{coins: 50, inventory: 5}, :ready}
+11:36:15.534 [debug] Transitioning to ready
+11:36:15.534 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+11:36:15.534 [info] Insufficient funds; stay in :ready
+11:36:15.534 [info] WARP - Returning state: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+11:36:15.534 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 50, inventory: 5}}}
+11:36:15.534 [debug] Staying in ready
+
+
+11:36:15.535 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+  2) test purchase handling allows purchase with sufficient funds (VendingMachineTest)
      test/abc_law/vending_machine_test.exs:61
      match (=) failed
      code:  assert {:ok, :dispensing} = GenServer.call(machine, {:state, :ready, :purchase})
@@ -48,9 +91,39 @@ Including tags: [run: "true"]
      stacktrace:
        test/abc_law/vending_machine_test.exs:66: (test)
 
+.11:36:15.535 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 50, inventory: 5}}}
+.11:36:15.535 [info] Starting test setup
+11:36:15.535 [info] Test setup complete with pid: #PID<0.277.0>
+11:36:15.535 [info] Running initial state test
+11:36:15.535 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
+.11:36:15.535 [info] Starting test setup
+11:36:15.535 [info] Test setup complete with pid: #PID<0.279.0>
+11:36:15.535 [info] Running coin insertion test
+11:36:15.535 [info] Running coin insertion test
+11:36:15.535 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+11:36:15.535 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+11:36:15.535 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+11:36:15.535 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+11:36:15.535 [debug] Transitioning to ready
+11:36:15.535 [info] Transition result: {:ok, :ready}
+11:36:15.535 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+.11:36:15.535 [info] Starting test setup
+11:36:15.535 [info] Test setup complete with pid: #PID<0.281.0>
+11:36:15.535 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+11:36:15.535 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+11:36:15.535 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+11:36:15.535 [info] Pattern result: {:weft, %{coins: 100, inventory: 5}, :ready}
+11:36:15.535 [debug] Transitioning to ready
+11:36:15.535 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+11:36:15.535 [info] DISPENSING
+11:36:15.535 [info] Pattern result: {:warp, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+11:36:15.535 [debug] Staying in ready
+11:36:15.535 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+11:36:15.535 [debug] Handling event: :dispense_complete. Current state: ready, Expected state: dispensing
+11:36:15.535 [error] Invalid state transition. Expected dispensing, got ready
 
 
-  2) test dispensing process completes dispensing cycle (VendingMachineTest)
+  3) test dispensing process completes dispensing cycle (VendingMachineTest)
      test/abc_law/vending_machine_test.exs:107
      match (=) failed
      code:  assert {:ok, :idle} = GenServer.call(machine, {:state, :dispensing, :dispense_complete})
@@ -60,18 +133,7 @@ Including tags: [run: "true"]
        test/abc_law/vending_machine_test.exs:113: (test)
 
 
-
-  3) test full purchase cycle handles complete purchase flow (VendingMachineTest)
-     test/abc_law/vending_machine_test.exs:126
-     match (=) failed
-     code:  assert {:ok, :dispensing} = GenServer.call(machine, {:state, :ready, :purchase})
-     left:  {:ok, :dispensing}
-     right: {:ok, :ready}
-     stacktrace:
-       test/abc_law/vending_machine_test.exs:138: (test)
-
-
 Finished in 0.1 seconds (0.00s async, 0.1s sync)
-8 tests, 3 failures, 5 excluded
+8 tests, 3 failures
 
-Randomized with seed 777736
+Randomized with seed 376024
