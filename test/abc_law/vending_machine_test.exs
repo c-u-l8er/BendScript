@@ -38,13 +38,21 @@ defmodule VendingMachineTest do
     end
 
     test "accumulates multiple coin insertions", %{machine: machine} do
-      GenServer.call(machine, {:state, :idle, {:insert_coin, 50}})
-      GenServer.call(machine, {:state, :ready, {:insert_coin, 50}})
+      Logger.info("TEST - Starting coin accumulation test")
 
-      result = VendingMachine.get_state(machine)
-      Logger.info("Got state: #{inspect(result)}")
-      assert {:ok, state} = result
-      assert state.data.coins == 100
+      result1 = GenServer.call(machine, {:state, :idle, {:insert_coin, 50}})
+      Logger.info("TEST - After first insertion: #{inspect(result1)}")
+
+      {:ok, state1} = VendingMachine.get_state(machine)
+      Logger.info("TEST - State after first insertion: #{inspect(state1)}")
+
+      result2 = GenServer.call(machine, {:state, :ready, {:insert_coin, 50}})
+      Logger.info("TEST - After second insertion: #{inspect(result2)}")
+
+      {:ok, state2} = VendingMachine.get_state(machine)
+      Logger.info("TEST - State after second insertion: #{inspect(state2)}")
+
+      assert state2.data.coins == 100
     end
   end
 
@@ -80,17 +88,16 @@ defmodule VendingMachineTest do
     end
 
     test "prevents purchase with empty inventory", %{machine: machine} do
-      # Empty the inventory first
-      state = %{coins: 500, inventory: 0}
-      :sys.replace_state(machine, fn _ -> state end)
+      # Set BOTH current_state and data
+      new_state = %{current_state: :ready, data: %{coins: 500, inventory: 0}}
+      :sys.replace_state(machine, fn _ -> new_state end)
 
       # Attempt purchase
       assert {:ok, :ready} = GenServer.call(machine, {:state, :ready, :purchase})
 
-      # Check state remains unchanged
-      result = VendingMachine.get_state(machine)
-      Logger.info("Got state: #{inspect(result)}")
-      assert {:ok, ^state} = result
+      # Verify state remains unchanged
+      assert {:ok, %{current_state: :ready, data: %{inventory: 0}}} =
+               VendingMachine.get_state(machine)
     end
   end
 

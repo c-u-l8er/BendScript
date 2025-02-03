@@ -4,77 +4,121 @@ warning: variable "name" is unused (if the variable is not meant to be used, pre
 
 Excluding tags: [:skip]
 
-14:52:09.086 [info] Starting test setup
-14:52:09.089 [info] Test setup complete with pid: #PID<0.273.0>
-14:52:09.089 [info] Running initial state test
-14:52:09.091 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
-.14:52:09.091 [info] Starting test setup
-14:52:09.091 [info] Test setup complete with pid: #PID<0.275.0>
-14:52:09.092 [info] Starting test setup
-14:52:09.092 [info] Test setup complete with pid: #PID<0.277.0>
-14:52:09.092 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
-14:52:09.092 [info] Starting test setup
-14:52:09.092 [info] Test setup complete with pid: #PID<0.279.0>
-14:52:09.092 [info] Starting test setup
-14:52:09.092 [info] Test setup complete with pid: #PID<0.281.0>
-14:52:09.092 [info] Running coin insertion test
-14:52:09.092 [info] Running coin insertion test
-14:52:09.092 [info] Transition result: {:ok, :ready}
-14:52:09.092 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+21:45:41.046 [info] Starting test setup
+21:45:41.049 [info] Test setup complete with pid: #PID<0.273.0>
+21:45:41.051 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+21:45:41.051 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+21:45:41.051 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+21:45:41.051 [debug] Transitioning to ready
+21:45:41.051 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+21:45:41.051 [debug] Transitioning to dispensing
+21:45:41.051 [info] Got state: {:ok, %{current_state: :dispensing, data: %{coins: 0, inventory: 4}}}
+.21:45:41.051 [info] Starting test setup
+21:45:41.051 [info] Test setup complete with pid: #PID<0.275.0>
+21:45:41.051 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+21:45:41.051 [debug] Staying in ready
+21:45:41.051 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 500, inventory: 0}}
+.21:45:41.052 [info] Starting test setup
+21:45:41.052 [info] Test setup complete with pid: #PID<0.277.0>
+21:45:41.052 [info] Running initial state test
+21:45:41.052 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
+.21:45:41.052 [info] Starting test setup
+21:45:41.052 [info] Test setup complete with pid: #PID<0.279.0>
+21:45:41.052 [info] Running coin insertion test
+21:45:41.052 [info] Running coin insertion test
+21:45:41.052 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+21:45:41.052 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+21:45:41.052 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+21:45:41.052 [debug] Transitioning to ready
+21:45:41.052 [info] Transition result: {:ok, :ready}
+21:45:41.052 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 100, inventory: 5}}}
+.21:45:41.052 [info] Starting test setup
+21:45:41.052 [info] Test setup complete with pid: #PID<0.281.0>
+21:45:41.052 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
+21:45:41.052 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+21:45:41.052 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 50, inventory: 5}}
+21:45:41.052 [debug] Transitioning to ready
+21:45:41.052 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+21:45:41.052 [debug] Staying in ready
+21:45:41.052 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+21:45:41.052 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 50, inventory: 5}}}
+.21:45:41.052 [info] Starting test setup
+21:45:41.052 [info] Test setup complete with pid: #PID<0.283.0>
+21:45:41.052 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+21:45:41.052 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+21:45:41.052 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+21:45:41.052 [debug] Transitioning to ready
+21:45:41.052 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+21:45:41.052 [debug] Transitioning to dispensing
+21:45:41.052 [debug] Handling event: :dispense_complete. Current state: dispensing, Expected state: dispensing
+21:45:41.052 [debug] Staying in dispensing
+21:45:41.052 [info] new_state!!! -> %{current_state: :dispensing, data: %{coins: 0, inventory: 4}}
+21:45:41.053 [info] Starting test setup
+21:45:41.053 [info] Test setup complete with pid: #PID<0.285.0>
+21:45:41.053 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
+21:45:41.053 [debug] Handling event: {:insert_coin, 100}. Current state: idle, Expected state: idle
+21:45:41.053 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+21:45:41.053 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 100, inventory: 5}}
+21:45:41.053 [debug] Transitioning to ready
+21:45:41.053 [debug] Handling event: :purchase. Current state: ready, Expected state: ready
+21:45:41.053 [debug] Transitioning to dispensing
+21:45:41.053 [debug] Handling event: :dispense_complete. Current state: dispensing, Expected state: dispensing
+21:45:41.053 [debug] Staying in dispensing
+21:45:41.053 [info] new_state!!! -> %{current_state: :dispensing, data: %{coins: 0, inventory: 4}}
+21:45:41.053 [info] Starting test setup
+21:45:41.053 [info] Test setup complete with pid: #PID<0.287.0>
+21:45:41.053 [info] TEST - Starting coin accumulation test
+21:45:41.053 [debug] Handling event: {:insert_coin, 50}. Current state: idle, Expected state: idle
+21:45:41.053 [info] ADD_COINS - Before: %{current_state: :idle, data: %{coins: 0, inventory: 5}}
+21:45:41.053 [info] ADD_COINS - After: %{current_state: :idle, data: %{coins: 50, inventory: 5}}
+21:45:41.053 [debug] Transitioning to ready
+21:45:41.053 [info] TEST - After first insertion: {:ok, :ready}
+21:45:41.053 [info] TEST - State after first insertion: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+21:45:41.053 [debug] Handling event: {:insert_coin, 50}. Current state: ready, Expected state: ready
+21:45:41.053 [info] READY - Current coins before add: 50
+21:45:41.053 [info] ADD_COINS - Before: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+21:45:41.053 [info] ADD_COINS - After: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+21:45:41.053 [info] READY - State after add_coins: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+21:45:41.053 [info] READY - Final state to be returned: %{current_state: :ready, data: %{coins: 100, inventory: 5}}
+21:45:41.053 [debug] Staying in ready
+21:45:41.053 [info] new_state!!! -> %{current_state: :ready, data: %{coins: 50, inventory: 5}}
+21:45:41.053 [info] TEST - After second insertion: {:ok, :ready}
+21:45:41.053 [info] TEST - State after second insertion: %{current_state: :ready, data: %{coins: 50, inventory: 5}}
 
 
-  1) test purchase handling allows purchase with sufficient funds (VendingMachineTest)
-     test/abc_law/vending_machine_test.exs:52
-     match (=) failed
-     code:  assert {:ok, :dispensing} = GenServer.call(machine, {:state, :ready, :purchase})
-     left:  {:ok, :dispensing}
-     right: {:ok, :ready}
-     stacktrace:
-       test/abc_law/vending_machine_test.exs:57: (test)
-
-.14:52:09.093 [info] Starting test setup
-14:52:09.093 [info] Test setup complete with pid: #PID<0.283.0>
-14:52:09.093 [info] Got state: {:ok, %{current_state: :idle, data: %{coins: 0, inventory: 5}}}
-14:52:09.093 [info] Starting test setup
-
-
-14:52:09.093 [info] Test setup complete with pid: #PID<0.285.0>
-  2) test dispensing process completes dispensing cycle (VendingMachineTest)
-     test/abc_law/vending_machine_test.exs:98
+  1) test dispensing process completes dispensing cycle (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:105
      match (=) failed
      code:  assert {:ok, :idle} = GenServer.call(machine, {:state, :dispensing, :dispense_complete})
      left:  {:ok, :idle}
-     right: {:error, :invalid_state}
+     right: {:ok, :dispensing}
      stacktrace:
-       test/abc_law/vending_machine_test.exs:104: (test)
-
-.14:52:09.093 [info] Got state: {:ok, %{current_state: :ready, data: %{coins: 50, inventory: 5}}}
-14:52:09.093 [info] Starting test setup
-14:52:09.093 [info] Test setup complete with pid: #PID<0.287.0>
+       test/abc_law/vending_machine_test.exs:111: (test)
 
 
-  3) test full purchase cycle handles complete purchase flow (VendingMachineTest)
-     test/abc_law/vending_machine_test.exs:116
+
+  2) test full purchase cycle handles complete purchase flow (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:123
      match (=) failed
-     code:  assert {:ok, :dispensing} = GenServer.call(machine, {:state, :ready, :purchase})
-     left:  {:ok, :dispensing}
-     right: {:ok, :ready}
+     code:  assert {:ok, :idle} = GenServer.call(machine, {:state, :dispensing, :dispense_complete})
+     left:  {:ok, :idle}
+     right: {:ok, :dispensing}
      stacktrace:
-       test/abc_law/vending_machine_test.exs:128: (test)
+       test/abc_law/vending_machine_test.exs:138: (test)
 
-.
 
-  4) test purchase handling prevents purchase with empty inventory (VendingMachineTest)
-     test/abc_law/vending_machine_test.exs:82
-     match (=) failed
-     code:  assert {:ok, :ready} = GenServer.call(machine, {:state, :ready, :purchase})
-     left:  {:ok, :ready}
-     right: {:error, :invalid_state}
+
+  3) test coin insertion accumulates multiple coin insertions (VendingMachineTest)
+     test/abc_law/vending_machine_test.exs:40
+     Assertion with == failed
+     code:  assert state2.data.coins == 100
+     left:  50
+     right: 100
      stacktrace:
-       test/abc_law/vending_machine_test.exs:88: (test)
+       test/abc_law/vending_machine_test.exs:55: (test)
 
 
 Finished in 0.09 seconds (0.00s async, 0.09s sync)
-8 tests, 4 failures
+8 tests, 3 failures
 
-Randomized with seed 971057
+Randomized with seed 938517

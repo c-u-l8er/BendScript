@@ -42,15 +42,34 @@ defmodule KernelShtf.Gov do
       def handle_call(
             {:state, expected_state, event},
             _from,
-            %{current_state: current_state, data: data} = state
-          )
-          when expected_state == current_state do
-        case handle_state_event(event, state) do
-          {:weft, new_data, next_state} ->
-            {:reply, {:ok, next_state}, %{current_state: next_state, data: new_data}}
+            %{current_state: current_state} = state
+          ) do
+        Logger.debug(
+          "Handling event: #{inspect(event)}. Current state: #{current_state}, Expected state: #{expected_state}"
+        )
 
-          {:warp, new_data} ->
-            {:reply, {:ok, current_state}, %{current_state: current_state, data: new_data}}
+        if expected_state == current_state do
+          case handle_state_event(event, state) do
+            {:weft, new_data, next_state} ->
+              Logger.debug("Transitioning to #{next_state}")
+              {:reply, {:ok, next_state}, %{current_state: next_state, data: new_data}}
+
+            {:warp, new_state} ->
+              Logger.debug("Staying in #{current_state}")
+              Logger.info("new_state!!! -> #{inspect(new_state)}")
+              # Use the entire new state
+              {:reply, {:ok, new_state.current_state}, new_state}
+
+            other ->
+              Logger.error("Unexpected handle_state_event result: #{inspect(other)}")
+              {:reply, {:error, :invalid_transition}, state}
+          end
+        else
+          Logger.error(
+            "Invalid state transition. Expected #{expected_state}, got #{current_state}"
+          )
+
+          {:reply, {:error, :invalid_state}, state}
         end
       end
 
@@ -86,7 +105,8 @@ defmodule KernelShtf.Gov do
   # allow FSM state "stay" to be defined
   defmacro warp(state: state_expr) do
     quote do
-      {:warp, unquote(state_expr).data}
+      # Simply return the entire new state
+      {:warp, unquote(state_expr)}
     end
   end
 
@@ -98,7 +118,7 @@ defmodule KernelShtf.Gov do
           unquote(block)
 
         _ ->
-          {:warp, var!(state).data}
+          {:warp, %{current_state: var!(state).current_state, data: var!(state).data}}
       end
     end
   end
