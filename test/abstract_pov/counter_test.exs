@@ -59,11 +59,11 @@ defmodule CounterTest do
 
   describe "RegServer error handling" do
     test "timeout on call to non-existent server" do
-      assert KernelShtf.Wonder.Server.call(self(), {:any, :request}) == {:error, :timeout}
+      assert KernelShtf.Mil.Server.call(self(), {:any, :request}) == {:error, :timeout}
     end
 
     test "cast to non-existent server doesn't raise" do
-      assert KernelShtf.Wonder.Server.cast(self(), {:any, :request}) == :ok
+      assert KernelShtf.Mil.Server.cast(self(), {:any, :request}) == :ok
     end
   end
 

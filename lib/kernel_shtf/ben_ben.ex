@@ -1,4 +1,10 @@
 defmodule KernelShtf.BenBen do
+  @moduledoc """
+  Provides macros for defining and walking over recusive data structures with a clean DSL.
+  BenBen is short for Lambda or 11 and is mechanized similar to a Benben Stone or philosopher's stone
+  (aka "the tincture" and "the powder").
+  """
+
   require Logger
 
   defmacro phrenia(name, do: block) do

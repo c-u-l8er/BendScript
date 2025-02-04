@@ -1,4 +1,4 @@
-defmodule KernelShtf.Wonder.Server do
+defmodule KernelShtf.Mil.Server do
   @moduledoc """
   The core server implementation that handles the process lifecycle and message passing.
   """
@@ -15,7 +15,7 @@ defmodule KernelShtf.Wonder.Server do
     receive do
       {:reply, ^ref, reply} ->
         case reply do
-          {response, _new_state} -> response
+          {response, _new_floppy} -> response
           other -> other
         end
     after
@@ -30,28 +30,28 @@ defmodule KernelShtf.Wonder.Server do
 
   def init(module, init_arg) do
     case module.init(init_arg) do
-      {:ok, state} -> loop(module, state)
+      {:ok, floppy} -> loop(module, floppy)
       {:error, reason} -> exit(reason)
     end
   end
 
-  defp loop(module, state) do
+  defp loop(module, floppy) do
     receive do
       {:call, from = {pid, _ref}, ref, request} ->
-        case module.handle_call(request, from, state) do
-          {:reply, reply, new_state} ->
+        case module.handle_call(request, from, floppy) do
+          {:reply, reply, new_floppy} ->
             send(pid, {:reply, ref, reply})
-            loop(module, new_state)
+            loop(module, new_floppy)
         end
 
       {:cast, request} ->
-        case module.handle_cast(request, state) do
-          {:noreply, new_state} -> loop(module, new_state)
+        case module.handle_cast(request, floppy) do
+          {:noreply, new_floppy} -> loop(module, new_floppy)
         end
 
       msg ->
-        case module.handle_info(msg, state) do
-          {:noreply, new_state} -> loop(module, new_state)
+        case module.handle_info(msg, floppy) do
+          {:noreply, new_floppy} -> loop(module, new_floppy)
         end
     end
   end

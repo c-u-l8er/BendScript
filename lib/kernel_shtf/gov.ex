@@ -1,7 +1,7 @@
 defmodule KernelShtf.Gov do
   @moduledoc """
   Provides macros for defining composable state machines with a clean DSL.
-  Gov is short for governor and is mechanized similar to a loom.
+  Gov is short for governor or government and is mechanized similar to a loom.
   """
 
   require Logger

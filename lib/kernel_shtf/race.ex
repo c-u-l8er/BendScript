@@ -1,8 +1,8 @@
 defmodule KernelShtf.Race do
   @moduledoc """
   Provides a unique macro-based DSL for working with GenStage, Flow and Broadway.
-  Makes these powerful libraries more ergonomic to use while leveraging their
-  battle-tested implementations.
+  RACE is short for Reward Achievement Checkpoint Engine and is mechanized similar to
+  the RACETRACKS gametype in Halo 3.
   """
 
   require Logger

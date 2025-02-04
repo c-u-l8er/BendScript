@@ -1,26 +1,26 @@
 defmodule Counter do
-  use KernelShtf.Wonder
+  use KernelShtf.Mil
 
   # Define initial state
-  magic do
+  magnetic do
     %{count: 0}
   end
 
   # Define synchronous calls
   force(:get_count, []) do
-    state.count
+    floppy.count
   end
 
   force(:increment, [amount]) do
-    new_count = state.count + amount
-    %{state | count: new_count}
+    new_count = floppy.count + amount
+    %{floppy | count: new_count}
   end
 
   # Define asynchronous casts
   spell(:reset, []) do
-    %{state | count: 0}
+    %{floppy | count: 0}
   end
 
   # Handle unexpected messages
-  def handle_info(_msg, state), do: {:noreply, state}
+  def handle_info(_msg, floppy), do: {:noreply, floppy}
 end

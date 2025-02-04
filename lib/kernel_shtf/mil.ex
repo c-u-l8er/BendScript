@@ -1,6 +1,7 @@
-defmodule KernelShtf.Wonder do
+defmodule KernelShtf.Mil do
   @moduledoc """
-  A simplified implementation of GenServer behavior using macros.
+  A simplified implementation of GenServer behavior using macros with a clean DSL.
+  Mil is short for thousand or military and is mechanized similar to a floppy disk drive.
   """
 
   @callback init(term) :: {:ok, term} | {:error, term}
@@ -10,14 +11,14 @@ defmodule KernelShtf.Wonder do
 
   defmacro __using__(_opts) do
     quote do
-      @behaviour KernelShtf.Wonder
+      @behaviour KernelShtf.Mil
 
       # Explicitly import the macros
-      require KernelShtf.Wonder.Macros
-      import KernelShtf.Wonder.Macros
+      require KernelShtf.Mil.Macros
+      import KernelShtf.Mil.Macros
 
       def start_link(init_arg) do
-        KernelShtf.Wonder.Server.start_link(__MODULE__, init_arg)
+        KernelShtf.Mil.Server.start_link(__MODULE__, init_arg)
       end
 
       def child_spec(init_arg) do
