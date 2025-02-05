@@ -1,0 +1,35 @@
+Compiling 1 file (.ex)
+warning: module attribute @red_duration was set but never used
+  lib/abc_law/intersection_signal.ex:6
+
+Excluding tags: [:skip]
+
+16:33:35.569 [debug] Handling event: :tick. Current state: ns_active, Expected state: ns_active
+16:33:35.572 [info] NS: Green -> Yellow
+16:33:35.574 [info] Pattern result: {:weft, %{east_west: :red, last_tick: -576460751212, north_south: :yellow, timer: 0}, :ns_yellow}
+16:33:35.574 [debug] Transitioning to ns_yellow
+16:33:35.574 [debug] Handling event: :tick. Current state: ns_yellow, Expected state: ns_yellow
+16:33:35.574 [info] NS: Yellow -> Red, EW: Red -> Green
+16:33:35.574 [info] Pattern result: {:weft, %{east_west: :green, last_tick: -576460751210, north_south: :red, timer: 0}, :ew_active}
+16:33:35.574 [debug] Transitioning to ew_active
+..16:33:35.574 [debug] Handling event: :tick. Current state: ns_active, Expected state: ns_active
+16:33:35.574 [info] NS: Green -> Yellow
+16:33:35.575 [info] Pattern result: {:weft, %{east_west: :red, last_tick: -576460751209, north_south: :yellow, timer: 0}, :ns_yellow}
+16:33:35.575 [debug] Transitioning to ns_yellow
+16:33:35.575 [debug] Handling event: :tick. Current state: ns_yellow, Expected state: ns_yellow
+16:33:35.575 [info] NS: Yellow -> Red, EW: Red -> Green
+16:33:35.575 [info] Pattern result: {:weft, %{east_west: :green, last_tick: -576460751209, north_south: :red, timer: 0}, :ew_active}
+16:33:35.575 [debug] Transitioning to ew_active
+16:33:35.575 [debug] Handling event: :tick. Current state: ew_active, Expected state: ew_active
+16:33:35.575 [info] EW: Green -> Yellow
+16:33:35.575 [info] Pattern result: {:weft, %{east_west: :yellow, last_tick: -576460751209, north_south: :red, timer: 0}, :ew_yellow}
+16:33:35.575 [debug] Transitioning to ew_yellow
+16:33:35.575 [debug] Handling event: :tick. Current state: ew_yellow, Expected state: ew_yellow
+16:33:35.575 [info] EW: Yellow -> Red, NS: Red -> Green
+16:33:35.575 [info] Pattern result: {:weft, %{east_west: :red, last_tick: -576460751209, north_south: :green, timer: 0}, :ns_active}
+16:33:35.575 [debug] Transitioning to ns_active
+.
+Finished in 0.07 seconds (0.00s async, 0.07s sync)
+3 tests, 0 failures
+
+Randomized with seed 478658

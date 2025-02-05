@@ -194,63 +194,103 @@ run any kind of home setup up until i reach 5Gbps max speed connection
 but i am currently paying $60 month for 500Mbps.
 
 besides a brain for a data structure the next most and equally important
-thing is memory and the ability to think or "wonder" about on that
+thing is memory and the ability to think or "Milestone" about on that
 said memory.
 
 ```elixir
-use KernelShtf.Wonder
+use KernelShtf.Mil
 
 # Define initial state
-magic do
+magnetic do
   %{count: 0}
 end
 
 # Define synchronous calls
 force(:increment, [amount]) do
-  new_count = state.count + amount
-  %{state | count: new_count}
+  new_count = floppy.count + amount
+  %{floppy | count: new_count}
 end
 
 # Define asynchronous casts
 spell(:reset, []) do
-  %{state | count: 0}
+  %{floppy | count: 0}
 end
 ```
 
-the above is basically an elixir generic server with syntax that
-will make you feel like a wizard with a wond when you code in it.
+Key aspects of the Gov module demonstrated:
 
-in the above example state and magic mean the same thing and it
+- `magnetic` - Defines the state structure
+- `force` - Handles state calls
+- `cast` - Handles state casts
+- `floppy` - Gives access to data
+
+the above is basically an elixir generic server with syntax that
+will make you feel like a wizard with a magic net when you code in it.
+in this case a floppy disk which contains state.
+
+in the above example state and "magnetic floppy" mean the same thing and it
 can be used as memory for your phrenia recu data types. more on
 this later.
 
-so far we have seen 2 modules from KernelShtf that are a key part
-to what we are about to layer on top next which is abstract and
-concrete concepts and the ability to bridge between the two. we
-are also going to add domain driven design struct on top of that which
-looks something like the following in layers.
+because before there were floppy disk drives there were magnetic spinning
+drum drives. they spun uncontrolably similar to steem/gas engines, planets,
+nuke pp, etc. and needed to be governed or they would spin out of control.
+let's code a simple traffic signal below to demonstrate Gov in action.
+
 
 ```elixir
-# layer 0 (system)
-import KernelShtf
+defmodule TrafficSignal do
+  use KernelShtf.Gov
+  require Logger
 
-# layer 1.A (mental)
-import AbstractPov
+  fabric TrafficSignal do
+    # Define initial state
+    def canvas(_) do
+      {:ok, %{memory: :red, rotate: %{timer: 0}}}
+    end
 
-# layer 1.B (physical)
-import ConcreteIrl
+    # Red light state
+    pattern :red do
+      weave :cycle do
+        Logger.info("Cycling from red to green")
+        weft(to: :green, drum: drum)
+      end
+    end
 
-# layer 2 (mind-body connection)
-import BridgeImo
+    # Green light state
+    pattern :green do
+      weave :cycle do
+        Logger.info("Cycling from green to yellow")
+        weft(to: :yellow, drum: drum)
+      end
+    end
 
-# layer 3 (core)
-import XyzCore
-
-# layer 3.X (applications)
-import XyzApps.Api
-import XyzApps.Web
+    # Yellow light state
+    pattern :yellow do
+      weave :cycle do
+        Logger.info("Cycling from yellow to red")
+        weft(to: :red, drum: drum)
+      end
+    end
+  end
+end
 ```
-> checkout `./lib` for the full source code.
+
+Key aspects of the Gov module demonstrated:
+
+- `fabric` - Defines the state machine structure
+- `pattern` - Defines state handlers
+- `weave` - Pattern matches on events
+- `weft` - Handles state transition
+- `warp` - Handles state stay
+- `drum` - Allows state to be accessed
+- `drum.memory` - Gives current machine state
+- `drum.rotate.<stone>` - Gives access to machine data
+
+checkout `lib/abc_law/intersection_signal.ex` for 2 way traffic light example with timers.
+checkout `lib/abc_law/vending_machine.ex` for a simple coin and inventory system.
+
+before we get into the 4th `KernelShtf` module we are going to introduce character-driven reasoning.
 
 ```bash
 # READ!!! sotries for a coninuation of this documentation :)
@@ -259,7 +299,7 @@ cat ./storeis/STORY2.md
 cat ./storeis/STORY3.md
 ```
 
-> note: story driven design seams like a great way to get the compsci juices flowing. the above stories are great but i still have some concepts that i'd like to further develop like better characters.
+> note: stories seams like a great way to get the compsci juices flowing. let's further refine our characters.
 
 *(hand is to glove as foot is to sock)*
 
@@ -291,12 +331,14 @@ starting from themselves, the knowledge that they gained from
 their own "is to" -> Analogy Statement Table, and their
 combined resonance patterns.
 
-so far we have intro/structured BenBen and Wonder...
+so far we have intro/structured BenBen and Mil + Gov...
 
 the above intro/structures AST pantheons called LEAGUES...
 
 now we are going to intro/structure stage-based
 workflows aka checkpoint-based tracks called RACE...
+
+RACE: Reward Achievement Checkpoint Engine
 
 in Elixir this is known as GenStage, Flow, and Broadway however
 we are going to simplify and codify a better solution using macros.
@@ -315,7 +357,7 @@ track TestTrack do
 end
 ```
 
-quantifying abstract terminology:
+quantifying DSL terminology:
 - producer -> jumper
 - consumer -> lander
 - processor -> checker
@@ -389,9 +431,43 @@ conclusion:
 - Use **Flow** for parallel data processing and stream transformations.
 - Use **Broadway** for building robust, production-ready pipelines that integrate with external systems.
 
+so far we have seen 4 modules from KernelShtf that are a key part
+to what we are about to add on top next which is abstract and
+concrete concepts and the ability to bridge between the two. we
+are also going to add domain driven design struct on top of that which
+looks something like the following in layers starting from the center
+and moving outward and wraped around (spherically layered graphically).
+
+```elixir
+# layer -1 (myth)
+import AbcLaw
+
+# layer 0 (system)
+import KernelShtf
+
+# layer 1.A (mental)
+import AbstractPov
+
+# layer 1.B (physical)
+import ConcreteIrl
+
+# layer 2 (mind-body connection)
+import BridgeImo
+
+# layer 3 (core)
+import XyzCore
+
+# layer 3.X (applications)
+import XyzApps.Api
+import XyzApps.Web
+```
+> checkout `./lib` for the full source code.
+
 reflection:
-now that we have BenBen, Wonder, and Race kernel modules as well as three 10x developers (Echo, Nexus, and Harmony)
+now that we have BenBen, Mil + Gov, and RACE kernel modules as well as three 10x developers (Echo, Nexus, and Harmony)
 let's see if we now generate better stories that have more solid foundation of our core values.
+
+
 
 ## Early setup
 ```bash
@@ -421,6 +497,7 @@ be found at <https://hexdocs.pm/benben>.
 mix test 2>&1 | tee test.stdout.txt
 
 # test specific files
+mix test test/abc_law/intersection_signal_test.exs 2>&1 | tee intersection_signal_test.stdout.txt
 mix test test/abc_law/vending_machine_test.exs 2>&1 | tee vending_machine_test.stdout.txt
 
 mix test test/kernel_shtf/race_test.exs 2>&1 | tee kernel_shft_race.stdout.txt
