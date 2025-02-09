@@ -1,119 +1,163 @@
 defmodule SpaceshipQueriesTest do
   use ExUnit.Case
   doctest SpaceshipQueries
+  require Logger
+
+  alias Graffiti
+  alias CypherExecutor
 
   setup do
-    # Start registry for distributed nodes
-    {:ok, _} = Registry.start_link(keys: :unique, name: DistGraphDatabase.Registry)
+    state = %Graffiti.State{
+      graph: PropGraph.new(:directed),
+      schema: %{},
+      transactions: %{},
+      locks: %{},
+      transaction_counter: 0
+    }
 
-    # Start three nodes
-    {:ok, node1} = DistGraphDatabase.start_link(:node1)
-    {:ok, node2} = DistGraphDatabase.start_link(:node2)
-    {:ok, node3} = DistGraphDatabase.start_link(:node3)
-
-    # Join nodes into cluster
-    :ok = DistGraphDatabase.join_cluster(:node2, :node1)
-    :ok = DistGraphDatabase.join_cluster(:node3, :node1)
-
-    # Wait for leader election
-    Process.sleep(500)
-
-    # Define schema for spaceships
-    {:ok, tx_id} = DistGraphDatabase.begin_transaction(:node1)
-
-    {:ok, _} =
-      DistGraphDatabase.define_schema(:node1, tx_id, :Spaceship,
+    state =
+      Graffiti.define_vertex_type(state, :Spaceship,
         name: [type: :string, required: true],
         class: [type: :string, required: false],
         crew_capacity: [type: :integer, required: false]
       )
 
-    {:ok, _} = DistGraphDatabase.commit_transaction(:node1, tx_id)
-
-    {:ok, node: :node1}
+    {:ok, state: state}
   end
 
-  @tag :skip
   describe "SpaceshipQueries" do
-    test "creates and retrieves spaceships", %{node: node} do
-      # Create test spaceships
-      ships = [
-        "Millennium Falcon",
-        "X-Wing",
-        "Star Destroyer"
-      ]
+    test "creates and retrieves spaceships", %{state: state} do
+      ships = ["Millennium Falcon", "X-Wing", "Star Destroyer"]
 
-      # Create ships
-      created_ships =
-        Enum.map(ships, fn name ->
+      {new_state, _errors} =
+        Enum.reduce(ships, {state, []}, fn name, {acc_state, acc_errors} ->
           query = SpaceshipQueries.create_spaceship(name)
-          {:ok, ship_id} = CypherExecutor.execute(query, node)
-          ship_id
+          Logger.debug("Generated create query string: #{inspect(query)}")
+
+          case CypherExecutor.execute(query, acc_state) do
+            {:ok, {[{vertex_id, _, _}], new_state}} ->
+              # Verify vertex was created with correct properties
+              vertex = Map.get(new_state.graph.vertex_map, vertex_id)
+
+              if vertex.properties.name == name do
+                {new_state, acc_errors}
+              else
+                {acc_state, ["Vertex properties mismatch" | acc_errors]}
+              end
+
+            {:error, reason} ->
+              Logger.error("Error creating spaceship: #{reason}")
+              {acc_state, [reason | acc_errors]}
+          end
         end)
 
-      # Query all spaceships
+      # Query back created ships
       query = SpaceshipQueries.get_all_spaceships()
-      {:ok, results} = CypherExecutor.execute(query, node)
+      Logger.debug("Executing query: #{query}")
 
-      # Verify results
-      assert length(results) == length(ships)
+      case CypherExecutor.execute(query, new_state) do
+        {:ok, {results, _}} ->
+          ship_names =
+            Enum.map(results, fn {vertex_id, _, _} ->
+              vertex = Map.get(new_state.graph.vertex_map, vertex_id)
+              vertex.properties.name
+            end)
 
-      ship_names = Enum.map(results, & &1.properties.name)
-      assert Enum.all?(ships, &(&1 in ship_names))
+          assert length(results) == length(ships)
+          assert Enum.all?(ships, &(&1 in ship_names))
+
+        {:error, reason} ->
+          flunk("Error retrieving spaceships: #{reason}")
+      end
     end
 
     @tag :skip
-    test "creates spaceship with properties", %{node: node} do
-      # Create spaceship with additional properties
-      query =
-        SpaceshipQueries.create_spaceship_with_details(%{
-          name: "Enterprise",
-          class: "Constitution",
-          crew_capacity: 430
-        })
+    test "creates spaceship with properties", %{state: state} do
+      properties = %{
+        name: "Enterprise",
+        class: "Constitution",
+        crew_capacity: 430
+      }
 
-      {:ok, ship_id} = CypherExecutor.execute(query, node)
+      query = SpaceshipQueries.create_spaceship_with_details(properties)
+      Logger.debug("Executing query: #{query}")
 
-      # Query specific spaceship
-      query = SpaceshipQueries.get_spaceship_by_name("Enterprise")
-      {:ok, [ship]} = CypherExecutor.execute(query, node)
+      case CypherExecutor.execute(query, state) do
+        {:ok, {_, new_state}} ->
+          # Query back the created ship
+          query = SpaceshipQueries.get_spaceship_by_name("Enterprise")
 
-      # Verify properties
-      assert ship.properties.name == "Enterprise"
-      assert ship.properties.class == "Constitution"
-      assert ship.properties.crew_capacity == 430
+          case CypherExecutor.execute(query, new_state) do
+            {:ok, {[{vertex_id, _, _}], _}} ->
+              vertex = Map.get(new_state.graph.vertex_map, vertex_id)
+              assert vertex.properties.name == "Enterprise"
+              assert vertex.properties.class == "Constitution"
+              assert vertex.properties.crew_capacity == 430
+
+            {:error, reason} ->
+              flunk("Error retrieving spaceship: #{reason}")
+          end
+
+        {:error, reason} ->
+          flunk("Error creating spaceship: #{reason}")
+      end
     end
 
     @tag :skip
-    test "handles empty results", %{node: node} do
-      # Query before creating any spaceships
+    test "handles empty results", %{state: state} do
       query = SpaceshipQueries.get_all_spaceships()
-      {:ok, results} = CypherExecutor.execute(query, node)
+      Logger.debug("Executing query: #{query}")
 
-      assert results == []
+      case CypherExecutor.execute(query, state) do
+        {:ok, {results, _}} ->
+          assert results == []
+
+        {:error, reason} ->
+          flunk("Error executing query: #{reason}")
+      end
     end
 
     @tag :skip
-    test "filters spaceships by class", %{node: node} do
-      # Create spaceships of different classes
+    test "filters spaceships by class", %{state: state} do
       ships = [
         %{name: "X-Wing 1", class: "Starfighter"},
         %{name: "X-Wing 2", class: "Starfighter"},
         %{name: "Star Destroyer", class: "Capital"}
       ]
 
-      # Create all ships
-      Enum.each(ships, fn ship ->
-        query = SpaceshipQueries.create_spaceship_with_details(ship)
-        {:ok, _} = CypherExecutor.execute(query, node)
-      end)
+      {new_state, _errors} =
+        Enum.reduce(ships, {state, []}, fn ship, {acc_state, acc_errors} ->
+          query = SpaceshipQueries.create_spaceship_with_details(ship)
+          Logger.debug("Executing create query: #{query}")
 
-      # Query starfighters
+          case CypherExecutor.execute(query, acc_state) do
+            {:ok, {_, new_state}} ->
+              {new_state, acc_errors}
+
+            {:error, reason} ->
+              Logger.error("Error creating spaceship: #{reason}")
+              {acc_state, [reason | acc_errors]}
+          end
+        end)
+
       query = SpaceshipQueries.get_spaceships_by_class("Starfighter")
-      {:ok, results} = CypherExecutor.execute(query, node)
+      Logger.debug("Executing query: #{query}")
 
-      assert length(results) == 2
-      assert Enum.all?(results, &(&1.properties.class == "Starfighter"))
+      case CypherExecutor.execute(query, new_state) do
+        {:ok, {results, _}} ->
+          assert length(results) == 2
+
+          all_starfighters =
+            Enum.all?(results, fn {vertex_id, _, _} ->
+              vertex = Map.get(new_state.graph.vertex_map, vertex_id)
+              vertex.properties.class == "Starfighter"
+            end)
+
+          assert all_starfighters
+
+        {:error, reason} ->
+          flunk("Error filtering spaceships: #{reason}")
+      end
     end
   end
 end

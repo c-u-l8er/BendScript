@@ -510,6 +510,8 @@ mix test test/abstract_pov/parents_test.exs 2>&1 | tee abstract_pov_parents.stdo
 mix test test/abstract_pov/prop_graph_test.exs 2>&1 | tee abstract_pov_prop_graph.stdout.txt
 mix test test/abstract_pov/simple_graph_test.exs 2>&1 | tee abstract_pov_simple_graph.stdout.txt
 
+mix test test/bridge_imo/cypher/spaceship_queries_test.exs 2>&1 | tee bridge_imo_spaceship_queries.stdout.txt
+
 # test specific tests within a file
 mix test test/abstract_pov/chain_test.exs --only run:true 2>&1 | tee abstract_pov_chain.stdout.txt
 ```

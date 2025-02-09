@@ -1,181 +1,176 @@
 defmodule CypherExecutor do
-  def execute(query, node_name) do
-    # Start a transaction
-    {:ok, tx_id} = DistGraphDatabase.begin_transaction(node_name)
+  alias Graffiti
+  require Logger
+
+  def execute(query, state) do
+    Logger.debug("""
+    Executing query:
+      Query: #{inspect(query)}
+      State: #{inspect(state)}
+    """)
+
+    {tx_id, state} = Graffiti.begin_transaction(state)
+    Logger.debug("Started transaction #{tx_id}")
 
     try do
-      # Parse and execute the query
-      result = execute_query(query, node_name, tx_id)
+      case parse_query(query) do
+        {:ok, parsed_query} ->
+          Logger.debug("Successfully parsed query: #{inspect(parsed_query)}")
 
-      # Commit the transaction
-      {:ok, _} = DistGraphDatabase.commit_transaction(node_name, tx_id)
+          case execute_parsed_query(parsed_query, state, tx_id) do
+            {:ok, result, new_state} ->
+              Logger.debug("Query executed successfully, committing transaction")
+              {_commit_result, final_state} = Graffiti.commit_transaction(new_state, tx_id)
+              {:ok, {result, final_state}}
 
-      {:ok, result}
+            {:error, reason} ->
+              Logger.error("Query execution failed: #{reason}")
+              {_rollback_result, _state} = Graffiti.rollback_transaction(state, tx_id)
+              {:error, reason}
+          end
+
+        {:error, reason} ->
+          Logger.error("Query parsing failed: #{reason}")
+          {_rollback_result, _state} = Graffiti.rollback_transaction(state, tx_id)
+          {:error, reason}
+      end
     catch
       error ->
-        # Rollback on error
-        DistGraphDatabase.rollback_transaction(node_name, tx_id)
-        {:error, error}
-    end
-  end
-
-  defp execute_query(query, node_name, tx_id) do
-    case parse_query(query) do
-      {:match_where, pattern, condition, return} ->
-        execute_match_where(pattern, condition, return, node_name, tx_id)
-
-      {:match, pattern, return} ->
-        execute_match(pattern, return, node_name, tx_id)
-
-      {:create, pattern} ->
-        execute_create(pattern, node_name, tx_id)
-
-      other ->
-        raise "Unsupported query type: #{inspect(other)}"
+        Logger.error("Unexpected error: #{inspect(error)}")
+        {_rollback_result, _state} = Graffiti.rollback_transaction(state, tx_id)
+        {:error, "Unexpected error: #{inspect(error)}"}
     end
   end
 
   defp parse_query(query) do
-    # Simple parser for demonstration
-    cond do
-      String.starts_with?(query, "MATCH") ->
-        parts =
-          query
-          |> String.replace(~r/[\(\)]/, " ")
-          |> String.split()
+    Logger.debug("""
+    Parsing query:
+      Raw query: #{inspect(query)}
+    """)
 
-        case parts do
-          [_, pattern, "WHERE", condition, "RETURN", return] ->
-            {:match_where, pattern, condition, return}
+    parts = String.split(query, " ", trim: true)
+    Logger.debug("Query parts: #{inspect(parts)}")
 
-          [_, pattern, "RETURN", return] ->
-            {:match, pattern, return}
-        end
+    case parts do
+      ["CREATE" | rest] ->
+        Logger.debug("Handling CREATE query")
+        parse_create_and_return(rest)
 
-      String.starts_with?(query, "CREATE") ->
-        [_, pattern] =
-          query
-          |> String.replace(~r/[\(\)]/, " ")
-          |> String.split(" ", parts: 2)
+      ["MATCH" | rest] ->
+        Logger.debug("Handling MATCH query")
+        parse_match_and_return(rest)
 
-        {:create, String.trim(pattern)}
-
-      true ->
+      _ ->
+        Logger.error("Unsupported query format")
         {:error, "Unsupported query format"}
     end
   end
 
-  defp execute_match_where(pattern, condition, return, node_name, tx_id) do
-    {:node, label, var} = parse_pattern(pattern)
-    condition = parse_condition(condition)
+  defp parse_create_and_return(parts) do
+    case parts do
+      [node_pattern, "RETURN", var] ->
+        with {:ok, pattern} <- parse_create_pattern(node_pattern) do
+          {:ok, {:create_and_return, pattern, var}}
+        end
 
-    # Query vertices with matching label and filter by condition
-    vertices = query_vertices(node_name, tx_id, label)
-    Enum.filter(vertices, &matches_condition?(&1, condition))
-  end
-
-  defp parse_condition(condition) do
-    # Simple condition parser for "property = value"
-    [var_prop, value] = String.split(condition, "=")
-    [_var, prop] = String.split(String.trim(var_prop), ".")
-    value = String.trim(value)
-    {String.to_atom(prop), String.replace(value, ~r/^'|'$/, "")}
-  end
-
-  defp matches_condition?(vertex, {property, value}) do
-    vertex.properties[property] == value
-  end
-
-  defp execute_match(pattern, return, node_name, tx_id) do
-    # Convert pattern to graph traversal
-    case parse_pattern(pattern) do
-      {:node, label, var} ->
-        # Query vertices with matching label
-        query_vertices(node_name, tx_id, label)
+      _ ->
+        {:error, "Invalid CREATE query format"}
     end
   end
 
-  defp execute_create(pattern, node_name, tx_id) do
-    case parse_create_pattern(pattern) do
-      {:node, label, var, properties} ->
-        # Generate unique ID for new vertex
-        vertex_id = UUID.uuid4()
+  defp parse_match_and_return(parts) do
+    case parts do
+      [node_pattern, "RETURN", var] ->
+        with {:ok, pattern} <- parse_pattern(node_pattern) do
+          {:ok, {:match_and_return, pattern, var}}
+        end
 
-        # Create vertex in the graph
-        {:ok, _} =
-          DistGraphDatabase.add_vertex(
-            node_name,
-            tx_id,
-            String.to_atom(label),
-            vertex_id,
-            properties
-          )
-
-        {:ok, vertex_id}
-
-      {:relationship, from_pattern, type, to_pattern} ->
-        # Create vertices and relationship
-        {:ok, from_id} = execute_create(from_pattern, node_name, tx_id)
-        {:ok, to_id} = execute_create(to_pattern, node_name, tx_id)
-
-        # Create edge between vertices
-        {:ok, _} =
-          DistGraphDatabase.add_edge(
-            node_name,
-            tx_id,
-            from_id,
-            to_id,
-            String.to_atom(type),
-            %{}
-          )
-
-        {:ok, {from_id, to_id}}
+      _ ->
+        {:error, "Invalid MATCH query format"}
     end
+  end
+
+  defp execute_parsed_query(
+         {:create_and_return, {:node, label, _var, properties}, _return_var},
+         state,
+         tx_id
+       ) do
+    vertex_id = UUID.uuid4()
+    Logger.debug("Creating vertex with ID: #{vertex_id}")
+
+    case Graffiti.add_vertex(state, tx_id, String.to_atom(label), vertex_id, properties) do
+      {:ok, new_state} ->
+        {:ok, [{vertex_id, nil, nil}], new_state}
+
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
+  defp execute_parsed_query({:match_and_return, {:node, label, _var}}, state, _tx_id) do
+    {results, new_state} = Graffiti.query(state, [String.to_atom(label)])
+    {:ok, results, new_state}
   end
 
   defp parse_create_pattern(pattern) do
-    cond do
-      # Match node pattern like "n:Label {prop: 'value'}"
-      String.contains?(pattern, "{") ->
-        [node_part, props_part] = String.split(pattern, "{", parts: 2)
-        [var, label] = String.split(String.trim(node_part), ":")
+    # Extract node pattern like "(n:Label {prop: 'value'})"
+    case Regex.run(~r/\((\w+):(\w+)\s*({[^}]*})?\)/, pattern) do
+      [_, var, label, props_str] when not is_nil(props_str) ->
+        with {:ok, properties} <- parse_properties(props_str) do
+          {:ok, {:node, label, var, properties}}
+        end
 
-        properties =
-          props_part
-          |> String.replace("}", "")
-          |> String.split(",")
-          |> Enum.map(&String.trim/1)
-          |> Enum.map(&parse_property/1)
-          |> Map.new()
+      [_, var, label, nil] ->
+        {:ok, {:node, label, var, %{}}}
 
-        {:node, label, var, properties}
-
-      # Match simple node pattern like "n:Label"
-      String.contains?(pattern, ":") ->
-        [var, label] = String.split(pattern, ":")
-        {:node, label, var, %{}}
-
-      # Match relationship pattern like "(a:Label)-[r:TYPE]->(b:Label)"
-      String.contains?(pattern, "->") ->
-        [from_part, rel_part, to_part] = String.split(pattern, ~r/-\[:(\w+)\]->/)
-        {:relationship, from_part, rel_part, to_part}
+      _ ->
+        {:error, "Invalid CREATE pattern"}
     end
   end
 
-  defp parse_property(prop_str) do
-    [key, value] = String.split(prop_str, ":", parts: 2)
-    {String.to_atom(String.trim(key)), parse_value(String.trim(value))}
+  defp parse_pattern(pattern) do
+    # Extract node pattern like "(n:Label)"
+    case Regex.run(~r/\((\w+):(\w+)\)/, pattern) do
+      [_, var, label] -> {:ok, {:node, label, var}}
+      _ -> {:error, "Invalid pattern format"}
+    end
+  end
+
+  defp parse_properties(props_str) do
+    # Remove curly braces and split by comma
+    props_str
+    |> String.trim("{}")
+    |> String.split(",")
+    |> Enum.map(&String.trim/1)
+    |> Enum.reduce({:ok, %{}}, fn
+      "", acc -> acc
+      prop, {:ok, acc} -> parse_property(prop, acc)
+    end)
+  end
+
+  defp parse_property(prop_str, acc) do
+    case String.split(prop_str, ":", parts: 2) do
+      [key, value] ->
+        key = key |> String.trim() |> String.to_atom()
+        value = value |> String.trim() |> parse_value()
+        {:ok, Map.put(acc, key, value)}
+
+      _ ->
+        {:error, "Invalid property format"}
+    end
   end
 
   defp parse_value(value_str) do
+    value_str = String.trim(value_str)
+
     cond do
       String.starts_with?(value_str, "'") ->
         String.replace(value_str, ~r/^'|'$/, "")
 
-      String.match?(value_str, ~r/^\d+$/) ->
+      Regex.match?(~r/^\d+$/, value_str) ->
         String.to_integer(value_str)
 
-      String.match?(value_str, ~r/^\d+\.\d+$/) ->
+      Regex.match?(~r/^\d+\.\d+$/, value_str) ->
         String.to_float(value_str)
 
       value_str == "true" ->
@@ -187,16 +182,5 @@ defmodule CypherExecutor do
       true ->
         value_str
     end
-  end
-
-  defp parse_pattern(pattern) do
-    # Extract node pattern like "n:Label"
-    [var, label] = String.split(pattern, ":")
-    {:node, label, var}
-  end
-
-  defp query_vertices(node_name, tx_id, label) do
-    # Convert to DistGraphDatabase vertex query
-    DistGraphDatabase.query_vertices(node_name, tx_id, label)
   end
 end

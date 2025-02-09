@@ -1,0 +1,180 @@
+Compiling 1 file (.ex)
+Excluding tags: [:skip]
+
+17:16:24.656 [debug] Building create_spaceship query for name: "Millennium Falcon"
+17:16:24.659 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: %{name: "Millennium Falcon"}
+
+17:16:24.659 [debug] Building properties string from: %{name: "Millennium Falcon"}
+17:16:24.659 [debug] Built properties string: {name: 'Millennium Falcon'}
+17:16:24.659 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
+17:16:24.659 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
+17:16:24.659 [debug] Building RETURN clause for variable: :s
+17:16:24.659 [debug] Building Cypher query from block: ["RETURN", "s"]
+17:16:24.659 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: %{name: "Millennium Falcon"}
+
+17:16:24.659 [debug] Building properties string from: %{name: "Millennium Falcon"}
+17:16:24.659 [debug] Built properties string: {name: 'Millennium Falcon'}
+17:16:24.659 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
+17:16:24.659 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
+17:16:24.659 [debug] Building RETURN clause for variable: :s
+17:16:24.660 [debug] Building query from AST: ["RETURN", "s"]
+17:16:24.660 [debug] Traversing direct value: ["RETURN", "s"]
+17:16:24.660 [debug] Traversal result - clauses: ["RETURN", "s"], state: %{params: [], returns: []}
+17:16:24.660 [debug] After flatten: ["RETURN", "s"]
+17:16:24.661 [debug] After nil rejection: ["RETURN", "s"]
+17:16:24.661 [debug] After empty string rejection: ["RETURN", "s"]
+17:16:24.661 [debug] Final built query: RETURN s
+17:16:24.661 [debug] Generated create query string: "RETURN s"
+17:16:24.663 [debug] Executing query:
+  Query: "RETURN s"
+  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
+
+17:16:24.671 [debug] Started transaction 1
+17:16:24.671 [debug] Parsing query:
+  Raw query: "RETURN s"
+
+17:16:24.671 [debug] Query parts: ["RETURN", "s"]
+17:16:24.671 [error] Unsupported query format
+17:16:24.671 [error] Query parsing failed: Unsupported query format
+17:16:24.671 [error] Error creating spaceship: Unsupported query format
+17:16:24.671 [debug] Building create_spaceship query for name: "X-Wing"
+17:16:24.671 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: %{name: "X-Wing"}
+
+17:16:24.671 [debug] Building properties string from: %{name: "X-Wing"}
+17:16:24.671 [debug] Built properties string: {name: 'X-Wing'}
+17:16:24.671 [debug] Built node pattern: (s:Spaceship {name: 'X-Wing'})
+17:16:24.671 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'X-Wing'})"
+17:16:24.671 [debug] Building RETURN clause for variable: :s
+17:16:24.671 [debug] Building Cypher query from block: ["RETURN", "s"]
+17:16:24.671 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: %{name: "X-Wing"}
+
+17:16:24.671 [debug] Building properties string from: %{name: "X-Wing"}
+17:16:24.671 [debug] Built properties string: {name: 'X-Wing'}
+17:16:24.671 [debug] Built node pattern: (s:Spaceship {name: 'X-Wing'})
+17:16:24.671 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'X-Wing'})"
+17:16:24.671 [debug] Building RETURN clause for variable: :s
+17:16:24.671 [debug] Building query from AST: ["RETURN", "s"]
+17:16:24.671 [debug] Traversing direct value: ["RETURN", "s"]
+17:16:24.671 [debug] Traversal result - clauses: ["RETURN", "s"], state: %{params: [], returns: []}
+17:16:24.671 [debug] After flatten: ["RETURN", "s"]
+17:16:24.671 [debug] After nil rejection: ["RETURN", "s"]
+17:16:24.671 [debug] After empty string rejection: ["RETURN", "s"]
+17:16:24.671 [debug] Final built query: RETURN s
+17:16:24.671 [debug] Generated create query string: "RETURN s"
+17:16:24.671 [debug] Executing query:
+  Query: "RETURN s"
+  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
+
+17:16:24.671 [debug] Started transaction 1
+17:16:24.671 [debug] Parsing query:
+  Raw query: "RETURN s"
+
+17:16:24.671 [debug] Query parts: ["RETURN", "s"]
+17:16:24.671 [error] Unsupported query format
+17:16:24.671 [error] Query parsing failed: Unsupported query format
+17:16:24.671 [error] Error creating spaceship: Unsupported query format
+17:16:24.671 [debug] Building create_spaceship query for name: "Star Destroyer"
+17:16:24.671 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: %{name: "Star Destroyer"}
+
+17:16:24.671 [debug] Building properties string from: %{name: "Star Destroyer"}
+17:16:24.671 [debug] Built properties string: {name: 'Star Destroyer'}
+17:16:24.671 [debug] Built node pattern: (s:Spaceship {name: 'Star Destroyer'})
+17:16:24.671 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Star Destroyer'})"
+17:16:24.671 [debug] Building RETURN clause for variable: :s
+17:16:24.671 [debug] Building Cypher query from block: ["RETURN", "s"]
+17:16:24.671 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: %{name: "Star Destroyer"}
+
+17:16:24.671 [debug] Building properties string from: %{name: "Star Destroyer"}
+17:16:24.671 [debug] Built properties string: {name: 'Star Destroyer'}
+17:16:24.671 [debug] Built node pattern: (s:Spaceship {name: 'Star Destroyer'})
+17:16:24.671 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Star Destroyer'})"
+17:16:24.671 [debug] Building RETURN clause for variable: :s
+17:16:24.671 [debug] Building query from AST: ["RETURN", "s"]
+17:16:24.671 [debug] Traversing direct value: ["RETURN", "s"]
+17:16:24.671 [debug] Traversal result - clauses: ["RETURN", "s"], state: %{params: [], returns: []}
+17:16:24.671 [debug] After flatten: ["RETURN", "s"]
+17:16:24.671 [debug] After nil rejection: ["RETURN", "s"]
+17:16:24.671 [debug] After empty string rejection: ["RETURN", "s"]
+17:16:24.671 [debug] Final built query: RETURN s
+17:16:24.671 [debug] Generated create query string: "RETURN s"
+17:16:24.672 [debug] Executing query:
+  Query: "RETURN s"
+  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
+
+17:16:24.672 [debug] Started transaction 1
+17:16:24.672 [debug] Parsing query:
+  Raw query: "RETURN s"
+
+17:16:24.672 [debug] Query parts: ["RETURN", "s"]
+17:16:24.672 [error] Unsupported query format
+17:16:24.672 [error] Query parsing failed: Unsupported query format
+17:16:24.672 [error] Error creating spaceship: Unsupported query format
+17:16:24.672 [debug] Building get_all_spaceships query
+17:16:24.672 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: nil
+
+17:16:24.672 [debug] Built node pattern: (s:Spaceship)
+17:16:24.672 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
+17:16:24.672 [debug] Building RETURN clause for variable: :s
+17:16:24.672 [debug] Building Cypher query from block: ["RETURN", "s"]
+17:16:24.672 [debug] Building node pattern:
+  var: :s
+  labels: [:Spaceship]
+  properties: nil
+
+17:16:24.672 [debug] Built node pattern: (s:Spaceship)
+17:16:24.672 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
+17:16:24.672 [debug] Building RETURN clause for variable: :s
+17:16:24.672 [debug] Building query from AST: ["RETURN", "s"]
+17:16:24.672 [debug] Traversing direct value: ["RETURN", "s"]
+17:16:24.672 [debug] Traversal result - clauses: ["RETURN", "s"], state: %{params: [], returns: []}
+17:16:24.672 [debug] After flatten: ["RETURN", "s"]
+17:16:24.672 [debug] After nil rejection: ["RETURN", "s"]
+17:16:24.672 [debug] After empty string rejection: ["RETURN", "s"]
+17:16:24.672 [debug] Final built query: RETURN s
+17:16:24.672 [debug] Executing query: RETURN s
+17:16:24.672 [debug] Executing query:
+  Query: "RETURN s"
+  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
+
+17:16:24.672 [debug] Started transaction 1
+17:16:24.672 [debug] Parsing query:
+  Raw query: "RETURN s"
+
+17:16:24.672 [debug] Query parts: ["RETURN", "s"]
+17:16:24.672 [error] Unsupported query format
+17:16:24.672 [error] Query parsing failed: Unsupported query format
+
+
+  1) test SpaceshipQueries creates and retrieves spaceships (SpaceshipQueriesTest)
+     test/bridge_imo/cypher/spaceship_queries_test.exs:29
+     Error retrieving spaceships: Unsupported query format
+     code: flunk("Error retrieving spaceships: #{reason}")
+     stacktrace:
+       test/bridge_imo/cypher/spaceship_queries_test.exs:70: (test)
+
+
+Finished in 0.08 seconds (0.00s async, 0.08s sync)
+4 tests, 1 failure, 3 excluded
+
+Randomized with seed 557133
