@@ -1,133 +1,73 @@
-Compiling 2 files (.ex)
+Compiling 1 file (.ex)
+warning: variable "node_contents" is unused (if the variable is not meant to be used, prefix it with an underscore)
+  lib/bridge_imo/cypher/cypher_executer.ex:53: CypherExecutor.parse_query/1
+
+warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
+  lib/bridge_imo/cypher/cypher_executer.ex:86: CypherExecutor.parse_create_and_return/1
+
+warning: variable "var" is unused (if the variable is not meant to be used, prefix it with an underscore)
+  lib/bridge_imo/cypher/cypher_executer.ex:98: CypherExecutor.parse_match_and_return/1
+
+warning: function parse_create_and_return/1 is unused
+  lib/bridge_imo/cypher/cypher_executer.ex:84
+
+warning: function parse_create_pattern/1 is unused
+  lib/bridge_imo/cypher/cypher_executer.ex:130
+
+warning: function parse_match_and_return/1 is unused
+  lib/bridge_imo/cypher/cypher_executer.ex:96
+
+warning: function parse_pattern/1 is unused
+  lib/bridge_imo/cypher/cypher_executer.ex:146
+
+warning: function parse_property/2 is unused
+  lib/bridge_imo/cypher/cypher_executer.ex:179
+
 Excluding tags: [:skip]
 
-11:14:30.283 [debug] Building create_spaceship query for name: "Millennium Falcon"
-11:14:30.286 [debug] Building node pattern:
+11:39:20.023 [debug] Building create_spaceship query for name: "Millennium Falcon"
+11:39:20.028 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: %{name: "Millennium Falcon"}
 
-11:14:30.286 [debug] Building properties string from: %{name: "Millennium Falcon"}
-11:14:30.286 [debug] Built properties string: {name: 'Millennium Falcon'}
-11:14:30.286 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
-11:14:30.286 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
-11:14:30.286 [debug] Building RETURN clause for variable: :s
-11:14:30.286 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
-11:14:30.286 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
-11:14:30.291 [debug] Executing query:
+11:39:20.028 [debug] Building properties string from: %{name: "Millennium Falcon"}
+11:39:20.028 [debug] Built properties string: {name: 'Millennium Falcon'}
+11:39:20.028 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
+11:39:20.028 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
+11:39:20.028 [debug] Building RETURN clause for variable: :s
+11:39:20.028 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
+11:39:20.028 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
+11:39:20.031 [debug] Executing query:
   Query: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
   State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
 
-11:14:30.300 [debug] Started transaction 1
-11:14:30.300 [debug] Parsing query:
-  Raw query: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
+11:39:20.039 [debug] Started transaction 1
+11:39:20.039 [debug] Parsing query:
+Raw query: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
 
-11:14:30.300 [debug] Query parts: ["CREATE", "(s:Spaceship", "{name:", "'Millennium", "Falcon'})", "RETURN", "s"]
-11:14:30.300 [debug] Handling CREATE query
-11:14:30.300 [error] Query parsing failed: Invalid CREATE query format
-11:14:30.300 [error] Error creating spaceship: Invalid CREATE query format
-11:14:30.300 [debug] Building create_spaceship query for name: "X-Wing"
-11:14:30.300 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: %{name: "X-Wing"}
-
-11:14:30.300 [debug] Building properties string from: %{name: "X-Wing"}
-11:14:30.300 [debug] Built properties string: {name: 'X-Wing'}
-11:14:30.300 [debug] Built node pattern: (s:Spaceship {name: 'X-Wing'})
-11:14:30.300 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'X-Wing'})"
-11:14:30.300 [debug] Building RETURN clause for variable: :s
-11:14:30.300 [debug] Generated query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-11:14:30.300 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-11:14:30.300 [debug] Executing query:
-  Query: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
-
-11:14:30.300 [debug] Started transaction 1
-11:14:30.300 [debug] Parsing query:
-  Raw query: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-
-11:14:30.300 [debug] Query parts: ["CREATE", "(s:Spaceship", "{name:", "'X-Wing'})", "RETURN", "s"]
-11:14:30.300 [debug] Handling CREATE query
-11:14:30.300 [error] Query parsing failed: Invalid CREATE query format
-11:14:30.300 [error] Error creating spaceship: Invalid CREATE query format
-11:14:30.300 [debug] Building create_spaceship query for name: "Star Destroyer"
-11:14:30.300 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: %{name: "Star Destroyer"}
-
-11:14:30.300 [debug] Building properties string from: %{name: "Star Destroyer"}
-11:14:30.300 [debug] Built properties string: {name: 'Star Destroyer'}
-11:14:30.300 [debug] Built node pattern: (s:Spaceship {name: 'Star Destroyer'})
-11:14:30.300 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Star Destroyer'})"
-11:14:30.300 [debug] Building RETURN clause for variable: :s
-11:14:30.300 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-11:14:30.300 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-11:14:30.300 [debug] Executing query:
-  Query: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
-
-11:14:30.300 [debug] Started transaction 1
-11:14:30.301 [debug] Parsing query:
-  Raw query: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-
-11:14:30.301 [debug] Query parts: ["CREATE", "(s:Spaceship", "{name:", "'Star", "Destroyer'})", "RETURN", "s"]
-11:14:30.301 [debug] Handling CREATE query
-11:14:30.301 [error] Query parsing failed: Invalid CREATE query format
-11:14:30.301 [error] Error creating spaceship: Invalid CREATE query format
-11:14:30.301 [debug] Building get_all_spaceships query
-11:14:30.301 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: nil
-
-11:14:30.301 [debug] Built node pattern: (s:Spaceship)
-11:14:30.301 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
-11:14:30.301 [debug] Building RETURN clause for variable: :s
-11:14:30.301 [debug] Generated query string: "MATCH (s:Spaceship) RETURN s"
-11:14:30.301 [debug] Executing query: MATCH (s:Spaceship) RETURN s
-11:14:30.301 [debug] Executing query:
-  Query: "MATCH (s:Spaceship) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
-
-11:14:30.301 [debug] Started transaction 1
-11:14:30.301 [debug] Parsing query:
-  Raw query: "MATCH (s:Spaceship) RETURN s"
-
-11:14:30.301 [debug] Query parts: ["MATCH", "(s:Spaceship)", "RETURN", "s"]
-11:14:30.301 [debug] Handling MATCH query
-11:14:30.302 [debug] Successfully parsed query: {:match_and_return, {:node, "Spaceship", "s"}, "s"}
+11:39:20.039 [debug] Full Match: CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s
+11:39:20.039 [debug] Command: CREATE
+11:39:20.039 [debug] Node Pattern: (s:Spaceship {name: 'Millennium Falcon'})
+11:39:20.039 [debug] Return Var: s
+11:39:20.046 [debug] Handling CREATE query
+11:39:20.048 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{}}, "s"}
+11:39:20.091 [debug] Creating vertex with ID: eae1d26e-cfd4-4a65-92c8-7d32c6dc5058
 
 
   1) test SpaceshipQueries creates and retrieves spaceships (SpaceshipQueriesTest)
      test/bridge_imo/cypher/spaceship_queries_test.exs:29
-     ** (FunctionClauseError) no function clause matching in CypherExecutor.execute_parsed_query/3
-
-     The following arguments were given to CypherExecutor.execute_parsed_query/3:
-     
-         # 1
-         {:match_and_return, {:node, "Spaceship", "s"}, "s"}
-     
-         # 2
-         %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{1 => %{operations: [], timestamp: 1739207670301, variant: :pending}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}
-     
-         # 3
-         1
-     
-     Attempted function clauses (showing 2 out of 2):
-     
-         defp execute_parsed_query(-{:create_and_return, {:node, label, _var, properties}, _return_var}-, state, tx_id)
-         defp execute_parsed_query(-{:match_and_return, {:node, label, _var}}-, state, _tx_id)
-     
-     code: case CypherExecutor.execute(query, new_state) do
+     ** (CaseClauseError) no case clause matching: {:error, "Missing required properties: [:name]", %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{1 => %{operations: [], timestamp: 1739209160031, variant: :pending}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}}
+     code: Enum.reduce(ships, {state, []}, fn name, {acc_state, acc_errors} ->
      stacktrace:
-       (graphrenia 0.1.0) lib/bridge_imo/cypher/cypher_executer.ex:93: CypherExecutor.execute_parsed_query/3
+       (graphrenia 0.1.0) lib/bridge_imo/cypher/cypher_executer.ex:116: CypherExecutor.execute_parsed_query/3
        (graphrenia 0.1.0) lib/bridge_imo/cypher/cypher_executer.ex:20: CypherExecutor.execute/2
-       test/bridge_imo/cypher/spaceship_queries_test.exs:58: (test)
+       test/bridge_imo/cypher/spaceship_queries_test.exs:37: anonymous fn/2 in SpaceshipQueriesTest."test SpaceshipQueries creates and retrieves spaceships"/1
+       (elixir 1.14.0) lib/enum.ex:2468: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/bridge_imo/cypher/spaceship_queries_test.exs:33: (test)
 
 
 Finished in 0.1 seconds (0.00s async, 0.1s sync)
 4 tests, 1 failure, 3 excluded
 
-Randomized with seed 161959
+Randomized with seed 895282

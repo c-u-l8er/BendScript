@@ -45,20 +45,35 @@ defmodule CypherExecutor do
   defp parse_query(query) do
     Logger.debug("""
     Parsing query:
-      Raw query: #{inspect(query)}
+    Raw query: #{inspect(query)}
     """)
 
-    parts = String.split(query, " ", trim: true)
-    Logger.debug("Query parts: #{inspect(parts)}")
+    # Using Regex.scan to find CREATE or MATCH clauses and their arguments
+    case Regex.scan(~r/(CREATE|MATCH)\s+(\(([^)]+)\))\s+RETURN\s+(\w+)/, query) do
+      [[full_match, command, node_pattern, node_contents, return_var]] ->
+        Logger.debug("Full Match: #{full_match}")
+        Logger.debug("Command: #{command}")
+        Logger.debug("Node Pattern: #{node_pattern}")
+        Logger.debug("Return Var: #{return_var}")
 
-    case parts do
-      ["CREATE" | rest] ->
-        Logger.debug("Handling CREATE query")
-        parse_create_and_return(rest)
+        case String.upcase(command) do
+          "CREATE" ->
+            Logger.debug("Handling CREATE query")
 
-      ["MATCH" | rest] ->
-        Logger.debug("Handling MATCH query")
-        parse_match_and_return(rest)
+            with {:ok, {var, label, properties}} <- parse_node(String.trim(node_pattern)) do
+              {:ok, {:create_and_return, {:node, label, var, properties}, return_var}}
+            end
+
+          "MATCH" ->
+            Logger.debug("Handling MATCH query")
+
+            with {:ok, {var, label, properties}} <- parse_node(String.trim(node_pattern)) do
+              {:ok, {:match_and_return, {:node, label, var, properties}, return_var}}
+            end
+
+          _ ->
+            {:error, "Unsupported command"}
+        end
 
       _ ->
         Logger.error("Unsupported query format")
@@ -69,8 +84,8 @@ defmodule CypherExecutor do
   defp parse_create_and_return(parts) do
     case parts do
       [node_pattern, "RETURN", var] ->
-        with {:ok, pattern} <- parse_create_pattern(node_pattern) do
-          {:ok, {:create_and_return, pattern, var}}
+        with {:ok, {var, label, properties}} <- parse_node(node_pattern) do
+          {:ok, {:create_and_return, {:node, label, var, properties}, var}}
         end
 
       _ ->
@@ -81,8 +96,8 @@ defmodule CypherExecutor do
   defp parse_match_and_return(parts) do
     case parts do
       [node_pattern, "RETURN", var] ->
-        with {:ok, pattern} <- parse_pattern(node_pattern) do
-          {:ok, {:match_and_return, pattern, var}}
+        with {:ok, {var, label, properties}} <- parse_node(node_pattern) do
+          {:ok, {:match_and_return, {:node, label, var, properties}, var}}
         end
 
       _ ->
@@ -142,9 +157,22 @@ defmodule CypherExecutor do
     |> String.trim("{}")
     |> String.split(",")
     |> Enum.map(&String.trim/1)
+    |> Enum.reject(&(&1 == ""))
     |> Enum.reduce({:ok, %{}}, fn
-      "", acc -> acc
-      prop, {:ok, acc} -> parse_property(prop, acc)
+      prop, {:ok, acc} ->
+        case String.split(prop, ":", parts: 2) do
+          [key, value] ->
+            key = String.trim(key) |> String.to_atom()
+            value = String.trim(value) |> parse_value()
+            Map.put(acc, key, value)
+            {:ok, acc}
+
+          _ ->
+            {:error, "Invalid property format"}
+        end
+
+      _, {:error, reason} ->
+        {:error, reason}
     end)
   end
 
@@ -181,6 +209,28 @@ defmodule CypherExecutor do
 
       true ->
         value_str
+    end
+  end
+
+  defp parse_node(node_string) do
+    # Regex to capture label and properties within the node string
+    case Regex.run(~r/(\w+):(\w+)(?:\s*({.*}))?/, node_string) do
+      [_, var, label, properties_string] ->
+        # If properties exist, parse them; otherwise, return an empty map
+        properties =
+          if properties_string do
+            case parse_properties(String.trim(properties_string)) do
+              {:ok, props} -> props
+              {:error, reason} -> {:error, reason}
+            end
+          else
+            %{}
+          end
+
+        {:ok, {var, label, properties}}
+
+      _ ->
+        {:error, "Invalid node format"}
     end
   end
 end
