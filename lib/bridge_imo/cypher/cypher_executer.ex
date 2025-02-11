@@ -155,16 +155,33 @@ defmodule CypherExecutor do
        ) do
     label_atom = String.to_atom(label)
     Logger.debug("Executing MATCH query for label: #{label}, properties: #{inspect(properties)}")
-    # Modify the query function to support filtering by properties
-    query_pattern =
-      if map_size(properties) > 0 do
-        [properties]
-      else
-        [label_atom]
-      end
 
-    {results, new_state} = Graffiti.query(state, query_pattern)
-    {:ok, results, new_state}
+    # Get all vertex IDs of the given type
+    vertex_ids =
+      state.graph.vertex_map
+      |> Map.to_list()
+      |> Enum.filter(fn {_, vertex} ->
+        vertex.properties[:type] == label_atom
+      end)
+      |> Enum.map(fn {id, _} -> id end)
+
+    # Filter based on properties
+    filtered_vertex_ids =
+      Enum.filter(vertex_ids, fn vertex_id ->
+        vertex = Map.get(state.graph.vertex_map, vertex_id)
+        Logger.debug("Vertex properties during match: #{inspect(vertex.properties)}")
+
+        properties
+        |> Enum.all?(fn {key, value} ->
+          Map.get(vertex.properties, key) == value
+        end)
+      end)
+
+    # Convert to the format expected by the test
+    results = Enum.map(filtered_vertex_ids, fn id -> {id, nil, nil} end)
+    Logger.debug("Executing MATCH query results: #{inspect(results)}")
+
+    {:ok, results, state}
   end
 
   defp parse_create_pattern(pattern) do
@@ -277,7 +294,7 @@ defmodule CypherExecutor do
           case String.split(prop, ":", parts: 2) do
             [key, value] ->
               key = String.trim(key) |> String.to_atom()
-              value = String.replace(value, ~r/^'|'$/, "") |> String.trim()
+              value = String.trim(value) |> parse_value()
               Logger.debug("Parsed property: key=#{key}, value=#{value}")
               {:ok, Map.put(current_props, key, value)}
 

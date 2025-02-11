@@ -71,7 +71,7 @@ defmodule SpaceshipQueriesTest do
       end
     end
 
-    @tag :skip
+    # @tag :skip
     test "creates spaceship with properties", %{state: state} do
       properties = %{
         name: "Enterprise",
@@ -103,7 +103,7 @@ defmodule SpaceshipQueriesTest do
       end
     end
 
-    @tag :skip
+    # @tag :skip
     test "handles empty results", %{state: state} do
       query = SpaceshipQueries.get_all_spaceships()
       Logger.debug("Executing query: #{query}")
@@ -117,7 +117,7 @@ defmodule SpaceshipQueriesTest do
       end
     end
 
-    @tag :skip
+    # @tag :skip
     test "filters spaceships by class", %{state: state} do
       ships = [
         %{name: "X-Wing 1", class: "Starfighter"},
