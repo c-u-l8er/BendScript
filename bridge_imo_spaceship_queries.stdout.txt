@@ -9,187 +9,190 @@ warning: function parse_create_and_return/1 is unused
   lib/bridge_imo/cypher/cypher_executer.ex:108
 
 warning: function parse_create_pattern/1 is unused
-  lib/bridge_imo/cypher/cypher_executer.ex:166
+  lib/bridge_imo/cypher/cypher_executer.ex:170
 
 warning: function parse_match_and_return/1 is unused
   lib/bridge_imo/cypher/cypher_executer.ex:120
 
 warning: function parse_pattern/1 is unused
-  lib/bridge_imo/cypher/cypher_executer.ex:182
+  lib/bridge_imo/cypher/cypher_executer.ex:186
 
 warning: function parse_property/2 is unused
-  lib/bridge_imo/cypher/cypher_executer.ex:190
+  lib/bridge_imo/cypher/cypher_executer.ex:194
 
 warning: function parse_value/1 is unused
-  lib/bridge_imo/cypher/cypher_executer.ex:202
+  lib/bridge_imo/cypher/cypher_executer.ex:206
 
 Excluding tags: [:skip]
 
-22:25:09.700 [debug] Building create_spaceship query for name: "Millennium Falcon"
-22:25:09.705 [debug] Building node pattern:
+22:33:58.897 [debug] Building create_spaceship query for name: "Millennium Falcon"
+22:33:58.901 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: %{name: "Millennium Falcon"}
 
-22:25:09.705 [debug] Building properties string from: %{name: "Millennium Falcon"}
-22:25:09.705 [debug] Built properties string: {name: 'Millennium Falcon'}
-22:25:09.705 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
-22:25:09.705 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
-22:25:09.705 [debug] Building RETURN clause for variable: :s
-22:25:09.705 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
-22:25:09.705 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
-22:25:09.708 [debug] Executing query:
+22:33:58.901 [debug] Building properties string from: %{name: "Millennium Falcon"}
+22:33:58.901 [debug] Built properties string: {name: 'Millennium Falcon'}
+22:33:58.901 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
+22:33:58.901 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
+22:33:58.901 [debug] Building RETURN clause for variable: :s
+22:33:58.901 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
+22:33:58.901 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
+22:33:58.903 [debug] Executing query:
   Query: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
   State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
 
-22:25:09.716 [debug] Started transaction 1
-22:25:09.716 [debug] Parsing query:
+22:33:58.910 [debug] Started transaction 1
+22:33:58.910 [debug] Parsing query:
 Raw query: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
 
-22:25:09.716 [debug] Full Match with properties
-22:25:09.723 [debug] Handling CREATE query
-22:25:09.724 [debug] Parsing node string: "(s:Spaceship {name: 'Millennium Falcon'})"
-22:25:09.724 [debug] Found var: s, label: Spaceship, properties_string: name: 'Millennium Falcon'
-22:25:09.724 [debug] Parsing properties string: "name: 'Millennium Falcon'"
-22:25:09.724 [debug] Split properties: ["name: 'Millennium Falcon'"]
-22:25:09.725 [debug] Parsed property: key=name, value='Millennium Falcon
-22:25:09.725 [debug] Successfully parsed properties: %{name: "'Millennium Falcon"}
-22:25:09.725 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "'Millennium Falcon"}}, "s"}
-22:25:09.768 [debug] Creating vertex with ID: 0cd01728-237a-427c-9eef-84d815a62d7a
-22:25:09.768 [debug] Query executed successfully, committing transaction
-22:25:09.770 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
-22:25:09.770 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
-22:25:09.770 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-22:25:09.770 [debug] Processing recursive fields of: %{variant: :empty}
-22:25:09.770 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"0cd01728-237a-427c-9eef-84d815a62d7a" => %{adjacency: %{variant: :empty}, properties: %{name: "'Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "0cd01728-237a-427c-9eef-84d815a62d7a"}}}
-22:25:09.770 [debug] Building create_spaceship query for name: "X-Wing"
-22:25:09.770 [debug] Building node pattern:
+22:33:58.910 [debug] Full Match with properties
+22:33:58.918 [debug] Handling CREATE query
+22:33:58.919 [debug] Parsing node string: "(s:Spaceship {name: 'Millennium Falcon'})"
+22:33:58.919 [debug] Found var: s, label: Spaceship, properties_string: name: 'Millennium Falcon'
+22:33:58.919 [debug] Parsing properties string: "name: 'Millennium Falcon'"
+22:33:58.919 [debug] Split properties: ["name: 'Millennium Falcon'"]
+22:33:58.919 [debug] Parsed property: key=name, value='Millennium Falcon
+22:33:58.919 [debug] Successfully parsed properties: %{name: "'Millennium Falcon"}
+22:33:58.920 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "'Millennium Falcon"}}, "s"}
+22:33:58.962 [debug] Creating vertex with ID: fe76e4c4-bd8a-49f7-a8e2-d96147bdb658
+22:33:58.962 [debug] Query executed successfully, committing transaction
+22:33:58.964 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
+22:33:58.964 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+22:33:58.964 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+22:33:58.964 [debug] Processing recursive fields of: %{variant: :empty}
+22:33:58.964 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"fe76e4c4-bd8a-49f7-a8e2-d96147bdb658" => %{adjacency: %{variant: :empty}, properties: %{name: "'Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "fe76e4c4-bd8a-49f7-a8e2-d96147bdb658"}}}
+22:33:58.964 [debug] Building create_spaceship query for name: "X-Wing"
+22:33:58.964 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: %{name: "X-Wing"}
 
-22:25:09.770 [debug] Building properties string from: %{name: "X-Wing"}
-22:25:09.770 [debug] Built properties string: {name: 'X-Wing'}
-22:25:09.770 [debug] Built node pattern: (s:Spaceship {name: 'X-Wing'})
-22:25:09.770 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'X-Wing'})"
-22:25:09.770 [debug] Building RETURN clause for variable: :s
-22:25:09.770 [debug] Generated query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-22:25:09.770 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-22:25:09.770 [debug] Executing query:
+22:33:58.964 [debug] Building properties string from: %{name: "X-Wing"}
+22:33:58.964 [debug] Built properties string: {name: 'X-Wing'}
+22:33:58.964 [debug] Built node pattern: (s:Spaceship {name: 'X-Wing'})
+22:33:58.964 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'X-Wing'})"
+22:33:58.964 [debug] Building RETURN clause for variable: :s
+22:33:58.964 [debug] Generated query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
+22:33:58.964 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
+22:33:58.965 [debug] Executing query:
   Query: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
   State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
 
-22:25:09.770 [debug] Started transaction 1
-22:25:09.770 [debug] Parsing query:
+22:33:58.965 [debug] Started transaction 1
+22:33:58.965 [debug] Parsing query:
 Raw query: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
 
-22:25:09.771 [debug] Full Match with properties
-22:25:09.771 [debug] Handling CREATE query
-22:25:09.771 [debug] Parsing node string: "(s:Spaceship {name: 'X-Wing'})"
-22:25:09.771 [debug] Found var: s, label: Spaceship, properties_string: name: 'X-Wing'
-22:25:09.771 [debug] Parsing properties string: "name: 'X-Wing'"
-22:25:09.771 [debug] Split properties: ["name: 'X-Wing'"]
-22:25:09.771 [debug] Parsed property: key=name, value='X-Wing
-22:25:09.771 [debug] Successfully parsed properties: %{name: "'X-Wing"}
-22:25:09.771 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "'X-Wing"}}, "s"}
-22:25:09.771 [debug] Creating vertex with ID: ef6a850c-187c-4056-bb23-c1056163822d
-22:25:09.771 [debug] Query executed successfully, committing transaction
-22:25:09.771 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
-22:25:09.771 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
-22:25:09.771 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-22:25:09.771 [debug] Processing recursive fields of: %{variant: :empty}
-22:25:09.771 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"ef6a850c-187c-4056-bb23-c1056163822d" => %{adjacency: %{variant: :empty}, properties: %{name: "'X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "ef6a850c-187c-4056-bb23-c1056163822d"}}}
-22:25:09.771 [debug] Building create_spaceship query for name: "Star Destroyer"
-22:25:09.771 [debug] Building node pattern:
+22:33:58.965 [debug] Full Match with properties
+22:33:58.965 [debug] Handling CREATE query
+22:33:58.965 [debug] Parsing node string: "(s:Spaceship {name: 'X-Wing'})"
+22:33:58.965 [debug] Found var: s, label: Spaceship, properties_string: name: 'X-Wing'
+22:33:58.965 [debug] Parsing properties string: "name: 'X-Wing'"
+22:33:58.965 [debug] Split properties: ["name: 'X-Wing'"]
+22:33:58.965 [debug] Parsed property: key=name, value='X-Wing
+22:33:58.965 [debug] Successfully parsed properties: %{name: "'X-Wing"}
+22:33:58.965 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "'X-Wing"}}, "s"}
+22:33:58.965 [debug] Creating vertex with ID: 9e392c2d-6978-4ed0-858e-c47c4b6c58ec
+22:33:58.965 [debug] Query executed successfully, committing transaction
+22:33:58.965 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
+22:33:58.965 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+22:33:58.965 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+22:33:58.965 [debug] Processing recursive fields of: %{variant: :empty}
+22:33:58.965 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"9e392c2d-6978-4ed0-858e-c47c4b6c58ec" => %{adjacency: %{variant: :empty}, properties: %{name: "'X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "9e392c2d-6978-4ed0-858e-c47c4b6c58ec"}}}
+22:33:58.965 [debug] Building create_spaceship query for name: "Star Destroyer"
+22:33:58.965 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: %{name: "Star Destroyer"}
 
-22:25:09.771 [debug] Building properties string from: %{name: "Star Destroyer"}
-22:25:09.771 [debug] Built properties string: {name: 'Star Destroyer'}
-22:25:09.771 [debug] Built node pattern: (s:Spaceship {name: 'Star Destroyer'})
-22:25:09.771 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Star Destroyer'})"
-22:25:09.771 [debug] Building RETURN clause for variable: :s
-22:25:09.771 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-22:25:09.771 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-22:25:09.771 [debug] Executing query:
+22:33:58.965 [debug] Building properties string from: %{name: "Star Destroyer"}
+22:33:58.965 [debug] Built properties string: {name: 'Star Destroyer'}
+22:33:58.965 [debug] Built node pattern: (s:Spaceship {name: 'Star Destroyer'})
+22:33:58.965 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Star Destroyer'})"
+22:33:58.965 [debug] Building RETURN clause for variable: :s
+22:33:58.965 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
+22:33:58.965 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
+22:33:58.965 [debug] Executing query:
   Query: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
   State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
 
-22:25:09.771 [debug] Started transaction 1
-22:25:09.771 [debug] Parsing query:
+22:33:58.965 [debug] Started transaction 1
+22:33:58.965 [debug] Parsing query:
 Raw query: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
 
-22:25:09.771 [debug] Full Match with properties
-22:25:09.771 [debug] Handling CREATE query
-22:25:09.772 [debug] Parsing node string: "(s:Spaceship {name: 'Star Destroyer'})"
-22:25:09.772 [debug] Found var: s, label: Spaceship, properties_string: name: 'Star Destroyer'
-22:25:09.772 [debug] Parsing properties string: "name: 'Star Destroyer'"
-22:25:09.772 [debug] Split properties: ["name: 'Star Destroyer'"]
-22:25:09.772 [debug] Parsed property: key=name, value='Star Destroyer
-22:25:09.772 [debug] Successfully parsed properties: %{name: "'Star Destroyer"}
-22:25:09.772 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "'Star Destroyer"}}, "s"}
-22:25:09.772 [debug] Creating vertex with ID: 9a3f87fc-840e-4c53-b0bf-e3629c73e0a5
-22:25:09.772 [debug] Query executed successfully, committing transaction
-22:25:09.772 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
-22:25:09.772 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
-22:25:09.772 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-22:25:09.772 [debug] Processing recursive fields of: %{variant: :empty}
-22:25:09.772 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"9a3f87fc-840e-4c53-b0bf-e3629c73e0a5" => %{adjacency: %{variant: :empty}, properties: %{name: "'Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "9a3f87fc-840e-4c53-b0bf-e3629c73e0a5"}}}
-22:25:09.772 [debug] Building get_all_spaceships query
-22:25:09.772 [debug] Building node pattern:
+22:33:58.965 [debug] Full Match with properties
+22:33:58.965 [debug] Handling CREATE query
+22:33:58.965 [debug] Parsing node string: "(s:Spaceship {name: 'Star Destroyer'})"
+22:33:58.965 [debug] Found var: s, label: Spaceship, properties_string: name: 'Star Destroyer'
+22:33:58.965 [debug] Parsing properties string: "name: 'Star Destroyer'"
+22:33:58.965 [debug] Split properties: ["name: 'Star Destroyer'"]
+22:33:58.965 [debug] Parsed property: key=name, value='Star Destroyer
+22:33:58.965 [debug] Successfully parsed properties: %{name: "'Star Destroyer"}
+22:33:58.965 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "'Star Destroyer"}}, "s"}
+22:33:58.966 [debug] Creating vertex with ID: 3b699649-d864-480a-80ef-0d2cbd6f634b
+22:33:58.966 [debug] Query executed successfully, committing transaction
+22:33:58.966 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
+22:33:58.966 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+22:33:58.966 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+22:33:58.966 [debug] Processing recursive fields of: %{variant: :empty}
+22:33:58.966 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"3b699649-d864-480a-80ef-0d2cbd6f634b" => %{adjacency: %{variant: :empty}, properties: %{name: "'Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "3b699649-d864-480a-80ef-0d2cbd6f634b"}}}
+22:33:58.966 [debug] Building get_all_spaceships query
+22:33:58.966 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: nil
 
-22:25:09.772 [debug] Built node pattern: (s:Spaceship)
-22:25:09.772 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
-22:25:09.772 [debug] Building RETURN clause for variable: :s
-22:25:09.772 [debug] Generated query string: "MATCH (s:Spaceship) RETURN s"
-22:25:09.772 [debug] Executing query: MATCH (s:Spaceship) RETURN s
-22:25:09.772 [debug] Executing query:
+22:33:58.966 [debug] Built node pattern: (s:Spaceship)
+22:33:58.966 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
+22:33:58.966 [debug] Building RETURN clause for variable: :s
+22:33:58.966 [debug] Generated query string: "MATCH (s:Spaceship) RETURN s"
+22:33:58.966 [debug] Executing query: MATCH (s:Spaceship) RETURN s
+22:33:58.966 [debug] Executing query:
   Query: "MATCH (s:Spaceship) RETURN s"
   State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
 
-22:25:09.772 [debug] Started transaction 1
-22:25:09.772 [debug] Parsing query:
+22:33:58.966 [debug] Started transaction 1
+22:33:58.966 [debug] Parsing query:
 Raw query: "MATCH (s:Spaceship) RETURN s"
 
-22:25:09.772 [debug] Full Match with properties
-22:25:09.772 [debug] Handling MATCH query
-22:25:09.772 [debug] Parsing simple node string: "(s:Spaceship)"
-22:25:09.772 [debug] Found var: s, label: Spaceship
-22:25:09.772 [debug] Successfully parsed query: {:match_and_return, {:node, "Spaceship", "s", %{}}, "s"}
+22:33:58.966 [debug] Full Match with properties
+22:33:58.966 [debug] Handling MATCH query
+22:33:58.966 [debug] Parsing simple node string: "(s:Spaceship)"
+22:33:58.966 [debug] Found var: s, label: Spaceship
+22:33:58.966 [debug] Successfully parsed query: {:match_and_return, {:node, "Spaceship", "s", %{}}, "s"}
+22:33:58.966 [debug] Executing MATCH query for label: Spaceship, properties: %{}
+22:33:58.966 [debug] Executing query with pattern: [:Spaceship]
+22:33:58.966 [debug] Current state: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{1 => %{operations: [], timestamp: 1739248438966, variant: :pending}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}
+22:33:58.966 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
+22:33:58.966 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+22:33:58.966 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+22:33:58.966 [debug] Processing recursive fields of: %{variant: :empty}
+22:33:58.966 [debug] Empty graph, returning empty results
+22:33:58.966 [debug] Recursive field result for edge_list: []
+22:33:58.966 [debug] Processing graph with:
+22:33:58.966 [debug]   vertex_map: %{}
+22:33:58.966 [debug]   edge_list: []
+22:33:58.966 [debug] Extracting edges from: []
+22:33:58.966 [debug] Processing list of edges
+22:33:58.966 [debug] Extracted edges result: []
+22:33:58.966 [debug] Extracted edges: []
+22:33:58.966 [debug] Executing query with pattern: [:Spaceship]
+22:33:58.966 [warning] Unsupported query pattern: [:Spaceship]
+22:33:58.966 [debug] Query results: []
+22:33:58.966 [debug] Query executed successfully, committing transaction
 
 
   1) test SpaceshipQueries creates and retrieves spaceships (SpaceshipQueriesTest)
      test/bridge_imo/cypher/spaceship_queries_test.exs:29
-     ** (FunctionClauseError) no function clause matching in CypherExecutor.execute_parsed_query/3
-
-     The following arguments were given to CypherExecutor.execute_parsed_query/3:
-     
-         # 1
-         {:match_and_return, {:node, "Spaceship", "s", %{}}, "s"}
-     
-         # 2
-         %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{1 => %{operations: [], timestamp: 1739247909772, variant: :pending}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}
-     
-         # 3
-         1
-     
-     Attempted function clauses (showing 2 out of 2):
-     
-         defp execute_parsed_query(-{:create_and_return, {:node, label, _var, properties}, _return_var}-, state, tx_id)
-         defp execute_parsed_query(-{:match_and_return, {:node, label, _var, properties}}-, state, _tx_id)
-     
-     code: case CypherExecutor.execute(query, new_state) do
+     Assertion with == failed
+     code:  assert length(results) == length(ships)
+     left:  0
+     right: 3
      stacktrace:
-       (graphrenia 0.1.0) lib/bridge_imo/cypher/cypher_executer.ex:132: CypherExecutor.execute_parsed_query/3
-       (graphrenia 0.1.0) lib/bridge_imo/cypher/cypher_executer.ex:20: CypherExecutor.execute/2
-       test/bridge_imo/cypher/spaceship_queries_test.exs:58: (test)
+       test/bridge_imo/cypher/spaceship_queries_test.exs:66: (test)
 
 
 Finished in 0.1 seconds (0.00s async, 0.1s sync)
 4 tests, 1 failure, 3 excluded
 
-Randomized with seed 574643
+Randomized with seed 773254

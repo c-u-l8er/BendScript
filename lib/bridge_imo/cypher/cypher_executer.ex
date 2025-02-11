@@ -148,7 +148,11 @@ defmodule CypherExecutor do
     end
   end
 
-  defp execute_parsed_query({:match_and_return, {:node, label, _var, properties}}, state, _tx_id) do
+  defp execute_parsed_query(
+         {:match_and_return, {:node, label, _var, properties}, _return_var},
+         state,
+         _tx_id
+       ) do
     label_atom = String.to_atom(label)
     Logger.debug("Executing MATCH query for label: #{label}, properties: #{inspect(properties)}")
     # Modify the query function to support filtering by properties
