@@ -57,10 +57,10 @@ defmodule SpaceshipQueriesTest do
       Logger.debug("Executing query: #{query}")
 
       case CypherExecutor.execute(query, new_state) do
-        {:ok, {results, _}} ->
+        {:ok, {results, final_state}} ->
           ship_names =
             Enum.map(results, fn {vertex_id, _, _} ->
-              vertex = Map.get(new_state.graph.vertex_map, vertex_id)
+              vertex = Map.get(final_state.graph.vertex_map, vertex_id)
               vertex.properties.name
             end)
 
@@ -89,8 +89,8 @@ defmodule SpaceshipQueriesTest do
           query = SpaceshipQueries.get_spaceship_by_name("Enterprise")
 
           case CypherExecutor.execute(query, new_state) do
-            {:ok, {[{vertex_id, _, _}], _}} ->
-              vertex = Map.get(new_state.graph.vertex_map, vertex_id)
+            {:ok, {[{vertex_id, _, _}], final_state}} ->
+              vertex = Map.get(final_state.graph.vertex_map, vertex_id)
               assert vertex.properties.name == "Enterprise"
               assert vertex.properties.class == "Constitution"
               assert vertex.properties.crew_capacity == 430
@@ -145,12 +145,12 @@ defmodule SpaceshipQueriesTest do
       Logger.debug("Executing query: #{query}")
 
       case CypherExecutor.execute(query, new_state) do
-        {:ok, {results, _}} ->
+        {:ok, {results, final_state}} ->
           assert length(results) == 2
 
           all_starfighters =
             Enum.all?(results, fn {vertex_id, _, _} ->
-              vertex = Map.get(new_state.graph.vertex_map, vertex_id)
+              vertex = Map.get(final_state.graph.vertex_map, vertex_id)
               vertex.properties.class == "Starfighter"
             end)
 

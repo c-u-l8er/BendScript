@@ -191,7 +191,7 @@ defmodule CypherExecutor do
 
   defp apply_where_clause(vertex_ids, state, where_clause) do
     # Basic parsing of the where clause (e.g., "s.name = 'Enterprise'")
-    case Regex.run(~r/(\w+)\.(\w+)\s*=\s*['"]?([^'"]*)['"]?/, where_clause) do
+    case Regex.run(~r/(\w+)\.(\w+)\s*==\s*['"]?([^'"]*)['"]?/, where_clause) do
       [_, var, property, value] ->
         Logger.debug(
           "Extracted var: #{var}, property: #{property}, value: #{value} from WHERE clause"
@@ -199,7 +199,21 @@ defmodule CypherExecutor do
 
         Enum.filter(vertex_ids, fn vertex_id ->
           vertex = Map.get(state.graph.vertex_map, vertex_id)
-          vertex.properties[String.to_atom(property)] == value
+
+          case Map.get(vertex.properties, String.to_atom(property)) do
+            nil ->
+              Logger.debug("Property #{property} is nil for vertex #{vertex_id}")
+              # Property is missing
+              false
+
+            prop_value ->
+              Logger.debug(
+                "Comparing property #{property} with value #{value} for vertex #{vertex_id}"
+              )
+
+              # Compare
+              prop_value == value
+          end
         end)
 
       _ ->
