@@ -27,9 +27,11 @@ defmodule ExCypher do
     "MATCH " <> pattern
   end
 
-  def where(condition) do
-    Logger.debug("Building WHERE clause with condition: #{inspect(condition)}")
-    "WHERE " <> condition
+  # Override where/1 to handle property access
+  defmacro where(expression) do
+    stringified_expression = Macro.to_string(expression)
+    Logger.debug("Stringified where expression: #{stringified_expression}")
+    quote do: "WHERE " <> unquote(stringified_expression)
   end
 
   def create(pattern) do

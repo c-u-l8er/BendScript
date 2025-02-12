@@ -35,7 +35,7 @@ defmodule SpaceshipQueries do
 
     cypher do
       match(node(:s, [:Spaceship]))
-      where("s.name = '#{name}'")
+      where(s.name == name)
       return(:s)
     end
   end
@@ -45,7 +45,7 @@ defmodule SpaceshipQueries do
 
     cypher do
       match(node(:s, [:Spaceship]))
-      where("s.class = '#{class}'")
+      where(s.class == class)
       return(:s)
     end
   end

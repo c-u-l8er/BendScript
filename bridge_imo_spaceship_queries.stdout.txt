@@ -1,423 +1,160 @@
 Excluding tags: [:skip]
 
-10:13:55.931 [debug] Building get_all_spaceships query
-10:13:55.935 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: nil
-
-10:13:55.935 [debug] Built node pattern: (s:Spaceship)
-10:13:55.936 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
-10:13:55.936 [debug] Building RETURN clause for variable: :s
-10:13:55.936 [debug] Generated query string: "MATCH (s:Spaceship) RETURN s"
-10:13:55.936 [debug] Executing query: MATCH (s:Spaceship) RETURN s
-10:13:55.941 [debug] Executing query:
-  Query: "MATCH (s:Spaceship) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
-
-10:13:55.950 [debug] Started transaction 1
-10:13:55.950 [debug] Parsing query:
-Raw query: "MATCH (s:Spaceship) RETURN s"
-
-10:13:55.950 [debug] Full Match with properties
-10:13:55.957 [debug] Handling MATCH query
-10:13:55.959 [debug] Parsing simple node string: "(s:Spaceship)"
-10:13:55.959 [debug] Found var: s, label: Spaceship
-10:13:55.960 [debug] Successfully parsed query: {:match_and_return, {:node, "Spaceship", "s", %{}}, "s"}
-10:13:55.960 [debug] Executing MATCH query for label: Spaceship, properties: %{}
-10:13:55.960 [debug] Executing MATCH query results: []
-10:13:55.960 [debug] Query executed successfully, committing transaction
-.10:13:55.960 [debug] Building create_spaceship_with_details query
-10:13:55.960 [debug] Properties: %{class: "Starfighter", name: "X-Wing 1"}
-10:13:55.960 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: %{class: "Starfighter", name: "X-Wing 1"}
-
-10:13:55.960 [debug] Building properties string from: %{class: "Starfighter", name: "X-Wing 1"}
-10:13:55.960 [debug] Built properties string: {class: 'Starfighter', name: 'X-Wing 1'}
-10:13:55.960 [debug] Built node pattern: (s:Spaceship {class: 'Starfighter', name: 'X-Wing 1'})
-10:13:55.960 [debug] Building CREATE clause with pattern: "(s:Spaceship {class: 'Starfighter', name: 'X-Wing 1'})"
-10:13:55.960 [debug] Building RETURN clause for variable: :s
-10:13:55.961 [debug] Generated query string: "CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 1'}) RETURN s"
-10:13:55.961 [debug] Executing create query: CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 1'}) RETURN s
-10:13:55.961 [debug] Executing query:
-  Query: "CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 1'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
-
-10:13:55.961 [debug] Started transaction 1
-10:13:55.961 [debug] Parsing query:
-Raw query: "CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 1'}) RETURN s"
-
-10:13:55.961 [debug] Full Match with properties
-10:13:55.961 [debug] Handling CREATE query
-10:13:55.961 [debug] Parsing node string: "(s:Spaceship {class: 'Starfighter', name: 'X-Wing 1'})"
-10:13:55.961 [debug] Found var: s, label: Spaceship, properties_string: class: 'Starfighter', name: 'X-Wing 1'
-10:13:55.961 [debug] Parsing properties string: "class: 'Starfighter', name: 'X-Wing 1'"
-10:13:55.961 [debug] Split properties: ["class: 'Starfighter'", " name: 'X-Wing 1'"]
-10:13:55.961 [debug] Parsing value string: "'Starfighter'"
-10:13:55.961 [debug] Parsed property: key=class, value=Starfighter
-10:13:55.961 [debug] Parsing value string: "'X-Wing 1'"
-10:13:55.961 [debug] Parsed property: key=name, value=X-Wing 1
-10:13:55.961 [debug] Successfully parsed properties: %{class: "Starfighter", name: "X-Wing 1"}
-10:13:55.961 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{class: "Starfighter", name: "X-Wing 1"}}, "s"}
-10:13:56.003 [debug] Creating vertex with ID: 43beb9f2-e70a-4298-9d0b-d646664d38ce
-10:13:56.003 [debug] Query executed successfully, committing transaction
-10:13:56.005 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
-10:13:56.005 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
-10:13:56.005 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-10:13:56.005 [debug] Processing recursive fields of: %{variant: :empty}
-10:13:56.006 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}
-10:13:56.006 [debug] Building create_spaceship_with_details query
-10:13:56.006 [debug] Properties: %{class: "Starfighter", name: "X-Wing 2"}
-10:13:56.006 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: %{class: "Starfighter", name: "X-Wing 2"}
-
-10:13:56.006 [debug] Building properties string from: %{class: "Starfighter", name: "X-Wing 2"}
-10:13:56.006 [debug] Built properties string: {class: 'Starfighter', name: 'X-Wing 2'}
-10:13:56.006 [debug] Built node pattern: (s:Spaceship {class: 'Starfighter', name: 'X-Wing 2'})
-10:13:56.006 [debug] Building CREATE clause with pattern: "(s:Spaceship {class: 'Starfighter', name: 'X-Wing 2'})"
-10:13:56.006 [debug] Building RETURN clause for variable: :s
-10:13:56.006 [debug] Generated query string: "CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 2'}) RETURN s"
-10:13:56.006 [debug] Executing create query: CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 2'}) RETURN s
-10:13:56.006 [debug] Executing query:
-  Query: "CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 2'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, transactions: %{1 => %{changes: [vertex_added: "43beb9f2-e70a-4298-9d0b-d646664d38ce"], timestamp: 1739290436006, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}
-
-10:13:56.006 [debug] Started transaction 2
-10:13:56.006 [debug] Parsing query:
-Raw query: "CREATE (s:Spaceship {class: 'Starfighter', name: 'X-Wing 2'}) RETURN s"
-
-10:13:56.006 [debug] Full Match with properties
-10:13:56.006 [debug] Handling CREATE query
-10:13:56.006 [debug] Parsing node string: "(s:Spaceship {class: 'Starfighter', name: 'X-Wing 2'})"
-10:13:56.006 [debug] Found var: s, label: Spaceship, properties_string: class: 'Starfighter', name: 'X-Wing 2'
-10:13:56.006 [debug] Parsing properties string: "class: 'Starfighter', name: 'X-Wing 2'"
-10:13:56.006 [debug] Split properties: ["class: 'Starfighter'", " name: 'X-Wing 2'"]
-10:13:56.006 [debug] Parsing value string: "'Starfighter'"
-10:13:56.006 [debug] Parsed property: key=class, value=Starfighter
-10:13:56.006 [debug] Parsing value string: "'X-Wing 2'"
-10:13:56.006 [debug] Parsed property: key=name, value=X-Wing 2
-10:13:56.006 [debug] Successfully parsed properties: %{class: "Starfighter", name: "X-Wing 2"}
-10:13:56.006 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{class: "Starfighter", name: "X-Wing 2"}}, "s"}
-10:13:56.006 [debug] Creating vertex with ID: 21df4ea7-c39c-4397-bd8d-0d04578f72b0
-10:13:56.006 [debug] Query executed successfully, committing transaction
-10:13:56.007 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, variant_type: :graph, state: nil
-10:13:56.007 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}
-10:13:56.007 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, variant_type: :graph, state: nil
-10:13:56.007 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}
-10:13:56.007 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-10:13:56.007 [debug] Processing recursive fields of: %{variant: :empty}
-10:13:56.007 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}
-10:13:56.007 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}
-10:13:56.007 [debug] Building create_spaceship_with_details query
-10:13:56.007 [debug] Properties: %{class: "Capital", name: "Star Destroyer"}
-10:13:56.007 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: %{class: "Capital", name: "Star Destroyer"}
-
-10:13:56.007 [debug] Building properties string from: %{class: "Capital", name: "Star Destroyer"}
-10:13:56.007 [debug] Built properties string: {class: 'Capital', name: 'Star Destroyer'}
-10:13:56.007 [debug] Built node pattern: (s:Spaceship {class: 'Capital', name: 'Star Destroyer'})
-10:13:56.007 [debug] Building CREATE clause with pattern: "(s:Spaceship {class: 'Capital', name: 'Star Destroyer'})"
-10:13:56.007 [debug] Building RETURN clause for variable: :s
-10:13:56.007 [debug] Generated query string: "CREATE (s:Spaceship {class: 'Capital', name: 'Star Destroyer'}) RETURN s"
-10:13:56.007 [debug] Executing create query: CREATE (s:Spaceship {class: 'Capital', name: 'Star Destroyer'}) RETURN s
-10:13:56.007 [debug] Executing query:
-  Query: "CREATE (s:Spaceship {class: 'Capital', name: 'Star Destroyer'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, transactions: %{1 => %{changes: [vertex_added: "43beb9f2-e70a-4298-9d0b-d646664d38ce"], timestamp: 1739290436006, variant: :committed}, 2 => %{changes: [vertex_added: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"], timestamp: 1739290436007, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 2}
-
-10:13:56.007 [debug] Started transaction 3
-10:13:56.007 [debug] Parsing query:
-Raw query: "CREATE (s:Spaceship {class: 'Capital', name: 'Star Destroyer'}) RETURN s"
-
-10:13:56.007 [debug] Full Match with properties
-10:13:56.007 [debug] Handling CREATE query
-10:13:56.008 [debug] Parsing node string: "(s:Spaceship {class: 'Capital', name: 'Star Destroyer'})"
-10:13:56.008 [debug] Found var: s, label: Spaceship, properties_string: class: 'Capital', name: 'Star Destroyer'
-10:13:56.008 [debug] Parsing properties string: "class: 'Capital', name: 'Star Destroyer'"
-10:13:56.008 [debug] Split properties: ["class: 'Capital'", " name: 'Star Destroyer'"]
-10:13:56.008 [debug] Parsing value string: "'Capital'"
-10:13:56.008 [debug] Parsed property: key=class, value=Capital
-10:13:56.008 [debug] Parsing value string: "'Star Destroyer'"
-10:13:56.008 [debug] Parsed property: key=name, value=Star Destroyer
-10:13:56.008 [debug] Successfully parsed properties: %{class: "Capital", name: "Star Destroyer"}
-10:13:56.008 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{class: "Capital", name: "Star Destroyer"}}, "s"}
-10:13:56.008 [debug] Creating vertex with ID: e72b48bb-6ea5-4319-afa2-193f050ccb62
-10:13:56.008 [debug] Query executed successfully, committing transaction
-10:13:56.008 [debug] do_fold called with data: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, variant_type: :graph, state: nil
-10:13:56.008 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}
-10:13:56.008 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}, variant_type: :graph, state: nil
-10:13:56.008 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}}}
-10:13:56.008 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}, variant_type: :graph, state: nil
-10:13:56.009 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}}}
-10:13:56.009 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-10:13:56.009 [debug] Processing recursive fields of: %{variant: :empty}
-10:13:56.009 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}
-10:13:56.009 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}
-10:13:56.009 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}, "e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}
-10:13:56.009 [debug] Building get_spaceships_by_class query for: "Starfighter"
-10:13:56.009 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: nil
-
-10:13:56.009 [debug] Built node pattern: (s:Spaceship)
-10:13:56.009 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
-10:13:56.009 [debug] Building WHERE clause with condition: "s.class = 'Starfighter'"
-10:13:56.009 [debug] Building RETURN clause for variable: :s
-10:13:56.009 [debug] Generated query string: "MATCH (s:Spaceship) WHERE s.class = 'Starfighter' RETURN s"
-10:13:56.009 [debug] Executing query: MATCH (s:Spaceship) WHERE s.class = 'Starfighter' RETURN s
-10:13:56.009 [debug] Executing query:
-  Query: "MATCH (s:Spaceship) WHERE s.class = 'Starfighter' RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}, "e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"21df4ea7-c39c-4397-bd8d-0d04578f72b0" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 2", type: :Spaceship}, variant: :vertex, vertex_id: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"}, "43beb9f2-e70a-4298-9d0b-d646664d38ce" => %{adjacency: %{variant: :empty}, properties: %{class: "Starfighter", name: "X-Wing 1", type: :Spaceship}, variant: :vertex, vertex_id: "43beb9f2-e70a-4298-9d0b-d646664d38ce"}, "e72b48bb-6ea5-4319-afa2-193f050ccb62" => %{adjacency: %{variant: :empty}, properties: %{class: "Capital", name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "e72b48bb-6ea5-4319-afa2-193f050ccb62"}}}, transactions: %{1 => %{changes: [vertex_added: "43beb9f2-e70a-4298-9d0b-d646664d38ce"], timestamp: 1739290436006, variant: :committed}, 2 => %{changes: [vertex_added: "21df4ea7-c39c-4397-bd8d-0d04578f72b0"], timestamp: 1739290436007, variant: :committed}, 3 => %{changes: [vertex_added: "e72b48bb-6ea5-4319-afa2-193f050ccb62"], timestamp: 1739290436009, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 3}
-
-10:13:56.010 [debug] Started transaction 4
-10:13:56.010 [debug] Parsing query:
-Raw query: "MATCH (s:Spaceship) WHERE s.class = 'Starfighter' RETURN s"
-
-10:13:56.010 [error] Unsupported query format
-10:13:56.010 [error] Query parsing failed: Unsupported query format
-10:13:56.010 [debug] Building create_spaceship query for name: "Millennium Falcon"
-10:13:56.010 [debug] Building node pattern:
+11:28:07.068 [debug] Building create_spaceship query for name: "Millennium Falcon"
+11:28:07.073 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: %{name: "Millennium Falcon"}
 
-10:13:56.010 [debug] Building properties string from: %{name: "Millennium Falcon"}
-10:13:56.010 [debug] Built properties string: {name: 'Millennium Falcon'}
-10:13:56.010 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
-10:13:56.010 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
-10:13:56.010 [debug] Building RETURN clause for variable: :s
-10:13:56.010 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
-10:13:56.010 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
-10:13:56.010 [debug] Executing query:
+11:28:07.073 [debug] Building properties string from: %{name: "Millennium Falcon"}
+11:28:07.073 [debug] Built properties string: {name: 'Millennium Falcon'}
+11:28:07.073 [debug] Built node pattern: (s:Spaceship {name: 'Millennium Falcon'})
+11:28:07.073 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Millennium Falcon'})"
+11:28:07.073 [debug] Building RETURN clause for variable: :s
+11:28:07.073 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
+11:28:07.073 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
+11:28:07.076 [debug] Executing query:
   Query: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
   State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
 
-10:13:56.010 [debug] Started transaction 1
-10:13:56.010 [debug] Parsing query:
+11:28:07.086 [debug] Started transaction 1
+11:28:07.086 [debug] Parsing query:
 Raw query: "CREATE (s:Spaceship {name: 'Millennium Falcon'}) RETURN s"
 
-10:13:56.010 [debug] Full Match with properties
-10:13:56.010 [debug] Handling CREATE query
-10:13:56.010 [debug] Parsing node string: "(s:Spaceship {name: 'Millennium Falcon'})"
-10:13:56.010 [debug] Found var: s, label: Spaceship, properties_string: name: 'Millennium Falcon'
-10:13:56.010 [debug] Parsing properties string: "name: 'Millennium Falcon'"
-10:13:56.010 [debug] Split properties: ["name: 'Millennium Falcon'"]
-10:13:56.010 [debug] Parsing value string: "'Millennium Falcon'"
-10:13:56.010 [debug] Parsed property: key=name, value=Millennium Falcon
-10:13:56.010 [debug] Successfully parsed properties: %{name: "Millennium Falcon"}
-10:13:56.010 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "Millennium Falcon"}}, "s"}
-10:13:56.010 [debug] Creating vertex with ID: d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d
-10:13:56.010 [debug] Query executed successfully, committing transaction
-10:13:56.010 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
-10:13:56.010 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
-10:13:56.010 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-10:13:56.010 [debug] Processing recursive fields of: %{variant: :empty}
-10:13:56.010 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}
-10:13:56.010 [debug] Building create_spaceship query for name: "X-Wing"
-10:13:56.011 [debug] Building node pattern:
+11:28:07.086 [debug] Matched CREATE or MATCH with node pattern and RETURN
+11:28:07.086 [debug] Handling CREATE query for s:Spaceship
+11:28:07.086 [debug] Handling CREATE query
+11:28:07.086 [debug] Parsing properties string: "name: 'Millennium Falcon'"
+11:28:07.087 [debug] Parsing value string: "'Millennium Falcon'"
+11:28:07.087 [debug] Parsed property: key=name, value="Millennium Falcon"
+11:28:07.088 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "Millennium Falcon"}}, "s"}
+11:28:07.130 [debug] Creating vertex with ID: 463e222b-9afb-45a4-8b88-0fa1e4afe085
+11:28:07.131 [debug] Query executed successfully, committing transaction
+11:28:07.132 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
+11:28:07.133 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
+11:28:07.133 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+11:28:07.133 [debug] Processing recursive fields of: %{variant: :empty}
+11:28:07.133 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}
+11:28:07.133 [debug] Building create_spaceship query for name: "X-Wing"
+11:28:07.133 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: %{name: "X-Wing"}
 
-10:13:56.011 [debug] Building properties string from: %{name: "X-Wing"}
-10:13:56.011 [debug] Built properties string: {name: 'X-Wing'}
-10:13:56.011 [debug] Built node pattern: (s:Spaceship {name: 'X-Wing'})
-10:13:56.011 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'X-Wing'})"
-10:13:56.011 [debug] Building RETURN clause for variable: :s
-10:13:56.011 [debug] Generated query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-10:13:56.011 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-10:13:56.011 [debug] Executing query:
+11:28:07.133 [debug] Building properties string from: %{name: "X-Wing"}
+11:28:07.133 [debug] Built properties string: {name: 'X-Wing'}
+11:28:07.133 [debug] Built node pattern: (s:Spaceship {name: 'X-Wing'})
+11:28:07.133 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'X-Wing'})"
+11:28:07.133 [debug] Building RETURN clause for variable: :s
+11:28:07.133 [debug] Generated query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
+11:28:07.133 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
+11:28:07.133 [debug] Executing query:
   Query: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, transactions: %{1 => %{changes: [vertex_added: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"], timestamp: 1739290436010, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}
+  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}, transactions: %{1 => %{changes: [vertex_added: "463e222b-9afb-45a4-8b88-0fa1e4afe085"], timestamp: 1739381287133, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}
 
-10:13:56.011 [debug] Started transaction 2
-10:13:56.011 [debug] Parsing query:
+11:28:07.133 [debug] Started transaction 2
+11:28:07.133 [debug] Parsing query:
 Raw query: "CREATE (s:Spaceship {name: 'X-Wing'}) RETURN s"
 
-10:13:56.011 [debug] Full Match with properties
-10:13:56.011 [debug] Handling CREATE query
-10:13:56.011 [debug] Parsing node string: "(s:Spaceship {name: 'X-Wing'})"
-10:13:56.011 [debug] Found var: s, label: Spaceship, properties_string: name: 'X-Wing'
-10:13:56.011 [debug] Parsing properties string: "name: 'X-Wing'"
-10:13:56.011 [debug] Split properties: ["name: 'X-Wing'"]
-10:13:56.011 [debug] Parsing value string: "'X-Wing'"
-10:13:56.011 [debug] Parsed property: key=name, value=X-Wing
-10:13:56.011 [debug] Successfully parsed properties: %{name: "X-Wing"}
-10:13:56.011 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "X-Wing"}}, "s"}
-10:13:56.011 [debug] Creating vertex with ID: 6ce3a652-32fa-40f9-b511-f578438d49d7
-10:13:56.011 [debug] Query executed successfully, committing transaction
-10:13:56.011 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, variant_type: :graph, state: nil
-10:13:56.011 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}
-10:13:56.011 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, variant_type: :graph, state: nil
-10:13:56.011 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}
-10:13:56.011 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-10:13:56.011 [debug] Processing recursive fields of: %{variant: :empty}
-10:13:56.011 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}
-10:13:56.012 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}
-10:13:56.012 [debug] Building create_spaceship query for name: "Star Destroyer"
-10:13:56.012 [debug] Building node pattern:
+11:28:07.133 [debug] Matched CREATE or MATCH with node pattern and RETURN
+11:28:07.133 [debug] Handling CREATE query for s:Spaceship
+11:28:07.133 [debug] Handling CREATE query
+11:28:07.133 [debug] Parsing properties string: "name: 'X-Wing'"
+11:28:07.133 [debug] Parsing value string: "'X-Wing'"
+11:28:07.133 [debug] Parsed property: key=name, value="X-Wing"
+11:28:07.133 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "X-Wing"}}, "s"}
+11:28:07.133 [debug] Creating vertex with ID: d1cce09a-5284-4c7c-8698-0aef03fd5f0d
+11:28:07.133 [debug] Query executed successfully, committing transaction
+11:28:07.133 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}, variant_type: :graph, state: nil
+11:28:07.133 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}
+11:28:07.133 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}, variant_type: :graph, state: nil
+11:28:07.134 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}}}
+11:28:07.134 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+11:28:07.134 [debug] Processing recursive fields of: %{variant: :empty}
+11:28:07.134 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}
+11:28:07.134 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}
+11:28:07.134 [debug] Building create_spaceship query for name: "Star Destroyer"
+11:28:07.134 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: %{name: "Star Destroyer"}
 
-10:13:56.012 [debug] Building properties string from: %{name: "Star Destroyer"}
-10:13:56.012 [debug] Built properties string: {name: 'Star Destroyer'}
-10:13:56.012 [debug] Built node pattern: (s:Spaceship {name: 'Star Destroyer'})
-10:13:56.012 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Star Destroyer'})"
-10:13:56.012 [debug] Building RETURN clause for variable: :s
-10:13:56.012 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-10:13:56.012 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-10:13:56.013 [debug] Executing query:
+11:28:07.134 [debug] Building properties string from: %{name: "Star Destroyer"}
+11:28:07.134 [debug] Built properties string: {name: 'Star Destroyer'}
+11:28:07.134 [debug] Built node pattern: (s:Spaceship {name: 'Star Destroyer'})
+11:28:07.134 [debug] Building CREATE clause with pattern: "(s:Spaceship {name: 'Star Destroyer'})"
+11:28:07.134 [debug] Building RETURN clause for variable: :s
+11:28:07.134 [debug] Generated query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
+11:28:07.134 [debug] Generated create query string: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
+11:28:07.134 [debug] Executing query:
   Query: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, transactions: %{1 => %{changes: [vertex_added: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"], timestamp: 1739290436010, variant: :committed}, 2 => %{changes: [vertex_added: "6ce3a652-32fa-40f9-b511-f578438d49d7"], timestamp: 1739290436012, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 2}
+  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, transactions: %{1 => %{changes: [vertex_added: "463e222b-9afb-45a4-8b88-0fa1e4afe085"], timestamp: 1739381287133, variant: :committed}, 2 => %{changes: [vertex_added: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"], timestamp: 1739381287134, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 2}
 
-10:13:56.013 [debug] Started transaction 3
-10:13:56.013 [debug] Parsing query:
+11:28:07.134 [debug] Started transaction 3
+11:28:07.134 [debug] Parsing query:
 Raw query: "CREATE (s:Spaceship {name: 'Star Destroyer'}) RETURN s"
 
-10:13:56.013 [debug] Full Match with properties
-10:13:56.013 [debug] Handling CREATE query
-10:13:56.013 [debug] Parsing node string: "(s:Spaceship {name: 'Star Destroyer'})"
-10:13:56.013 [debug] Found var: s, label: Spaceship, properties_string: name: 'Star Destroyer'
-10:13:56.013 [debug] Parsing properties string: "name: 'Star Destroyer'"
-10:13:56.013 [debug] Split properties: ["name: 'Star Destroyer'"]
-10:13:56.013 [debug] Parsing value string: "'Star Destroyer'"
-10:13:56.013 [debug] Parsed property: key=name, value=Star Destroyer
-10:13:56.013 [debug] Successfully parsed properties: %{name: "Star Destroyer"}
-10:13:56.013 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "Star Destroyer"}}, "s"}
-10:13:56.013 [debug] Creating vertex with ID: 4582cc8e-3406-4108-8490-3aa1997d631f
-10:13:56.014 [debug] Query executed successfully, committing transaction
-10:13:56.014 [debug] do_fold called with data: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, variant_type: :graph, state: nil
-10:13:56.014 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}
-10:13:56.014 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, variant_type: :graph, state: nil
-10:13:56.014 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}
-10:13:56.014 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, variant_type: :graph, state: nil
-10:13:56.014 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}
-10:13:56.014 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-10:13:56.014 [debug] Processing recursive fields of: %{variant: :empty}
-10:13:56.014 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}}}
-10:13:56.014 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}, "6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}
-10:13:56.014 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}, "6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}, "6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}
-10:13:56.015 [debug] Building get_all_spaceships query
-10:13:56.015 [debug] Building node pattern:
+11:28:07.134 [debug] Matched CREATE or MATCH with node pattern and RETURN
+11:28:07.134 [debug] Handling CREATE query for s:Spaceship
+11:28:07.134 [debug] Handling CREATE query
+11:28:07.134 [debug] Parsing properties string: "name: 'Star Destroyer'"
+11:28:07.134 [debug] Parsing value string: "'Star Destroyer'"
+11:28:07.134 [debug] Parsed property: key=name, value="Star Destroyer"
+11:28:07.134 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{name: "Star Destroyer"}}, "s"}
+11:28:07.134 [debug] Creating vertex with ID: 6a65b0ba-39b7-4b86-80c3-5fc22ee5519a
+11:28:07.134 [debug] Query executed successfully, committing transaction
+11:28:07.134 [debug] do_fold called with data: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, variant_type: :graph, state: nil
+11:28:07.134 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}
+11:28:07.135 [debug] do_fold called with data: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, variant_type: :graph, state: nil
+11:28:07.135 [debug] Processing recursive fields of: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}
+11:28:07.135 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, variant_type: :graph, state: nil
+11:28:07.135 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}
+11:28:07.135 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
+11:28:07.135 [debug] Processing recursive fields of: %{variant: :empty}
+11:28:07.135 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}}}
+11:28:07.135 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}
+11:28:07.135 [debug] Recursive field result for edge_list: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}
+11:28:07.135 [debug] Building get_all_spaceships query
+11:28:07.135 [debug] Building node pattern:
   var: :s
   labels: [:Spaceship]
   properties: nil
 
-10:13:56.015 [debug] Built node pattern: (s:Spaceship)
-10:13:56.015 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
-10:13:56.015 [debug] Building RETURN clause for variable: :s
-10:13:56.015 [debug] Generated query string: "MATCH (s:Spaceship) RETURN s"
-10:13:56.015 [debug] Executing query: MATCH (s:Spaceship) RETURN s
-
-
-  1) test SpaceshipQueries filters spaceships by class (SpaceshipQueriesTest)
-     test/bridge_imo/cypher/spaceship_queries_test.exs:121
-     Error filtering spaceships: Unsupported query format
-     code: flunk("Error filtering spaceships: #{reason}")
-     stacktrace:
-       test/bridge_imo/cypher/spaceship_queries_test.exs:159: (test)
-
-10:13:56.015 [debug] Executing query:
+11:28:07.135 [debug] Built node pattern: (s:Spaceship)
+11:28:07.135 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
+11:28:07.135 [debug] Building RETURN clause for variable: :s
+11:28:07.135 [debug] Generated query string: "MATCH (s:Spaceship) RETURN s"
+11:28:07.135 [debug] Executing query: MATCH (s:Spaceship) RETURN s
+11:28:07.135 [debug] Executing query:
   Query: "MATCH (s:Spaceship) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}, "6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}, "6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"4582cc8e-3406-4108-8490-3aa1997d631f" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "4582cc8e-3406-4108-8490-3aa1997d631f"}, "6ce3a652-32fa-40f9-b511-f578438d49d7" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "6ce3a652-32fa-40f9-b511-f578438d49d7"}, "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"}}}, transactions: %{1 => %{changes: [vertex_added: "d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d"], timestamp: 1739290436010, variant: :committed}, 2 => %{changes: [vertex_added: "6ce3a652-32fa-40f9-b511-f578438d49d7"], timestamp: 1739290436012, variant: :committed}, 3 => %{changes: [vertex_added: "4582cc8e-3406-4108-8490-3aa1997d631f"], timestamp: 1739290436014, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 3}
+  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"463e222b-9afb-45a4-8b88-0fa1e4afe085" => %{adjacency: %{variant: :empty}, properties: %{name: "Millennium Falcon", type: :Spaceship}, variant: :vertex, vertex_id: "463e222b-9afb-45a4-8b88-0fa1e4afe085"}, "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a" => %{adjacency: %{variant: :empty}, properties: %{name: "Star Destroyer", type: :Spaceship}, variant: :vertex, vertex_id: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"}, "d1cce09a-5284-4c7c-8698-0aef03fd5f0d" => %{adjacency: %{variant: :empty}, properties: %{name: "X-Wing", type: :Spaceship}, variant: :vertex, vertex_id: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"}}}, transactions: %{1 => %{changes: [vertex_added: "463e222b-9afb-45a4-8b88-0fa1e4afe085"], timestamp: 1739381287133, variant: :committed}, 2 => %{changes: [vertex_added: "d1cce09a-5284-4c7c-8698-0aef03fd5f0d"], timestamp: 1739381287134, variant: :committed}, 3 => %{changes: [vertex_added: "6a65b0ba-39b7-4b86-80c3-5fc22ee5519a"], timestamp: 1739381287135, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 3}
 
-10:13:56.015 [debug] Started transaction 4
-10:13:56.015 [debug] Parsing query:
+11:28:07.136 [debug] Started transaction 4
+11:28:07.136 [debug] Parsing query:
 Raw query: "MATCH (s:Spaceship) RETURN s"
 
-10:13:56.015 [debug] Full Match with properties
-10:13:56.015 [debug] Handling MATCH query
-10:13:56.015 [debug] Parsing simple node string: "(s:Spaceship)"
-10:13:56.015 [debug] Found var: s, label: Spaceship
-10:13:56.015 [debug] Successfully parsed query: {:match_and_return, {:node, "Spaceship", "s", %{}}, "s"}
-10:13:56.015 [debug] Executing MATCH query for label: Spaceship, properties: %{}
-10:13:56.015 [debug] Vertex properties during match: %{name: "Star Destroyer", type: :Spaceship}
-10:13:56.016 [debug] Vertex properties during match: %{name: "X-Wing", type: :Spaceship}
-.10:13:56.016 [debug] Vertex properties during match: %{name: "Millennium Falcon", type: :Spaceship}
-10:13:56.016 [debug] Executing MATCH query results: [{"4582cc8e-3406-4108-8490-3aa1997d631f", nil, nil}, {"6ce3a652-32fa-40f9-b511-f578438d49d7", nil, nil}, {"d749bd12-b4ae-4bb0-b7fa-fdbc35b4f06d", nil, nil}]
-10:13:56.016 [debug] Query executed successfully, committing transaction
-10:13:56.017 [debug] Building create_spaceship_with_details query
-10:13:56.017 [debug] Properties: %{class: "Constitution", crew_capacity: 430, name: "Enterprise"}
-10:13:56.017 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: %{class: "Constitution", crew_capacity: 430, name: "Enterprise"}
-
-10:13:56.017 [debug] Building properties string from: %{class: "Constitution", crew_capacity: 430, name: "Enterprise"}
-10:13:56.017 [debug] Built properties string: {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'}
-10:13:56.017 [debug] Built node pattern: (s:Spaceship {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'})
-10:13:56.017 [debug] Building CREATE clause with pattern: "(s:Spaceship {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'})"
-10:13:56.017 [debug] Building RETURN clause for variable: :s
-10:13:56.017 [debug] Generated query string: "CREATE (s:Spaceship {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'}) RETURN s"
-10:13:56.017 [debug] Executing query: CREATE (s:Spaceship {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'}) RETURN s
-10:13:56.017 [debug] Executing query:
-  Query: "CREATE (s:Spaceship {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'}) RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, transactions: %{}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 0}
-
-10:13:56.017 [debug] Started transaction 1
-10:13:56.017 [debug] Parsing query:
-Raw query: "CREATE (s:Spaceship {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'}) RETURN s"
-
-10:13:56.017 [debug] Full Match with properties
-10:13:56.017 [debug] Handling CREATE query
-10:13:56.017 [debug] Parsing node string: "(s:Spaceship {class: 'Constitution', crew_capacity: 430, name: 'Enterprise'})"
-10:13:56.017 [debug] Found var: s, label: Spaceship, properties_string: class: 'Constitution', crew_capacity: 430, name: 'Enterprise'
-10:13:56.017 [debug] Parsing properties string: "class: 'Constitution', crew_capacity: 430, name: 'Enterprise'"
-10:13:56.017 [debug] Split properties: ["class: 'Constitution'", " crew_capacity: 430", " name: 'Enterprise'"]
-10:13:56.017 [debug] Parsing value string: "'Constitution'"
-10:13:56.017 [debug] Parsed property: key=class, value=Constitution
-10:13:56.017 [debug] Parsing value string: "430"
-10:13:56.017 [debug] Parsed property: key=crew_capacity, value=430
-10:13:56.017 [debug] Parsing value string: "'Enterprise'"
-10:13:56.017 [debug] Parsed property: key=name, value=Enterprise
-10:13:56.017 [debug] Successfully parsed properties: %{class: "Constitution", crew_capacity: 430, name: "Enterprise"}
-10:13:56.017 [debug] Successfully parsed query: {:create_and_return, {:node, "Spaceship", "s", %{class: "Constitution", crew_capacity: 430, name: "Enterprise"}}, "s"}
-10:13:56.017 [debug] Creating vertex with ID: 7e92d2dd-aedb-43d7-9929-be427341c295
-10:13:56.017 [debug] Query executed successfully, committing transaction
-10:13:56.017 [debug] do_fold called with data: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}, variant_type: :graph, state: nil
-10:13:56.017 [debug] Processing recursive fields of: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{}}
-10:13:56.017 [debug] do_fold called with data: %{variant: :empty}, variant_type: :empty, state: nil
-10:13:56.017 [debug] Processing recursive fields of: %{variant: :empty}
-10:13:56.017 [debug] Recursive field result for edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"7e92d2dd-aedb-43d7-9929-be427341c295" => %{adjacency: %{variant: :empty}, properties: %{class: "Constitution", crew_capacity: 430, name: "Enterprise", type: :Spaceship}, variant: :vertex, vertex_id: "7e92d2dd-aedb-43d7-9929-be427341c295"}}}
-10:13:56.017 [debug] Building get_spaceship_by_name query for: "Enterprise"
-10:13:56.017 [debug] Building node pattern:
-  var: :s
-  labels: [:Spaceship]
-  properties: nil
-
-10:13:56.017 [debug] Built node pattern: (s:Spaceship)
-10:13:56.017 [debug] Building MATCH clause with pattern: "(s:Spaceship)"
-10:13:56.017 [debug] Building WHERE clause with condition: "s.name = 'Enterprise'"
-10:13:56.017 [debug] Building RETURN clause for variable: :s
-10:13:56.018 [debug] Generated query string: "MATCH (s:Spaceship) WHERE s.name = 'Enterprise' RETURN s"
-10:13:56.018 [debug] Executing query:
-  Query: "MATCH (s:Spaceship) WHERE s.name = 'Enterprise' RETURN s"
-  State: %Graffiti.State{graph: %{edge_list: %{edge_list: %{variant: :empty}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"7e92d2dd-aedb-43d7-9929-be427341c295" => %{adjacency: %{variant: :empty}, properties: %{class: "Constitution", crew_capacity: 430, name: "Enterprise", type: :Spaceship}, variant: :vertex, vertex_id: "7e92d2dd-aedb-43d7-9929-be427341c295"}}}, metadata: %{type: :directed}, variant: :graph, vertex_map: %{"7e92d2dd-aedb-43d7-9929-be427341c295" => %{adjacency: %{variant: :empty}, properties: %{class: "Constitution", crew_capacity: 430, name: "Enterprise", type: :Spaceship}, variant: :vertex, vertex_id: "7e92d2dd-aedb-43d7-9929-be427341c295"}}}, transactions: %{1 => %{changes: [vertex_added: "7e92d2dd-aedb-43d7-9929-be427341c295"], timestamp: 1739290436017, variant: :committed}}, locks: %{}, schema: %{Spaceship: %{properties: [name: [type: :string, required: true], class: [type: :string, required: false], crew_capacity: [type: :integer, required: false]], required: [:name]}}, transaction_counter: 1}
-
-10:13:56.018 [debug] Started transaction 2
-10:13:56.018 [debug] Parsing query:
-Raw query: "MATCH (s:Spaceship) WHERE s.name = 'Enterprise' RETURN s"
-
-10:13:56.018 [error] Unsupported query format
-10:13:56.018 [error] Query parsing failed: Unsupported query format
+11:28:07.136 [debug] Matched CREATE or MATCH with node pattern and RETURN
+11:28:07.136 [debug] Handling MATCH query for s:Spaceship without properties
+11:28:07.136 [debug] Handling MATCH query
+11:28:07.136 [debug] Successfully parsed query: {:match_and_return, {:node, "Spaceship", "s", %{}}, "s", ""}
+11:28:07.136 [debug] Executing MATCH query for label: Spaceship, properties: %{}
+11:28:07.136 [debug] Applying WHERE clause: 
+11:28:07.136 [warning] Could not parse WHERE clause: 
+11:28:07.136 [debug] Executing MATCH query results: []
+11:28:07.136 [debug] Query executed successfully, committing transaction
 
 
-  2) test SpaceshipQueries creates spaceship with properties (SpaceshipQueriesTest)
-     test/bridge_imo/cypher/spaceship_queries_test.exs:75
-     Error retrieving spaceship: Unsupported query format
-     code: flunk("Error retrieving spaceship: #{reason}")
+  1) test SpaceshipQueries creates and retrieves spaceships (SpaceshipQueriesTest)
+     test/bridge_imo/cypher/spaceship_queries_test.exs:30
+     Assertion with == failed
+     code:  assert length(results) == length(ships)
+     left:  0
+     right: 3
      stacktrace:
-       test/bridge_imo/cypher/spaceship_queries_test.exs:98: (test)
+       test/bridge_imo/cypher/spaceship_queries_test.exs:67: (test)
 
 
 Finished in 0.1 seconds (0.00s async, 0.1s sync)
-4 tests, 2 failures
+4 tests, 1 failure, 3 excluded
 
-Randomized with seed 796706
+Randomized with seed 934596

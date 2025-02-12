@@ -48,45 +48,52 @@ defmodule CypherExecutor do
     Raw query: #{inspect(query)}
     """)
 
-    # Using Regex.scan to find CREATE or MATCH clauses and their arguments
-    # Attempt to match the full pattern with properties
-    case Regex.scan(~r/(CREATE|MATCH)\s+(\(([^)]+)\))\s+RETURN\s+(\w+)/, query) do
-      [[_full_match, command, node_pattern, _node_contents, return_var]] ->
-        Logger.debug("Full Match with properties")
-        handle_command(command, node_pattern, return_var)
+    # Updated regex to capture entire node pattern and WHERE clause
+    case Regex.scan(
+           # WARNING: DO NOT MODIFY THE FOLLOWING REGEX UNLESS YOU ARE USING DEEP REASON/THINK LOL
+           ~r/(CREATE|MATCH)\s+\(([^)]+)\)\s*(WHERE\s+(.*?))?\s*RETURN\s+(\w+)/i,
+           query
+         ) do
+      [[_full_match, command, node_pattern, _where_keyword, where_clause, return_var]] ->
+        Logger.debug("Matched CREATE or MATCH with node pattern and RETURN")
+        handle_command(command, node_pattern, where_clause, return_var)
 
       _ ->
-        # If the full pattern fails, try the simpler pattern without properties
-        case Regex.scan(~r/(CREATE|MATCH)\s+(\(([^)]+)\))\s+RETURN\s+(\w+)/, query) do
-          [[_full_match, command, node_pattern, return_var]] ->
-            Logger.debug("Full Match without properties")
-            handle_command(command, node_pattern, return_var)
-
-          _ ->
-            Logger.error("Unsupported query format")
-            {:error, "Unsupported query format"}
-        end
+        Logger.error("Unsupported query format")
+        {:error, "Unsupported query format"}
     end
   end
 
-  defp handle_command(command, node_pattern, return_var) do
-    case String.upcase(command) do
-      "CREATE" ->
-        Logger.debug("Handling CREATE query")
+  defp handle_command(command, node_pattern, where_clause, return_var) do
+    # Parse node_pattern into var, label, properties_str using a secondary regex
+    case Regex.run(~r/^\s*(\w+):(\w+)(?:\s*\{([^}]*)\})?/, node_pattern) do
+      [_, var, label, properties_str] ->
+        Logger.debug("Handling #{command} query for #{var}:#{label}")
+        properties_str = if properties_str == "", do: nil, else: properties_str
+        handle_parsed_command(command, var, label, properties_str, where_clause, return_var)
 
-        with {:ok, {var, label, properties}} <- parse_node(String.trim(node_pattern)) do
-          {:ok, {:create_and_return, {:node, label, var, properties}, return_var}}
-        end
-
-      "MATCH" ->
-        Logger.debug("Handling MATCH query")
-
-        with {:ok, {var, label, properties}} <- parse_node_simple(String.trim(node_pattern)) do
-          {:ok, {:match_and_return, {:node, label, var, properties}, return_var}}
-        end
+      [_, var, label] ->
+        Logger.debug("Handling #{command} query for #{var}:#{label} without properties")
+        handle_parsed_command(command, var, label, nil, where_clause, return_var)
 
       _ ->
-        {:error, "Unsupported command"}
+        {:error, "Invalid node pattern: #{node_pattern}"}
+    end
+  end
+
+  defp handle_parsed_command("CREATE", var, label, properties_str, where_clause, return_var) do
+    Logger.debug("Handling CREATE query")
+
+    with {:ok, properties} <- parse_properties(properties_str) do
+      {:ok, {:create_and_return, {:node, label, var, properties}, return_var}}
+    end
+  end
+
+  defp handle_parsed_command("MATCH", var, label, properties_str, where_clause, return_var) do
+    Logger.debug("Handling MATCH query")
+
+    with {:ok, properties} <- parse_properties(properties_str) do
+      {:ok, {:match_and_return, {:node, label, var, properties}, return_var, where_clause}}
     end
   end
 
@@ -108,7 +115,7 @@ defmodule CypherExecutor do
   defp parse_create_and_return(parts) do
     case parts do
       [node_pattern, "RETURN", var] ->
-        with {:ok, {var, label, properties}} <- parse_node(node_pattern) do
+        with {:ok, {var, label, properties}} <- parse_node(node_pattern, nil) do
           {:ok, {:create_and_return, {:node, label, var, properties}, var}}
         end
 
@@ -120,7 +127,7 @@ defmodule CypherExecutor do
   defp parse_match_and_return(parts) do
     case parts do
       [node_pattern, "RETURN", var] ->
-        with {:ok, {var, label, properties}} <- parse_node(node_pattern) do
+        with {:ok, {var, label, properties}} <- parse_node(node_pattern, nil) do
           {:ok, {:match_and_return, {:node, label, var, properties}, var}}
         end
 
@@ -149,7 +156,7 @@ defmodule CypherExecutor do
   end
 
   defp execute_parsed_query(
-         {:match_and_return, {:node, label, _var, properties}, _return_var},
+         {:match_and_return, {:node, label, _var, properties}, _return_var, where_clause},
          state,
          _tx_id
        ) do
@@ -165,23 +172,41 @@ defmodule CypherExecutor do
       end)
       |> Enum.map(fn {id, _} -> id end)
 
-    # Filter based on properties
+    # Apply the WHERE clause if it exists
     filtered_vertex_ids =
-      Enum.filter(vertex_ids, fn vertex_id ->
-        vertex = Map.get(state.graph.vertex_map, vertex_id)
-        Logger.debug("Vertex properties during match: #{inspect(vertex.properties)}")
-
-        properties
-        |> Enum.all?(fn {key, value} ->
-          Map.get(vertex.properties, key) == value
-        end)
-      end)
+      if where_clause do
+        Logger.debug("Applying WHERE clause: #{where_clause}")
+        apply_where_clause(vertex_ids, state, where_clause)
+      else
+        Logger.debug("No WHERE clause to apply")
+        vertex_ids
+      end
 
     # Convert to the format expected by the test
     results = Enum.map(filtered_vertex_ids, fn id -> {id, nil, nil} end)
     Logger.debug("Executing MATCH query results: #{inspect(results)}")
 
     {:ok, results, state}
+  end
+
+  defp apply_where_clause(vertex_ids, state, where_clause) do
+    # Basic parsing of the where clause (e.g., "s.name = 'Enterprise'")
+    case Regex.run(~r/(\w+)\.(\w+)\s*=\s*['"]?([^'"]*)['"]?/, where_clause) do
+      [_, var, property, value] ->
+        Logger.debug(
+          "Extracted var: #{var}, property: #{property}, value: #{value} from WHERE clause"
+        )
+
+        Enum.filter(vertex_ids, fn vertex_id ->
+          vertex = Map.get(state.graph.vertex_map, vertex_id)
+          vertex.properties[String.to_atom(property)] == value
+        end)
+
+      _ ->
+        Logger.warn("Could not parse WHERE clause: #{where_clause}")
+        # Or handle the error differently
+        []
+    end
   end
 
   defp parse_create_pattern(pattern) do
@@ -228,10 +253,10 @@ defmodule CypherExecutor do
       String.starts_with?(value_str, "'") ->
         String.replace(value_str, ~r/^'|'$/, "") |> String.trim()
 
-      Regex.match?(~r/^\d+$/, value_str) ->
+      String.match?(value_str, ~r/^\d+$/) ->
         String.to_integer(value_str)
 
-      Regex.match?(~r/^\d+\.\d+$/, value_str) ->
+      String.match?(value_str, ~r/^\d+\.\d+$/) ->
         String.to_float(value_str)
 
       value_str == "true" ->
@@ -245,19 +270,16 @@ defmodule CypherExecutor do
     end
   end
 
-  defp parse_node(node_string) do
+  defp parse_node(node_string, properties_str) do
     Logger.debug("Parsing node string: #{inspect(node_string)}")
     # Regex to capture label and properties within the node string
-    case Regex.run(~r/(\w+):(\w+)(?:\s*{([^}]*)})?/, node_string) do
-      [_, var, label, properties_content] ->
-        Logger.debug(
-          "Found var: #{var}, label: #{label}, properties_string: #{properties_content}"
-        )
+    case Regex.run(~r/(\w+):(\w+)/, node_string) do
+      [_, var, label] ->
+        Logger.debug("Found var: #{var}, label: #{label}")
 
-        # If properties exist, parse them; otherwise, return an empty map
         properties =
-          if properties_content do
-            case parse_properties(properties_content) do
+          if properties_str do
+            case parse_properties(properties_str) do
               {:ok, props} ->
                 Logger.debug("Successfully parsed properties: #{inspect(props)}")
                 props
@@ -279,31 +301,43 @@ defmodule CypherExecutor do
     end
   end
 
-  defp parse_properties(props_str) do
-    Logger.debug("Parsing properties string: #{inspect(props_str)}")
-    # Remove curly braces and split by comma
-    props_str = String.trim(props_str, "{}")
-    props = String.split(props_str, ",")
-    Logger.debug("Split properties: #{inspect(props)}")
+  defp parse_node_match(node_string) do
+    Logger.debug("Parsing node string for match: #{inspect(node_string)}")
+
+    # Regex to capture label and properties within the node string
+    case Regex.run(~r/(\w+):(\w+)/, node_string) do
+      [_, var, label] ->
+        Logger.debug("Found var: #{var}, label: #{label}")
+
+        {:ok, {var, label}}
+
+      _ ->
+        Logger.error("Invalid node format")
+        {:error, "Invalid node format"}
+    end
+  end
+
+  defp parse_properties(nil), do: {:ok, %{}}
+
+  defp parse_properties(properties_str) do
+    Logger.debug("Parsing properties string: #{inspect(properties_str)}")
+    props = String.split(properties_str, ~r/\s*,\s*/)
 
     Enum.reduce(props, {:ok, %{}}, fn prop, acc ->
       case acc do
         {:ok, current_props} ->
-          prop = String.trim(prop)
-
-          case String.split(prop, ":", parts: 2) do
+          case String.split(prop, ~r/\s*:\s*/, parts: 2) do
             [key, value] ->
               key = String.trim(key) |> String.to_atom()
-              value = String.trim(value) |> parse_value()
-              Logger.debug("Parsed property: key=#{key}, value=#{value}")
+              value = parse_value(String.trim(value))
+              Logger.debug("Parsed property: key=#{key}, value=#{inspect(value)}")
               {:ok, Map.put(current_props, key, value)}
 
             _ ->
-              {:error, "Invalid property format"}
+              {:error, "Invalid property format: #{prop}"}
           end
 
         {:error, _} ->
-          # Pass the error through
           acc
       end
     end)
