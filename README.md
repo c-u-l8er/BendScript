@@ -2,8 +2,14 @@ bendscript
 ========
 main loop:
 ```bash
-echo bendscript
-sudo !!
+$ echo bendscript
+Permission denied
+
+$ sudo !!
+sudo echo bendscript
+Password: *******
+
+bendscript
 ```
 
 the splitting and merging phrenia:
