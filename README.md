@@ -1,39 +1,9 @@
-graphrenia
+bendscript
 ========
-main domain:
-```text
-just one field to rule all other fields
-as -phic and -vity as gra- itself
-
-graphrenia:
-gr -> to program
-a -> one
-phrenia -> brain
-
-coded by a schizo in check with meds
-maintained for fun
-
-my learned hardships are your learned gains
-background in php -> javascript -> node.js -> elixir
-with programming exp starting at 15 years old
-
-20+ years later... many challenges later...
-all self hosted & local at home... because
-i can't afford the cloud on disability
-worst retirement ever :)
-
-now:
-exploration by both detection and discovery
-is the goal
-
-where:
-compsci is just a means to an end
-and gr is our field+trait
-
-so let's get started!
-
-best,
-~Travis
+main loop:
+```bash
+echo bendscript
+sudo !!
 ```
 
 the splitting and merging phrenia:
@@ -170,7 +140,7 @@ i wont be registering official domain names for them to save money
 instead i'll just create seperate github repos and link to this
 main repo when i need to.
 
-everything in graphrenia will act as a singleton. i only have a one
+everything in bendscript will act as a singleton. i only have a one
 old xeon machine connected to the internet that will run BEAM.
 
 when i need more machines i will just add them as soon as i can
@@ -471,18 +441,18 @@ let's see if we now generate better stories that have more solid foundation of o
 
 ## Early setup
 ```bash
-mix new graphrenia
+mix new bendscript
 ```
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `graphrenia` to your list of dependencies in `mix.exs`:
+by adding `bendscript` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
   [
-    {:graphrenia, "~> 0.1.0"}
+    {:bendscript, "~> 0.1.0"}
   ]
 end
 ```
@@ -510,7 +480,7 @@ mix test test/abstract_pov/parents_test.exs 2>&1 | tee abstract_pov_parents.stdo
 mix test test/abstract_pov/prop_graph_test.exs 2>&1 | tee abstract_pov_prop_graph.stdout.txt
 mix test test/abstract_pov/simple_graph_test.exs 2>&1 | tee abstract_pov_simple_graph.stdout.txt
 
-mix test test/bridge_imo/cypher/spaceship_queries_test.exs 2>&1 | tee bridge_imo_spaceship_queries.stdout.txt
+mix test test/bridge_imo/mecha_cyph/spaceship_queries_test.exs 2>&1 | tee bridge_imo_spaceship_queries.stdout.txt
 
 # test specific tests within a file
 mix test test/abstract_pov/chain_test.exs --only run:true 2>&1 | tee abstract_pov_chain.stdout.txt
